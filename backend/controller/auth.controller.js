@@ -129,6 +129,8 @@ export const signup = async (req, resp) => {
     try {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(tempData.password, salt);
+
+      const result=await User.find();
   
       const newUser = new User({
         fullName: tempData.fullName,
@@ -137,6 +139,8 @@ export const signup = async (req, resp) => {
         password: hashedPassword,
         profilePic: tempData.profilePic,
       });
+
+
   
       await newUser.save();
       delete otps[email]; // Remove temp data after successful registration

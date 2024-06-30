@@ -100,11 +100,11 @@ if (!passwordPattern.test(password)) {
       return;
     }
         try {
-            const imageRef = ref(storage, `images/${profilePic.fullName}`);
-      await uploadBytes(imageRef, profilePic);
-      const imageURL = await getDownloadURL(imageRef);
-      console.log(imageURL);
-      setVerified(true);
+            const imageRef = ref(storage, `images/${profilePic.name}`);
+            await uploadBytes(imageRef, profilePic);
+            const imageURL = await getDownloadURL(imageRef);
+            console.log(imageURL);
+            setVerified(true);
             let response = await fetch('http://localhost:5001/api/auth/signup', {
                 method: 'POST',
                 body: JSON.stringify({ fullName,
