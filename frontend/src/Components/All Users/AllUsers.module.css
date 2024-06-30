@@ -117,6 +117,27 @@ body {
   margin-bottom: 260px;
 }
 
+.search_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search_input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.search_input:focus {
+  border-color: #d01c28;
+}
+
 @media (max-width: 768px) {
   .heading_style {
     padding: 20px 0;
