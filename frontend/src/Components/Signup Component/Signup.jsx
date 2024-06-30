@@ -84,10 +84,10 @@ export const Signup = () => {
     const passwordPattern = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
 
     if (!passwordPattern.test(password)) {
-    toast.error(
-        "Password must contain at least one uppercase letter, one lowercase letter, one special character, and one numeric constant"
-    );
-    return;
+        toast.error(
+            "Password must contain at least one uppercase letter, one lowercase letter, one special character, and one numeric constant"
+        );
+        return;
     }
 
     if (password !== confirmPassword) {
