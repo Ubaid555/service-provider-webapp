@@ -1,0 +1,162 @@
+.footer {
+  background-color: #d01c28;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  
+}
+
+h3 {
+  margin-top: 30px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+h3 a {
+  text-decoration: none;
+  color: white;
+}
+
+.link {
+  margin-top: 10px;
+}
+
+.OutLinks,
+.InLinks,
+.Helplines,
+.trademark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.OutLinks ul,
+.InLinks ul,
+.Helplines ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.OutLinks a,
+.InLinks a,
+.Helplines a {
+  color: white;
+  text-decoration: none;
+}
+
+.OutLinks a:hover,
+.InLinks a:hover,
+.Helplines a:hover{
+  font-weight: bold;
+}
+
+.trademark{
+  margin-bottom: 20px;
+}
+
+.trademark p {
+  width: 25vw;
+  color: white;
+  text-align: center;
+}
+
+.social-media {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.social-media a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 5px;
+}
+
+.social-media i {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.social-media i:hover {
+  background-color: #000000;
+}
+
+.social-media .fab.fa-whatsapp {
+  color: #25d366;
+}
+
+.social-media .fab.fa-facebook {
+  color: #3b5998;
+}
+
+.social-media .fab.fa-twitter {
+  color: #1da1f2;
+}
+
+.social-media .fab.fa-linkedin {
+  color: #0077b5;
+}
+
+.social-media .fab.fa-instagram {
+  color: #e4405f;
+}
+
+@media only screen and (min-width: 1061px) and (max-width: 1420px) {
+  .footer {
+    max-width: 100%; 
+  }
+}
+@media only screen and (max-width: 1150px){
+  .trademark{
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 1060px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .OutLinks,
+  .InLinks,
+  .Helplines,
+  .trademark {
+    margin-bottom: 10px;
+  }
+
+  .social-media {
+    margin-top: 10px;
+  }
+
+  .social-media i {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+
+  .trademark p {
+    width: 95%;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: hidden;
+  }
+}

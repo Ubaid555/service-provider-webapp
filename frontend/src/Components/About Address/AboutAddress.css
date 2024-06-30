@@ -1,0 +1,27 @@
+.address{
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+}
+.responsive-map{
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 20%;
+    position: relative;
+}
+.responsive-map iframe{
+    border: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+@media screen and (max-width: 786px) {
+    .responsive-map{
+        overflow: hidden;
+        height: 0;
+        padding-bottom: 50%;
+        position: relative;
+    }
+}

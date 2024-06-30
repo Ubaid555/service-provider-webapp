@@ -1,0 +1,76 @@
+.whole_sec {
+  display: flex;
+  gap: 100px;
+  max-width: 1380px;
+  margin: 0 auto; /* Center the whole section horizontally */
+}
+
+.about_img {
+  flex: 1; /* Let the image take available space */
+  margin-top: 170px;
+  
+}
+.about{
+  border-radius: 10px;
+}
+.paras {
+  flex: 1; /* Let the paragraphs take available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  padding: 20px; /* Add padding to create space between content and background */
+  border-radius: 3px; /* Add border radius for rounded corners */
+}
+
+.para1, .para2 {
+  text-align: center; /* Center align text within each paragraph */
+  margin-bottom: 40px; /* Add some vertical space between paragraphs */
+  color: #ddd;
+}
+h4{
+  font-weight: 700;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+}
+.para1 {
+  background-color: #d01c28; /* Add background color to para1 */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 3px; /* Add border radius for rounded corners */
+  /*border: 2px solid black;*/
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.para2 {
+  background-color: #d01c28; /* Add background color to para1 */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 3px; /* Add border radius for rounded corners */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 1060px) {
+  .whole_sec {
+    flex-direction: column; /* Display items vertically on small screens */
+    align-items: center; /* Center align items horizontally */
+  }
+  
+  .about {
+    order: 1; /* Change the order to display image first on mobile */
+    width: 95%; /* Ensure the image takes full width */
+    margin-left: 10px; /* Remove margin for image on mobile */
+    border-radius: 10px;
+  }
+
+  .paras {
+    order: 2; /* Change the order to display paragraphs after the image on mobile */
+    margin-top: -30px; /* Remove top margin for paragraphs on mobile */
+    margin-left: 5px;
+  }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 1060px) {
+  .about{
+    height: 630px;
+  }
+}

@@ -1,0 +1,36 @@
+/* ConfirmModal.module.css */
+.modalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.confirmBtn, .cancelBtn {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.confirmBtn {
+    background-color: red;
+    color: white;
+}
+
+.cancelBtn {
+    background-color: grey;
+    color: white;
+}

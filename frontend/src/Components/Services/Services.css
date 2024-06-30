@@ -1,0 +1,17 @@
+.services-container {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .cards-container {
+    margin-top: 20px;  
+    flex-direction: column; 
+    align-items: center; 
+    padding-bottom: 40px;
+  }
+  .head_style{
+    margin-top: 105px;
+    align-items: center;
+    text-align: center;
+  }
+}

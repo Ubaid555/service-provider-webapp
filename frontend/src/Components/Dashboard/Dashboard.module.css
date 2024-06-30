@@ -1,0 +1,150 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #d1d1d1;
+  padding: 14px;
+  margin-top: 85px;
+  flex-wrap: wrap;
+  z-index: 0;
+}
+
+.dropbtn {
+  position: relative;
+}
+
+.dropdownMenuCustom {
+  display: none;
+  position: absolute;
+  color: white;
+  background-color: #d01c28;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdownMenuCustom .dropdown_item {
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #d01c28;
+}
+
+.navbarItem {
+  color: white;
+  background-color: #d01c28;
+  border-radius: 5px;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown_item:hover {
+  color: #f79aa0;
+}
+
+.dropbtn .dropdown-menu {
+  display: block;
+}
+
+.menuButton {
+  display: none;
+}
+
+.showMenu {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .menuButton {
+    color: white;
+    background-color: #d01c28;
+    border-radius: 5px;
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .closeButton {
+    margin-bottom: 20px;
+}
+
+  .navbar {
+    justify-content: center;
+    margin-top: 91px;
+    align-items: center;
+  }
+
+  .dropbtn {
+    display: none; 
+    width: 100%;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .showMenu .dropbtn {
+    display: block; 
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .dropdownMenuCustom {
+    position: static;
+    min-width: 30%; 
+    box-shadow: none;
+  }
+
+  .dropdownMenuCustom .dropdown_item {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .navbarItem {
+    display: none;
+    margin: auto;
+  }
+
+  .showMenu .navbarItem {
+    display: flex;
+  }
+
+  .main_heading {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 665px) {
+  .navbar{
+    margin-top: 89px;
+  }
+}
+
+@media (max-width: 530px) {
+
+  .dropbtn {
+    padding: 6px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .dropdownMenuCustom .dropdown_item {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    margin-top: 85px;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbarItem {
+    padding: 10px 16px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,100 @@
+/* PaymentCard.module.css */
+
+.card {
+  width: 350px;
+  height: 210px;
+  background-color: #d01c28;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}  
+.cardContainer:hover {
+  animation: pulse 1s infinite;
+ }
+.card {
+ position: relative;
+ perspective: 1000px; 
+}
+
+.card > * {
+ backface-visibility: hidden;
+ transition: transform 2s; 
+}
+
+.card > .front {
+ transform: rotateY(0deg);
+}
+
+.card > .back {
+ transform: rotateY(180deg);
+}
+
+.visa_Logo{
+  margin-top: 5px;
+  border-radius: 5px;
+  float: right;
+}
+.sim_Logo{
+  margin-bottom: 30px;
+}
+.cardNumber {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 700;
+}
+
+.cardHolder {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.expiryDate {
+  font-size: 16px;
+  color: white;
+}
+
+.num{
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.cvv{
+  padding: 5px;
+  color: black;
+  margin-right: 15px;
+}
+
+.whiteColor{
+  height: 20%;
+  background-color: white;
+  margin-top: 20px;
+  display: flex; 
+  justify-content: flex-end;
+}
+
+.paraText{
+  margin-top: 20px;
+  font-size: 10px;
+  color: white;
+}
+
+.line{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}  
+  
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+ }
+  50% {
+    transform: scale(1.05);
+ }
+  100% {
+    transform: scale(1);
+ }
+}

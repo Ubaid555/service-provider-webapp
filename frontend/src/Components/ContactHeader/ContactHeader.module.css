@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300&display=swap');
+
+.contact_section {
+    max-width: 1000px;
+    margin-left: 160px;
+    margin-top: 40px;
+  }
+  .contact_section h1 {
+    margin-top: 130px;
+    font-size: 48px;
+    font-weight: 800;
+    max-width: 80%;
+  }
+  .contact_section p {
+    font-weight: 500;
+    margin-bottom: 50px;
+  }
+  @media screen and (min-width: 770px) and (max-width: 1200px){
+    .contact_section{
+      
+      margin-right: 100px;
+  }
+  }
+  @media screen and (max-width:769px){
+    .contact_section{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .contact_section h1{
+        font-size: 35px;
+        font-weight: 700;
+        max-width: 80%;
+    }
+    .contact_section p{
+        max-width: 500px;
+    }
+  }

@@ -1,0 +1,42 @@
+.primary_btn {
+    padding: 18px 10px;
+    background-color: #d01c28;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 220px;
+    font-size: 16px;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+  }
+  .outline_btn {
+    padding: 18px 10px;
+    border: 1px solid black;
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 10%;
+    cursor: pointer;
+    font-size: 30px;
+  }
+  .outline_btn::after,
+  .outline_btn:hover{
+    background-color: #ec5a64;
+    border: none;
+    color: white;
+  }
+  @media screen and (max-width:769px){
+    .outline_btn{
+       display: flex;
+       flex-direction: row;
+       gap: 10px;
+       
+    }
+  }

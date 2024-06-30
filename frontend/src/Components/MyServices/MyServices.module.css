@@ -1,0 +1,354 @@
+.main_heading {
+  padding: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.5rem;
+  background-color: #fecaca;
+  margin-top: 85px;
+}
+
+
+.section_white {
+  background: #fff;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%; 
+}
+
+
+.teamImg {
+  width: 400px;
+  height: 500px; 
+  padding: 6px;
+  background-color: #dedede;
+  border-radius: 8px; 
+  object-fit: cover;
+  margin-right: 120px;
+  margin-left: 120px;
+  margin-top: 5px;
+}
+
+.cardInfo {
+  flex-grow: 1;
+  width: 40%; 
+}
+
+.cardCategory, .cardTitle{
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.formGroup label {
+  text-transform: uppercase;
+  position: absolute;
+  background-color:white;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: -10px;
+  padding: 0 10px;
+
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.cardInput {
+  width: 60%; 
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+  margin-bottom: 10px;
+}
+
+.cardBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d01c28;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+  width: 55%;
+  text-align: center;
+}
+
+.cardBtn:hover {
+  background-color: #c71a24;
+}
+
+.oops p{
+  font-size: 40px;
+  font-weight: 700;
+  color: #d01c28;
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 220px;
+}
+
+@media (max-width: 1024px) {
+  .main_heading{
+    margin-top: 85px;
+  }
+  .card {
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+  }
+
+  .teamImg {
+    margin-bottom: 30px;
+  }
+
+  .cardInfo {
+    width: 100%; 
+    margin-top: 20px;
+  }
+
+  .cardInput {
+    width: 100%; 
+  }
+
+  .cardBtn {
+    width: 92%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .main_heading{
+    margin-top: 105px;
+  }
+  .card {
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+  }
+
+  .teamImg {
+    max-width: 350px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+  }
+
+  .cardInfo {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .cardInput {
+    width: 100%; 
+  }
+
+  .cardBtn {
+    width: 90%;
+  }
+}
+
+.main_heading {
+  padding: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000000;
+  background-color: #fecaca;
+  margin-top: 85px;
+}
+
+.section_white {
+  background: #fff;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.teamImg {
+  width: 350px;
+  height: 350px; /* Adjust height to keep aspect ratio */
+  border-radius: 50%;
+  padding: 6px;
+  background-color: #dedede; 
+  object-fit: cover;
+  margin: 0 auto 50px; /* Center the image horizontally */
+  margin-top: 10px;
+}
+
+.card_image {
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin-bottom: 30px;
+
+}
+.formContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow forms to wrap to the next row */
+  justify-content: center; /* Center forms horizontally */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  width: calc(400px - 70px); /* Display 2 forms in one row by default with spacing */
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.5), /* Top shadow */
+              0 -5px 8px -4px rgba(0, 0, 0, 0.5), /* Bottom shadow */
+              5px 0 8px -4px rgba(0, 0, 0, 0.5), /* Right shadow */
+              -5px 0 8px -4px rgba(0, 0, 0, 0.5); /* Left shadow */
+}
+
+.cardInfo {
+  width: 100%; /* Takes up full width of the container */
+}
+
+.cardCategory,
+.cardTitle {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.formGroup label {
+  text-transform: uppercase;
+  position: absolute;
+  background-color: white;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: -10px;
+  padding: 0 10px;
+}
+
+.cardInput {
+  width: calc(100% - 20px); /* Takes full width with spacing */
+  padding: 10px 15px; /* Increase padding for larger input fields */
+  font-size: 14px; /* Increase font size */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  margin-bottom: 8px; /* Ensures consistent spacing between elements */
+}
+
+.cardBtn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #d01c28;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  width: calc(50% - 10px); /* Takes half of the width with spacing */
+  text-align: center;
+}
+
+.serviceHeading{
+  margin-bottom: 30px;
+  background-color: #fecaca;
+  color: black;
+  padding: 10px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.oops p {
+  font-size: 40px;
+  font-weight: 700;
+  color: #d01c28;
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 220px;
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 950px) {
+  .cardBtn{
+    font-size: 12px;
+  }
+  .card{
+    margin: 20px;
+  }
+}
+
+@media (max-width: 780px) {
+  .main_heading{
+    margin-top: 105px;
+  }
+  .teamImg {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .card {
+    width: 100%; /* Adjust card width to take full width in smaller screens */
+    
+  }
+
+  .cardInput {
+    width: calc(100% - 20px); /* Takes full width with spacing */
+  }
+}
+
+@media (max-width: 400px) {
+  .teamImg {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .card {
+    width: 100%; /* Adjust card width to take full width in smaller screens */
+    margin: 10px;
+  }
+
+  .cardInput {
+    width: calc(100% - 20px); /* Takes full width with spacing */
+  }
+
+ 
+}

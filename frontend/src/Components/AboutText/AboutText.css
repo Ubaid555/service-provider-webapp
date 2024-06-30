@@ -1,0 +1,140 @@
+.section-white {
+  background: #fff;
+  padding: 50px 0; /* Adjust padding for smaller screens */
+}
+
+.team-item {
+  background: #dadada;
+  text-align: center;
+  margin: 20px 0;
+  padding: 40px 10px 30px 10px; /* Adjust padding for smaller screens */
+  border-radius: 8px; /* Keep border radius consistent */
+  transition: all 0.25s ease-in-out;
+  height: 470px;
+}
+
+.team-item:hover {
+  background: #d01c28;
+}
+
+.team-item h3 {
+  margin: 20px 0 10px 0 !important; /* Adjust margin for smaller screens */
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.section-subtitle {
+  white-space: pre-line;
+}
+
+.team-item:hover h3 {
+  color: #ddd;
+}
+
+.team-item:hover p {
+  color: #ddd;
+}
+
+.team-info {
+  display: block;
+  margin-bottom: 0;
+}
+
+.team-info p {
+  color: #acacac;
+}
+
+.team-img {
+  max-width: 120px; /* Adjust maximum width for smaller screens */
+  height: 120px; /* Adjust height for smaller screens */
+  padding: 6px; /* Adjust padding for smaller screens */
+  background-color: #dedede;
+  border-radius: 50%; /* Make the images circular */
+  object-fit: cover;
+}
+
+.social-media {
+  margin-left: 0;
+  margin-top: 20px; /* Adjust margin for smaller screens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Adjust width for smaller screens */
+}
+
+.social-media a {
+  text-decoration: none;
+  color: #333; /* Default color for icons */
+}
+
+.social-media i {
+  font-size: 24px; /* Adjust font size for smaller screens */
+  width: 40px; /* Adjust width for smaller screens */
+  height: 40px; /* Adjust height for smaller screens */
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* Background color for icons */
+  border-radius: 50%; /* Make the icons circular */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.social-media i:hover {
+  background-color: #000000; /* Change background color on hover */
+}
+
+.social-media .fab.fa-whatsapp {
+  color: #25d366; /* WhatsApp color */
+}
+
+.social-media .fab.fa-facebook {
+  color: #3b5998; /* Facebook color */
+}
+
+.social-media .fab.fa-twitter {
+  color: #1da1f2; /* Twitter color */
+}
+
+.social-media .fab.fa-linkedin {
+  color: #0077b5; /* LinkedIn color */
+}
+
+.social-media .fab.fa-instagram {
+  color: #e4405f; /* Instagram color */
+}
+
+
+
+@media screen and (max-width: 1070px) {
+  .team-item:hover .team-img {
+      background: #d01c28;
+  }
+
+  .team-item {
+      padding: 30px 10px 30px 10px; /* Adjust padding for smaller screens */
+  }
+
+  .team-item h3 {
+      margin: 15px 0 5px 0 !important; /* Adjust margin for smaller screens */
+  }
+
+  .team-img {
+      max-width: 100px; /* Adjust maximum width for smaller screens */
+      height: 100px; /* Adjust height for smaller screens */
+  }
+
+  .social-media i {
+      font-size: 20px; /* Adjust font size for smaller screens */
+      width: 35px; /* Adjust width for smaller screens */
+      height: 35px; /* Adjust height for smaller screens */
+  }
+}

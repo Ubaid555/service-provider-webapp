@@ -1,0 +1,168 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.heading_styles {
+  padding: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  background-color: #fecaca;
+  margin-top: 85px;
+}
+
+.paymentform {
+  max-width: 610px;
+  margin-left: 200px;
+  margin-top: 15px;
+  margin-bottom: 150px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.payform {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-top: 30px;
+}
+
+.input {
+  padding: 8px;
+  margin-top: 30px;
+}
+
+.form_field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.form_field input {
+  height: 40px;
+  padding: 0 8px;
+}
+
+.form_field label {
+  font-size: 14px;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background-color: white;
+  padding: 0 10px;
+}
+
+.paypak_image{
+  margin-left: 330px;
+  margin-top: 10px;
+}
+.card_container {
+  float: right; 
+  margin-top: 220px;
+  margin-right: 200px;
+}
+
+.paybtn {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #d01c28;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+@media screen and (max-width: 1150px) {
+  .heading_styles {
+    margin-top: 90px;
+  }
+  .whole_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card_container {
+    margin: auto; 
+    width: 95%;
+    order: 1;
+    margin-bottom: 50px;
+  }
+  .paypak_image {
+    width: 150px;
+    margin-left: auto;
+    margin-bottom: 30px;
+    order: 2;
+  }
+  .paymentform {
+    margin: auto;
+    margin-bottom: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    order: 3;
+    width: 95%;
+  }
+ 
+}
+@media screen and (max-width: 1250px) {
+  .heading_styles {
+    margin-top: 85px;
+  }
+  .whole_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card_container {
+    display: flex;
+    justify-content: center;
+    margin: auto; 
+    width: 95%;
+    order: 1;
+    margin-bottom: 20px;
+  }
+  .paypak_image {
+    width: 150px;
+    margin-left: auto;
+    margin-bottom: 30px;
+    order: 2;
+  }
+  .paymentform {
+    margin: auto;
+    margin-bottom: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    order: 3;
+    width: 95%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .heading_styles {
+    margin-top: 105px;
+  }
+  .card_container{
+    display: flex;
+    justify-content: center;
+    
+  }
+}
+@media screen and (min-width: 1250px) and (max-width: 1556px) {
+ 
+  .card_container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .payform{
+    margin-right: 150px;
+  }
+}

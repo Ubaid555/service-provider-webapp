@@ -1,0 +1,90 @@
+.not-found {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff;
+    overflow: hidden;
+   }
+   
+   .not-found-title {
+    font-size: 72px;
+    color: #333;
+   }
+   
+   .not-found-subtitle {
+    font-size: 24px;
+    color: #666;
+   }
+   
+   .not-found-message {
+    font-size: 18px;
+    color: #999;
+   }
+   
+   .not-found-search {
+    margin-top: 30px;
+   }
+   
+   .not-found-search input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+   }
+   
+   .not-found-search button {
+    padding: 10px 20px;
+    background-color: #d01c28;
+    color: white;
+    border: none;
+    cursor: pointer;
+   }
+   
+   .not-found-links {
+    margin-top: 30px;
+   }
+   
+   .not-found-links a {
+    margin: 0 10px;
+    color: #d01c28;
+    text-decoration: none;
+   }
+   
+   .not-found-contact {
+    margin-top: 20px;
+    color: #666;
+   }
+   .not-found-contact a{
+    color: #d01c28;
+   }
+   .not-found-image {
+    width: 600px;
+    height: auto;
+    margin-bottom: 20px;
+   }
+   
+   @media screen and (max-width: 768px) {
+    .not-found-image{
+        width: 300px;
+    }
+    .not-found{
+        margin: auto;
+        margin-top: 30px;
+        overflow: hidden;
+    }
+    .not-found-links{
+        margin: auto;
+    }
+   }
+   @media screen and (max-width: 370px) {
+    .not-found img{
+        width: 300px;
+        margin-left: -20px;
+    }
+    .whole-page{
+        margin: auto;
+    }
+    .not-found-links{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+   }
