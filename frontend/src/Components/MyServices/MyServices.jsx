@@ -105,7 +105,7 @@ export const MyServices = () => {
                 {userProfile.length > 0 && (
                     <img
                         className={styles.teamImg}
-                        src={userProfile[0].image}
+                        src={userProfile[0].profilePic}
                         alt="profile-img"
                     />
                 )}

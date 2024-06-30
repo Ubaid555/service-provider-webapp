@@ -4,7 +4,6 @@ import Counter from "../models/counter.model.js";
 
 export const updateCount = async (counterType, userId) => {
   try {
-    console.log(counterType,userId);
     // Update total count for the platform
     let existingCounter = await Counter.findOne();
     if (!existingCounter) {
@@ -31,7 +30,6 @@ export const updateCount = async (counterType, userId) => {
 
     // Update user-specific count
     const userCounter = await Counter.findOne({ userId });
-    console.log(userCounter);
     if (!userCounter) {
       const initialUserCounter = new Counter({
         userId,
