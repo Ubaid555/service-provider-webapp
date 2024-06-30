@@ -99,6 +99,7 @@ import Navbar from '../Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 import styles from "./ViewProfile.module.css";
 import Footer from '../Footer/Footer';
+import SecondCounter from '../Second Counter/SecondCounter';
 
 const ViewProfile = () => {
     const [userProfile, setUserProfile] = useState(null); 
@@ -189,6 +190,8 @@ const ViewProfile = () => {
                         <p className={styles.no_services}>Profile not found or error loading profile.</p>
                     </div>
                 )}
+
+                <SecondCounter />
             </div>
             <Footer />
         </>
