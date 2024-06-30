@@ -85,7 +85,7 @@ const AllUsers = () => {
                   <span className={styles.card_category}>
                     {service.category}
                   </span>
-                  <h3 className={styles.card_title}>{service.name}</h3>
+                  <h3 className={styles.card_title}>{service.fullName}</h3>
                   <p>
                     <strong>Phone:</strong> {service.phone}
                   </p>

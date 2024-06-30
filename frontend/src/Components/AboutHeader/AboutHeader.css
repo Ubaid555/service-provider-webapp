@@ -6,7 +6,7 @@
 }
 
 .about_img {
-  flex: 1; /* Let the image take available space */
+  flex: 1; 
   margin-top: 170px;
   
 }
@@ -24,9 +24,13 @@
   border-radius: 3px; /* Add border radius for rounded corners */
 }
 
-.para1, .para2 {
+.para1 {
   text-align: center; /* Center align text within each paragraph */
-  margin-bottom: 40px; /* Add some vertical space between paragraphs */
+  margin-bottom: 45px; /* Add some vertical space between paragraphs */
+  color: #ddd;
+}
+.para2 {
+  text-align: center; /* Center align text within each paragraph */
   color: #ddd;
 }
 h4{

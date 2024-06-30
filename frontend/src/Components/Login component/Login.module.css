@@ -1,3 +1,6 @@
+.whole_contents{
+    overflow: hidden;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -53,6 +56,7 @@
 }
 
 .input {
+    position: relative;
     display: flex;
     align-items: center;
     margin: auto;
@@ -76,6 +80,14 @@
     outline: none;
     color: #797979;
     font-size: 16px;
+}
+.eyeIcon {
+    position: absolute; /* Position the icon absolutely */
+    top: 50%; /* Center vertically */
+    right: 10px; /* Align to the right */
+    transform: translateY(-50%); /* Center vertically */
+    cursor: pointer; /* Change cursor to pointer */
+    color: #999; /* Icon color */
 }
 
 .forgot_password {

@@ -19,8 +19,8 @@ const Herosec = () =>{
                 Transforming challenges into opportunities, we're your trusted ally on the path to excellence.</p>
 
             <div className="hero-btns">
-                <NavLink to="/services"><button>Get Started</button></NavLink>
-                <NavLink to="/services"><button className="secondary-btn">Services</button></NavLink>
+                <NavLink className="primary-btn" to="/services"><button>Services</button></NavLink>
+                <NavLink to="/overview"><button className="secondary-btn">Manage Services</button></NavLink>
             </div>
         </div>
 

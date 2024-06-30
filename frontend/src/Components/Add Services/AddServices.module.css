@@ -163,6 +163,207 @@ width: 100%;
 @media screen and (max-width: 768px) {
   .main_heading{
       width: 100%;
+      margin-top: 90px;
+      font-size: 1.2rem;
+  }
+  .form_control {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      max-width: 90%;
+      position: relative;
+    }
+    .contact_image{
+      margin-right: 30px;
+    }
+    .bookbtn {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+} 
+@media screen and (max-width: 540px) {
+  .main_heading{
+    margin-top: 87px;
+}
+}
+@media screen and (max-width: 480px) {
+  .formLabel {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+}
+
+
+
+
+/* .book_container {
+  display: flex;
+  max-width: 1000px;
+  margin-top: 70px;
+  margin-left: 200px;
+  align-items: flex-end;
+  margin-bottom: 65px;
+}
+.main_heading{
+  padding: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  margin-top: 85px;
+  background-color: #fecaca;
+}
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact_form form {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+  flex-direction: column;
+}
+.form_control {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  position: relative;
+}
+.form_control input {
+  height: 40px;
+  padding: 0 8px;
+}
+.form_control textarea {
+  padding: 8px;
+}
+.form_control label {
+  font-size: 14px;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background-color: white;
+  padding: 0 10px;
+}
+.contact_image img{
+  margin-left: 120px;
+  margin-bottom: 30px;
+  height: 400px;
+  width: 400px;
+}
+.bookbtn {
+  width: 100%;
+  padding: 15px;
+  background-color: #d01c28;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.price_input {
+display: flex;
+align-items: center;
+}
+
+.rupee_symbol {
+padding: 8.5px;
+background: #ffffff;
+border: 1px solid #3d3d3d;
+border-right: none;
+font-size: 14px;
+}
+
+.price_input input {
+padding: 10px;
+border: 1px solid #3d3d3d;
+border-left: none;
+font-size: 14px;
+width: 100%;
+}
+
+.select_input {
+  width: 100%;
+  padding: 10px; 
+  font-size: 16px; 
+}
+.formLabel {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1370px) {
+  .book_container{
+    margin-right: 40px;
+  }
+  .main_heading{
+      width: 100%;
+  }
+  .contact_image img{
+      margin-left: 50px;
+      margin-right: 20px;
+      margin-bottom: 60px;
+      height: 300px;
+      width: 300px;
+  }
+}
+
+@media screen and (max-width: 1175px) {
+  .main_heading{
+       width: 100%;
+   }
+  .book_container{
+       display: flex;
+       flex-direction: column;
+       align-items: center; 
+       justify-content: center; 
+       margin: auto; 
+   }
+  .contact_image img {
+       order: 1;
+       height: 300px;
+       width: 350px;
+       margin-bottom: 30px;
+   }
+  .contact_form {
+       order: 2;
+       width: 100%; 
+       max-width: 600px; 
+       margin-bottom: 20px; 
+   }
+}
+
+@media screen and (max-width: 1060px) {
+  .main_heading{
+      width: 100%;
+  }
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  .contact_image img {
+    order: 1;
+    height: 300px;
+    width: 350px;
+    margin-bottom: 30px;
+  }
+  .contact_form {
+    order: 2;
+    width: 100%; 
+    max-width: 600px; 
+    margin-bottom: 20px;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .main_heading{
+      width: 100%;
       margin-top: 107px;
       font-size: 1.2rem;
   }
@@ -189,4 +390,4 @@ width: 100%;
     font-size: 1rem;
     margin-bottom: 8px;
   }
-}
+} */

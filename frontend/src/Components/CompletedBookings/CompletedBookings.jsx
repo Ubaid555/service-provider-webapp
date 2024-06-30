@@ -5,7 +5,7 @@ import PendingDetailsModal from '../AllModals/PendingDetailsModal/PendingDetails
 
 const CompletedBookings = () => {
   const user = JSON.parse(localStorage.getItem("loginusers"));
-  const userName = user ? user.name : "User";
+  const userName = user ? user.fullName : "User";
 
   const [userId, setUserId] = useState("");
     const [bookings, setBookings] = useState([]);
@@ -20,18 +20,20 @@ const CompletedBookings = () => {
 
   useEffect(() => {
       const fetchBookings = async () => {
-          try {
-              let response = await fetch(`http://localhost:4500/showBookingRequestsConfirmed?userId=${userId}&status=Completed`, {
-                  method: "GET",
-                  headers: {
-                      "Content-Type": "application/json"
-                  }
-              });
-              let result = await response.json();
-              setBookings(result);
-          } catch (error) {
-              console.error("Error fetching bookings:", error);
-          }
+        try {
+            let response = await fetch(`http://localhost:5001/api/bookings/ongoingBooking?userId=${userId}&currentStatus=Completed`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            let result = await response.json();
+            if(result.success){setBookings(result.success);}
+            else{console.log(result.error)};
+            
+        } catch (error) {
+            console.error("Error fetching bookings:", error);
+        }
       };
       if (userId) {
           fetchBookings();

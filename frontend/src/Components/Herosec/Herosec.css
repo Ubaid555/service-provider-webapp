@@ -73,6 +73,7 @@ button {
   cursor: pointer;
 }
 
+
 @media only screen and (min-width: 1061px) {
   .hero{
     margin-left: 100px;
@@ -109,6 +110,15 @@ button {
         width: 300px;
     }
  
+  }
+
+  @media screen and (max-width: 768px) {
+    .secondary-btn {
+      font-size: 14px;
+    }
+    .primary-btn{
+      font-size: 14px;
+    }
   }
 
   @media only screen and (max-width: 300px) {

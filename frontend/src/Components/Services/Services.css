@@ -10,7 +10,14 @@
     padding-bottom: 40px;
   }
   .head_style{
-    margin-top: 105px;
+    margin-top: 90px;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 540px) {
+  .head_style{
+    margin-top: 87px;
     align-items: center;
     text-align: center;
   }

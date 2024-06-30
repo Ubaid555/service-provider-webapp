@@ -209,7 +209,7 @@ const BookingForm = () => {
           </form>
         </div>
         <div className={styles.booking_image}>
-          <img src="/Images/book.png" alt="Booking" />
+          <img src="/Images/Book.png" alt="Booking" />
         </div>
       </section>
       <Footer />

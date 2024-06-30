@@ -85,7 +85,7 @@ const PasswordUpdate = () => {
               <div className={styles.passwordInput}>
                 <input
                   type={showOldPassword ? "text" : "password"}
-                  placeholder="****"
+                  placeholder="**********"
                   value={oldPassword}
                   onChange={(e) => setOldPassword(e.target.value)}
                   className={styles.input}
@@ -99,7 +99,7 @@ const PasswordUpdate = () => {
               <div className={styles.passwordInput}>
                 <input
                   type={showNewPassword ? "text" : "password"}
-                  placeholder="****"
+                  placeholder="**********"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   className={styles.input}
@@ -113,7 +113,7 @@ const PasswordUpdate = () => {
               <div className={styles.passwordInput}>
                 <input
                   type={showConfirmNewPassword ? "text" : "password"}
-                  placeholder="****"
+                  placeholder="**********"
                   value={confirmNewPassword}
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
                   className={styles.input}

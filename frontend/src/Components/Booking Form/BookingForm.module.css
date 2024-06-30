@@ -134,7 +134,7 @@
 @media screen and (max-width: 768px) {
   .main_heading{
       width: 100%;
-      margin-top: 105px;
+      margin-top: 90px;
       font-size: 1.2rem;
   }
   .form_control {
@@ -152,6 +152,11 @@
       margin-right: 30px;
     }
 } 
+@media screen and (max-width: 500px) {
+  .main_heading{
+    margin-top: 87px;
+}
+}
 
 @media screen and (max-width: 480px) {
   .book_container {
