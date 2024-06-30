@@ -8,6 +8,9 @@ import styles from "./BookingForm.module.css";
 
 const BookingForm = () => {
   const [serviceTakerId, setServiceTakerId] = useState("");
+  const [serviceTakerName, setServiceTakerName] = useState("");
+  const [serviceTakerPhone, setServiceTakerPhone] = useState("");
+  const [serviceTakerImage, setServiceTakerImage] = useState("");
 
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
@@ -20,6 +23,7 @@ const BookingForm = () => {
     serviceProviderId,
     serviceProviderName,
     serviceProviderPhone,
+    serviceProviderImage,
   } = location.state || {};
 
   useEffect(() => {
@@ -30,6 +34,9 @@ const BookingForm = () => {
     const userData = JSON.parse(localStorage.getItem("loginusers"));
     if (userData) {
       setServiceTakerId(userData._id);
+      setServiceTakerName(userData.fullName);
+      setServiceTakerPhone(userData.phone);
+      setServiceTakerImage(userData.profilePic);
     }
   }, []);
 
@@ -67,7 +74,13 @@ const BookingForm = () => {
         method: "POST",
         body: JSON.stringify({
           serviceTakerId,
+          serviceTakerName,
+          serviceTakerPhone,
+          serviceTakerImage,
           serviceProviderId,
+          serviceProviderName,
+          serviceProviderPhone,
+          serviceProviderImage,
           category,
           address,
           description,
