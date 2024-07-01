@@ -11,6 +11,7 @@ import serviceRoutes from "./routes/service.routes.js";
 import bookingRoutes from "./routes/booking.routes.js";
 import overviewRoutes from "./routes/overview.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
+import reviewRoutes from "./routes/review.routes.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
@@ -32,8 +33,9 @@ app.use("/api/services", serviceRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/overview", overviewRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/reviews",reviewRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on Port ${PORT}`);
     connectToMongoDB();
+    console.log(`Server is running on Port ${PORT}`);
 });

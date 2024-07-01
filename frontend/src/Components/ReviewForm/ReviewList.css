@@ -1,0 +1,104 @@
+.reviewsContainer {
+    width: 100%;
+    max-width: 1200px; /* Increased maximum width */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Three-column grid layout */
+    gap: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .reviewsContainer {
+        grid-template-columns: 1fr; /* Switch to one-column layout on smaller screens */
+    }
+}
+
+.heading {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.review {
+    padding: 15px;
+    background-color: #fff;
+    border: 3px solid #e0e0e0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.reviewHeader {
+    display: flex;
+    align-items: center;
+}
+
+.serviceTakerImage {
+    width: 80px; /* Reduced size */
+    height: 80px; /* Reduced size */
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.headerText {
+    flex: 1;
+}
+
+.name_css {
+    font-size: 24px; /* Reduced font size */
+    color: #d01c28; /* Set color */
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.ratingSection,
+.commentSection {
+    margin-top: 10px;
+}
+
+.commentSection p {
+    margin-bottom: 5px;
+}
+
+.review hr {
+    margin: 15px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.star_rating {
+    font-size: 40px;
+    text-align: center;
+}
+.noReviewsMessage{
+    font-size: 40px;
+    font-weight: 700;
+    color: #d01c28;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .serviceTakerImage {
+        width: 60px; /* Further reduced size for smaller screens */
+        height: 60px; /* Further reduced size for smaller screens */
+    }
+
+    .star_rating {
+        font-size: 30px; /* Adjust star size for smaller screens */
+    }
+
+    .name_css {
+        font-size: 20px; /* Further reduced font size for smaller screens */
+    }
+    .noReviewsMessage{
+        font-size: 30px;
+        font-weight: 600;;
+    }
+}
