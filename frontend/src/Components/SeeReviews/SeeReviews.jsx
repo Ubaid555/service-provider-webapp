@@ -14,7 +14,7 @@ const SeeReviews = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/api/reviews/getaverage?serviceProviderId=${serviceProviderId}&category=${category}`);
+                const response = await fetch(`http://localhost:5001/api/reviews/getreview/?serviceProviderId=${serviceProviderId}&category=${category}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch reviews');
                 }

@@ -30,6 +30,8 @@ import Overview from './Components/Overview/Overview';
 import RescheduleBooking from './Components/Reschedule Booking/RescheduleBooking';
 import PasswordUpdate from './Components/PasswordUpdate/PasswordUpdate';
 import ReviewForm from './Components/ReviewForm/ReviewForm';
+import SeeReviews from './Components/SeeReviews/SeeReviews';
+
 
 function App() {
   
@@ -61,6 +63,7 @@ function App() {
             <Route path="/reschedulebooking" element={<RescheduleBooking/>} />
             <Route path="/accountsettings" element={<PasswordUpdate/>} />
             <Route path="/reviews" element={<ReviewForm/>} />
+            <Route path="/seereviews" element={<SeeReviews/>} />
            </Route>
 
             <Route path='*' element={<NotFound />} />

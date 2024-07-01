@@ -106,6 +106,18 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
+.seereviews_btn{
+  padding: 5px 8px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: #ffffff;
+  outline: none;
+  background-color: #d01c28;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 20px;
+}
 
 
 .no_services{
@@ -116,7 +128,9 @@ body {
   margin-top: 210px;
   margin-bottom: 260px;
 }
-
+.stars{
+  font-size: 24px;
+}
 .search_container {
   display: flex;
   justify-content: center;

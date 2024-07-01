@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import StarRatingComponent from "react-star-rating-component";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./AllUsers.module.css";
@@ -7,12 +8,17 @@ import styles from "./AllUsers.module.css";
 const AllUsers = () => {
   const [services, setServices] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [averageRatings, setAverageRatings] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredServices, setFilteredServices] = useState([]);
   
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "Trusty Taskers - Providers List";
+  }, []);
+  
   // Fetch userId from localStorage when the component mounts
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("loginusers"));
@@ -41,6 +47,7 @@ const AllUsers = () => {
         if (Array.isArray(result)) {
           setServices(result);
           setFilteredServices(result);
+          calculateAverageRatings(result, category);
         } else {
           setServices([]);
           setFilteredServices([]);
@@ -82,6 +89,29 @@ const AllUsers = () => {
     filterServices();
   }, [searchQuery, services, filterServices]);
 
+  const calculateAverageRatings = async (services, category) => {
+    const ratings = {};
+    for (const service of services) {
+      try {
+        const response = await fetch(
+          `http://localhost:5001/api/reviews/getaverage?serviceProviderId=${service.userId}&category=${category}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch average ratings");
+        }
+        const data = await response.json();
+        ratings[service.userId] = Math.floor(data.averageRating);
+      } catch (error) {
+        console.error(
+          `Error fetching average rating for ${service.userId}:`,
+          error
+        );
+        ratings[service.userId] = 1;
+      }
+    }
+    setAverageRatings(ratings);
+  };
+
   const handleBookNow = (service) => {
     navigate("/bookingform", {
       state: {
@@ -90,6 +120,15 @@ const AllUsers = () => {
         serviceProviderId: service.userId,
         serviceProviderPhone: service.phone,
         serviceProviderImage: service.profilePic,
+      },
+    });
+  };
+  const handleSeeReviews = (service) => {
+    navigate("/seereviews", {
+      state: {
+        category: service.category,
+        serviceProviderId: service.userId,
+        serviceProviderName: service.name,
       },
     });
   };
@@ -122,6 +161,15 @@ const AllUsers = () => {
                     {service.category}
                   </span>
                   <h3 className={styles.card_title}>{service.fullName}</h3>
+                  <div className={styles.averageRating}>
+                    <StarRatingComponent
+                      className={styles.stars}
+                      name={`average-rating-${service.userId}`}
+                      starCount={5}
+                      value={averageRatings[service.userId] || 0}
+                      editing={false}
+                    />
+                  </div>
                   <p>
                     <strong>Phone:</strong> {service.phone}
                   </p>
@@ -136,6 +184,12 @@ const AllUsers = () => {
                     onClick={() => handleBookNow(service)}
                   >
                     Book Now
+                  </button>
+                  <button
+                    className={styles.seereviews_btn}
+                    onClick={() => handleSeeReviews(service)}
+                  >
+                    See Reviews
                   </button>
                 </div>
               </div>
