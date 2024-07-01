@@ -119,46 +119,6 @@ const Overview = () => {
           </div>
         </div>
       </div>
-
-      {/* Conditionally render userData section */}
-      {userData && (
-        <div className={styles.overviewWrapper}>
-          <div className={styles.overview_container}>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                Your Total No. of Services Offered
-              </h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServices} duration={2.5} />
-              </p>
-            </div>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                Your Total Services Requested
-              </h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServicesRequested} duration={2.5} />
-              </p>
-            </div>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                Your Total Services Confirmed
-              </h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServicesConfirmed} duration={2.5} />
-              </p>
-            </div>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>
-                Your Total Services Completed
-              </h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServicesCompleted} duration={2.5} />
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
       <Footer />
     </>
   );

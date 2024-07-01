@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './CompletedBookings.module.css';
 import Navbar from '../Navbar/Navbar';
 import PendingDetailsModal from '../AllModals/PendingDetailsModal/PendingDetailsModal';
+import Dashboard from '../Dashboard/Dashboard';
 
 const CompletedBookings = () => {
   const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -53,6 +54,7 @@ const closeDetails = () => {
   return (
         <>
             <Navbar />
+            <Dashboard/>
             <h1 className={styles.main_heading}>{userName}'s Ongoing Services</h1>
             <div className={styles.bookingsContainer}>
                 <table className={styles.bookingsTable}>
@@ -70,11 +72,13 @@ const closeDetails = () => {
                                 <tr key={booking._id} className={styles.tableRow}>
                                     <td className={styles.tableCell}>{booking.category}</td>
                                     <td className={styles.tableCell}>{booking.serviceTakerName}</td>
-                                    <td className={styles.tableCell}>{booking.currentStatus}</td>
+                                    <td className={styles.tableCell}>
+                                        <span className={`${styles.statusBadge} ${styles[booking.currentStatus.toLowerCase()]}`}>
+                                            {booking.currentStatus}
+                                        </span>
+                                    </td>
                                     <td className={styles.tableCell}>
                                          <button onClick={() => viewDetails(booking)} className={styles.actionButton}>View Details</button>
-                                        {/* //<button className={styles.actionButton} onClick={() => confirmCompleteRequest(booking)}>Complete</button>
-                                       // <button className={styles.actionButton} onClick={() => handleAcceptRequest(booking._id, "Cancelled")}>Reject</button>  */}
                                     </td>
                                 </tr>
                             ))

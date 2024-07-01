@@ -8,7 +8,7 @@ import Dashboard from '../Dashboard/Dashboard';
 
 const ManageRequests = () => {
     const user = JSON.parse(localStorage.getItem("loginusers"));
-    const userName = user ? user.name : "User";
+    const userName = user ? user.fullName : "User";
 
     const [userId, setUserId] = useState("");
     const [bookings, setBookings] = useState([]);
@@ -157,7 +157,11 @@ const ManageRequests = () => {
                                 <tr key={booking._id} className={styles.tableRow}>
                                     <td className={styles.tableCell}>{booking.category}</td>
                                     <td className={styles.tableCell}>{booking.serviceTakerName}</td>
-                                    <td className={styles.tableCell}>{booking.currentStatus}</td>
+                                    <td className={styles.tableCell}>
+                                        <span className={`${styles.statusBadge} ${styles[booking.currentStatus.toLowerCase()]}`}>
+                                            {booking.currentStatus}
+                                        </span>
+                                    </td>
                                     <td className={styles.tableCell}>
                                         <button onClick={() => viewDetails(booking)} className={styles.actionButton}>View Details</button>
                                         <button className={styles.actionButton} onClick={() => confirmAcceptRequest(booking)}>Accept</button>
