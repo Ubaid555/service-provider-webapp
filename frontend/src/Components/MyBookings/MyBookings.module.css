@@ -14,8 +14,8 @@
 .statusHeader {
     text-align: center;
     padding: 15px;
-    background-color: #d01c28;
-    color: #ffffff;
+    background-color: #fecaca;
+    color: #000000;
     margin-bottom: 10px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .tableRow:hover {
-    background-color: #bdc3c7;
+    background-color: #d9d9d9;
 }
 
 .tableHeader {
