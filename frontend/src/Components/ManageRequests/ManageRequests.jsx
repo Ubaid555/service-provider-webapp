@@ -24,7 +24,7 @@ const ManageRequests = () => {
             setUserId(storedUser._id);
             console.log(userId);
         }
-    }, []);
+    }, [userId]);
 
     useEffect(() => {
         const fetchBookings = async () => {

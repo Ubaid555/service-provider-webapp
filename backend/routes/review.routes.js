@@ -3,9 +3,9 @@ import { addreview, getaverage, getreview } from "../controller/review.controlle
 
 const router = express.Router();
 
-router.post("/addreview",addreview);
-router.get("/getreview",getreview);
-router.get("/getaverage",getaverage);
+router.post("/addreview", addreview);
+router.get("/getreview", getreview);
+router.get("/getaverage", getaverage);
 
 
 export default router;
