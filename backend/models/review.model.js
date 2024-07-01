@@ -28,10 +28,10 @@ const reviewSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    currentStatus: {
-      type: String,
-      required: true,
-    },
+    // currentStatus: {
+    //   type: String,
+    //   required: true,
+    // },
     rating: {
       type: Number,
       required: true,

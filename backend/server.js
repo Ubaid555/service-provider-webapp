@@ -34,7 +34,7 @@ app.use("/api/bookings", bookingRoutes);
 app.use("/api/overview", overviewRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/reviews",reviewRoutes);
-
+ 
 app.listen(PORT, () => {
     connectToMongoDB();
     console.log(`Server is running on Port ${PORT}`);

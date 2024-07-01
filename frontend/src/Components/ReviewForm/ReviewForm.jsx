@@ -51,15 +51,17 @@ const ReviewForm = () => {
                 }),
             });
 
-            if (!response.ok) {
-                throw new Error('Failed to submit review');
-            }
-
             const data = await response.json();
-            setNewReview(data);
-            setRating(0);
-            setComment('');
-            toast.success("Review submitted successfully!");
+
+            if (data.message === "Review Already added") {
+                toast.error(data.message);
+              } else {
+                setNewReview(data);
+                setRating(0);
+                setComment('');
+                toast.success("Review submitted successfully!");
+              }
+
         } catch (error) {
             toast.error("An error occurred while submitting the review.");
         }
