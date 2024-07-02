@@ -4,6 +4,7 @@ import "./Herosec.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { NavLink } from "react-router-dom";
+import ChatBox from "../ChatBox/ChatBox";
 
 const Herosec = () =>{
     useEffect(() => {
@@ -28,6 +29,7 @@ const Herosec = () =>{
             <img src="/Images/service provider.png" alt="service provider"/>
         </div>
     </main>
+    <ChatBox/>
     <Footer/>
     </>
     );

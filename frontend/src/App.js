@@ -32,6 +32,7 @@ import PasswordUpdate from './Components/PasswordUpdate/PasswordUpdate';
 import ReviewForm from './Components/ReviewForm/ReviewForm';
 import SeeReviews from './Components/SeeReviews/SeeReviews';
 import Chat from './Components/Chat/Chat';
+import ChatBox from './Components/ChatBox/ChatBox';
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
             <Route path="/reviews" element={<ReviewForm/>} />
             <Route path="/seereviews" element={<SeeReviews/>} />
             <Route path="/chat" element={<Chat/>} />
+            <Route path="/chatbox" element={<ChatBox/>}/>
            </Route>
 
             <Route path='*' element={<NotFound />} />

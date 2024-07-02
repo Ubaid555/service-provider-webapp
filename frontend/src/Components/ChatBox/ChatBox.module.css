@@ -1,0 +1,76 @@
+.chatContainer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .chatArrowContainer {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d01c28;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .userImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+  }
+  
+  .messagingText {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .chatArrow {
+    font-size: 20px;
+  }
+  
+  .chatBox {
+    position: fixed;
+    bottom: -100%;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    /* padding: 10px; */
+    overflow-y: auto;
+    transition: bottom 0.3s ease;
+  }
+  
+  .chatBox.open {
+    bottom: 0;
+  }
+  
+  .chatHeader {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    color: white;
+    background-color: #d01c28;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .chatMessage {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
