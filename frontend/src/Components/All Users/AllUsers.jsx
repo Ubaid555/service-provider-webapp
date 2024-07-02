@@ -130,10 +130,15 @@ const AllUsers = () => {
     });
   };
 
-  const handleMessageIconClick = () => {
-    navigate("/chat");
+  const handleMessageIconClick = (serviceProviderId, serviceTakerId,serviceProviderImage) => {
+    navigate("/chat", {
+      state: {
+        serviceProviderId: serviceProviderId,
+        serviceTakerId: serviceTakerId,
+        serviceProviderImage: serviceProviderImage,
+      },
+    });
   };
-
   return (
     <>
       <Navbar />
@@ -163,7 +168,7 @@ const AllUsers = () => {
                     <i
                       className="fa-regular fa-message"
                       aria-hidden="true"
-                      onClick={handleMessageIconClick}
+                      onClick={() => handleMessageIconClick(service.userId, userId,service.profilePic)}
                       style={{ cursor: "pointer" }}
                     ></i>
                   </span>

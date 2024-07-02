@@ -55,10 +55,8 @@ export const viewservice = async (req, resp) => {
     if (service.length > 0) {
       if (userId) {
         service = service.filter((s) => s.userId.toString() !== userId);
-        console.log("Filtered services:", service);
       }
       if (service.length > 0) {
-        console.log("Returning services:", service);
         return resp.status(201).json(service);
       } else {
         return resp.status(400).json({ error: "No Service's Found" });
