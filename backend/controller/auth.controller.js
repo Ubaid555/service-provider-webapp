@@ -167,3 +167,18 @@ export const logout = async(req , resp)=>{
         resp.status(500).json({error:"Internal Server Error"})
     }
 }
+
+export const getUser = async(req,resp)=>{
+  try {
+    const userId = req.query.userId;
+
+    let result = await User.find({_id:userId});
+    console.log(result);
+
+    resp.status(201).json(result);
+    
+  }catch (error) {
+    console.log("Error In Get User",error.message);
+    resp.status(500).json({error:"Internal Server Error"})
+}
+}
