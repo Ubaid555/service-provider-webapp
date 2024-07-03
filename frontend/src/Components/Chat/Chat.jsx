@@ -374,16 +374,17 @@ import 'react-toastify/dist/ReactToastify.css';
 const Chat = () => {
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
-    const [serviceTakerImage,setServiceTakerImage] = useState("");
+    const [serviceTakerImage, setServiceTakerImage] = useState("");
     
     const location = useLocation();
     const { serviceProviderId, serviceTakerId, serviceProviderImage } = location.state || {};
+
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("loginusers"));
         if (storedUser && storedUser._id) {
           setServiceTakerImage(storedUser.profilePic);
         }
-      }, []);
+    }, []);
 
     // Fetch previous messages when the component mounts or when IDs change
     useEffect(() => {
@@ -444,6 +445,13 @@ const Chat = () => {
         }
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent default behavior of form submission
+            send();
+        }
+    };
+
     return (
         <div className={styles.chatPage}>
             <ToastContainer />
@@ -470,7 +478,8 @@ const Chat = () => {
                         className={styles.chatInput} 
                         placeholder="Type your message..." 
                         value={message} 
-                        onChange={(e) => setMessage(e.target.value)} 
+                        onChange={(e) => setMessage(e.target.value)}
+                        onKeyPress={handleKeyPress} // Call handleKeyPress on key press
                     />
                     <button onClick={send} className={styles.sendBtn}>
                         Send<img src="/Images/send.png" alt="Send" />
