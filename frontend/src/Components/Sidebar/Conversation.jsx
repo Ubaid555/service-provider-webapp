@@ -25,27 +25,30 @@
 import React from "react";
 import styles from "./Conversation.module.css";
 
-const Conversation = () => {
+const Conversation = ({conversation,lastIdx}) => {
+
   return (
     <div className={styles.container}>
-      <div className={styles.row}>
+      {/* <div className={styles.row}>
         <div className={styles.imageContainer}>
           <img src="https://avatar.iran.liara.run/public" alt="user-avatar" className={styles.userImage} />
         </div>
         <div className={styles.nameContainer}>
           <p className={styles.userName}>Muhammad Ubaid</p>
         </div>
-      </div>
+      </div> */}
       <hr className={styles.divider} />
       <div className={styles.row}>
         <div className={styles.imageContainer}>
-          <img src="https://avatar.iran.liara.run/public" alt="user-avatar" className={styles.userImage} />
+          <img src={conversation.profilePic} alt="https://avatar.iran.liara.run/public" className={styles.userImage} />
         </div>
         <div className={styles.nameContainer}>
-          <p className={styles.userName}>Muhammad Ubaid</p>
+          <p className={styles.userName}>{conversation.fullName}</p>
         </div>
       </div>
-      <hr className={styles.divider} />
+
+      {!lastIdx && <div />}
+      {/* <hr className={styles.divider} /> */}
     </div>
   );
 };

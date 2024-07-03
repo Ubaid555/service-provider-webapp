@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import cors from 'cors'; 
  
 import authRoutes from "./routes/auth.routes.js";
+import userRoutes from "./routes/user.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import serviceRoutes from "./routes/service.routes.js";
 import bookingRoutes from "./routes/booking.routes.js";
@@ -28,6 +29,7 @@ app.use(cors({
 }));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users",userRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/bookings", bookingRoutes);
