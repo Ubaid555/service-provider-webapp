@@ -209,6 +209,7 @@ import Navbar from '../Navbar/Navbar';
 import BookingDetailsModal from '../AllModals/BookingDetailsModal/BookingDetailsModal';
 import Dashboard from '../Dashboard/Dashboard';
 import CancelPendingModal from '../AllModals/CancelPendingModal/CancelPendingModal';
+import ChatBox from '../ChatBox/ChatBox';
 
 const MyBookings = () => {
     const navigate = useNavigate();
@@ -397,6 +398,7 @@ const MyBookings = () => {
                     </tbody>
                 </table>
             </div>
+            <ChatBox/>
             {showModal && (
                 <BookingDetailsModal booking={selectedBooking} onClose={closeDetails} />
             )}

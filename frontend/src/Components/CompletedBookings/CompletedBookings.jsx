@@ -3,6 +3,7 @@ import styles from './CompletedBookings.module.css';
 import Navbar from '../Navbar/Navbar';
 import PendingDetailsModal from '../AllModals/PendingDetailsModal/PendingDetailsModal';
 import Dashboard from '../Dashboard/Dashboard';
+import ChatBox from '../ChatBox/ChatBox';
 
 const CompletedBookings = () => {
   const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -90,6 +91,7 @@ const closeDetails = () => {
                     </tbody>
                 </table>
             </div>
+            <ChatBox/>
             {showModal && (
                 <PendingDetailsModal booking={selectedBooking} onClose={closeDetails} />
             )}

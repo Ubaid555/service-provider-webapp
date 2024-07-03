@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./AddServices.module.css";
 import ServiceConfirmModal from "../AllModals/ServiceConfirmModal/ServiceConfirmModal";
+import ChatBox from "../ChatBox/ChatBox";
 
 const AddServices = () => {
   const [userId, setUserId] = useState("");
@@ -189,6 +190,7 @@ const AddServices = () => {
         </div>
       </section>
       <ToastContainer />
+      <ChatBox/>
       <Footer />
       
       <ServiceConfirmModal 

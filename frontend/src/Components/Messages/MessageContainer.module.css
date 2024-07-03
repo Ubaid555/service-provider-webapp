@@ -52,7 +52,7 @@
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  height: 59vh; 
+  height: 59vh;
 }
 
 .header {
@@ -61,6 +61,13 @@
   padding: 15px;
   background-color: #f5f5f5;
   border-bottom: 1px solid #ccc;
+}
+
+.backIcon {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.2em; /* Adjust icon size */
+  color: #d01c28; /* Icon color */
 }
 
 .label {
@@ -77,4 +84,11 @@
   flex-grow: 1;
   padding: 15px;
   overflow-y: auto;
+}
+
+.stickyInput {
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  padding: 10px;
 }

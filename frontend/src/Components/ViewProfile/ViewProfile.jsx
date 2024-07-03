@@ -100,6 +100,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from "./ViewProfile.module.css";
 import Footer from '../Footer/Footer';
 import SecondCounter from '../Second Counter/SecondCounter';
+import ChatBox from '../ChatBox/ChatBox';
 
 const ViewProfile = () => {
     const [userProfile, setUserProfile] = useState(null); 
@@ -193,6 +194,7 @@ const ViewProfile = () => {
 
                 <SecondCounter />
             </div>
+            <ChatBox/>
             <Footer />
         </>
     );

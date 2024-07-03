@@ -1,102 +1,60 @@
-/* .searchForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    padding: 5px;
-    border-radius: 20px;
-    background-color: #f8f8f8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 350px;
-  }
-  
-  .searchInput {
-    flex: 1;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .icon {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    background-color: #d01c28;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .icon:hover {
-    background-color: #b01820;
-  }
-  
-  .icon:focus {
-    outline: 2px solid #b01820;
-  }
-   */
-   .white_background{
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-radius: 20px;
-    background-color: #f8f8f8;
-    position: sticky; /* Makes the form sticky within its parent */
-    top:60px; /* Adjust top position as needed */
-    z-index: 1000;
-   }
-   .searchForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-radius: 20px;
-    background-color: #f8f8f8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 350px;
-    position: sticky; /* Makes the form sticky within its parent */
-    top:60px; /* Adjust top position as needed */
-    margin: 20px auto;
-    z-index: 1000;
+.white_background {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  position: sticky; /* Makes the form sticky within its parent */
+  top: 60px; /* Adjust top position as needed */
+  z-index: 1000;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  max-width: 350px;
+  position: sticky; /* Makes the form sticky within its parent */
+  top: 60px; /* Adjust top position as needed */
+  margin: 10px auto;
+  z-index: 1000;
 }
 
 .searchInput {
-    flex: 1;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    font-size: 14px;
-    color: #333;
+  flex: 1;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Box shadow on all sides */
 }
 
 .icon {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    background-color: #d01c28;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 3px 15px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: #d01c28;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .icon:hover {
-    background-color: #b01820;
+  background-color: #b01820;
 }
 
 .icon:focus {
-    outline: 2px solid #b01820;
+  outline: 2px solid #b01820;
 }

@@ -1,41 +1,43 @@
 .container {
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-    margin-left: 20px;
-  }
-  
-  .imageContainer {
-    flex-shrink: 0;
-  }
-  
-  .userImage {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    margin-right: 20px;
-  }
-  
-  .nameContainer {
-    flex-grow: 1;
-    padding-left: 10px;
-  }
-  
-  .userName {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .divider {
-    border: 0;
-    height: 1px;
-    background: #757575;
-    margin: 0;
-  }
-  
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; /* Added box-shadow transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow at the bottom of each row */
+  border-radius: 8px; /* Optional: Adds rounded corners to each chat row */
+  cursor: pointer;
+}
+
+.row:hover {
+  background-color: #f0f0f0; /* Background color change on hover */
+  transform: scale(1.02); /* Slight scale effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+.imageContainer {
+  flex-shrink: 0;
+}
+
+.userImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+.nameContainer {
+  flex-grow: 1;
+  padding-left: 10px;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}

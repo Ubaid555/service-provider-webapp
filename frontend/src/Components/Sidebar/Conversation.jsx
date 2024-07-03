@@ -1,56 +1,56 @@
 // import React from "react";
+// import { useNavigate } from "react-router-dom"; // For React Router v6
+// import styles from "./Conversation.module.css";
 
-// const Conversation = () => {
+// const Conversation = ({ conversation }) => {
+//   const navigate = useNavigate();
+
+//   const handleClick = () => {
+//     navigate("/messagecontainer");
+//   };
+
 //   return (
-//     <>
-//       <div>
-//         <div>
-//           <div>
-//             <img src="https://avatar.iran.liara.run/public" alt="user-avatar" />
-//           </div>
+//     <div className={styles.container} onClick={handleClick}>
+//       <div className={styles.row}>
+//         <div className={styles.imageContainer}>
+//           <img
+//             src={conversation.profilePic}
+//             alt="User Profile"
+//             className={styles.userImage}
+//           />
 //         </div>
-//         <div>
-//           <div>
-//             <p>Muhammad Ubaid</p>
-//           </div>
+//         <div className={styles.nameContainer}>
+//           <p className={styles.userName}>{conversation.fullName}</p>
 //         </div>
 //       </div>
-//       <div></div>
-//     </>
+//     </div>
 //   );
 // };
 
 // export default Conversation;
 
-import React from "react";
-import styles from "./Conversation.module.css";
 
-const Conversation = ({conversation,lastIdx}) => {
+import React from 'react';
+import styles from './Conversation.module.css';
 
+const Conversation = ({ conversation, lastIdx, onClick }) => {
   return (
-    <div className={styles.container}>
-      {/* <div className={styles.row}>
-        <div className={styles.imageContainer}>
-          <img src="https://avatar.iran.liara.run/public" alt="user-avatar" className={styles.userImage} />
-        </div>
-        <div className={styles.nameContainer}>
-          <p className={styles.userName}>Muhammad Ubaid</p>
-        </div>
-      </div> */}
-      <hr className={styles.divider} />
+    <div className={styles.container} onClick={onClick}>
       <div className={styles.row}>
         <div className={styles.imageContainer}>
-          <img src={conversation.profilePic} alt="https://avatar.iran.liara.run/public" className={styles.userImage} />
+          <img
+            src={conversation.profilePic}
+            alt="User Profile"
+            className={styles.userImage}
+          />
         </div>
         <div className={styles.nameContainer}>
           <p className={styles.userName}>{conversation.fullName}</p>
         </div>
       </div>
-
-      {!lastIdx && <div />}
-      {/* <hr className={styles.divider} /> */}
     </div>
   );
 };
 
 export default Conversation;
+

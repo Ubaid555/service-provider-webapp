@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { AboutHeader } from '../AboutHeader/AboutHeader';
 import AboutAddress from '../About Address/AboutAddress';
+import ChatBox from '../ChatBox/ChatBox';
 
 export const AboutUs = () => {
   return (
@@ -15,6 +16,7 @@ export const AboutUs = () => {
       <AboutHeader/>
       <AboutText/>
       <AboutAddress/>
+      <ChatBox/>
       <Footer/>
     </div>
   );

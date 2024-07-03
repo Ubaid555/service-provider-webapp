@@ -4,6 +4,7 @@ import Sdata from './Sdata';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Services.css'; 
+import ChatBox from '../ChatBox/ChatBox';
 
 const Services = () => {
   
@@ -26,6 +27,7 @@ const Services = () => {
           />
         ))}
       </div>
+      <ChatBox/>
       <Footer />
     </div>
   );

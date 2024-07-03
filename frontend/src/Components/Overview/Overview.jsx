@@ -4,6 +4,7 @@ import styles from "./Overview.module.css";
 import Navbar from "../Navbar/Navbar";
 import Dashboard from "../Dashboard/Dashboard";
 import Footer from "../Footer/Footer";
+import ChatBox from "../ChatBox/ChatBox";
 
 const Overview = () => {
   const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -119,6 +120,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
+      <ChatBox/>
       <Footer />
     </>
   );

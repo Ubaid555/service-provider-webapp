@@ -33,6 +33,7 @@ import ReviewForm from './Components/ReviewForm/ReviewForm';
 import SeeReviews from './Components/SeeReviews/SeeReviews';
 import Chat from './Components/Chat/Chat';
 import ChatBox from './Components/ChatBox/ChatBox';
+import MessageContainer from './Components/Messages/MessageContainer';
 
 
 function App() {
@@ -43,33 +44,34 @@ function App() {
         <Routes>
            {/* Wrap the protected routes with the PrivateComponent */}
            <Route element={<PrivateComponent />}>
-            
+              <Route path='/contact' element={<ContactUs/>}/>
+              <Route path='/services' element={<Services/>}/>
+              <Route path='/paymentform' element={<Paymentform/>}/>
+              <Route path='/addcard' element={<AddCard/>}/>
+              <Route path='/confirmation' element={<PaymentConfirmation/>}/>
+              <Route path='/bookingform' element={<BookingForm/>}/>
+              <Route path='/partnerships' element={<Partnerships/>}/>
+              <Route path='/myservices' element={<MyServices/>}/>
+              <Route path='/addservice' element={<AddServices/>}/>
+              <Route path='/allusers' element={<AllUsers/>}/>
+              <Route path="/updateprofile" element={<UpdateProfile/>} />
+              <Route path="/servicerequests" element={<ServiceRequests/>} />
+              <Route path="/mybookings" element={<MyBookings/>} />
+              <Route path="/dashboard" element={<Dashboard/>} />
+              <Route path="/profile" element={<ViewProfile/>} />
+              <Route path="/managerequests" element={<ManageRequests/>} />
+              <Route path="/confirmedbookings" element={<ConfirmedBookings/>} />
+              <Route path="/completedbookings" element={<CompletedBookings/>} />
+              <Route path="/overview" element={<Overview/>} />
+              <Route path="/reschedulebooking" element={<RescheduleBooking/>} />
+              <Route path="/accountsettings" element={<PasswordUpdate/>} />
+              <Route path="/reviews" element={<ReviewForm/>} />
+              <Route path="/seereviews" element={<SeeReviews/>} />
+              <Route path="/chat" element={<Chat/>} />
+              <Route path="/chatbox" element={<ChatBox/>}/>
+              <Route path="/messagecontainer" element={<MessageContainer/>}/>
            </Route>
-           <Route path='/contact' element={<ContactUs/>}/>
-            <Route path='/services' element={<Services/>}/>
-            <Route path='/paymentform' element={<Paymentform/>}/>
-            <Route path='/addcard' element={<AddCard/>}/>
-            <Route path='/confirmation' element={<PaymentConfirmation/>}/>
-            <Route path='/bookingform' element={<BookingForm/>}/>
-            <Route path='/partnerships' element={<Partnerships/>}/>
-            <Route path='/myservices' element={<MyServices/>}/>
-            <Route path='/addservice' element={<AddServices/>}/>
-            <Route path='/allusers' element={<AllUsers/>}/>
-            <Route path="/updateprofile" element={<UpdateProfile/>} />
-            <Route path="/servicerequests" element={<ServiceRequests/>} />
-            <Route path="/mybookings" element={<MyBookings/>} />
-            <Route path="/dashboard" element={<Dashboard/>} />
-            <Route path="/profile" element={<ViewProfile/>} />
-            <Route path="/managerequests" element={<ManageRequests/>} />
-            <Route path="/confirmedbookings" element={<ConfirmedBookings/>} />
-            <Route path="/completedbookings" element={<CompletedBookings/>} />
-            <Route path="/overview" element={<Overview/>} />
-            <Route path="/reschedulebooking" element={<RescheduleBooking/>} />
-            <Route path="/accountsettings" element={<PasswordUpdate/>} />
-            <Route path="/reviews" element={<ReviewForm/>} />
-            <Route path="/seereviews" element={<SeeReviews/>} />
-            <Route path="/chat" element={<Chat/>} />
-            <Route path="/chatbox" element={<ChatBox/>}/>
+           
 
 
             <Route path='*' element={<NotFound />} />

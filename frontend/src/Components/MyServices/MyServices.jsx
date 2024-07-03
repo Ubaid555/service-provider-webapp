@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from "./MyServices.module.css";
 import Footer from '../Footer/Footer';
 import ConfirmModal from '../AllModals/ConfirmModal/ConfirmModal';
+import ChatBox from '../ChatBox/ChatBox';
 
 export const MyServices = () => {
     const [userProfile, setUserProfile] = useState([]);
@@ -203,6 +204,7 @@ export const MyServices = () => {
                     )}
                 </div>
             </div>
+            <ChatBox/>
             <Footer/>
             <ConfirmModal 
                 show={showConfirm} 

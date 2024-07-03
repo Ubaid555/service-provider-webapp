@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../Navbar/Navbar';
 import styles from "./PasswordUpdate.module.css";
 import Footer from '../Footer/Footer';
+import ChatBox from '../ChatBox/ChatBox';
 
 const PasswordUpdate = () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -129,6 +130,7 @@ const PasswordUpdate = () => {
         </div>
       </div>
       <ToastContainer />
+      <ChatBox/>
       <Footer/>
     </>
   );

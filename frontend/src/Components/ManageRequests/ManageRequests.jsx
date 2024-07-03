@@ -5,6 +5,7 @@ import CancelPendingModal from '../AllModals/CancelPendingModal/CancelPendingMod
 import PendingDetailsModal from '../AllModals/PendingDetailsModal/PendingDetailsModal';
 import RequestConfirmModal from '../AllModals/RequestConfirmModal/RequestConfirmModal';
 import Dashboard from '../Dashboard/Dashboard';
+import ChatBox from '../ChatBox/ChatBox';
 
 const ManageRequests = () => {
     const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -177,6 +178,7 @@ const ManageRequests = () => {
                     </tbody>
                 </table>
             </div>
+            <ChatBox/>
             {showModal && (
                 <PendingDetailsModal booking={selectedBooking} onClose={closeDetails} />
             )}

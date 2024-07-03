@@ -181,6 +181,7 @@ import PendingDetailsModal from '../AllModals/PendingDetailsModal/PendingDetails
 import CompleteBookingModal from '../AllModals/CompleteBookingModal/CompleteBookingModal';
 import Dashboard from '../Dashboard/Dashboard';
 import CancelPendingModal from '../AllModals/CancelPendingModal/CancelPendingModal';
+import ChatBox from '../ChatBox/ChatBox';
 
 const ConfirmedBookings = () => {
     const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -333,6 +334,7 @@ const ConfirmedBookings = () => {
                     </tbody>
                 </table>
             </div>
+            <ChatBox/>
             {showModal && (
                 <PendingDetailsModal booking={selectedBooking} onClose={closeDetails} />
             )}
