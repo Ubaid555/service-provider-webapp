@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState , useEffect} from 'react';
+import MessageContainer from '../Messages/MessageContainer';
 import Sidebar from '../Sidebar/Sidebar';
+
 import styles from './ChatBox.module.css';
 
 const ChatBox = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [image, setImage] = useState("");
+  const [image,setImage] = useState("");
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
@@ -26,14 +28,15 @@ const ChatBox = () => {
       </div>
       <div className={`${styles.chatBox} ${isChatOpen ? styles.open : ''}`}>
         <div className={styles.chatHeader} onClick={toggleChat}>
+          
           <img src={image} alt="User" className={styles.userImage} />
           <span className={styles.messagingText}>Messaging</span>
           <i className={`fa fa-angle-down ${styles.chatArrow}`}></i>
+          
         </div>
+        <Sidebar />
+        {/* <MessageContainer /> */}
         
-        <div className={styles.sidebarContainer}>
-          <Sidebar />
-        </div>
       </div>
     </div>
   );
