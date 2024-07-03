@@ -43,7 +43,9 @@ function App() {
         <Routes>
            {/* Wrap the protected routes with the PrivateComponent */}
            <Route element={<PrivateComponent />}>
-            <Route path='/contact' element={<ContactUs/>}/>
+            
+           </Route>
+           <Route path='/contact' element={<ContactUs/>}/>
             <Route path='/services' element={<Services/>}/>
             <Route path='/paymentform' element={<Paymentform/>}/>
             <Route path='/addcard' element={<AddCard/>}/>
@@ -68,7 +70,7 @@ function App() {
             <Route path="/seereviews" element={<SeeReviews/>} />
             <Route path="/chat" element={<Chat/>} />
             <Route path="/chatbox" element={<ChatBox/>}/>
-           </Route>
+
 
             <Route path='*' element={<NotFound />} />
             <Route path='/' exact element={<Herosec/>}/>

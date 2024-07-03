@@ -34,8 +34,8 @@ const ChatBox = () => {
           <i className={`fa fa-angle-down ${styles.chatArrow}`}></i>
           
         </div>
-        <Sidebar />
-        {/* <MessageContainer /> */}
+        {/* <Sidebar /> */}
+        <MessageContainer />
         
       </div>
     </div>
