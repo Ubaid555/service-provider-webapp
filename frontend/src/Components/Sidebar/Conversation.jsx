@@ -47,7 +47,7 @@ const Conversation = ({ conversation, lastIdx, onClick }) => {
         </div>
         <div className={styles.nameContainer}>
           <p className={styles.userName}>{conversation.fullName}</p>
-          <p>{message}</p>
+          <p className={styles.last_message}>{message}</p>
         </div>
       </div>
     </div>

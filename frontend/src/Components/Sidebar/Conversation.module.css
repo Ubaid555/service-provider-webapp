@@ -7,18 +7,18 @@
   display: flex;
   align-items: center;
   padding: 10px 0;
-  transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; /* Added box-shadow transition */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow at the bottom of each row */
-  border-radius: 8px; /* Optional: Adds rounded corners to each chat row */
+  transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+  border-radius: 8px; 
   cursor: pointer;
   margin-left: 5px;
   margin-right: 5px;
 }
 
 .row:hover {
-  background-color: #f0f0f0; /* Background color change on hover */
-  transform: scale(1.02); /* Slight scale effect on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  background-color: #f0f0f0; 
+  transform: scale(1.02); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
 }
 
 .imageContainer {
@@ -29,19 +29,32 @@
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  margin-right: 20px;
-  margin-left: 30px;
+  margin-right: 15px; /* Adjusted to reduce gap */
+  margin-left: 15px; /* Adjusted to reduce gap */
 }
 
 .nameContainer {
-  flex-grow: 1;
-  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px; /* Adjusted to reduce gap */
+  margin-top: 3px; /* Added to move down collectively */
 }
 
 .userName {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #333;
+  margin-bottom: 2px; /* Adjusted to reduce gap */
+}
+
+.last_message {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; 
 }
 
 .noUsersFound {
