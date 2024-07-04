@@ -31,6 +31,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
           const extractedMessages = data.map((item) => ({
             content: item.message,
             senderId: item.senderId,
+            createdAt: item.createdAt,
           }));
           setMessages(extractedMessages);
         } else {
@@ -64,7 +65,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
 
       if (response.ok) {
         const data = await response.json();
-        setMessages((prevMessages) => [...prevMessages, { senderId: serviceTakerId, content: data.message }]);
+        setMessages((prevMessages) => [...prevMessages, { senderId: serviceTakerId, content: data.message ,createdAt: data.createdAt}]);
       } else {
         console.error('Error sending message:', response.statusText);
       }

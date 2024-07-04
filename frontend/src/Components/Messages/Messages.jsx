@@ -5,7 +5,7 @@ const Messages = ({ messages }) => {
   return (
     <div>
       {messages.map((msg, i) => (
-        <Message key={i} message={msg.content} senderId={msg.senderId} />
+        <Message key={i} message={msg.content} senderId={msg.senderId} createdAt={msg.createdAt} />
       ))}
     </div>
   );
