@@ -4,6 +4,7 @@ import StarRatingComponent from "react-star-rating-component";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./AllUsers.module.css";
+import ChatBox from "../ChatBox/ChatBox";
 
 const AllUsers = () => {
   const [services, setServices] = useState([]);
@@ -221,6 +222,7 @@ const AllUsers = () => {
           )}
         </div>
       </div>
+      <ChatBox />
       <Footer />
     </>
   );
