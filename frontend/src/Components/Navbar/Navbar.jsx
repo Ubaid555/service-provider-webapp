@@ -109,6 +109,9 @@ const Navbar = () => {
                                         <i className="fa fa-sign-out-alt nav-icon"></i>
                                         Logout
                                     </Dropdown.Item>
+                                    <Dropdown.Item as={NavLink} to='/addcard'>
+                                        Add Card
+                                    </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
