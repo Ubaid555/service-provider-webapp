@@ -217,7 +217,7 @@ const AllUsers = () => {
               </div>
             ))
           ) : (
-            <p className={styles.no_services}>No services available</p>
+            <p className={styles.no_services}>No service providers found</p>
           )}
         </div>
       </div>

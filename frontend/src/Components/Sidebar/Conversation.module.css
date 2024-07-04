@@ -11,6 +11,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow at the bottom of each row */
   border-radius: 8px; /* Optional: Adds rounded corners to each chat row */
   cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .row:hover {
@@ -40,4 +42,13 @@
   font-size: 14px;
   font-weight: bold;
   color: #333;
+}
+
+.noUsersFound {
+  display: block;
+  text-align: center;
+  color: #d01c28;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 500;
 }
