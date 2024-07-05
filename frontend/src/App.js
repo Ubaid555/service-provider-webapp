@@ -71,8 +71,6 @@ function App() {
               <Route path="/chatbox" element={<ChatBox/>}/>
               <Route path="/messagecontainer" element={<MessageContainer/>}/>
            </Route>
-           
-
 
             <Route path='*' element={<NotFound />} />
             <Route path='/' exact element={<Herosec/>}/>
