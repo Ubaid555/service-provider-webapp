@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 import MessageInput from './MessageInput';
 import Messages from './Messages';
 import styles from './MessageContainer.module.css';
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const socket = io('http://localhost:5001');
@@ -11,6 +10,7 @@ const socket = io('http://localhost:5001');
 const MessageContainer = ({ conversation, onBackClick }) => {
     const [messages, setMessages] = useState([]);
     const [serviceTakerId, setServiceTakerId] = useState("");
+    const messagesEndRef = useRef(null); // Create a ref for the messages container
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("loginusers"));
@@ -51,16 +51,19 @@ const MessageContainer = ({ conversation, onBackClick }) => {
             if (message.receiverId === serviceTakerId || message.senderId === serviceTakerId) {
                 setMessages((prevMessages) => [...prevMessages, message]);
             }
-            // if (message.receiverId === currentUser ){
-            //     console.log("True");
-            //     toast.success('New Message Received');
-            // }
         });
 
         return () => {
             socket.off('receiveMessage');
         };
     }, [serviceTakerId]);
+
+    useEffect(() => {
+        // Scroll to the bottom whenever messages change
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
 
     const sendMessage = async (messageContent) => {
         if (messageContent.trim() === '') {
@@ -73,9 +76,6 @@ const MessageContainer = ({ conversation, onBackClick }) => {
             message: messageContent,
             createdAt: new Date().toISOString()
         };
-
-        //setMessages((prevMessages) => [...prevMessages, newMessage]);
-        // console.log("Set Messages at this stage is ",messages);
 
         try {
             const response = await fetch('http://localhost:5001/api/messages/send', {
@@ -90,8 +90,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log("data after sending message",data);
-                //socket.emit('sendMessage', data);
+                console.log("data after sending message", data);
             } else {
                 console.error('Error sending message:', response.statusText);
             }
@@ -109,6 +108,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
             </div>
             <div className={styles.messages}>
                 <Messages messages={messages} />
+                <div ref={messagesEndRef} /> {/* Add a ref to the end of the messages list */}
             </div>
             <div className={styles.stickyInput}>
                 <MessageInput onSendMessage={sendMessage} />

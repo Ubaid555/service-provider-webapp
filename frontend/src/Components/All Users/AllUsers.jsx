@@ -12,6 +12,7 @@ const AllUsers = () => {
   const [averageRatings, setAverageRatings] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredServices, setFilteredServices] = useState([]);
+  const [sortedServices, setSortedServices] = useState([]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -86,6 +87,16 @@ const AllUsers = () => {
     filterServices();
   }, [searchQuery, services, filterServices]);
 
+  useEffect(() => {
+    // Sort filteredServices based on average ratings
+    const sorted = [...filteredServices].sort((a, b) => {
+      const ratingA = averageRatings[a.userId] || 0;
+      const ratingB = averageRatings[b.userId] || 0;
+      return ratingB - ratingA; // Descending order
+    });
+    setSortedServices(sorted);
+  }, [filteredServices, averageRatings]);
+
   const calculateAverageRatings = async (services, category) => {
     const ratings = {};
     for (const service of services) {
@@ -131,7 +142,7 @@ const AllUsers = () => {
     });
   };
 
-  const handleMessageIconClick = (serviceProviderId, serviceTakerId,serviceProviderImage) => {
+  const handleMessageIconClick = (serviceProviderId, serviceTakerId, serviceProviderImage) => {
     navigate("/chat", {
       state: {
         serviceProviderId: serviceProviderId,
@@ -140,6 +151,7 @@ const AllUsers = () => {
       },
     });
   };
+
   return (
     <>
       <Navbar />
@@ -155,8 +167,8 @@ const AllUsers = () => {
           />
         </div>
         <div className={styles.cards}>
-          {filteredServices.length > 0 ? (
-            filteredServices.map((service) => (
+          {sortedServices.length > 0 ? (
+            sortedServices.map((service) => (
               <div key={service._id} className={styles.card}>
                 <img
                   src={service.profilePic}
@@ -169,7 +181,7 @@ const AllUsers = () => {
                     <i
                       className="fa-regular fa-message"
                       aria-hidden="true"
-                      onClick={() => handleMessageIconClick(service.userId, userId,service.profilePic)}
+                      onClick={() => handleMessageIconClick(service.userId, userId, service.profilePic)}
                       style={{ cursor: "pointer" }}
                     ></i>
                   </span>
@@ -229,4 +241,3 @@ const AllUsers = () => {
 };
 
 export default AllUsers;
-
