@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import styles from './ChatBox.module.css';
+import io from 'socket.io-client';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const socket = io('http://localhost:5001');
 
 const ChatBox = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -31,6 +36,23 @@ const ChatBox = () => {
     };
   }, []);
 
+  useEffect(() => {
+    socket.on('receiveMessage', (message) => {
+      const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
+
+      if (message.receiverId === currentUser ){
+        console.log("True");
+        toast.success('New Message Received');
+    }
+      // // Show toast message when a new message is received
+      // toast.info(`New message from ${message.senderId}: ${message.message}`);
+    });
+
+    return () => {
+      socket.off('receiveMessage');
+    };
+  }, []);
+
   return (
     <div className={styles.chatContainer} ref={chatBoxRef}>
       <div className={styles.chatArrowContainer} onClick={toggleChat}>
@@ -47,6 +69,8 @@ const ChatBox = () => {
         </div>
         <Sidebar />
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

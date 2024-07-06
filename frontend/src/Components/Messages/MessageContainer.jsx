@@ -3,6 +3,8 @@ import io from 'socket.io-client';
 import MessageInput from './MessageInput';
 import Messages from './Messages';
 import styles from './MessageContainer.module.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const socket = io('http://localhost:5001');
 
@@ -45,8 +47,13 @@ const MessageContainer = ({ conversation, onBackClick }) => {
 
     useEffect(() => {
         socket.on('receiveMessage', (message) => {
+            const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
             if (message.receiverId === serviceTakerId || message.senderId === serviceTakerId) {
                 setMessages((prevMessages) => [...prevMessages, message]);
+            }
+            if (message.receiverId === currentUser ){
+                console.log("True");
+                toast.success('New Message Received');
             }
         });
 

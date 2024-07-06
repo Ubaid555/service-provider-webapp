@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./BookingForm.module.css";
+import ChatBox from "../ChatBox/ChatBox";
 
 const BookingForm = () => {
   const [serviceTakerId, setServiceTakerId] = useState("");
@@ -212,6 +213,7 @@ const BookingForm = () => {
           <img src="/Images/Book.png" alt="Booking" />
         </div>
       </section>
+      <ChatBox />
       <Footer />
       <ToastContainer />
     </>
