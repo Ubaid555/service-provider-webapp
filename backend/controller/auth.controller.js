@@ -173,7 +173,6 @@ export const getUser = async(req,resp)=>{
     const userId = req.query.userId;
 
     let result = await User.find({_id:userId});
-    console.log(result);
 
     resp.status(201).json(result);
     
