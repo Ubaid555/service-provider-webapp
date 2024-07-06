@@ -4,6 +4,7 @@ import styles from './ChatBox.module.css';
 import io from 'socket.io-client';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import notificationSound from "../Assets/sounds/notification.wav"
 
 const socket = io('http://localhost:5001');
 
@@ -66,6 +67,8 @@ const ChatBox = () => {
       const currentUser = JSON.parse(localStorage.getItem('loginusers'))._id;
       if (message.receiverId === currentUser) {
         toast.success(`New Message From ${name}`);
+        const sound = new Audio(notificationSound);
+        sound.play();
       }
     };
 
