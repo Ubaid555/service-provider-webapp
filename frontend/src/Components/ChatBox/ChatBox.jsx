@@ -4,14 +4,13 @@ import styles from './ChatBox.module.css';
 import io from 'socket.io-client';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import notificationSound from "../Assets/sounds/notification.wav"
 
 const socket = io('http://localhost:5001');
 
 const ChatBox = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [image, setImage] = useState("");
-  const [name,setName]=useState("");
+  const [name, setName] = useState("");
   const chatBoxRef = useRef(null);
 
   const toggleChat = () => {
@@ -49,7 +48,7 @@ const ChatBox = () => {
         });
         if (response.ok) {
           const data = await response.json();
-          setName(data[0].fullName);
+          return data[0].fullName; // Return the full name from the fetched data
         } else {
           console.error('Failed to fetch user:', response.statusText);
         }
@@ -58,17 +57,14 @@ const ChatBox = () => {
       }
     };
 
-    const handleReceiveMessage = async(message) => {
+    const handleReceiveMessage = async (message) => {
       console.log("Socket On");
       if (message.senderId) {
-       await  fetchUserData(message.senderId);
-      }
-
-      const currentUser = JSON.parse(localStorage.getItem('loginusers'))._id;
-      if (message.receiverId === currentUser) {
-        toast.success(`New Message From ${name}`);
-        const sound = new Audio(notificationSound);
-        sound.play();
+        const senderName = await fetchUserData(message.senderId);
+        const currentUser = JSON.parse(localStorage.getItem('loginusers'))._id;
+        if (message.receiverId === currentUser) {
+          toast.success(`New Message From ${senderName}`);
+        }
       }
     };
 
@@ -77,7 +73,7 @@ const ChatBox = () => {
     return () => {
       socket.off('receiveMessage', handleReceiveMessage);
     };
-  }, [name]);
+  }, []);
 
 
   return (
