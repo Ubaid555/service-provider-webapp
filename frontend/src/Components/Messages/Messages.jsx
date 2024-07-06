@@ -2,13 +2,13 @@ import React from 'react';
 import Message from './Message';
 
 const Messages = ({ messages }) => {
-  return (
-    <div>
-      {messages.map((msg, i) => (
-        <Message key={i} message={msg.content} senderId={msg.senderId} createdAt={msg.createdAt} />
-      ))}
-    </div>
-  );
+    return (
+        <div >
+            {messages.map((message, index) => (
+                <Message key={index} message={message} />
+            ))}
+        </div>
+    );
 };
 
 export default Messages;

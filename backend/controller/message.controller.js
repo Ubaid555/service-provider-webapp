@@ -1,54 +1,47 @@
+import { io } from "../server.js";
 import Conversation from "../models/conversation.model.js"
-import Message  from "../models/message.model.js"
+import Message from "../models/message.model.js"
 
-export const sendMessage = async(req,resp)=>{
+export const sendMessage = async (req, resp) => {
     try {
-        // const{message}=req.body;
-        // const {id:receiverId}=req.params;
-        // const senderId=req.user._id;
-
-        const {serviceProviderId,serviceTakerId,message}=req.body;
+        const { serviceProviderId, serviceTakerId, message } = req.body;
 
         const receiverId = serviceProviderId;
         const senderId = serviceTakerId;
 
-        let conversation = await Conversation.findOne({participants:{$all:[senderId,receiverId]}})
+        let conversation = await Conversation.findOne({ participants: { $all: [senderId, receiverId] } });
 
-        if(!conversation){
+        if (!conversation) {
             conversation = await Conversation.create({
-                participants:[senderId,receiverId]
-            })
+                participants: [senderId, receiverId]
+            });
         }
 
         const newMessage = new Message({
             senderId,
             receiverId,
             message
-        })
+        });
 
-        if (newMessage){
+        if (newMessage) {
             conversation.messages.push(newMessage._id);
         }
 
-        console.log(newMessage);
+        await Promise.all([conversation.save(), newMessage.save()]);
 
-        //Socket Io Functinality Will Go here
-
-        // await conversation.save();
-        // await newMessage.save();
-
-        //Run In Parallel at same Time
-        await Promise.all([conversation.save(),newMessage.save()]);
+        io.emit("receiveMessage", {
+            senderId,
+            receiverId,
+            message: newMessage.message,
+            createdAt: newMessage.createdAt
+        });
 
         resp.status(201).json(newMessage);
-
-
     } catch (error) {
-        console.log("Error in Message Controller",error.message);
-        resp.status(500).json({error:"Internal Server Error"})
+        console.log("Error in Message Controller", error.message);
+        resp.status(500).json({ error: "Internal Server Error" });
     }
 }
-
 export const getMessages = async (req, resp) => {
     try { 
         const { id: userToChatId } = req.params;
