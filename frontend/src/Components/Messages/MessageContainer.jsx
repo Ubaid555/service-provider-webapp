@@ -51,10 +51,10 @@ const MessageContainer = ({ conversation, onBackClick }) => {
             if (message.receiverId === serviceTakerId || message.senderId === serviceTakerId) {
                 setMessages((prevMessages) => [...prevMessages, message]);
             }
-            if (message.receiverId === currentUser ){
-                console.log("True");
-                toast.success('New Message Received');
-            }
+            // if (message.receiverId === currentUser ){
+            //     console.log("True");
+            //     toast.success('New Message Received');
+            // }
         });
 
         return () => {

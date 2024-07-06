@@ -10,6 +10,7 @@ const socket = io('http://localhost:5001');
 const ChatBox = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [image, setImage] = useState("");
+  const [name,setName]=useState("");
   const chatBoxRef = useRef(null);
 
   const toggleChat = () => {
@@ -37,21 +38,44 @@ const ChatBox = () => {
   }, []);
 
   useEffect(() => {
-    socket.on('receiveMessage', (message) => {
-      const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
+    const fetchUserData = async (userId) => {
+      try {
+        const response = await fetch(`http://localhost:5001/api/auth/getUser?userId=${userId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setName(data[0].fullName);
+        } else {
+          console.error('Failed to fetch user:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching user:', error);
+      }
+    };
 
-      if (message.receiverId === currentUser ){
-        console.log("True");
-        toast.success('New Message Received');
-    }
-      // // Show toast message when a new message is received
-      // toast.info(`New message from ${message.senderId}: ${message.message}`);
-    });
+    const handleReceiveMessage = async(message) => {
+      console.log("Socket On");
+      if (message.senderId) {
+       await  fetchUserData(message.senderId);
+      }
+
+      const currentUser = JSON.parse(localStorage.getItem('loginusers'))._id;
+      if (message.receiverId === currentUser) {
+        toast.success(`New Message From ${name}`);
+      }
+    };
+
+    socket.on('receiveMessage', handleReceiveMessage);
 
     return () => {
-      socket.off('receiveMessage');
+      socket.off('receiveMessage', handleReceiveMessage);
     };
-  }, []);
+  }, [name]);
+
 
   return (
     <div className={styles.chatContainer} ref={chatBoxRef}>
@@ -69,8 +93,6 @@ const ChatBox = () => {
         </div>
         <Sidebar />
       </div>
-
-      <ToastContainer />
     </div>
   );
 };
