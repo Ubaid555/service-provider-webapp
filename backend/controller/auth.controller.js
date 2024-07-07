@@ -23,7 +23,8 @@ export const login = async(req , resp)=>{
             fullName:user.fullName,
             phone:user.phone,
             email:user.email,
-            profilePic:user.profilePic
+            profilePic:user.profilePic,
+            role:user.role
         })
     } catch (error) {
         console.log("Error's in Login Controller",error.message);
@@ -84,9 +85,7 @@ export const login = async(req , resp)=>{
 
 export const signup = async (req, resp) => {  
     try {
-        console.log(req.body);
       const { fullName, email, phone, password, confirmPassword, profilePic } = req.body;
-      console.log("SignUp",email);
   
       if (password !== confirmPassword) {
         return resp.status(400).json({ error: "Passwords Don't Match" });
@@ -103,7 +102,7 @@ export const signup = async (req, resp) => {
   
       const otp = generateOTP();
       otps[email] = { otp, fullName, phone, password, profilePic };
-      console.log("Data Before sendOtp",email , otp);
+      // console.log("Data Before sendOtp",email , otp);
   
       await sendOTPEmail(email, otp);
       resp.status(200).json({ message: "OTP sent to your email" });
@@ -131,6 +130,8 @@ export const signup = async (req, resp) => {
       const hashedPassword = await bcrypt.hash(tempData.password, salt);
 
       const result=await User.find();
+
+      // console.log(result);
   
       const newUser = new User({
         fullName: tempData.fullName,
@@ -138,7 +139,7 @@ export const signup = async (req, resp) => {
         phone: tempData.phone,
         password: hashedPassword,
         profilePic: tempData.profilePic,
-      });
+      }); 
 
 
   
@@ -151,6 +152,7 @@ export const signup = async (req, resp) => {
         phone: newUser.phone,
         email: newUser.email,
         profilePic: newUser.profilePic,
+        role:newUser.role,
       });
     } catch (error) {
       console.log(error.message);

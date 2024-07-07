@@ -122,8 +122,9 @@ if (!passwordPattern.test(password)) {
     
             let result = await response.json();
             if (response.status === 400) {
-                toast.error(result.message);
-            } else {
+                toast.error(result.error);
+            }
+             else {
                 toast.success("OTP sent to your email. Proceed to verify.");
                 setStep(2); 
             }

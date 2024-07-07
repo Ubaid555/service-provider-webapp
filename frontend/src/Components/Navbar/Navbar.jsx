@@ -112,9 +112,6 @@ const Navbar = () => {
                                     <Dropdown.Item as={NavLink} to='/addcard'>
                                         Add Card
                                     </Dropdown.Item>
-                                    <Dropdown.Item as={NavLink} to='/adminoverview'>
-                                        Admin overview
-                                    </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>

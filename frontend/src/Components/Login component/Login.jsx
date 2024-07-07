@@ -46,9 +46,15 @@ export const Login = () => {
  
             if (response.status === 201 && result.fullName) {
                 localStorage.setItem("loginusers", JSON.stringify(result));
+                const role = result.role;
                 toast.success("Login successful! Redirecting...");
                 setTimeout(() => {
-                    navigate('/');
+                    if (role === "user") {
+                        navigate('/overview');
+                    }
+                    else if(role === "admin"){
+                        navigate('/adminoverview');
+                    }
                 }, 1000); // Redirect after 2 seconds
             } else if (response.status === 404) {
                 toast.error("This user is not registered");

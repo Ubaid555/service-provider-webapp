@@ -1,5 +1,5 @@
-import React from "react";
-import { useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+
 import "./Herosec.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -9,7 +9,17 @@ import ChatBox from "../ChatBox/ChatBox";
 const Herosec = () =>{
     useEffect(() => {
         document.title = "Trusty Taskers - Home";
+        console.log("Home call")
       }, []);
+
+      const [isLoggedIn, setIsLoggedIn] = useState(false);
+      useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem("loginusers"));
+        if (storedUser && storedUser._id) {
+         setIsLoggedIn(true);
+        }
+      }, []);
+
     return( 
     <>
     <Navbar/>
@@ -29,7 +39,7 @@ const Herosec = () =>{
             <img src="/Images/service provider.png" alt="service provider"/>
         </div>
     </main>
-    <ChatBox/>
+    {isLoggedIn && <ChatBox />}
     <Footer/>
     </>
     );
