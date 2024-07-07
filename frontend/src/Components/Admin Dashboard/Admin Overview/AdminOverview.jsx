@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
-import styles from "./Overview.module.css";
-import Navbar from "../Navbar/Navbar";
-import Dashboard from "../Dashboard/Dashboard";
-import Footer from "../Footer/Footer";
-import ChatBox from "../ChatBox/ChatBox";
+import styles from "./AdminOverview.module.css";
+import AdminNavbar from "../Admin Navbar/AdminNavbar";
+import Footer from "../../Footer/Footer";
 
-const Overview = () => {
-  const user = JSON.parse(localStorage.getItem("loginusers"));
-  const userName = user ? user.fullName : "User";
+const AdminOverview = () => {
+  //const user = JSON.parse(localStorage.getItem("loginusers"));
+  //const userName = user ? user.fullName : "User";
 
   const [data, setData] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -77,12 +75,11 @@ const Overview = () => {
 
   return (
     <>
-      <Navbar />
-      <Dashboard />
+      <AdminNavbar/>
       <div className={styles.header_overview}>
         <h1 className={styles.heading_overview}>
           <span className={styles.welcome}>Welcome</span> to{" "}
-          <span className={styles.name_part}>{userName}'s</span> Dashboard
+          <span className={styles.name_part}>Admin's</span> Dashboard
         </h1>
         {userProfile && (
           <img
@@ -120,10 +117,9 @@ const Overview = () => {
           </div>
         </div>
       </div>
-      <ChatBox/>
       <Footer />
     </>
   );
 };
 
-export default Overview;
+export default AdminOverview;

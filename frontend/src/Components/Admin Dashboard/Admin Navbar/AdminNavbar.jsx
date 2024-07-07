@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import logo from './logo1.jpeg';
-import './Navbar.css';
-import { storage } from '../Firebase/firebase';
+import './AdminNavbar.css';
+import { storage } from '../../Firebase/firebase';
 import { ref, getDownloadURL } from 'firebase/storage';
 
-const Navbar = () => {
+const AdminNavbar = () => {
     const auth = localStorage.getItem("loginusers");
     const navigate = useNavigate();
     const [userImage, setUserImage] = useState(null);
@@ -46,21 +46,21 @@ const Navbar = () => {
                         <NavLink to="/"><img src={logo} alt="My Logo" width="85" height="41" /></NavLink>
                     </NavLink>
                     <ul id="navbar" className={clicked ? "navbar active" : "navbar"}>
-                        <NavLink className="item activeStyle" to='/'>
-                            <i className="fa fa-home nav-icon"></i>
-                            Home
+                        <NavLink className="item activeStyle" to='/adminoverview'>
+                            <i className="fa fa-file nav-icon"></i>
+                            Overview
                         </NavLink>
-                        <NavLink className="item activeStyle" to="/about">
-                            <i className="fa fa-info-circle nav-icon"></i>
-                            About
+                        <NavLink className="item activeStyle" to="/">
+                            <i className="fa fa-users nav-icon"></i>
+                            Accounts
+                        </NavLink>
+                        <NavLink className="item activeStyle" to="/">
+                            <i className="fa fa-wallet nav-icon"></i>
+                            Payments
                         </NavLink>
                         <NavLink className="item activeStyle" to="/contact">
-                            <i className="fa fa-phone nav-icon"></i>
-                            Contact Us
-                        </NavLink>
-                        <NavLink className="item activeStyle" to='/overview'>
-                            <i className="fa fa-chart-bar nav-icon"></i>
-                            Dashboard
+                            <i className="fa fa-book nav-icon"></i>
+                            Bookings
                         </NavLink>
 
                         <Dropdown className="dropbtn" variant="link">
@@ -73,10 +73,6 @@ const Navbar = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu className="dropdown-menu-custom">
-                                <Dropdown.Item as={NavLink} to='/myservices'>
-                                    <i className="fa fa-screwdriver-wrench"></i>
-                                    My Services
-                                </Dropdown.Item>
                                 <Dropdown.Item as={NavLink} to='/services'>
                                     <i className="fa fa-eye"></i>
                                     View Services
@@ -109,12 +105,6 @@ const Navbar = () => {
                                         <i className="fa fa-sign-out-alt nav-icon"></i>
                                         Logout
                                     </Dropdown.Item>
-                                    <Dropdown.Item as={NavLink} to='/addcard'>
-                                        Add Card
-                                    </Dropdown.Item>
-                                    <Dropdown.Item as={NavLink} to='/adminoverview'>
-                                        Admin overview
-                                    </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
@@ -140,4 +130,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default AdminNavbar;
