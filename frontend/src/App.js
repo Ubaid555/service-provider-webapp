@@ -38,6 +38,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminOverview from './Components/Admin Dashboard/Admin Overview/AdminOverview';
 import { AdminPrivateComponent } from './Components/Admin Dashboard/Admin Private Component/AdminPrivateComponent';
+import Accounts from './Components/Admin Dashboard/Accounts/Accounts';
+import Payment from './Components/Admin Dashboard/Payment/Payment';
+import ViewAllServices from './Components/Admin Dashboard/View All Services/ViewAllServices';
+import AddNewService from './Components/Admin Dashboard/Add New Service/AddNewService';
+import AllBookings from './Components/Admin Dashboard/All Bookings/AllBookings';
+import { AdminProfile } from './Components/Admin Dashboard/Admin Profile/AdminProfile';
 
 function App() {
     return (
@@ -77,6 +83,12 @@ function App() {
 
                     <Route element={<AdminPrivateComponent/>}>
                         <Route path='/adminoverview' element={<AdminOverview/>} />
+                        <Route path='/usersaccounts' element={<Accounts/>}/>
+                        <Route path='/paymenthistory' element={<Payment/>}/>
+                        <Route path='/allbookings' element={<AllBookings/>}/>
+                        <Route path='/allservices' element={<ViewAllServices/>}/>
+                        <Route path='/addnewservice' element={<AddNewService/>}/>
+                        <Route path='/adminprofile' element={<AdminProfile/>}/>
                     </Route>
 
                     <Route path='*' element={<NotFound />} />

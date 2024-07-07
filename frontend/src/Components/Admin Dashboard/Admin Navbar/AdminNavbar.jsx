@@ -50,15 +50,15 @@ const AdminNavbar = () => {
                             <i className="fa fa-file nav-icon"></i>
                             Overview
                         </NavLink>
-                        <NavLink className="item activeStyle" to="/">
+                        <NavLink className="item activeStyle" to="/usersaccounts">
                             <i className="fa fa-users nav-icon"></i>
                             Accounts
                         </NavLink>
-                        <NavLink className="item activeStyle" to="/">
+                        <NavLink className="item activeStyle" to="/paymenthistory">
                             <i className="fa fa-wallet nav-icon"></i>
                             Payments
                         </NavLink>
-                        <NavLink className="item activeStyle" to="/contact">
+                        <NavLink className="item activeStyle" to="/allbookings">
                             <i className="fa fa-book nav-icon"></i>
                             Bookings
                         </NavLink>
@@ -73,11 +73,11 @@ const AdminNavbar = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu className="dropdown-menu-custom">
-                                <Dropdown.Item as={NavLink} to='/services'>
+                                <Dropdown.Item as={NavLink} to='/allservices'>
                                     <i className="fa fa-eye"></i>
                                     View Services
                                 </Dropdown.Item>
-                                <Dropdown.Item as={NavLink} to='/addservice'>
+                                <Dropdown.Item as={NavLink} to='/addnewservice'>
                                     <i className="fa fa-plus-circle"></i>
                                     Add Services
                                 </Dropdown.Item>
@@ -97,7 +97,7 @@ const AdminNavbar = () => {
                                     )}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu className="dropdown-menu-custom">
-                                    <Dropdown.Item as={NavLink} to='/profile'>
+                                    <Dropdown.Item as={NavLink} to='/adminprofile'>
                                         <i className="fa fa-user nav-icon"></i>
                                         View Profile
                                     </Dropdown.Item>
