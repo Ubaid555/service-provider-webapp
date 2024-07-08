@@ -37,16 +37,22 @@ export const setService = async (req, resp) => {
         .json({ error: "All fields (imgsrc, title, sname) are required" });
     }
 
-    const formattedSname = sname.charAt(0).toUpperCase() + sname.slice(1).toLowerCase();
+    const formattedSname =
+      sname.charAt(0).toUpperCase() + sname.slice(1).toLowerCase();
 
-const oldService = await Sdata.findOne({ sname: formattedSname });
+    const oldService = await Sdata.findOne({ sname: formattedSname });
 
     if (oldService) {
       return resp
         .status(400)
         .json({ error: "This name Service Already Added" });
     } else {
-      const newSdata = new Sdata({ imgsrc, title, sname : formattedSname, description });
+      const newSdata = new Sdata({
+        imgsrc,
+        title,
+        sname: formattedSname,
+        description,
+      });
       await newSdata.save();
 
       resp.status(201).json({
@@ -63,6 +69,18 @@ const oldService = await Sdata.findOne({ sname: formattedSname });
       .json({ error: "An error occurred while retrieving users" });
   }
 };
+
+// export const getService = async (req,resp) =>{
+//     try {
+//         const result = await Sdata.find
+
+//     }  catch (error) {
+//         console.error("Error In Get Service Controller ", error);
+//         resp
+//           .status(500)
+//           .json({ error: "An error occurred while retrieving users" });
+//       }
+// }
 
 export const getAllServices = async (req, resp) => {
   try {
@@ -82,6 +100,37 @@ export const getAllServices = async (req, resp) => {
     resp.status(200).json(services);
   } catch (error) {
     console.error("Error In Get All Services Controller ", error);
+    resp
+      .status(500)
+      .json({ error: "An error occurred while retrieving users" });
+  }
+};
+
+export const deleteUserService = async (req, resp) => {
+  try {
+    const { _id, userId } = req.query;
+    console.log(_id,userId);
+
+    const isAdmin = await User.findOne({ _id: userId, role: "admin" });
+
+    if (isAdmin) {
+      const result = await Service.deleteOne({ _id });
+      if (result.deletedCount === 1) {
+        return resp
+          .status(200)
+          .json({ success: "Service deleted successfully" });
+      } else {
+        return resp
+          .status(404)
+          .json({ error: "Service not found or already deleted" });
+      }
+    } else {
+      return resp
+        .status(400)
+        .json({ error: "Only Admin Has the Authority to Delete" });
+    }
+  } catch (error) {
+    console.error("Error In Delete User Service Controller ", error);
     resp
       .status(500)
       .json({ error: "An error occurred while retrieving users" });

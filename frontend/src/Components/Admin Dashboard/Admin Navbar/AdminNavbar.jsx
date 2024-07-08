@@ -70,7 +70,7 @@ const AdminNavbar = () => {
                             >
                                 <i className="fa fa-cog nav-icon"></i>
                                 Services
-                            </Dropdown.Toggle>
+                            </Dropdown.Toggle> 
 
                             <Dropdown.Menu className="dropdown-menu-custom">
                                 <Dropdown.Item as={NavLink} to='/allservices'>

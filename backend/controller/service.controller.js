@@ -64,7 +64,6 @@ export const addservice = async (req, resp) => {
 export const viewservice = async (req, resp) => {
   try {
     const { category, userId } = req.query;
-    console.log(`Request received with category: ${category}, userId: ${userId}`);
     let service = await Service.find({ category: category });
 
     if (service.length > 0) {
@@ -114,7 +113,7 @@ export const deleteService = async (req,resp)=>{
     if(result.deletedCount===1){
       return resp.status(200).json({ success: "Service deleted successfully" });
     }else{
-      return resp.status(404).json({ error: "Service deleted successfullService not found or already deleted" });
+      return resp.status(404).json({ error: "Service not found or already deleted" });
     }
     
   } catch (error) {

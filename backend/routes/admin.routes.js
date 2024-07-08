@@ -1,10 +1,12 @@
 import  express from "express";
-import { getAllBookings, getAllServices, getAllUser, setService } from "../controller/admin.controller.js";
+import { deleteUserService, getAllBookings, getAllServices, getAllUser, setService } from "../controller/admin.controller.js";
 
 
 const router = express.Router();
 
 router.post("/setService",setService);
+
+router.delete("/deleteUserService",deleteUserService);
 
 router.get("/getAllUsers",getAllUser);
 

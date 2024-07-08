@@ -85,9 +85,11 @@ function App() {
           <Route element={<AdminPrivateComponent />}>
             <Route path="/adminoverview" element={<AdminOverview />} />
             <Route path="/usersaccounts" element={<Accounts />} />
+            <Route path="/allservices" element={<Services />} />
+            <Route path="//alladminusers" element={<AllUsers />} />
             <Route path="/paymenthistory" element={<Payment />} />
             <Route path="/allbookings" element={<AllBookings />} />
-            <Route path="/allservices" element={<ViewAllServices />} />
+            {/* <Route path="/allservices" element={<ViewAllServices />} /> */}
             <Route path="/addnewservice" element={<AddNewService />} />
             <Route path="/adminprofile" element={<AdminProfile />} />
           </Route>

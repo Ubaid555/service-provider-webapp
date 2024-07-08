@@ -5,13 +5,25 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Services.css'; 
 import ChatBox from '../ChatBox/ChatBox';
+import AdminNavbar from '../Admin Dashboard/Admin Navbar/AdminNavbar';
 
-const Services = () => {
+const Services = () => { 
   const [Sdata,setSdata]=useState([]);
+  const [isAdmin,setIsAdmin]=useState(false);
   
   useEffect(() => {
     document.title = "Trusty Taskers - View Services";
   }, []);
+
+  useEffect(()=>{
+    const auth = localStorage.getItem("loginusers");
+    if(auth){
+    const role = JSON.parse(localStorage.getItem("loginusers")).role;
+    if(role==="admin"){
+    setIsAdmin(true);
+    }
+    }
+  },[])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,9 +45,12 @@ const Services = () => {
     fetchData();
   }, []);
 
+
+
   return (
     <div className="services-container">
-      <Navbar />
+    {isAdmin && <AdminNavbar />}
+     {!isAdmin && <Navbar />}
       <h1 className='head_style'>List of top Services</h1>
       <div className="cards-container">
       {Sdata.length > 0 ? (
@@ -46,13 +61,14 @@ const Services = () => {
       title={val.title} 
       sname={val.sname}
       link={val.link}
+      isAdmin={isAdmin}
     />
   ))
 ) : (
   <p>No Services Found</p>
 )}
       </div>
-      <ChatBox/>
+      {!isAdmin && <ChatBox/>}
       <Footer />
     </div>
   );

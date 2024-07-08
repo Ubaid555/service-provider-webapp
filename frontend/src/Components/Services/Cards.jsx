@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./Cards.css";
 
 function Card(props){
-  console.log("Incards",props.imgsrc);
     return(
     <>
       <div className='cards'>
@@ -13,9 +12,17 @@ function Card(props){
               <span className='card_category'>{props.title}</span>
               <h3 className='card_title'>{props.sname}</h3>
         
-              <NavLink to={`/allusers?category=${props.sname}`}>
+              {/* {props.!isAdmin &&<NavLink to={`/allusers?category=${props.sname}`}>
                 <button className='card_btn'>View More</button>
               </NavLink>
+              } */}
+
+              {props.isAdmin ? (<NavLink to={`/alladminusers?category=${props.sname}`}>
+                <button className='card_btn'>View More</button>
+              </NavLink>):(<NavLink to={`/allusers?category=${props.sname}`}>
+                <button className='card_btn'>View More</button>
+              </NavLink>)
+              }
           </div>
         </div>
       </div>

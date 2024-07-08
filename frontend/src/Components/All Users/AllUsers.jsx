@@ -5,8 +5,10 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./AllUsers.module.css";
 import ChatBox from "../ChatBox/ChatBox";
+import AdminNavbar from "../Admin Dashboard/Admin Navbar/AdminNavbar";
 
 const AllUsers = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
   const [services, setServices] = useState([]);
   const [userId, setUserId] = useState(null);
   const [averageRatings, setAverageRatings] = useState({});
@@ -25,6 +27,10 @@ const AllUsers = () => {
     const storedUser = JSON.parse(localStorage.getItem("loginusers"));
     if (storedUser && storedUser._id) {
       setUserId(storedUser._id);
+      const role = JSON.parse(localStorage.getItem("loginusers")).role;
+      if (role === "admin") {
+        setIsAdmin(true);
+      }
     }
   }, []);
 
@@ -132,6 +138,32 @@ const AllUsers = () => {
     });
   };
 
+  const handleDeleteNow = async(service) =>{
+    try {
+      const response = await fetch(`http://localhost:5001/api/admin/deleteUserService?userId=${userId}&_id=${service._id}`, {
+          method: "DELETE",
+          headers: {
+              "Content-Type": "application/json"
+          }
+      });
+
+      if (response.ok) {
+          const result = await response.json();
+          console.log(result);
+          if (result.success) {
+              alert("Service deleted successfully");
+              window.location.reload();
+          } else {
+              alert(result.error);
+          }
+      } else {
+          console.error('Failed to delete:', response.statusText);
+      }
+  } catch (error) {
+      console.error('Error:', error);
+  }
+  }
+
   const handleSeeReviews = (service) => {
     navigate("/seereviews", {
       state: {
@@ -142,7 +174,11 @@ const AllUsers = () => {
     });
   };
 
-  const handleMessageIconClick = (serviceProviderId, serviceTakerId, serviceProviderImage) => {
+  const handleMessageIconClick = (
+    serviceProviderId,
+    serviceTakerId,
+    serviceProviderImage
+  ) => {
     navigate("/chat", {
       state: {
         serviceProviderId: serviceProviderId,
@@ -154,7 +190,7 @@ const AllUsers = () => {
 
   return (
     <>
-      <Navbar />
+    {isAdmin ? <AdminNavbar /> :  <Navbar />}
       <div className={styles["service-list-container"]}>
         <h3 className={styles.heading_style}>List of Service Providers</h3>
         <div className={styles.search_container}>
@@ -178,12 +214,20 @@ const AllUsers = () => {
                 <div className={styles.card_info}>
                   <span className={styles.card_category}>
                     {service.category}
-                    <i
+              
+                    {!isAdmin && (<i
                       className="fa-regular fa-message"
                       aria-hidden="true"
-                      onClick={() => handleMessageIconClick(service.userId, userId, service.profilePic)}
+                      onClick={() =>
+                        handleMessageIconClick(
+                          service.userId,
+                          userId,
+                          service.profilePic
+                        )
+                      }
                       style={{ cursor: "pointer" }}
-                    ></i>
+                    ></i>)}
+                    
                   </span>
                   <h3 className={styles.card_title}>{service.fullName}</h3>
                   <div className={styles.averageRating}>
@@ -211,13 +255,21 @@ const AllUsers = () => {
                     <strong>Description:</strong> {service.description}
                   </p>
                   <div className={styles.both_buttons}>
-                    <button
+                  {isAdmin ? (<button
+                      className={styles.card_btn}
+                      onClick={() => handleDeleteNow(service)}
+                    >
+                      Delete
+                    </button>):(
+                      <button
                       className={styles.card_btn}
                       onClick={() => handleBookNow(service)}
                     >
                       Book Now
                     </button>
-                    {averageRatings[service.userId] !== null && (
+                    ) }
+                    
+                    {!isAdmin && averageRatings[service.userId] !== null && (
                       <button
                         className={styles.seereviews_btn}
                         onClick={() => handleSeeReviews(service)}
@@ -234,7 +286,7 @@ const AllUsers = () => {
           )}
         </div>
       </div>
-      <ChatBox />
+      {!isAdmin && <ChatBox />}
       <Footer />
     </>
   );
