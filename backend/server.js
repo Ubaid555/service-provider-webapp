@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import cors from 'cors';
 import http from 'http';
 
+import adminRoutes from "./routes/admin.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import messageRoutes from "./routes/message.routes.js";
@@ -33,6 +34,7 @@ app.use(cors({
     credentials: true,  
 }));
 
+app.use("/api/admin",adminRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/messages", messageRoutes);

@@ -4,7 +4,7 @@ const Sdata=[
         imgsrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2YpCWdekQPUvVEWL0mXcXurhl0WRpvPHHnA&usqp=CAU",
         title:"From Pipes to Perfect",
         sname:"Plumber",
-    },
+    }, 
     {
         id: 2,
         imgsrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHswzmDErTkwkX0t5m7od4GWPsoO-jZQi3OQ&usqp=CAU",

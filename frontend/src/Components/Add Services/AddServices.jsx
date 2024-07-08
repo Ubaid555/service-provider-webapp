@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./AddServices.module.css";
@@ -8,6 +8,7 @@ import ServiceConfirmModal from "../AllModals/ServiceConfirmModal/ServiceConfirm
 import ChatBox from "../ChatBox/ChatBox";
 
 const AddServices = () => {
+  const [Sdata, setSdata] = useState([]);
   const [userId, setUserId] = useState("");
   const [fullName, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -22,6 +23,28 @@ const AddServices = () => {
   }, []);
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5001/api/services/service`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const result = await response.json();
+        setSdata(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("loginusers"));
     if (userData) {
       setUserId(userData._id);
@@ -33,37 +56,27 @@ const AddServices = () => {
 
   useEffect(() => {
     if (category) {
-      switch (category) {
-        case "Plumber":
-          setDescription("Expert plumbing services for residential and commercial needs.");
-          break;
-        case "Electrician":
-          setDescription("Professional electrical services for your home and office.");
-          break;
-        case "Labor":
-          setDescription("General labor services for various tasks and projects.");
-          break;
-        case "Mechanic":
-          setDescription("Skilled mechanic services for vehicle maintenance and repair.");
-          break;
-        case "Carpenter":
-          setDescription("Quality carpentry services for furniture and construction.");
-          break;
-        case "Cable Operator":
-          setDescription("Reliable cable operator services for seamless connectivity.");
-          break;
-        default:
-          setDescription("");
+      const selectedCategory = Sdata.find(item => item.sname === category);
+      if (selectedCategory) {
+        setDescription(selectedCategory.description);
+      } else {
+        setDescription("");
       }
-    } else {
-      setDescription("");
     }
-  }, [category]);
+  }, [category, Sdata]);
 
   const handleService = async () => {
     let result = await fetch("http://localhost:5001/api/services/addservice", {
       method: "post",
-      body: JSON.stringify({ fullName, phone, category, price, description, userId, profilePic}),
+      body: JSON.stringify({
+        fullName,
+        phone,
+        category,
+        price,
+        description,
+        userId,
+        profilePic,
+      }),
       headers: { "Content-Type": "application/json" },
     });
 
@@ -77,7 +90,6 @@ const AddServices = () => {
   };
 
   const handleAddServiceClick = () => {
-
     if (!fullName) {
       toast.error("Name is required", {
         className: styles.custom_error_toast,
@@ -126,7 +138,9 @@ const AddServices = () => {
         <div className={styles.contact_form}>
           <form className={styles.form}>
             <div className={styles.form_control}>
-              <label className={styles.formLabel} htmlFor="profession">Profession</label>
+              <label className={styles.formLabel} htmlFor="profession">
+                Profession
+              </label>
               <select
                 id="profession"
                 name="profession"
@@ -135,12 +149,11 @@ const AddServices = () => {
                 className={styles.select_input}
               >
                 <option value="">Select a profession</option>
-                <option value="Plumber">Plumber</option>
-                <option value="Electrician">Electrician</option>
-                <option value="Labor">Labor</option>
-                <option value="Mechanic">Mechanic</option>
-                <option value="Carpenter">Carpenter</option>
-                <option value="Cable Operator">Cable Operator</option>
+                {Sdata.map((item, index) => (
+                  <option key={index} value={item.sname}>
+                    {item.sname}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -190,13 +203,13 @@ const AddServices = () => {
         </div>
       </section>
       <ToastContainer />
-      <ChatBox/>
+      <ChatBox />
       <Footer />
-      
-      <ServiceConfirmModal 
-        show={showConfirm} 
-        onConfirm={handleConfirmAddService} 
-        onCancel={handleCancelAddService} 
+
+      <ServiceConfirmModal
+        show={showConfirm}
+        onConfirm={handleConfirmAddService}
+        onCancel={handleCancelAddService}
         message="Are you sure you want to add this service?"
         confirmText="Confirm"
         cancelText="Cancel"

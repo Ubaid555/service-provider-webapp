@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Cards.css";
 
 function Card(props){
+  console.log("Incards",props.imgsrc);
     return(
     <>
       <div className='cards'>

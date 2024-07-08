@@ -1,6 +1,21 @@
 import Service from "../models/service.model.js";
 import mongoose from "mongoose";
 import { updateCount } from "../utils/counter.util.js";
+import Sdata from "../models/serviceData.model.js";
+
+export const service = async(req,resp)=>{
+  try {
+    const services = await Sdata.find();
+    if (services.length === 0) {
+      return resp.status(404).json({ message: "No services found" });
+    }
+    resp.send(services);
+    
+  } catch (error) {
+    console.log("Error's in Service Controller", error.message);
+    resp.status(500).json({ error: "Internal Server Error" });
+  }
+}
 
 export const addservice = async (req, resp) => {
   try {
@@ -38,7 +53,7 @@ export const addservice = async (req, resp) => {
         _id: newService._id,
         price: newService.price,
         description: newService.description,
-      });
+      }); 
     }
   } catch (error) {
     console.log("Error's in Add Service Controller", error.message);

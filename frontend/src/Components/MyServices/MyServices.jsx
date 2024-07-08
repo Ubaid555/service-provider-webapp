@@ -7,6 +7,7 @@ import ConfirmModal from '../AllModals/ConfirmModal/ConfirmModal';
 import ChatBox from '../ChatBox/ChatBox';
 
 export const MyServices = () => {
+    const [Sdata, setSdata] = useState([]);
     const [userProfile, setUserProfile] = useState([]);
     const [showConfirm, setShowConfirm] = useState(false);
     const [deleteProfileId, setDeleteProfileId] = useState(null);
@@ -20,6 +21,25 @@ export const MyServices = () => {
     useEffect(() => {
         showProfileDetail();
     }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch(`http://localhost:5001/api/services/service`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json"
+              }
+            });
+            const result = await response.json();
+            setSdata(result);
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     const showProfileDetail = async () => {
         const userId = JSON.parse(localStorage.getItem("loginusers"))._id;
@@ -80,22 +100,35 @@ export const MyServices = () => {
             };
 
     const getImageForCategory = (category) => {
-        switch(category.toLowerCase()) {
-            case 'electrician':
-                return '/Images/electrician.jpeg';
-            case 'plumber':
-                return '/Images/plumber.png';
-            case 'mechanic':
-                return '/Images/mechanic.png';
-            case 'cable operator':
-                return '/Images/cable operator.jpg';
-            case 'labor':
-                return '/Images/labor.png';
-            case 'carpenter':
-                return '/Images/carpenter.png';
-            default:
-                return '/Images/default.png'; 
+        if (category) {
+            if(Sdata.length>0){
+            const selectedCategory = Sdata.find(item => item.sname === category);
+            if (selectedCategory) {
+              return(selectedCategory.imgsrc);
+            } else {
+                return '/Images/default.png';
+            }
         }
+        else {
+            return '/Images/default.png';
+        }
+          }
+        // switch(category.toLowerCase()) {
+        //     case 'electrician':
+        //         return '/Images/electrician.jpeg';
+        //     case 'plumber':
+        //         return '/Images/plumber.png';
+        //     case 'mechanic':
+        //         return '/Images/mechanic.png';
+        //     case 'cable operator':
+        //         return '/Images/cable operator.jpg';
+        //     case 'labor':
+        //         return '/Images/labor.png';
+        //     case 'carpenter':
+        //         return '/Images/carpenter.png';
+        //     default:
+        //         return '/Images/default.png'; 
+        // }
     }
 
     return (
