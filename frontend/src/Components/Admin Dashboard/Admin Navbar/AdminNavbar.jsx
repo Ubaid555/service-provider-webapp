@@ -6,7 +6,7 @@ import './AdminNavbar.css';
 import { storage } from '../../Firebase/firebase';
 import { ref, getDownloadURL } from 'firebase/storage';
 
-const AdminNavbar = () => {
+export const AdminNavbar = () => {
     const auth = localStorage.getItem("loginusers");
     const navigate = useNavigate();
     const [userImage, setUserImage] = useState(null);

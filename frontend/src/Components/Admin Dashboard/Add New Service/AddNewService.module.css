@@ -1,76 +1,143 @@
+.all_content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .addNewServiceContainer {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+  max-width: 1800px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 8px;
+  margin: 20px;
+  margin-top: 35px;
+}
+
+.headers {
+  padding: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  margin-top: 85px;
+  background-color: #fecaca;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allow content to wrap */
+}
+
+.form {
+  width: 100%; /* Default to full width */
+  margin-top: 20px; /* Add margin-top for spacing */
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  width: 90%;
+  position: relative;
+}
+
+.formGroup label {
+  font-size: 14px;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background-color: white;
+  padding: 0 10px;
+}
+
+.inputField,
+.textareaField,
+.fileInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.textareaField {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submitBtn {
+  background-color: #d01c28;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.imageContainer {
+  width: 100%; /* Default to full width */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.serviceImage {
+  max-width: 100%;
+  max-height: 400px; /* Maintain aspect ratio */
+  margin-top: 0; /* Remove extra margin */
+  padding-right: 100px;
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 768px) {
+  .contentWrapper {
+    flex-direction: row;
   }
-  
-  .addNewServiceContainer h1 {
-    text-align: center;
-    margin-bottom: 20px;
+
+  .form {
+    width: 50%; /* Adjust as needed */
+    margin-top: 0; /* Remove extra margin */
   }
-  
+
+  .imageContainer {
+    width: 40%; /* Adjust as needed */
+    margin-top: 0; /* Remove extra margin */
+  }
+
+  .serviceImage {
+    height: 500px; /* Set specific height for larger screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .contentWrapper {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
   .formGroup {
-    margin-bottom: 15px;
-  }
-  
-  .label {
-    font-weight: bold;
-  }
-  
-  .inputField {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
   }
-  
-  .textareaField {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    resize: vertical;
-    min-height: 100px;
+
+  .form {
+    order: 2;
+    width: 100%; /* Explicitly set width for smaller screens */
   }
-  
-  .fileInput {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+
+  .imageContainer {
+    order: 1;
+    width: 100%; /* Explicitly set width for smaller screens */
+    margin-top: -50px;
+    margin-bottom: 30px;
   }
-  
-  .previewImage {
-    max-width: 200px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+  .serviceImage {
+    max-width: 100%;
+    width: 100%; /* Explicitly set width for smaller screens */
+    height: 270px; /* Set specific height for smaller screens */
+    margin-left: 40px; /* Reset margin-left */
   }
-  
-  .submitBtn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-  }
-  
-  .submitBtn:hover {
-    background-color: #0056b3;
-  }
-  
-  @media (max-width: 600px) {
-    .addNewServiceContainer {
-      padding: 10px;
-    }
-  }
-  
+}

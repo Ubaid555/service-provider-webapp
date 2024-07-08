@@ -1,0 +1,81 @@
+   .mainhead {
+    padding: 30px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #000000;
+    background-color: #fecaca;
+    margin-top: 85px;
+    margin-bottom: 60px;
+  }
+  
+  .accountsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  
+  .userCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  .userCard {
+    display: flex;
+    flex-direction: column; /* Changed to column */
+    align-items: center; /* Center align all items */
+    width: 100%;
+    max-width: 400px; /* Adjusted width for better appearance */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); 
+    transition: box-shadow 0.3s ease;
+    text-align: center; /* Center text */
+  }
+  
+  .userCard:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profilePic {
+    width: 80px; /* Increased size for better appearance */
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px; /* Space between image and name */
+    object-fit: cover;
+  }
+  
+  .userInfo h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #d01c28; /* Changed color for the name */
+  }
+  
+  .userInfo p {
+    margin: 5px 0;
+    color: #555;
+  }
+  .notFound{
+    font-size: 40px;
+    font-weight: 700;
+    color: #d01c28;
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 220px;
+  }
+  
+  @media (max-width: 768px) {
+    .userCard {
+      max-width: 100%;
+    }
+  }

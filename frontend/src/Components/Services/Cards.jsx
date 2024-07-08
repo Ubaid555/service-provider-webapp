@@ -11,12 +11,7 @@ function Card(props){
           <div className='card_info'>
               <span className='card_category'>{props.title}</span>
               <h3 className='card_title'>{props.sname}</h3>
-        
-              {/* {props.!isAdmin &&<NavLink to={`/allusers?category=${props.sname}`}>
-                <button className='card_btn'>View More</button>
-              </NavLink>
-              } */}
-
+              
               {props.isAdmin ? (<NavLink to={`/alladminusers?category=${props.sname}`}>
                 <button className='card_btn'>View More</button>
               </NavLink>):(<NavLink to={`/allusers?category=${props.sname}`}>
