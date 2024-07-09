@@ -1,0 +1,29 @@
+{
+  "aboutHeader": {
+    "translate": "Translate"
+  },
+  "aboutText": {
+    "message": "Cultivating trust through exceptional service and reliable professionals, Trusty Taskers stands as your trusted partner for seamless solutions and exceptional service delivery. With a commitment to excellence and a passion for customer satisfaction, we strive to exceed your expectations at every turn."
+  },
+  "aboutUs": {
+    "about": "About Us",
+    "aboutText": "At Trusty Taskers, we understand the importance of reliable and efficient services when it comes to everyday tasks around your home or workplace. With a commitment to excellence and a passion for customer satisfaction, we strive to connect you with skilled professionals who can address your needs promptly and effectively.",
+    "mission": "Our Mission",
+    "missionText": "Starting a mission to help you. Finding solutions to your problems. Making your life easier. We're here for you. Building trust and making things better. Giving you the service you deserve."
+  },
+  "team": {
+    "teamTitle": "The team behind Trusty Taskers",
+    "ubaidTitle": "Muhammad Ubaid",
+    "ubaidRole": "Head and CEO of the Trusty Taskers",
+    "ubaidDescription": "Meet our pioneering CEO, Head and CEO of Trusty Ventures, leading us to new horizons with vision, ensuring top-notch leadership every step of the way!",
+    "hanzalaTitle": "Hanzala Javaid",
+    "hanzalaRole": "Marketing Manager of Trusty Taskers",
+    "hanzalaDescription": "Meet our marketing maestro, the Manager of Trusty Marketing, guiding us to new markets with expertise, ensuring top-notch strategies every step!",
+    "talhaTitle": "Talha Khan",
+    "talhaRole": "Finance Manager of Trusty Taskers",
+    "talhaDescription": "Meet our fiscal steward, the Manager of Trusty Finance, navigating us to fiscal success with dedication, ensuring top-notch management every step!"
+  },
+  "address": {
+    "addressText": "Sector I/8-3 Street 57, Islamabad"
+  }
+}

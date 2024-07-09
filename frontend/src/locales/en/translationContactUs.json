@@ -1,0 +1,18 @@
+{
+    "contactUs": {
+      "header": "CONTACT US",
+      "description": "Let’s connect: we’re here to help, and we’d love to hear from you! whether you have a question, comment, or just want to chat , you can reach out to us through the contact form of this page, or by phone, email, or social media.",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "messageLabel": "Message",
+      "submitButton": "Submit Now",
+      "viaSupportChat": "Via Support Chat",
+      "viaEmailForm": "Via Email Form",
+      "viaPhone": "Via Phone",
+      "fillFormError": "Please fill the form to proceed",
+      "enterNameError": "Please enter your name",
+      "enterEmailError": "Please enter your email",
+      "enterMessageError": "Please enter your message"
+    }
+  }
+  

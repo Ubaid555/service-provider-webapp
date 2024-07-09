@@ -52,7 +52,13 @@ h4{
   border-radius: 3px; /* Add border radius for rounded corners */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
+.translate{
 
+}
+.translate-btn{
+  background-color: #d01c28;
+  margin-top: 100px;
+}
 @media only screen and (max-width: 1060px) {
   .whole_sec {
     flex-direction: column; /* Display items vertically on small screens */

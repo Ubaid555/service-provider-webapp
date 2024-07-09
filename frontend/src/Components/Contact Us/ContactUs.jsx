@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar'
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ContactHeader from '../ContactHeader/ContactHeader'
 import ContactForm from '../ContactForm/ContactForm'
 import Footer from '../Footer/Footer'
