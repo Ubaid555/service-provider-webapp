@@ -4,6 +4,7 @@
   right: 0;
   width: 100%;
   max-width: 400px;
+  z-index: 1000;
 }
 
 .chatArrowContainer {

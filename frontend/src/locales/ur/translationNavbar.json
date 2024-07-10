@@ -1,16 +1,16 @@
 {
-    "home": "صفحہ اول",
-    "about": "ہمارے بارے میں",
-    "contact": "ہم سے رابطہ کریں",
-    "dashboard": "ڈیش بورڈ",
-    "services": "خدمات",
-    "myServices": "میری خدمات",
-    "viewServices": "خدمات دیکھیں",
-    "addServices": "خدمات شامل کریں",
-    "viewProfile": "پروفائل دیکھیں",
-    "logout": "لاگ آوٹ",
-    "addCard": "کارڈ شامل کریں",
-    "login": "لاگ ان",
-    "signup": "سائن اپ کریں"
-  }
-  
+  "home": "صفحہ اول",
+  "about": "ہمارے بارے میں",
+  "aboutUs": "ہمارے بارے میں",
+  "contact": "ہم سے رابطہ کریں",
+  "dashboard": "ڈیش بورڈ",
+  "services": "خدمات",
+  "myServices": "میری خدمات",
+  "viewServices": "خدمات دیکھیں",
+  "addServices": "خدمات شامل کریں",
+  "viewProfile": "پروفائل دیکھیں",
+  "logout": "لاگ آوٹ",
+  "addCard": "کارڈ شامل کریں",
+  "login": "لاگ ان",
+  "signup": "سائن اپ کریں"
+}

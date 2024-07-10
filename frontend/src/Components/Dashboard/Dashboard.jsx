@@ -33,24 +33,6 @@ const Dashboard = () => {
             )}
           </button>
 
-          {/* Dropdown menus */}
-          {/* <Dropdown className={styles.dropbtn} variant="link">
-            <Dropdown.Toggle
-              className={styles.mainbtn}
-              style={{ backgroundColor: '#d01c28', color: 'white', border: 'none' }}
-            >
-              <i className="fa fa-file" style={{ marginRight: '10px' }}></i> Overview
-            </Dropdown.Toggle>
-            <Dropdown.Menu className={styles.dropdownMenuCustom}>
-              <Dropdown.Item as={NavLink} to='/summary-services' className={styles.dropdown_item}>
-                <i className="fa fa-list-alt" style={{ marginRight: '10px' }}></i> Summary of services
-              </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to='/mybookings' className={styles.dropdown_item}>
-                <i className="fa fa-book" style={{ marginRight: '10px' }}></i> Bookings
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown> */}
-
           <NavLink to='/overview' className={`${styles.navbarItem} ${styles.notificationLink}`}>
               <i className="fa fa-file" style={{ marginRight: '10px' }}></i> Overview
           </NavLink> 
@@ -114,10 +96,6 @@ const Dashboard = () => {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-
-           {/* <NavLink to='/notifications' className={`${styles.navbarItem} ${styles.notificationLink}`}>
-        <i className="fa fa-bell" style={{ marginRight: '10px' }}></i> Notifications
-      </NavLink> */}
         </nav>
       </div>
     </>

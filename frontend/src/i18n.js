@@ -1,39 +1,51 @@
-// // src/i18n.js
 // import i18n from 'i18next';
 // import { initReactI18next } from 'react-i18next';
-// // import Backend from 'i18next-http-backend';
-// // import LanguageDetector from 'i18next-browser-languagedetector';
 
 // import translationEN from './locales/en/translation.json';
 // import translationUR from './locales/ur/translation.json';
 // import translationAboutUsEN from './locales/en/translationAboutUs.json';
 // import translationAboutUsUR from './locales/ur/translationAboutUs.json';
+// import translationContactUsEN from './locales/en/translationContactUs.json';
+// import translationContactUsUR from './locales/ur/translationContactUs.json';
+// import translationNavbarEN from './locales/en/translationNavbar.json';
+// import translationNavbarUR from './locales/ur/translationNavbar.json';
+// import translationFooterEN from './locales/en/translationFooter.json';
+// import translationFooterUR from './locales/ur/translationFooter.json';
+// import translationDashboardEN from './locales/ur/translationDashboard.json';
+// import translationDashboardUR from './locales/ur/translationDashboard.json';
+// import translationOverviewEN from './locales/ur/translationOverview.json';
+// import translationOverviewUR from './locales/ur/translationOverview.json';
 
 // const resources = {
 //   en: {
 //     translation: translationEN,
-//     translate: translationAboutUsEN,
+//     aboutUs: translationAboutUsEN,
+//     contactUs: translationContactUsEN,
+//     navbar: translationNavbarEN,
+//     footer: translationFooterEN,
+//     dashboard: translationDashboardEN,
+//     overview: translationOverviewEN
 //   },
 //   ur: {
 //     translation: translationUR,
-//     translate: translationAboutUsUR,
+//     aboutUs: translationAboutUsUR,
+//     contactUs: translationContactUsUR,
+//     navbar: translationNavbarUR,
+//     footer: translationFooterUR,
+//     dashboard: translationDashboardUR,
+//     overview: translationOverviewUR
 //   },
 // };
 
 // i18n
-//   // .use(Backend)
-//   // .use(LanguageDetector)
-//   .use(initReactI18next) // passes i18n down to react-i18next
+//   .use(initReactI18next)
 //   .init({
 //     resources,
-//     lng: 'en', // default language
+//     lng: 'en',
 //     fallbackLng: 'en',
 //     interpolation: {
-//       escapeValue: false, // react already safes from xss
+//       escapeValue: false,
 //     },
-//     // backend: {
-//     //   loadPath: '/locales/{{lng}}/translationAboutUs.json',
-//     // },
 //   });
 
 // export default i18n;
@@ -50,19 +62,31 @@ import translationContactUsEN from './locales/en/translationContactUs.json';
 import translationContactUsUR from './locales/ur/translationContactUs.json';
 import translationNavbarEN from './locales/en/translationNavbar.json';
 import translationNavbarUR from './locales/ur/translationNavbar.json';
+import translationFooterEN from './locales/en/translationFooter.json';
+import translationFooterUR from './locales/ur/translationFooter.json';
+import translationDashboardEN from './locales/en/translationDashboard.json';
+import translationDashboardUR from './locales/ur/translationDashboard.json';
+import translationOverviewEN from './locales/en/translationOverview.json';
+import translationOverviewUR from './locales/ur/translationOverview.json';
 
 const resources = {
   en: {
     translation: translationEN,
     aboutUs: translationAboutUsEN,
     contactUs: translationContactUsEN,
-    navbar: translationNavbarEN
+    navbar: translationNavbarEN,
+    footer: translationFooterEN,
+    dashboard: translationDashboardEN,
+    overview: translationOverviewEN
   },
   ur: {
     translation: translationUR,
     aboutUs: translationAboutUsUR,
-    contactUs:  translationContactUsUR,
-    navbar: translationNavbarUR
+    contactUs: translationContactUsUR,
+    navbar: translationNavbarUR,
+    footer: translationFooterUR,
+    dashboard: translationDashboardUR,
+    overview: translationOverviewUR
   },
 };
 

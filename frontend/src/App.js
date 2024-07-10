@@ -79,6 +79,7 @@ function App() {
             <Route path="/seereviews" element={<SeeReviews />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/chatbox" element={<ChatBox />} />
+            <Route path="/chatbot" element={<ChatBot/>} />
             <Route path="/messagecontainer" element={<MessageContainer />} />
           </Route>
 

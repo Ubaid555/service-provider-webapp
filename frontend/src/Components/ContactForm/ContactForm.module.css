@@ -78,7 +78,7 @@ form{
     margin-right: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    align-items: center; 
   }
   .contact_image img {
     order: 1;
@@ -88,16 +88,16 @@ form{
   }
   .contact_form {
     order: 2;
-    width: 100%; /* Set form width to 100% */
-    max-width: 600px; /* Adjust maximum width as needed */
-    margin-bottom: 20px; /* Add margin bottom for spacing */
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
   }
   .top_btn {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%; /* Set buttons width to 100% */
-    max-width: 600px; /* Adjust maximum width as needed */
+    width: 100%; 
+    max-width: 600px; 
   }
 }
 @media screen and (max-width: 768px) {
@@ -108,3 +108,22 @@ form{
     margin-bottom: 30px;
   }
 }
+
+[dir="rtl"] .contact_form {
+  text-align: right;
+  margin-right: 0px; 
+}
+
+[dir="rtl"] .form_control {
+  direction: rtl;
+}
+
+[dir="rtl"] .form_control label {
+  text-align: right;
+}
+
+[dir="rtl"] .form_control input,
+[dir="rtl"] .form_control textarea {
+  text-align: right;
+}
+

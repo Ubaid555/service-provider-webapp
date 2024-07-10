@@ -1,16 +1,16 @@
 {
-    "home": "Home",
-    "about": "About",
-    "contact": "Contact Us",
-    "dashboard": "Dashboard",
-    "services": "Services",
-    "myServices": "My Services",
-    "viewServices": "View Services",
-    "addServices": "Add Services",
-    "viewProfile": "View Profile",
-    "logout": "Logout",
-    "addCard": "Add Card",
-    "login": "Log in",
-    "signup": "Sign up"
-  }
-  
+  "home": "Home",
+  "about": "About",
+  "aboutUs": "About Us",
+  "contact": "Contact Us",
+  "dashboard": "Dashboard",
+  "services": "Services",
+  "myServices": "My Services",
+  "viewServices": "View Services",
+  "addServices": "Add Services",
+  "viewProfile": "View Profile",
+  "logout": "Logout",
+  "addCard": "Add Card",
+  "login": "Log in",
+  "signup": "Sign up"
+}

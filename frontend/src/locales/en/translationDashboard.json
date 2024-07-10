@@ -1,0 +1,21 @@
+{
+    "dashboard": {
+      "title": "Trusty Taskers - Dashboard",
+      "overview": "Overview",
+      "myServices": "My Services",
+      "listOfServicesOffered": "List of services offered",
+      "addNewServices": "Add new services",
+      "manageBookings": "Manage Bookings",
+      "bookingRequests": "Booking Requests",
+      "pendingRequests": "Pending Requests",
+      "confirmedBookings": "Confirmed Bookings",
+      "completedBookings": "Completed Bookings",
+      "manageProfile": "Manage Profile",
+      "viewProfile": "View Profile",
+      "accountSettings": "Account Settings",
+      "notifications": "Notifications",
+      "dashboardMenu": "DASHBOARD MENU",
+      "close": "CLOSE"
+    }
+  }
+  

@@ -239,7 +239,6 @@ button {
   padding: 10px;
   color: white;
   background-color: #d01c28;
-
 }
 
 .translate-panel {
@@ -254,9 +253,9 @@ button {
 
 .translate-panel button {
   display: block;
-  width: 100%;
-  padding: 8px 12px;
-  text-align: left;
+  width: 80%;
+  padding: 8px 8px;
+  text-align: center;
   border: none;
   background-color: transparent;
   cursor: pointer;

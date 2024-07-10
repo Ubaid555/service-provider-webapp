@@ -166,7 +166,24 @@ a {
     color: #ffffff;
     align-items: center;
 }
+.right_side {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.robot_icon {
+    margin-right: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.robo_icon:hover{
+    color: #f79aa0;
+}
 
+.robo_icon {
+    font-size: 24px;
+    color: white;
+}
 .profile-menu {
     transform: translateY(-10%); 
 }
@@ -206,6 +223,16 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+    .robot_icon {
+        margin-bottom: 10px;
+    }
+     .right_side{
+        gap: 30px;
+     }
+      .profile-menu {
+        margin-top: 5px; 
+    }
+
     nav {
         padding: 0.3% 12%; 
         padding-left: 16%;
@@ -318,4 +345,27 @@ a {
         justify-content: space-between;
         padding-right: 5px;
     }
+}
+
+@media screen and (max-width: 900px) {
+    :lang(ar) .nav {
+        font-size: 0.8rem; /* Adjust font size as needed */
+    }
+
+    :lang(ar) #navbar .item {
+        font-size: 0.8rem; /* Adjust font size as needed */
+    }
+}
+:lang(ur) .nav {
+    direction: rtl;
+}
+
+:lang(ur) #navbar .item i {
+    margin-left: 5px; /* Add margin to the left instead of right */
+    margin-right: 0; /* Remove the margin on the right */
+}
+
+:lang(ur) .dropdown .nav-icon {
+    margin-left: 5px; /* Add margin to the left instead of right */
+    margin-right: 0; /* Remove the margin on the right */
 }
