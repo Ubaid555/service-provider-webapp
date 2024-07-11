@@ -42,7 +42,6 @@ import Accounts from "./Components/Admin Dashboard/Accounts/Accounts";
 import Payment from "./Components/Admin Dashboard/Payment/Payment";
 import AddNewService from "./Components/Admin Dashboard/Add New Service/AddNewService";
 import AllBookings from "./Components/Admin Dashboard/All Bookings/AllBookings";
-import { AdminProfile } from "./Components/Admin Dashboard/Admin Profile/AdminProfile";
 import { PublicComponent } from "./Components/Public Component/PublicComponent";
 import ChatBot from "./Components/ChatBot/ChatBot";
 
@@ -91,7 +90,6 @@ function App() {
             <Route path="/paymenthistory" element={<Payment />} />
             <Route path="/allbookings" element={<AllBookings />} />
             <Route path="/addnewservice" element={<AddNewService />} />
-            <Route path="/adminprofile" element={<AdminProfile />} />
           </Route>
 
           <Route element={<PublicComponent />}>

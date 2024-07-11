@@ -113,12 +113,6 @@
 }
 
 @media (max-width: 768px) {
-    .mainHeading {
-        font-size: 1.5rem;
-        padding: 20px 0;
-        margin-top: 167px;
-    }
-
     .tableHeader, .tableCell {
         padding: 12px;
         font-size: 0.9rem;
@@ -133,11 +127,6 @@
 }
 
 @media (max-width: 480px) {
-    .mainHeading {
-        font-size: 1.2rem;
-        padding: 15px 5;
-        margin-top: 176px;
-    }
     .tableHeader, .tableCell {
         padding: 5px;
         font-size: 0.8rem;
@@ -156,11 +145,6 @@
 }
 
 @media (max-width: 400px) {
-    .mainHeading {
-        font-size: 1.1rem;
-        padding: 15px 5;
-        margin-top: 176px;
-    }
     .tableHeader, .tableCell {
         padding: 3px;
         font-size: 0.7rem;
@@ -179,11 +163,6 @@
 }
 
 @media (max-width: 330px) {
-    .mainHeading {
-        font-size: 1rem;
-        padding: 15px 5;
-        margin-top: 176px;
-    }
     .tableHeader, .tableCell {
         padding: 2px;
         font-size: 0.65rem;

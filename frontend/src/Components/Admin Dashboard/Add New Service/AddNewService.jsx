@@ -133,7 +133,7 @@
 
 // export default AddNewService;
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import AdminNavbar from "../Admin Navbar/AdminNavbar";
@@ -152,6 +152,10 @@ const AddNewService = () => {
   const [description, setDescription] = useState('');
   const [imgsrc, setImgsrc] = useState(null);
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
+
+  useEffect(() => {
+    document.title = "Trusty Taskers - Add New Service";
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -7,6 +7,10 @@ const Accounts = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    document.title = "Trusty Taskers - User Accounts";
+  }, []);
+
+  useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await fetch('http://localhost:5001/api/admin/getAllUsers');

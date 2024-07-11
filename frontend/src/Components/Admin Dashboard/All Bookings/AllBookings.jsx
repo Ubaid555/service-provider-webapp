@@ -10,6 +10,10 @@ export const AllBookings = () => {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
+        document.title = "Trusty Taskers - Booking History";
+      }, []);
+
+    useEffect(() => {
         const fetchBookings = async () => {
             try {
                 const response = await fetch('http://localhost:5001/api/admin/getAllBookings');
