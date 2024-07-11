@@ -1,11 +1,11 @@
 {
-    "welcome_message": "{{name}} کے ڈیش بورڈ میں خوش آمدید",
-    "total_services_offered": "کل فراہم کردہ خدمات کی تعداد",
-    "total_services_requested": "کل درخواست کردہ خدمات",
-    "total_services_confirmed": "کل تصدیق شدہ خدمات",
-    "total_services_completed": "کل مکمل شدہ خدمات",
-    "loading_message": "لوڈ ہو رہا ہے...",
-    "error_message": "ڈیٹا حاصل کرنے میں خرابی",
-    "default_user": "صارف"
-  }
-  
+  "welcome": "خوش آمدید",
+  "to":"پر",
+  "name":" {{userName}}'s",
+  "dashboard":"کے ڈیش بورڈ ",
+  "totalServicesOffered": "پیش کردہ خدمات کی کل تعداد",
+  "totalServicesRequested": "کل خدمات کی درخواست کی گئی",
+  "totalServicesConfirmed": "کل خدمات کی تصدیق",
+  "totalServicesCompleted": "کل خدمات مکمل"
+}
+

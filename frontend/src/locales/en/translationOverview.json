@@ -1,11 +1,10 @@
 {
-    "welcome_message": "Welcome to {{name}}'s Dashboard",
-    "total_services_offered": "Total No. of Services Offered",
-    "total_services_requested": "Total Services Requested",
-    "total_services_confirmed": "Total Services Confirmed",
-    "total_services_completed": "Total Services Completed",
-    "loading_message": "Loading...",
-    "error_message": "Error fetching data",
-    "default_user": "User"
-  }
-  
+  "welcome": "Welcome",
+  "to":"to",
+  "name":"{{userName}}'s",
+  "dashboard":" Dashboard",
+  "totalServicesOffered": "Total No. of Services Offered",
+  "totalServicesRequested": "Total Services Requested",
+  "totalServicesConfirmed": "Total Services Confirmed",
+  "totalServicesCompleted": "Total Services Completed"
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "../Login component/Login.module.css";
+import styles from "./ForgotPassword.module.css";
 import Navbar from "../Navbar/Navbar";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
@@ -133,23 +133,17 @@ export const ForgotPassword = () => {
             <React.Fragment>
               {otpVerified ? (
                 <React.Fragment>
-                  <h1 className={styles.heading_main}>Update Password</h1>
-                  <div className={styles.container}>
-                    <div className={styles.imageContainer}>
-                      <img
-                        src="/Images/change password.png"
-                        height="300px"
-                        width="300px"
-                        alt="Update Password"
-                        className={styles.image_pass}
-                      />
+                  <div className={styles.imageContainer}>
+                    <img src="/Images/change password.png" alt="Update Password" className={styles.image_pass}/>
                     </div>
+                  <h1 className={styles.heading_main}>Set New Password</h1>
+                  <div className={styles.all_container}>
+                    
                     <div className={styles.form_control}>
-                      <label htmlFor="password">New Password</label>
                       <div className={styles.passwordInput}>
                         <input
                           type={showNewPassword ? "text" : "password"}
-                          placeholder="**********"
+                          placeholder="New Password"
                           value={newPassword}
                           onChange={(e) => setNewPassword(e.target.value)}
                           className={styles.input}
@@ -164,11 +158,10 @@ export const ForgotPassword = () => {
                     </div>
 
                     <div className={styles.form_control}>
-                      <label htmlFor="password">Confirm New Password</label>
                       <div className={styles.passwordInput}>
                         <input
                           type={showConfirmNewPassword ? "text" : "password"}
-                          placeholder="**********"
+                          placeholder="Confirm New Password"
                           value={confirmNewPassword}
                           onChange={(e) =>
                             setConfirmNewPassword(e.target.value)
@@ -185,15 +178,17 @@ export const ForgotPassword = () => {
                     </div>
 
                     <button onClick={updatePassword} className={styles.button}>
-              Update Password
-            </button>
+                      Set New Password
+                    </button>
 
                   </div>
                 </React.Fragment>
               ) : (
                 <React.Fragment>
+                  <div className={styles.verify_context}>
+                  <img className={styles.verify_photo} src='Images/verify.png' alt='verify-img' width="200px" height="200px"/>
                   <h1 className={styles.text}>Verify OTP</h1>
-                  <p>
+                  <p className={styles.verifyOTP_text}>
                     We have sent an OTP code to {email}. Verify your email by
                     putting an OTP code
                   </p>
@@ -215,13 +210,16 @@ export const ForgotPassword = () => {
                   <NavLink className={styles.appButton} onClick={verifyOtp}>
                     Verify OTP
                   </NavLink>
+                  </div>
                 </React.Fragment>
               )}
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <h1 className={styles.text}>FORGOT PASSWORD</h1>
+              <div className={styles.forgot_password_container}>
+              <h1 className={styles.text}>FORGOT <br/> PASSWORD</h1>
               <div className={styles.underline}></div>
+              <p className={styles.forgot_text}>Enter your registered email to set your new password</p>
               <div className={styles.inputs}>
                 <div className={styles.input}>
                   <img src={email_icon} alt="" className={styles.inputImg} />
@@ -237,6 +235,7 @@ export const ForgotPassword = () => {
               <NavLink className={styles.appButton} onClick={handleSubmit}>
                 SUBMIT
               </NavLink>
+              </div>
             </React.Fragment>
           )}
         </div>

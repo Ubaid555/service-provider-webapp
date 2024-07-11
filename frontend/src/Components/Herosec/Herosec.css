@@ -350,7 +350,8 @@ button {
 
 @media screen and (max-width: 768px) {
   .rtl .hero-content {
-    width: 100%; /* Full width on small screens */
+    width: 90%; /* Full width on small screens */
+
   }
   .rtl .hero-image {
     margin-inline-start: 40px; /* Adjust gap for RTL */
