@@ -71,9 +71,9 @@ const Overview = () => {
   }
 
   // Check if data or userProfile is still loading
-  if (!data || userProfile === null) {
-    return <div>Loading...</div>;
-  }
+  // if (!data || userProfile === null) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <>
@@ -97,25 +97,26 @@ const Overview = () => {
           <div className={styles.card}>
             <h2 className={styles.cardTitle}>Total No. of Services Offered</h2>
             <p className={styles.cardValue}>
-              <CountUp end={data.totalServices} duration={2.5} />
+            {!data ? 50 : <CountUp end={data.totalServices} duration={2.5} /> }
+              
             </p>
           </div>
           <div className={styles.card}>
             <h2 className={styles.cardTitle}>Total Services Requested</h2>
             <p className={styles.cardValue}>
-              <CountUp end={data.totalServicesRequested} duration={2.5} />
+            {!data ? 35 : <CountUp end={data.totalServicesRequested} duration={2.5} />}
             </p>
           </div>
           <div className={styles.card}>
             <h2 className={styles.cardTitle}>Total Services Confirmed</h2>
             <p className={styles.cardValue}>
-              <CountUp end={data.totalServicesConfirmed} duration={2.5} />
+            {!data ? 20 :  <CountUp end={data.totalServicesConfirmed} duration={2.5} />}
             </p>
           </div>
           <div className={styles.card}>
             <h2 className={styles.cardTitle}>Total Services Completed</h2>
             <p className={styles.cardValue}>
-              <CountUp end={data.totalServicesCompleted} duration={2.5} />
+            {!data ? 15 :  <CountUp end={data.totalServicesCompleted} duration={2.5} />}
             </p>
           </div>
         </div>
