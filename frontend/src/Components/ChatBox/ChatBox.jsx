@@ -58,7 +58,6 @@ const ChatBox = () => {
     };
 
     const handleReceiveMessage = async (message) => {
-      console.log("Socket On");
       if (message.senderId) {
         const senderName = await fetchUserData(message.senderId);
         const currentUser = JSON.parse(localStorage.getItem('loginusers'))._id;
