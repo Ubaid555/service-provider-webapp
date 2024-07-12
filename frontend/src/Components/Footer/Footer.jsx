@@ -56,7 +56,7 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
-const Footer = () => {
+export const Footer = () => {
   const { t, i18n } = useTranslation('footer');
   const isRtl = i18n.language === 'ur'; // Check if the current language is Urdu
 

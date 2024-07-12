@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
+import { AdminNavbar } from '../Admin Navbar/AdminNavbar';
 
 export const Payment = () => {
   useEffect(() => {
@@ -7,7 +8,10 @@ export const Payment = () => {
   }, []);
 
   return (
+    <>
+    <AdminNavbar/>
     <div>Payment</div>
+    </>
   )
 }
 

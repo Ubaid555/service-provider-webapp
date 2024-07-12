@@ -1,21 +1,18 @@
 {
-    "dashboard": {
-      "title": "ٹرسٹی ٹاسکرز - ڈیش بورڈ",
-      "overview": "جائزہ",
-      "myServices": "میری خدمات",
-      "listOfServicesOffered": "پیش کردہ خدمات کی فہرست",
-      "addNewServices": "نئی خدمات شامل کریں",
-      "manageBookings": "بکنگ کا انتظام کریں",
-      "bookingRequests": "بکنگ کی درخواستیں",
-      "pendingRequests": "زیر التواء درخواستیں",
-      "confirmedBookings": "تصدیق شدہ بکنگ",
-      "completedBookings": "مکمل بکنگ",
-      "manageProfile": "پروفائل کا انتظام کریں",
-      "viewProfile": "پروفائل دیکھیں",
-      "accountSettings": "اکاؤنٹ کی ترتیبات",
-      "notifications": "اطلاعات",
-      "dashboardMenu": "ڈیش بورڈ مینو",
-      "close": "بند کریں"
-    }
-  }
-  
+  "title": "ٹرسٹی ٹاسکرز - ڈیش بورڈ",
+  "dashboardMenu": "ڈیش بورڈ مینو",
+  "close": "بند کریں",
+  "overview": "جائزہ",
+  "myServices": "میری خدمات",
+  "listOfServices": "پیش کردہ خدمات کی فہرست",
+  "addNewServices": "نئی خدمات شامل کریں",
+  "manageBookings": "بکنگ کا انتظام کریں",
+  "bookingRequests": "بکنگ کی درخواستیں",
+  "pendingRequests": "زیر التوا درخواستیں",
+  "confirmedBookings": "تصدیق شدہ بکنگ",
+  "completedBookings": "مکمل بکنگ",
+  "manageProfile": "پروفائل کا انتظام کریں",
+  "viewProfile": "پروفائل دیکھیں",
+  "accountSettings": "اکاؤنٹ کی ترتیبات",
+  "notifications": "اطلاعات"
+}

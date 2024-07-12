@@ -1,8 +1,8 @@
 {
   "welcome": "خوش آمدید",
-  "to":"پر",
+  "to":" ",
   "name":" {{userName}}'s",
-  "dashboard":"کے ڈیش بورڈ ",
+  "dashboard":" ڈیش بورڈ میں ",
   "totalServicesOffered": "پیش کردہ خدمات کی کل تعداد",
   "totalServicesRequested": "کل خدمات کی درخواست کی گئی",
   "totalServicesConfirmed": "کل خدمات کی تصدیق",

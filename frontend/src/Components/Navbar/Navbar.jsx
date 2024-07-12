@@ -149,7 +149,7 @@ import { storage } from '../Firebase/firebase';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { useTranslation } from 'react-i18next';
 
-const Navbar = () => {
+export const Navbar = () => {
     const auth = localStorage.getItem("loginusers");
     const navigate = useNavigate();
     const { t, i18n } = useTranslation('navbar');
