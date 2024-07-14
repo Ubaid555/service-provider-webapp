@@ -1,0 +1,16 @@
+{
+    "login": {
+        "title": "لاگ ان کریں",
+        "emailPlaceholder": "ای میل درج کریں",
+        "passwordPlaceholder": "پاس ورڈ درج کریں",
+        "forgotPassword": "پاس ورڈ بھول گئے؟",
+        "clickHere": "یہاں کلک کریں!",
+        "loginButton": "لاگ ان کریں",
+        "fillFieldsError": "براہ کرم تمام فیلڈز کو پُر کریں",
+        "userNotRegistered": "یہ صارف رجسٹر نہیں ہے",
+        "wrongPassword": "براہ کرم درست پاس ورڈ درج کریں",
+        "loginSuccess": "لاگ ان کامیاب! ری ڈائریکٹ ہو رہا ہے...",
+        "incorrectCredentials": "براہ کرم صحیح اسناد درج کریں",
+        "loginError": "کچھ غلط ہو گیا۔ براہ کرم بعد میں دوبارہ کوشش کریں۔"
+    }
+}

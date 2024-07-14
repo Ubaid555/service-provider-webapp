@@ -35,6 +35,7 @@ h2 {
 
 .label {
   margin-top: 30px;
+  z-index: 1000;
 }
 
 .input {
@@ -81,6 +82,22 @@ h2 {
   border: none;
   cursor: pointer;
   text-align: center;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  display: flex;
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 1150px) {

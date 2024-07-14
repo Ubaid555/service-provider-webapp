@@ -15,6 +15,12 @@ import translationDashboardEN from './locales/en/translationDashboard.json';
 import translationDashboardUR from './locales/ur/translationDashboard.json';
 import translationOverviewEN from './locales/en/translationOverview.json';
 import translationOverviewUR from './locales/ur/translationOverview.json';
+import translationLoginEN from './locales/ur/translationLogin.json';
+import translationLoginUR from './locales/ur/translationLogin.json';
+import translationSignupEN from './locales/ur/translationSignup.json';
+import translationSignupUR from './locales/ur/translationSignup.json';
+
+
 
 const resources = {
   en: {
@@ -24,7 +30,9 @@ const resources = {
     navbar: translationNavbarEN,
     footer: translationFooterEN,
     dashboard: translationDashboardEN,
-    overview: translationOverviewEN
+    overview: translationOverviewEN,
+    login: translationLoginEN,
+    signup: translationSignupEN
   },
   ur: {
     translation: translationUR,
@@ -33,7 +41,9 @@ const resources = {
     navbar: translationNavbarUR,
     footer: translationFooterUR,
     dashboard: translationDashboardUR,
-    overview: translationOverviewUR
+    overview: translationOverviewUR,
+    login: translationLoginUR,
+    signup: translationSignupUR
   },
 };
 

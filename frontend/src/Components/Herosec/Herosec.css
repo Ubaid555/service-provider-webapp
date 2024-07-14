@@ -224,7 +224,7 @@ button {
 
 .translate-button {
   position: fixed;
-  top: 180px;
+  top: 140px;
   left: 35px;
   z-index: 1000;
   color: white;

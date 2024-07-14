@@ -6,6 +6,7 @@ import styles from "./Login.module.css";
 import Navbar from '../Navbar/Navbar';
 import email_icon from '../Assets/email.png';
 import password_icon from '../Assets/password.png';
+import TranslateButton from '../TranslateButton/TranslateButton';
 
 export const Login = () => {
     const [email, setEmail] = useState("");
@@ -75,6 +76,7 @@ export const Login = () => {
     return (
         <>
             <Navbar />
+            <TranslateButton/>
             <div className={styles.whole_contents}>
                 <div className={styles.container}>
                     <div className={styles.login}>

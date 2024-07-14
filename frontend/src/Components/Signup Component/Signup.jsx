@@ -10,6 +10,7 @@ import phone_icon from '../Assets/phone.png';
 import password_icon from '../Assets/password.png';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../Firebase/firebase";
+import TranslateButton from '../TranslateButton/TranslateButton';
 
 export const Signup = () => {
     const [fullName, setName] = useState("");
@@ -173,6 +174,7 @@ if (!passwordPattern.test(password)) {
     return (
         <>
             <Navbar />
+            <TranslateButton/>
             <div className={styles.whole_content}>
             <div className={styles.signupContainer}>
                 <div className={styles.register}>

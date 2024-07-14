@@ -1,0 +1,14 @@
+{
+  "loginTitle": "LOG IN",
+  "loginEmailPlaceholder": "Enter Email",
+  "loginPasswordPlaceholder": "Enter Password",
+  "forgotPassword": "Forgot Password?",
+  "clickHere": "Click Here!",
+  "loginButton": "LOG IN",
+  "toastEmptyFields": "Please fill in all fields",
+  "toastLoginSuccess": "Login successful! Redirecting...",
+  "toastNotRegistered": "This user is not registered",
+  "toastWrongPassword": "Please enter the correct password",
+  "toastWrongCredentials": "Please enter correct credentials",
+  "toastError": "Something went wrong. Please try again later."
+}

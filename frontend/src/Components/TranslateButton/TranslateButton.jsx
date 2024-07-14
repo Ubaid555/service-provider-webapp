@@ -49,7 +49,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 
-const TranslateButton = () => {
+export const TranslateButton = () => {
   const { i18n } = useTranslation();
   const [showTranslatePanel, setShowTranslatePanel] = useState(false);
   const panelRef = useRef(null);

@@ -1,0 +1,14 @@
+{
+  "loginTitle": "لاگ ان",
+  "loginEmailPlaceholder": "ای میل درج کریں",
+  "loginPasswordPlaceholder": "پاس ورڈ درج کریں",
+  "forgotPassword": "پاسورڈ بھول گئے؟",
+  "clickHere": "یہاں کلک کریں!",
+  "loginButton": "لاگ ان",
+  "toastEmptyFields": "براہ کرم تمام فیلڈز کو پُر کریں",
+  "toastLoginSuccess": "لاگ ان کامیاب! ری ڈائریکٹ ہو رہا ہے...",
+  "toastNotRegistered": "یہ صارف رجسٹرڈ نہیں ہے",
+  "toastWrongPassword": "براہ کرم درست پاس ورڈ درج کریں",
+  "toastWrongCredentials": "براہ کرم درست اسناد درج کریں",
+  "toastError": "کچھ غلط ہو گیا. براہ کرم بعد میں دوبارہ کوشش کریں."
+}

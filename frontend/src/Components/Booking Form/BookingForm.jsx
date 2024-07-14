@@ -99,7 +99,7 @@ const BookingForm = () => {
       } else {
         toast.success("Service has been requested successfully!");
         setTimeout(() => {
-          navigate("/services");
+          navigate("/paymentform");
         }, 2000); // Delay navigation to allow the toast message to be displayed
       }
     } catch (error) {

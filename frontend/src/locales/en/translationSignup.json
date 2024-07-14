@@ -1,0 +1,16 @@
+{
+    "login": {
+        "title": "LOG IN",
+        "emailPlaceholder": "Enter Email",
+        "passwordPlaceholder": "Enter Password",
+        "forgotPassword": "Forgot Password?",
+        "clickHere": "Click Here!",
+        "loginButton": "LOG IN",
+        "fillFieldsError": "Please fill in all fields",
+        "userNotRegistered": "This user is not registered",
+        "wrongPassword": "Please enter the correct password",
+        "loginSuccess": "Login successful! Redirecting...",
+        "incorrectCredentials": "Please enter correct credentials",
+        "loginError": "Something went wrong. Please try again later."
+    }
+}
