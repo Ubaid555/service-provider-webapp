@@ -93,11 +93,19 @@ export const signup = async (req, resp) => {
       return resp.status(400).json({ error: "Passwords Don't Match" });
     }
 
-    if (password.length < 6) {
-      return resp
-        .status(400)
-        .json({ error: "Password must be minimum 6 Character's Long" });
-    }
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+
+        if (!passwordPattern.test(password)) {
+          return resp
+            .status(400)
+            .json({ error: "Password must be minimum 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%?&)." });
+        }
+
+    // if (password.length < 6) {
+    //   return resp
+    //     .status(400)
+    //     .json({ error: "Password must be minimum 6 Character's Long" });
+    // }
 
     const user = await User.findOne({ email });
     if (user) {
@@ -225,6 +233,15 @@ export const resetPassword = async (req, resp) => {
         if (!user) {
             return resp.status(404).json({ message: "User not found" });
         }
+
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+
+        if (!passwordPattern.test(newPassword)) {
+          return resp
+            .status(400)
+            .json({ message: "Password must be minimum 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%?&)." });
+        }
+
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(newPassword, salt);
 

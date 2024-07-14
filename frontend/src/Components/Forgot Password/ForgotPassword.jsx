@@ -111,6 +111,7 @@ export const ForgotPassword = () => {
 
       let result = await response.json();
       if (response.status === 400) {
+        console.log(result.message);
         toast.error(result.message);
     } else if (response.status === 404) {
         toast.error(result.message);
