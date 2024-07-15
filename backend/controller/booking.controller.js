@@ -2,11 +2,136 @@ import Booking from "../models/booking.model.js";
 import User from "../models/user.model.js";
 import mongoose from "mongoose";
 import { updateCount } from "../utils/counter.util.js";
+import Stripe from "stripe";
+
+// export const
+// export const bookService = async (req, resp) => {
+//   try {
+//     const {
+//       category,
+//       serviceProviderId,
+//       serviceTakerId,
+//       price,
+//       serviceProviderName,
+//       serviceProviderImage,
+//       description,
+//     } = req.body;
+//     const userId = serviceProviderId;
+
+//     const existingBooking = await Booking.findOne({
+//       category,
+//       serviceProviderId,
+//       serviceTakerId,
+//     });
+
+//     if (existingBooking) {
+//       if (existingBooking.currentStatus == "Pending") {
+//         return resp
+//           .status(400)
+//           .json({ error: "Already Pending Service Request To This User" });
+//       } else if (existingBooking.currentStatus == "Confirmed") {
+//         return resp
+//           .status(400)
+//           .json({ error: "There is an Ongoing Service With this User" });
+//       } else {
+//         const user = await User.findOne({ _id: serviceTakerId });
+//         const email = user.email;
+//         console.log("User email is ", email);
+
+//         let users = await User.findOne({ _id: serviceTakerId });
+//         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  
+//         const session = await stripe.checkout.sessions.create({
+//           payment_method_types: ["card"],
+//           mode: "payment",
+//           success_url: `${process.env.CLIENT_SITE_URL}/mybookings`,
+//           cancel_url: `${process.env.CLIENT_SITE_URL}/bookingform`,
+//           customer_email: users.email,
+//           client_reference_id: serviceProviderId,
+//           line_items: [
+//             {
+//               price_data: {
+//                 currency: "usd",
+//                 unit_amount: price,
+//                 product_data: {
+//                   name: serviceProviderName,
+//                   description: description,
+//                   images: [serviceProviderImage],
+//                 },
+//               },
+//               quantity: 1,
+//             },
+//           ],
+//         });
+
+//         let bookingData = { ...req.body, currentStatus: "Pending" };
+//         let newBooking = new Booking(bookingData);
+//         await updateCount("Pending", userId);
+//         let result = await newBooking.save();
+//         resp.status(201).json(result);
+//       }
+//     } else {
+//       let user = await User.findOne({ _id: serviceTakerId });
+//       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+//       const session = await stripe.checkout.sessions.create({
+//         payment_method_types: ["card"],
+//         mode: "payment",
+//         success_url: `${process.env.CLIENT_SITE_URL}/mybookings`,
+//         cancel_url: `${process.env.CLIENT_SITE_URL}/bookingform`,
+//         customer_email: user.email,
+//         client_reference_id: serviceProviderId,
+//         line_items: [
+//           {
+//             price_data: {
+//               currency: "usd",
+//               unit_amount: price,
+//               product_data: {
+//                 name: serviceProviderName,
+//                 description: description,
+//                 images: [serviceProviderImage],
+//               },
+//             },
+//             quantity: 1,
+//           },
+//         ],
+//       });
+
+
+
+//       let bookingData = { ...req.body, currentStatus: "Pending" };
+//       let newBooking = new Booking(bookingData);
+//       await updateCount("Pending", userId);
+//       let result = await newBooking.save();
+//       resp.status(201).json({success:true,message:'Successfully Paid',session});
+//   }
+//   } catch (error) {
+//     console.log("Error's in Book Service Controller", error.message);
+//     resp.status(500).json({ error: "Internal Server Error" });
+//   }
+// };
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const bookService = async (req, resp) => {
   try {
-    const { category, serviceProviderId, serviceTakerId } = req.body;
-    const userId = serviceProviderId;
+    const {
+      category,
+      serviceProviderId,
+      serviceTakerId,
+      price,
+      serviceProviderName,
+      serviceProviderImage,
+      description,
+      address,
+      date,
+      time,
+      serviceTakerName,
+      serviceTakerPhone,
+      serviceTakerImage,
+      serviceProviderPhone,
+    } = req.body;
+
     const existingBooking = await Booking.findOne({
       category,
       serviceProviderId,
@@ -14,33 +139,116 @@ export const bookService = async (req, resp) => {
     });
 
     if (existingBooking) {
-      if (existingBooking.currentStatus == "Pending") {
-        return resp
-          .status(400)
-          .json({ error: "Already Pending Service Request To This User" });
-      } else if (existingBooking.currentStatus == "Confirmed") {
-        return resp
-          .status(400)
-          .json({ error: "There is an Ongoing Service With this User" });
-      } else {
-        let bookingData = { ...req.body, currentStatus: "Pending" };
-        let newBooking = new Booking(bookingData);
-        await updateCount("Pending", userId);
-        let result = await newBooking.save();
-        resp.status(201).json(result);
+      if (existingBooking.currentStatus === "Pending") {
+        return resp.status(400).json({ error: "Already Pending Service Request To This User" });
+      } else if (existingBooking.currentStatus === "Confirmed") {
+        return resp.status(400).json({ error: "There is an Ongoing Service With this User" });
       }
-    } else {
-      let bookingData = { ...req.body, currentStatus: "Pending" };
-      let newBooking = new Booking(bookingData);
-      await updateCount("Pending", userId);
-      let result = await newBooking.save();
-      resp.status(201).json(result);
     }
+
+    const user = await User.findOne({ _id: serviceTakerId });
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      success_url: `http://localhost:5001/api/bookings/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.CLIENT_SITE_URL}/bookingform`,
+      customer_email: user.email,
+      client_reference_id: serviceProviderId,
+      metadata: {
+        category,
+        serviceTakerId,
+        serviceProviderName,
+        serviceProviderImage,
+        description,
+        address,
+        date,
+        time,
+        serviceTakerName,
+        serviceTakerPhone,
+        serviceTakerImage,
+        serviceProviderPhone,
+        price
+      },
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            unit_amount: price * 100, // Stripe expects amount in cents
+            product_data: {
+              name: serviceProviderName,
+              description: description,
+              images: [serviceProviderImage],
+            },
+          },
+          quantity: 1,
+        },
+      ],
+    });
+
+    resp.status(201).json({ success: true, message: 'Redirect to Stripe', session });
   } catch (error) {
     console.log("Error's in Book Service Controller", error.message);
     resp.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+export const success = async(req,resp)=>{
+  try {
+    const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+
+    if (session.payment_status === 'paid') {
+      const {
+        client_reference_id: serviceProviderId,
+        metadata: {
+          category,
+          serviceTakerId,
+          serviceProviderName,
+          serviceProviderImage,
+          description,
+          address,
+          date,
+          time,
+          serviceTakerName,
+          serviceTakerPhone,
+          serviceTakerImage,
+          serviceProviderPhone,
+          price,
+        },
+      } = session;
+
+      let bookingData = {
+        category,
+        serviceProviderId,
+        serviceTakerId,
+        serviceProviderName,
+        serviceProviderImage,
+        description,
+        address,
+        date,
+        time,
+        serviceTakerName,
+        serviceTakerPhone,
+        serviceTakerImage,
+        serviceProviderPhone,
+        price: price / 100, // Convert amount back to dollars
+        currentStatus: "Pending",
+      };
+
+      let newBooking = new Booking(bookingData);
+      await updateCount("Pending", serviceProviderId);
+      await newBooking.save();
+
+      resp.redirect(`${process.env.CLIENT_SITE_URL}/mybookings`);
+    } else {
+      resp.redirect(`${process.env.CLIENT_SITE_URL}/services`);
+    }
+  } catch (error) {
+    console.log("Error's in Payment Success Handler", error.message);
+    resp.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
 
 export const myBookedService = async (req, resp) => {
   try {
@@ -137,29 +345,32 @@ export const handleBookingRequest = async (req, resp) => {
 //   }
 // };
 
-
 export const updateBooking = async (req, resp) => {
   try {
-      const { bookingId, ...updateData } = req.body;
+    const { bookingId, ...updateData } = req.body;
 
-      if (!bookingId) {
-          return resp.status(400).json({ message: "Booking ID is required" });
-      }
+    if (!bookingId) {
+      return resp.status(400).json({ message: "Booking ID is required" });
+    }
 
-      const result = await Booking.updateOne({ _id: bookingId }, { $set: updateData });
+    const result = await Booking.updateOne(
+      { _id: bookingId },
+      { $set: updateData }
+    );
 
-      if (result.matchedCount === 0) {
-          return resp.status(404).json({ message: "Booking not found" });
-      }
+    if (result.matchedCount === 0) {
+      return resp.status(404).json({ message: "Booking not found" });
+    }
 
-      if (result.modifiedCount === 0) {
-          return resp.status(400).json({ message: "No changes made to the booking" });
-      }
+    if (result.modifiedCount === 0) {
+      return resp
+        .status(400)
+        .json({ message: "No changes made to the booking" });
+    }
 
-      resp.status(200).json({ message: "Booking updated successfully" });
-
+    resp.status(200).json({ message: "Booking updated successfully" });
   } catch (error) {
-      console.log("Error in Update Booking Controller", error.message);
-      resp.status(500).json({ error: "Internal Server Error" });
+    console.log("Error in Update Booking Controller", error.message);
+    resp.status(500).json({ error: "Internal Server Error" });
   }
 };

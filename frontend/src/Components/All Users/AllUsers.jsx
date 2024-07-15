@@ -433,6 +433,7 @@ const AllUsers = () => {
         serviceProviderId: service.userId,
         serviceProviderPhone: service.phone,
         serviceProviderImage: service.profilePic,
+        price:service.price,
       },
     });
   };
