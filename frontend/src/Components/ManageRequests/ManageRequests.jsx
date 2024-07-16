@@ -601,7 +601,7 @@ const ManageRequests = () => {
         if (userId) {
             fetchBookings('Pending', setPendingBookings);
             fetchBookings('Confirmed', setConfirmedBookings);
-            fetchBookings('Verified', setVerifiedBookings); // Fetch verified bookings
+            fetchBookings('Pending Complete', setVerifiedBookings); // Fetch verified bookings
             fetchBookings('Completed', setCompletedBookings);
             fetchBookings('Cancelled', setCancelledBookings);
         }
@@ -636,7 +636,7 @@ const ManageRequests = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ bookingId, currentStatus: 'Verified', userId })
+                    body: JSON.stringify({ bookingId, currentStatus: 'Completed', userId })
                 });
 
                 let result = await update.json();
@@ -801,7 +801,7 @@ const ManageRequests = () => {
                 {verifiedBookings.length > 0 && (
                     <>
                         <tr className={styles.tableRow}>
-                            <th colSpan="4" className={styles.groupHeading}>Verified Bookings</th>
+                            <th colSpan="4" className={styles.groupHeading}>Pending Confirmation</th>
                         </tr>
                         {verifiedBookings.map((booking) => (
                             <tr key={booking._id} className={styles.tableRow}>
@@ -809,12 +809,13 @@ const ManageRequests = () => {
                                 <td className={styles.tableCell}>{booking.serviceTakerName}</td>
                                 <td className={styles.tableCell}>
                                     <span className={`${styles.statusBadge} ${styles[booking.currentStatus.toLowerCase()]}`}>
-                                        {booking.currentStatus}
+                                        {/* {booking.currentStatus} */}
+                                        Verify
                                     </span>
                                 </td>
                                 <td className={styles.tableCell}>
                                     <button onClick={() => viewDetails(booking)} className={styles.actionButton}>View Details</button>
-                                    <button className={styles.actionButton} onClick={() => confirmCompleteRequest(booking)}>Complete</button>
+                                   {booking.serviceProviderStatus === "Pending" ? (<button className={styles.actionButton} onClick={() => confirmCompleteRequest(booking)}>Complete</button>) : (<></>)}
                                     {/* <button className={styles.actionButton} onClick={() => handleRejectWithConfirmation(booking._id)}>Reject</button> */}
                                 </td>
                             </tr>

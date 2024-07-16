@@ -315,14 +315,63 @@ export const ongoingBooking = async (req, resp) => {
 export const handleBookingRequest = async (req, resp) => {
   try {
     const { bookingId, currentStatus, userId } = req.body;
-    //     const objectId = mongoose.Types.ObjectId.isValid(bookingId) ? new mongoose.Types.ObjectId(bookingId) : null;
-    //     let result1 = await Booking.find({_id:objectId});
-    const result = await Booking.updateOne(
-      { _id: bookingId },
-      { $set: { currentStatus } }
-    );
+    const serviceProvider = await Booking.findOne({serviceProviderId:userId});
+    const serviceTaker = await Booking.findOne({serviceTakerId:userId});
+
+    let result;
+    if (currentStatus === "Completed") {
+      const existingBooking = await Booking.findOne({ _id: bookingId });
+
+      if (!existingBooking) {
+        return resp
+          .status(400)
+          .json({ error: "No Data Found Related to this Booking" });
+      }
+
+      if (existingBooking.currentStatus === "Pending Complete") {
+        result = await Booking.updateOne(
+          { _id: bookingId },
+          { $set: { currentStatus } }
+        );
+      } else {
+        result = await Booking.updateOne(
+          { _id: bookingId },
+          { $set: { currentStatus: "Pending Complete" } }
+          
+        );
+        return resp.status(200).json({ success: "Successfully Updated" });
+      }
+
+      if(serviceTaker){
+        result = await Booking.updateOne(
+          {_id:bookingId},
+          {$set: { userStatus: "Completed" }}
+        )
+      }
+      else{
+        result = await Booking.updateOne(
+          {_id:bookingId},
+          {$set: { serviceProviderStatus: "Completed" }}
+        )
+      }
+      // if (result.modifiedCount === 1) {
+      //   if(serviceProvider){
+      //   await updateCount(currentStatus, userId);
+      //   }
+      //   return resp.status(200).json({ success: "Successfully Updated" });
+      // }
+
+    } else {
+      result = await Booking.updateOne(
+        { _id: bookingId },
+        { $set: { currentStatus } }
+      );
+    }
+
     if (result.modifiedCount === 1) {
+      if(serviceProvider){
       await updateCount(currentStatus, userId);
+      }
       return resp.status(200).json({ success: "Successfully Updated" });
     } else {
       return resp
@@ -331,6 +380,28 @@ export const handleBookingRequest = async (req, resp) => {
     }
   } catch (error) {
     console.log("Error's in Handle Booking Request Controller", error.message);
+    resp.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+export const handleUserRequest = async (req, resp) => {
+  try {
+    const { bookingId } = req.body;
+    //     const objectId = mongoose.Types.ObjectId.isValid(bookingId) ? new mongoose.Types.ObjectId(bookingId) : null;
+    //     let result1 = await Booking.find({_id:objectId});
+    const result = await Booking.updateOne(
+      { _id: bookingId },
+      { $set: { userStatus: "Completed" } }
+    );
+    if (result.modifiedCount === 1) {
+      return resp.status(200).json({ success: "Successfully Updated" });
+    } else {
+      return resp
+        .status(400)
+        .json({ error: "No Data Found Related to this Booking" });
+    }
+  } catch (error) {
+    console.log("Error's in Handle User Request Controller", error.message);
     resp.status(500).json({ error: "Internal Server Error" });
   }
 };

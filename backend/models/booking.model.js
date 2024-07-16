@@ -109,6 +109,17 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    userStatus: {
+      type: String,
+      enum: ['Pending', 'Completed'], // You can add more statuses as needed
+        default: 'Pending'
+    },
+    serviceProviderStatus: {
+      type: String,
+      enum: ['Pending', 'Completed'], // You can add more statuses as needed
+        default: 'Pending'
+    },
+
   },
   { timestamps: true }
 );
