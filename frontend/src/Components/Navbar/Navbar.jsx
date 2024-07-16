@@ -140,7 +140,7 @@
 // export default Navbar;
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import logo from './logo1.jpeg';
@@ -155,10 +155,7 @@ export const Navbar = () => {
     const { t, i18n } = useTranslation('navbar');
     const [userImage, setUserImage] = useState(null);
     const [clicked, setClicked] = useState(false);
-
-    const handleClick = () => {
-        setClicked(!clicked);
-    };
+    const navbarRef = useRef(null); // Ref for the navbar element
 
     useEffect(() => {
         if (auth) {
@@ -178,7 +175,24 @@ export const Navbar = () => {
         // Set the lang attribute on the html element
         document.documentElement.lang = i18n.language;
 
+        // Event listener to handle clicks outside the navbar
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
     }, [auth, i18n.language]);
+
+    // Function to handle clicks outside the navbar and on close icon
+    const handleClickOutside = (event) => {
+        if (
+            navbarRef.current &&
+            !navbarRef.current.contains(event.target) &&
+            !event.target.classList.contains("fa-times")
+        ) {
+            setClicked(false); // Close the navbar when clicked outside or not on the close icon
+        }
+    };
 
     const logout = () => {
         localStorage.clear();
@@ -189,10 +203,14 @@ export const Navbar = () => {
         navigate('/chatbot');
     };
 
+    const handleToggleClick = () => {
+        setClicked(!clicked); // Toggle the navbar visibility on mobile
+    };
+
     return (
         <>
             <nav className={i18n.language === 'ur' ? 'rtl' : ''}>
-                <div className="nav">
+                <div className="nav" ref={navbarRef}>
                     <NavLink className="logo item inActiveStyle">
                         <NavLink to="/"><img src={logo} alt="My Logo" width="85" height="41" /></NavLink>
                     </NavLink>
@@ -300,7 +318,7 @@ export const Navbar = () => {
                     )}
                 </div>
 
-                <div id="mobile" onClick={handleClick}>
+                <div id="mobile" onClick={handleToggleClick}>
                     <i className={clicked ? "fa fa-times menu-icon" : "fa fa-bars menu-icon"}></i>
                 </div>
             </nav>

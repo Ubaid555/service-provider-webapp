@@ -224,7 +224,7 @@ button {
 
 .translate-button {
   position: fixed;
-  top: 140px;
+  top: 143px;
   left: 35px;
   z-index: 1000;
   color: white;
@@ -239,16 +239,18 @@ button {
   padding: 10px;
   color: white;
   background-color: #d01c28;
+  border: 1px solid white;
 }
 
 .translate-panel {
   position: absolute;
-  top: 3px;
+  top: 2px;
   right: -85px; 
   width: 80px;
-  background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: left 0.3s ease;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .translate-panel button {
@@ -257,7 +259,7 @@ button {
   padding: 8px 8px;
   text-align: center;
   border: none;
-  background-color: transparent;
+  background-color: #d01c28;
   cursor: pointer;
   background-color: #d01c28;
   color: white;
@@ -310,17 +312,26 @@ button {
   .hero{
     margin-bottom: 50px;
   }
+  .containers{
+    margin-bottom: 200px;
+  }
 }
 
 @media only screen and (max-width: 300px) {
   .hero-image img {
     width: 250px;
   }
+  .containers{
+    margin-bottom: 200px;
+  }
 }
 
 @media only screen and (max-width: 389px) {
   .hero {
     margin-bottom: 30px;
+  }
+  .containers{
+    margin-bottom: 200px;
   }
 }
 
