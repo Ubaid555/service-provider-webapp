@@ -3,6 +3,7 @@ import User from "../models/user.model.js";
 import mongoose from "mongoose";
 import { updateCount } from "../utils/counter.util.js";
 import Stripe from "stripe";
+import Payment from "../models/payment.model.js";
 
 // export const
 // export const bookService = async (req, resp) => {
@@ -40,7 +41,7 @@ import Stripe from "stripe";
 
 //         let users = await User.findOne({ _id: serviceTakerId });
 //         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-  
+
 //         const session = await stripe.checkout.sessions.create({
 //           payment_method_types: ["card"],
 //           mode: "payment",
@@ -97,8 +98,6 @@ import Stripe from "stripe";
 //         ],
 //       });
 
-
-
 //       let bookingData = { ...req.body, currentStatus: "Pending" };
 //       let newBooking = new Booking(bookingData);
 //       await updateCount("Pending", userId);
@@ -140,9 +139,13 @@ export const bookService = async (req, resp) => {
 
     if (existingBooking) {
       if (existingBooking.currentStatus === "Pending") {
-        return resp.status(400).json({ error: "Already Pending Service Request To This User" });
+        return resp
+          .status(400)
+          .json({ error: "Already Pending Service Request To This User" });
       } else if (existingBooking.currentStatus === "Confirmed") {
-        return resp.status(400).json({ error: "There is an Ongoing Service With this User" });
+        return resp
+          .status(400)
+          .json({ error: "There is an Ongoing Service With this User" });
       }
     }
 
@@ -168,7 +171,7 @@ export const bookService = async (req, resp) => {
         serviceTakerPhone,
         serviceTakerImage,
         serviceProviderPhone,
-        price
+        price,
       },
       line_items: [
         {
@@ -186,18 +189,22 @@ export const bookService = async (req, resp) => {
       ],
     });
 
-    resp.status(201).json({ success: true, message: 'Redirect to Stripe', session });
+    resp
+      .status(201)
+      .json({ success: true, message: "Redirect to Stripe", session });
   } catch (error) {
     console.log("Error's in Book Service Controller", error.message);
     resp.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-export const success = async(req,resp)=>{
+export const success = async (req, resp) => {
   try {
-    const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+    const session = await stripe.checkout.sessions.retrieve(
+      req.query.session_id
+    );
 
-    if (session.payment_status === 'paid') {
+    if (session.payment_status === "paid") {
       const {
         client_reference_id: serviceProviderId,
         metadata: {
@@ -231,13 +238,24 @@ export const success = async(req,resp)=>{
         serviceTakerPhone,
         serviceTakerImage,
         serviceProviderPhone,
-        price: price / 100, // Convert amount back to dollars
+        price: price, // Convert amount back to dollars
         currentStatus: "Pending",
       };
 
       let newBooking = new Booking(bookingData);
       await updateCount("Pending", serviceProviderId);
       await newBooking.save();
+
+      let paymentData = {
+        serviceProviderId,
+        serviceTakerId,
+        bookingId: newBooking._id,
+        amount: price,
+        currentStatus: "Pending",
+      };
+
+      let newPayment = new Payment(paymentData);
+      await newPayment.save();
 
       resp.redirect(`${process.env.CLIENT_SITE_URL}/mybookings`);
     } else {
@@ -247,8 +265,7 @@ export const success = async(req,resp)=>{
     console.log("Error's in Payment Success Handler", error.message);
     resp.status(500).json({ error: "Internal Server Error" });
   }
-}
-
+};
 
 export const myBookedService = async (req, resp) => {
   try {
