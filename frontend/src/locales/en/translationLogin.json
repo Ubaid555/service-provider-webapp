@@ -1,14 +1,14 @@
 {
-  "loginTitle": "LOG IN",
-  "loginEmailPlaceholder": "Enter Email",
-  "loginPasswordPlaceholder": "Enter Password",
-  "forgotPassword": "Forgot Password?",
+  "title": "Trusty Taskers - Login",
+  "login": "LOG IN",
+  "enterEmail": "Enter Email",
+  "enterPassword": "Enter Password",
+  "forgotPassword": "Forgot Password",
   "clickHere": "Click Here!",
-  "loginButton": "LOG IN",
-  "toastEmptyFields": "Please fill in all fields",
-  "toastLoginSuccess": "Login successful! Redirecting...",
-  "toastNotRegistered": "This user is not registered",
-  "toastWrongPassword": "Please enter the correct password",
-  "toastWrongCredentials": "Please enter correct credentials",
-  "toastError": "Something went wrong. Please try again later."
+  "pleaseFillInAllFields": "Please fill in all fields",
+  "loginSuccessful": "Login successful! Redirecting...",
+  "userNotRegistered": "This user is not registered",
+  "incorrectPassword": "Please enter the correct password",
+  "incorrectCredentials": "Please enter correct credentials",
+  "somethingWentWrong": "Something went wrong. Please try again later."
 }

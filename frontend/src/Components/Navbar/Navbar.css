@@ -57,6 +57,7 @@ nav {
     text-decoration: none !important;
     border: none;
     outline: none;
+    margin-right: 10px;
 }
 
 .signbtns{
@@ -69,7 +70,6 @@ nav {
     text-decoration: none !important;
     border: none;
     outline: none;
-    margin-left: 2px;
 }
 
 a {
@@ -198,6 +198,18 @@ a {
 :lang(ur)  .nav-icon {
     margin-right: 8px; 
     margin-left: 5px; 
+}
+:lang(ur)  .signbtns {
+    margin-right: 10px; 
+}
+:lang(ur)  .both_btn {
+    margin-left: 20px; 
+}
+:lang(ur)  #mobile {
+    margin-left: -20px; 
+}
+:lang(ur)  .logo{
+    margin-right: -10px; 
 }
 @media screen and (max-width: 1100px) {
     .mainbtn{
@@ -333,15 +345,31 @@ a {
         transform: translateY(7%); 
     }
 
-    :lang(ur) #navbar {
+    /* :lang(ur) #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        top: 90px;
         right: auto;
         left: -450px; 
-        transition: left 0.5s ease-out;
+        width: 220px;
+        height: 100vh;
+        background: #d01c28;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.5);
+        padding: 40px 0 0 10px;
+        transition: right 0.5s ease-out;
+        position: fixed;
+        left: -450px; 
+        transition: right 0.5s ease-out;
         z-index: -1;
-    }
+    } */
 
-    :lang(ur) #navbar.active {
-        left: -37px; 
+    :lang(ur) #navbar.active .item {
+        right: 20px; 
+    }
+    :lang(ur) #navbar.active .dropbtn {
+        right: 18px;
     }
     :lang(ur) #navbar .item i {
         margin-right: 10px; 
@@ -412,5 +440,8 @@ a {
     #mobile i {
         font-size: 24px;
         cursor: pointer;
+    }
+    :lang(en)  .signbtns {
+        margin-left: 10px; 
     }
 }

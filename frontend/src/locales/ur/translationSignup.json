@@ -1,16 +1,24 @@
 {
-    "login": {
-        "title": "لاگ ان کریں",
-        "emailPlaceholder": "ای میل درج کریں",
-        "passwordPlaceholder": "پاس ورڈ درج کریں",
-        "forgotPassword": "پاس ورڈ بھول گئے؟",
-        "clickHere": "یہاں کلک کریں!",
-        "loginButton": "لاگ ان کریں",
-        "fillFieldsError": "براہ کرم تمام فیلڈز کو پُر کریں",
-        "userNotRegistered": "یہ صارف رجسٹر نہیں ہے",
-        "wrongPassword": "براہ کرم درست پاس ورڈ درج کریں",
-        "loginSuccess": "لاگ ان کامیاب! ری ڈائریکٹ ہو رہا ہے...",
-        "incorrectCredentials": "براہ کرم صحیح اسناد درج کریں",
-        "loginError": "کچھ غلط ہو گیا۔ براہ کرم بعد میں دوبارہ کوشش کریں۔"
-    }
-}
+    "register": "رجسٹر کریں",
+    "pleaseFillInAllFields": "تمام فیلڈز کو پر کریں",
+    "nameLength": "نام 4 سے 20 حروف تک ہونا چاہئے",
+    "namePattern": "نام صرف حروف پر مشتمل ہونا چاہئے",
+    "emailPattern": "براہ کرم درست ای میل ایڈریس درج کریں",
+    "phonePattern": "فون نمبر بالکل 11 ہندسے کا ہونا چاہئے",
+    "passwordPattern": "پاس ورڈ میں کم از کم ایک بڑے حرف، ایک چھوٹے حرف، ایک خاص کردار اور ایک عددی مستقل ہونا ضروری ہے",
+    "passwordsDoNotMatch": "پاس ورڈز مماثل نہیں ہیں",
+    "chooseProfileImage": "پروفائل تصویر منتخب کریں",
+    "otpSent": "آپ کے ای میل پر OTP بھیج دیا گیا ہے۔ تصدیق کرنے کے لئے آگے بڑھیں۔",
+    "somethingWentWrong": "کچھ غلط ہو گیا۔ براہ کرم بعد میں دوبارہ کوشش کریں۔",
+    "registrationSuccessful": "رجسٹریشن کامیاب! لاگ ان کرنے کے لئے ری ڈائریکٹ ہو رہا ہے...",
+    "enterName": "نام درج کریں",
+    "enterEmail": "ای میل درج کریں",
+    "enterPhone": "فون نمبر درج کریں",
+    "enterPassword": "پاس ورڈ درج کریں",
+    "confirmPassword": "پاس ورڈ کی تصدیق کریں",
+    "signUp": "سائن اپ",
+    "verifyOtp": "OTP کی تصدیق کریں",
+    "otpSentTo": "ہم نے {{email}} پر OTP کوڈ بھیج دیا ہے۔ OTP کوڈ ڈال کر اپنی ای میل کی تصدیق کریں",
+    "enterOtp": "OTP درج کریں"
+  }
+  

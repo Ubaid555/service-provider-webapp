@@ -1,4 +1,4 @@
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,7 +8,7 @@
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  height: 59vh;
+  max-height: 59vh;
 }
 
 .header {
@@ -47,7 +47,127 @@
   bottom: 0;
   background-color: #fff;
   padding: 10px;
+} */
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  box-shadow: 0 4px 8px #0000001a;
+  background-color: #fff;
+  max-height: 45vh;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  position: fixed;
+}
+
+.backIcon {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.2em; 
+  color: #d01c28; 
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.recipient {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  margin-top: 50px;
+}
+
+.stickyInput {
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  .backIcon {
+    font-size: 1em;
+  }
+
+  .label {
+    margin-right: 5px;
+    font-size: 0.9em;
+  }
+
+  .recipient {
+    font-size: 1em;
+  }
+
+  .messages {
+    padding: 10px;
+  }
+
+  .stickyInput {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-height: 90vh;
+  }
+
+  .header {
+    padding: 8px;
+  }
+
+  .backIcon {
+    font-size: 0.9em;
+  }
+
+  .label {
+    margin-right: 5px;
+    font-size: 0.8em;
+  }
+
+  .recipient {
+    font-size: 0.9em;
+  }
+
+  .messages {
+    padding: 8px;
+  }
+
+  .stickyInput {
+    padding: 5px;
+  }
+}
+
 
 /* .container {
   display: flex;

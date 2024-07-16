@@ -100,20 +100,24 @@ const MessageContainer = ({ conversation, onBackClick }) => {
     };
 
     return (
-        <div className={styles.container}>
-            <div className={styles.header}>
+        <>
+        <div className={styles.header}>
                 <i className={`fa fa-arrow-left ${styles.backIcon}`} onClick={onBackClick}></i>
                 <span className={styles.label}>To:</span>
                 <span className={styles.recipient}>{conversation.fullName}</span>
             </div>
+        <div className={styles.container}>
+            
             <div className={styles.messages}>
                 <Messages messages={messages} />
                 <div ref={messagesEndRef} /> {/* Add a ref to the end of the messages list */}
             </div>
-            <div className={styles.stickyInput}>
+           
+        </div>
+        <div className={styles.stickyInput}>
                 <MessageInput onSendMessage={sendMessage} />
             </div>
-        </div>
+        </>
     );
 };
 

@@ -200,3 +200,11 @@
         font-size: 12px;
     }
 }
+.rtl {
+    direction: rtl;
+    text-align: right;
+  }
+  .rtlIcon {
+    right: auto;
+    left: 10px;
+}

@@ -289,11 +289,11 @@ export const Navbar = () => {
                     ) : (
                         <div className='both_btn'>
                             <NavLink className="item activeStyle" to="/login">
-                                <i className="fa fa-user nav-icon"></i>
+                                {/* <i className="fa fa-user nav-icon"></i> */}
                                 <button className="loginbtns">{t('login')}</button>
                             </NavLink>
                             <NavLink className="item activeStyle" to="/signup">
-                                <i className="fa fa-user nav-icon"></i>
+                                {/* <i className="fa fa-user nav-icon"></i> */}
                                 <button className="signbtns">{t('signup')}</button>
                             </NavLink>
                         </div>

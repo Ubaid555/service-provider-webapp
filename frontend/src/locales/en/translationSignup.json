@@ -1,16 +1,24 @@
 {
-    "login": {
-        "title": "LOG IN",
-        "emailPlaceholder": "Enter Email",
-        "passwordPlaceholder": "Enter Password",
-        "forgotPassword": "Forgot Password?",
-        "clickHere": "Click Here!",
-        "loginButton": "LOG IN",
-        "fillFieldsError": "Please fill in all fields",
-        "userNotRegistered": "This user is not registered",
-        "wrongPassword": "Please enter the correct password",
-        "loginSuccess": "Login successful! Redirecting...",
-        "incorrectCredentials": "Please enter correct credentials",
-        "loginError": "Something went wrong. Please try again later."
-    }
-}
+    "register": "REGISTER",
+    "pleaseFillInAllFields": "Please fill in all fields",
+    "nameLength": "Name must be between 4 and 20 characters long",
+    "namePattern": "Name can only contain alphabets",
+    "emailPattern": "Please enter a valid email address",
+    "phonePattern": "Phone number must be exactly 11 digits",
+    "passwordPattern": "Password must contain at least one uppercase letter, one lowercase letter, one special character, and one numeric constant",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "chooseProfileImage": "Choose the Profile image",
+    "otpSent": "OTP sent to your email. Proceed to verify.",
+    "somethingWentWrong": "Something went wrong. Please try again later.",
+    "registrationSuccessful": "Registration successful! Redirecting to login...",
+    "enterName": "Enter Name",
+    "enterEmail": "Enter Email",
+    "enterPhone": "Enter Phone Number",
+    "enterPassword": "Enter Password",
+    "confirmPassword": "Confirm Password",
+    "signUp": "SIGN UP",
+    "verifyOtp": "VERIFY OTP",
+    "otpSentTo": "We have sent an OTP code to {{email}}. Verify your email by putting an OTP code",
+    "enterOtp": "Enter OTP"
+  }
+  

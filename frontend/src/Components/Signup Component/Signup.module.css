@@ -321,3 +321,14 @@
         margin-left: 10px;
     }
 }
+
+
+/* Adjust input padding/margins for RTL if necessary */
+.rtl {
+    direction: rtl;
+}
+
+.rtlIcon {
+    right: auto;
+    left: 10px;
+}
