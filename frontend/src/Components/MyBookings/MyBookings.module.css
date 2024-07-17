@@ -11,7 +11,7 @@
     margin-bottom: 60px;
 }
 
-.statusHeader {
+.groupHeading, .statusHeader{
     text-align: center;
     padding: 15px;
     background-color: #fecaca;
@@ -101,7 +101,7 @@
 .completed {
     background-color: #27ae60;
 }
-.verified{
+.pendingConfirmation{
     background-color: rgb(115, 79, 244);
 }
 

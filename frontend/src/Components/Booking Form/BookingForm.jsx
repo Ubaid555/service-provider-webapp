@@ -272,7 +272,7 @@
 // export default BookingForm;
 
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation} from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../Navbar/Navbar";
@@ -291,7 +291,6 @@ const BookingForm = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const location = useLocation();
-  const navigate = useNavigate();
   const {
     category,
     serviceProviderId,
@@ -404,6 +403,16 @@ const BookingForm = () => {
             </div>
 
             <div className={styles.form_control}>
+              <label htmlFor="price">Price</label>
+              <input
+                type="text"
+                name="price"
+                value={`$${price}`}
+                readOnly
+              />
+            </div>
+
+            <div className={styles.form_control}>
               <label htmlFor="date">Date</label>
               <input
                 type="date"
@@ -448,23 +457,13 @@ const BookingForm = () => {
               />
             </div>
 
-            <div className={styles.form_control}>
-              <label htmlFor="price">Price</label>
-              <input
-                type="text"
-                name="price"
-                value={`$${price}`}
-                readOnly
-              />
-            </div>
-
-            <button type="submit" className={styles.button} onClick={handleBookService}>
+            <NavLink type="submit" className={styles.bookbutton} onClick={handleBookService}>
               Book Now
-            </button>
+            </NavLink>
           </form>
         </div>
-        <div className={styles.form_image}>
-          <img src="/booking.svg" alt="Booking" />
+        <div className={styles.booking_image}>
+          <img src="Images/Book.png" alt="Booking" />
         </div>
       </section>
       <Footer />

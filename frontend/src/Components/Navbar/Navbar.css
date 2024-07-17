@@ -345,26 +345,6 @@ a {
         transform: translateY(7%); 
     }
 
-    /* :lang(ur) #navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        top: 90px;
-        right: auto;
-        left: -450px; 
-        width: 220px;
-        height: 100vh;
-        background: #d01c28;
-        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.5);
-        padding: 40px 0 0 10px;
-        transition: right 0.5s ease-out;
-        position: fixed;
-        left: -450px; 
-        transition: right 0.5s ease-out;
-        z-index: -1;
-    } */
-
     :lang(ur) #navbar.active .item {
         right: 20px; 
     }
