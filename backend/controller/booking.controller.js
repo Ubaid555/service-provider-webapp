@@ -336,10 +336,8 @@ export const handleBookingRequest = async (req, resp) => {
       } else {
         result = await Booking.updateOne(
           { _id: bookingId },
-          { $set: { currentStatus: "Pending Complete" } }
-          
+          { $set: { currentStatus: "Pending Complete" } }        
         );
-        return resp.status(200).json({ success: "Successfully Updated" });
       }
 
       if(serviceTaker){
@@ -354,18 +352,12 @@ export const handleBookingRequest = async (req, resp) => {
           {$set: { serviceProviderStatus: "Completed" }}
         )
       }
-      // if (result.modifiedCount === 1) {
-      //   if(serviceProvider){
-      //   await updateCount(currentStatus, userId);
-      //   }
-      //   return resp.status(200).json({ success: "Successfully Updated" });
-      // }
-
     } else {
       result = await Booking.updateOne(
         { _id: bookingId },
         { $set: { currentStatus } }
       );
+
     }
 
     if (result.modifiedCount === 1) {
