@@ -5,8 +5,8 @@ export const PrivateComponent = () => {
   const auth = localStorage.getItem("loginusers");
   if(auth){
   const role = JSON.parse(localStorage.getItem("loginusers")).role;
-  return (auth && role === "user")?<Outlet/>:<Navigate to="/signup"/>
+  return (auth && role === "user")?<Outlet/>:<Navigate to="/login"/>
   }
-  return auth?<Outlet/>:<Navigate to="/signup"/>
+  return auth?<Outlet/>:<Navigate to="/login"/>
 }
 

@@ -407,7 +407,7 @@ const BookingForm = () => {
               <input
                 type="text"
                 name="price"
-                value={`$${price}`}
+                value={`Pkr ${price}`}
                 readOnly
               />
             </div>

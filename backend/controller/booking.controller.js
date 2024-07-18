@@ -176,7 +176,7 @@ export const bookService = async (req, resp) => {
       line_items: [
         {
           price_data: {
-            currency: "usd",
+            currency: "pkr",
             unit_amount: price * 100, // Stripe expects amount in cents
             product_data: {
               name: serviceProviderName,

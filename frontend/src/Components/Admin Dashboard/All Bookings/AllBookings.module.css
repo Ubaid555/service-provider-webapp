@@ -92,7 +92,7 @@
 }
 
 .confirmed {
-    background-color: #27ae60;
+    background-color: #8e44ad;
 }
 
 .cancelled {
@@ -100,7 +100,7 @@
 }
 
 .completed {
-    background-color: #8e44ad;
+    background-color: #27ae60;
 }
 
 @media (max-width: 1000px) {

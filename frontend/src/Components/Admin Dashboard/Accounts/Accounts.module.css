@@ -45,7 +45,7 @@
   
   .userCard:hover {
     transform: rotateY(10deg) rotateX(5deg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(208, 28, 40, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(208, 28, 40, 0.5);
   }
   
   .profilePic {
