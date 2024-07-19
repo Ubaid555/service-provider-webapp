@@ -41,8 +41,6 @@ export const getUsersForSidebar = async (req, res) => {
             _id: { $in: Array.from(participantIds) }
         }).select("-password");
 
-        console.log(filteredUsers);
-
         res.status(200).json(filteredUsers);
     } catch (error) {
         console.error("Error in getUsersForSidebar: ", error.message);

@@ -315,8 +315,10 @@ export const ongoingBooking = async (req, resp) => {
 export const handleBookingRequest = async (req, resp) => {
   try {
     const { bookingId, currentStatus, userId } = req.body;
-    const serviceProvider = await Booking.findOne({serviceProviderId:userId});
-    const serviceTaker = await Booking.findOne({serviceTakerId:userId});
+
+    const serviceProvider = await Booking.findOne({_id:bookingId, serviceProviderId:userId});
+    const serviceTaker = await Booking.findOne({_id:bookingId,serviceTakerId:userId});
+    console.log("service Taker",serviceTaker,"service Provider",serviceProvider)
 
     let result;
     if (currentStatus === "Completed") {
@@ -333,6 +335,17 @@ export const handleBookingRequest = async (req, resp) => {
           { _id: bookingId },
           { $set: { currentStatus } }
         );
+         console.log(result);
+      let bookingData= await Booking.findOne({_id:bookingId});
+      let newPayment = new Payment({
+        serviceProviderId: bookingData.serviceProviderId,
+        serviceTakerId:bookingData.serviceTakerId,
+        bookingId:bookingData._id,
+        amount:bookingData.price,
+        currentStatus:bookingData.currentStatus
+      });
+      const paymentResult = await newPayment.save();
+      console.log("Payment is " ,paymentResult);
       } else {
         result = await Booking.updateOne(
           { _id: bookingId },
@@ -347,6 +360,7 @@ export const handleBookingRequest = async (req, resp) => {
         )
       }
       else{
+
         result = await Booking.updateOne(
           {_id:bookingId},
           {$set: { serviceProviderStatus: "Completed" }}
@@ -357,7 +371,7 @@ export const handleBookingRequest = async (req, resp) => {
         { _id: bookingId },
         { $set: { currentStatus } }
       );
-
+     
     }
 
     if (result.modifiedCount === 1) {

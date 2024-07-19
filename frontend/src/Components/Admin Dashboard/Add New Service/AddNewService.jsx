@@ -51,11 +51,11 @@ const AddNewService = () => {
       const data = await response.json();
 
       if(response.status === 400){
-        console.log(data.error);
+        // console.log(data.error);
         toast.error(data.error);
       }
       else{
-        console.log("Service Successfully Added");
+        // console.log("Service Successfully Added");
         toast.success("Service Successfully Added");
         setShowModal(true); // Show the modal on successful service addition
         setTitle('');

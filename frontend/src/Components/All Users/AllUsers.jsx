@@ -456,7 +456,7 @@ const AllUsers = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log(result);
+        // console.log(result);
         if (result.success) {
           // toast.success("Service deleted successfully");
           setShowDeleteModal(false);
