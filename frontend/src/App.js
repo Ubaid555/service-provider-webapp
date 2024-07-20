@@ -44,6 +44,7 @@ import AddNewService from "./Components/Admin Dashboard/Add New Service/AddNewSe
 import AllBookings from "./Components/Admin Dashboard/All Bookings/AllBookings";
 import { PublicComponent } from "./Components/Public Component/PublicComponent";
 import ChatBot from "./Components/ChatBot/ChatBot";
+import AccountDetailsForm from "./Components/AccountDetailsForm/AccountDetailsForm";
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
             <Route path="/chatbox" element={<ChatBox />} />
             <Route path="/chatbot" element={<ChatBot/>} />
             <Route path="/messagecontainer" element={<MessageContainer />} />
+            <Route path="/accountdetails" element={<AccountDetailsForm/>} />
           </Route>
 
           <Route element={<AdminPrivateComponent />}>
