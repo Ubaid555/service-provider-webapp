@@ -83,7 +83,7 @@
 
 
 import express from 'express'
-import { addPayment, viewBalance, viewPayments } from '../controller/payment.controller.js';
+import { addPayment, handleWithdraw, viewBalance, viewPayments, viewWithdrawRequest, withdrawRequest } from '../controller/payment.controller.js';
 
 const router = express.Router();
 
@@ -92,5 +92,11 @@ router.post("/addPayment",addPayment);
 router.get("/viewPayment",viewPayments);
 
 router.get("/viewBalance",viewBalance);
+
+router.post("/withdrawRequest",withdrawRequest);
+
+router.get("/viewWithdrawRequest",viewWithdrawRequest);
+
+router.put("/handleWithdraw",handleWithdraw);
 
 export default router;

@@ -29,9 +29,10 @@ const WithdrawRequests = () => {
                     }
                 });
                 let result = await response.json();
-                if (result.success) {
-                    setWithdrawRequests(result.success);
-                }
+                console.log(result);
+                const pendingRequests = result.success.filter(request => request.withdrawStatus === "pending");
+                
+                setWithdrawRequests(pendingRequests);
             } catch (error) {
                 console.error("Error fetching withdrawal requests:", error);
             }
@@ -43,14 +44,15 @@ const WithdrawRequests = () => {
     }, [userId]);
 
     const handleApproveRequest = async (requestId) => {
+       
         if (requestId) {
             try {
-                let update = await fetch(`http://localhost:5001/api/withdrawals/handleRequest`, {
+                let update = await fetch(`http://localhost:5001/api/payment/handleWithdraw`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ requestId, status: 'Approved', userId })
+                    body: JSON.stringify({ amountToWithdraw:requestId.amountToWithdraw, currentUser:requestId.userId })
                 });
 
                 let result = await update.json();
@@ -70,7 +72,7 @@ const WithdrawRequests = () => {
 
     const handleApproveConfirm = () => {
         if (requestToApprove) {
-            handleApproveRequest(requestToApprove._id);
+            handleApproveRequest(requestToApprove);
         }
         setShowConfirmModal(false);
     };
@@ -103,8 +105,8 @@ const WithdrawRequests = () => {
                                     <td className={styles.tableCell}>{request.name}</td>
                                     <td className={styles.tableCell}>{request.accountHolderName}</td>
                                     <td className={styles.tableCell}>{request.accountNumber}</td>
-                                    <td className={styles.tableCell}>{request.amount}</td>
-                                    <td className={styles.tableCell}>{request.paymentMethod}</td>
+                                    <td className={styles.tableCell}>{request.amountToWithdraw}</td>
+                                    <td className={styles.tableCell}>{request.withdrawMethod}</td>
                                     <td className={styles.tableCell}>
                                         <button className={styles.actionButton} onClick={() => confirmApproveRequest(request)}>Approve</button>
                                     </td>
