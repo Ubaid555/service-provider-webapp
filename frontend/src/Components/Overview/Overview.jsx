@@ -210,6 +210,68 @@ const Overview = () => {
     fetchUserData();
   }, [t]);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const user = JSON.parse(localStorage.getItem("loginusers"));
+  //     if (!user || !user._id) {
+  //       console.error("User ID not found in localStorage");
+  //       return;
+  //     }
+
+  //     const userId = user._id;
+  //     try {
+  //       const response = await fetch(
+  //         `http://localhost:5001/api/payment/viewBalance?userId=${userId}`
+  //       );
+  //       console.log(response);
+  //       if (!response.ok) {
+  //         throw new Error("Error fetching data");
+  //       }
+  //       const result = await response.json();
+  //       console.log(result);
+  //       console.log(result.success[0]);
+  //       setUserData(result.success[0]);
+  //       console.log(userData);
+  //     } catch (err) {
+  //       setError(t("Error fetching data"));
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [t]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const user = JSON.parse(localStorage.getItem("loginusers"));
+      if (!user || !user._id) {
+        console.error("User ID not found in localStorage");
+        return;
+      }
+  
+      const userId = user._id;
+      try {
+        const response = await fetch(
+          `http://localhost:5001/api/payment/viewBalance?userId=${userId}`
+        );
+        if (!response.ok) {
+          throw new Error("Error fetching data");
+        }
+        const result = await response.json();
+        setUserData(result.success); // Assuming `result.success` is the correct format
+      } catch (err) {
+        setError(t("Error fetching data"));
+      }
+    };
+  
+    fetchData();
+  }, [t]);
+  
+  useEffect(() => {
+    // Log userData when it changes
+    console.log("UserData has been updated:", userData);
+  }, [userData]);
+  
+
   if (error) {
     return <div>{error}</div>;
   }

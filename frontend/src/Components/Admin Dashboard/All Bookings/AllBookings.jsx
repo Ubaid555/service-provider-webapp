@@ -21,6 +21,7 @@ export const AllBookings = () => {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
+                console.log(data);
                 setBookings(data);
             } catch (error) {
                 console.error("Error fetching bookings", error);
@@ -52,6 +53,7 @@ export const AllBookings = () => {
     });
 
     const renderBookingRows = (status) => {
+        console.log(status);
         return sortedBookings
             .filter(booking => booking.currentStatus === status)
             .map((booking) => (

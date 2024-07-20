@@ -83,10 +83,14 @@
 
 
 import express from 'express'
-import { addPayment } from '../controller/payment.controller.js';
+import { addPayment, viewBalance, viewPayments } from '../controller/payment.controller.js';
 
 const router = express.Router();
 
 router.post("/addPayment",addPayment);
+
+router.get("/viewPayment",viewPayments);
+
+router.get("/viewBalance",viewBalance);
 
 export default router;

@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import { updateCount } from "../utils/counter.util.js";
 import Stripe from "stripe";
 import Payment from "../models/payment.model.js";
+import UserBalance from "../models/balance.model.js";
 
 // export const
 // export const bookService = async (req, resp) => {
@@ -318,7 +319,7 @@ export const handleBookingRequest = async (req, resp) => {
 
     const serviceProvider = await Booking.findOne({_id:bookingId, serviceProviderId:userId});
     const serviceTaker = await Booking.findOne({_id:bookingId,serviceTakerId:userId});
-    console.log("service Taker",serviceTaker,"service Provider",serviceProvider)
+    // console.log("service Taker",serviceTaker,"service Provider",serviceProvider)
 
     let result;
     if (currentStatus === "Completed") {
@@ -336,16 +337,42 @@ export const handleBookingRequest = async (req, resp) => {
           { $set: { currentStatus } }
         );
          console.log(result);
-      let bookingData= await Booking.findOne({_id:bookingId});
-      let newPayment = new Payment({
-        serviceProviderId: bookingData.serviceProviderId,
-        serviceTakerId:bookingData.serviceTakerId,
-        bookingId:bookingData._id,
-        amount:bookingData.price,
-        currentStatus:bookingData.currentStatus
-      });
-      const paymentResult = await newPayment.save();
-      console.log("Payment is " ,paymentResult);
+         const payment = await Payment.updateOne(
+          { _id: bookingId },
+          { $set: { currentStatus:"Service Complete" } }
+         )
+
+         let bookingData= await Booking.findOne({_id:bookingId});
+         let oldUserBalance = await UserBalance.findOne({
+          userId:bookingData.serviceProviderId
+        });
+        
+        if(oldUserBalance){
+         let balance = oldUserBalance.totalBalance + bookingData.price;
+         console.log(balance);
+         const updateBalance = await UserBalance.updateOne(
+          {userId: bookingData.serviceProviderId},
+          { $inc: { totalBalance: bookingData.price } }
+         )
+        }else{
+          const newUser = new UserBalance({
+            userId:bookingData.serviceProviderId,
+            totalBalance:bookingData.price
+          })
+
+          await newUser.save();
+        }
+
+      //let bookingData= await Booking.findOne({_id:bookingId});
+      // let newPayment = new Payment({
+      //   serviceProviderId: bookingData.serviceProviderId,
+      //   serviceTakerId:bookingData.serviceTakerId,
+      //   bookingId:bookingData._id,
+      //   amount:bookingData.price,
+      //   currentStatus:bookingData.currentStatus
+      // });
+//      const paymentResult = await newPayment.save();
+//console.log("Payment is " ,paymentResult);
       } else {
         result = await Booking.updateOne(
           { _id: bookingId },
