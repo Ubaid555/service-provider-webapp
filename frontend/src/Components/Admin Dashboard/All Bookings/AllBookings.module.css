@@ -11,7 +11,7 @@
     margin-bottom: 60px;
 }
 
-.statusHeader {
+.groupHeading {
     text-align: center;
     padding: 15px;
     background-color: #fecaca;
@@ -25,6 +25,7 @@
     margin: 0 auto;
     overflow-x: auto;
     padding-bottom: 50px;
+    margin-top: 80px;
 }
 
 .bookingsTable {
@@ -101,6 +102,9 @@
 
 .completed {
     background-color: #27ae60;
+}
+.confirmation_pending{
+    background-color: rgb(115, 79, 244);
 }
 
 @media (max-width: 1000px) {

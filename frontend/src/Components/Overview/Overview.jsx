@@ -137,6 +137,9 @@
 // export default Overview;
 
 
+
+
+
 import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import { useTranslation } from 'react-i18next';
@@ -250,14 +253,15 @@ const Overview = () => {
   
       const userId = user._id;
       try {
-        const response = await fetch(
-          `http://localhost:5001/api/payment/viewBalance?userId=${userId}`
-        );
-        if (!response.ok) {
-          throw new Error("Error fetching data");
-        }
+        const response = await fetch(`http://localhost:5001/api/payment/viewBalance?userId=${userId}`
+);
+        // if (!response.ok) {
+        //   throw new Error("Error fetching data");
+        // }
         const result = await response.json();
-        setUserData(result.success); // Assuming `result.success` is the correct format
+        if(result.length>0){
+        setUserData(result.success);
+        } // Assuming result.success is the correct format
       } catch (err) {
         setError(t("Error fetching data"));
       }
