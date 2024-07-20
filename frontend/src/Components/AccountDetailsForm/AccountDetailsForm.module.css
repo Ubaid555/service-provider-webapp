@@ -13,7 +13,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     max-width: 400px;
     width: 100%;
-    margin-top: 170px;
+    margin-top: 115px;
 }
 
 .title {
@@ -76,4 +76,12 @@
     cursor: pointer;
     transition: background 0.3s;
     text-align: center;
+}
+.balanceDisplay {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #d01c28;
+    text-align: center;
+    
 }
