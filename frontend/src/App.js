@@ -45,6 +45,7 @@ import AllBookings from "./Components/Admin Dashboard/All Bookings/AllBookings";
 import { PublicComponent } from "./Components/Public Component/PublicComponent";
 import ChatBot from "./Components/ChatBot/ChatBot";
 import AccountDetailsForm from "./Components/AccountDetailsForm/AccountDetailsForm";
+import WithdrawRequests from "./Components/Admin Dashboard/Withdraw Requests/WithdrawRequests";
 
 function App() {
   return (
@@ -92,6 +93,7 @@ function App() {
             <Route path="/paymenthistory" element={<Payment />} />
             <Route path="/allbookings" element={<AllBookings />} />
             <Route path="/addnewservice" element={<AddNewService />} />
+            <Route path="/withdrawrequest" element={<WithdrawRequests/>} />
           </Route>
 
           <Route element={<PublicComponent />}>
