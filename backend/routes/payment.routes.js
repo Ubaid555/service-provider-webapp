@@ -83,7 +83,7 @@
 
 
 import express from 'express'
-import { addPayment, handleWithdraw, viewBalance, viewPayments, viewWithdrawRequest, withdrawRequest } from '../controller/payment.controller.js';
+import { addPayment, handleWithdraw, viewBalance, viewPayments, viewWithdrawRequest, withdrawHistory, withdrawRequest } from '../controller/payment.controller.js';
 
 const router = express.Router();
 
@@ -98,5 +98,7 @@ router.post("/withdrawRequest",withdrawRequest);
 router.get("/viewWithdrawRequest",viewWithdrawRequest);
 
 router.put("/handleWithdraw",handleWithdraw);
+
+router.get("/withdrawHistory",withdrawHistory)
 
 export default router;

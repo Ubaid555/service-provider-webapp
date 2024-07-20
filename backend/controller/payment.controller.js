@@ -170,8 +170,8 @@ export const viewWithdrawRequest = async (req, resp) => {
 
 export const handleWithdraw = async (req, resp) => {
   try {
-    const { currentUser,amountToWithdraw } = req.body;
-    const userId =currentUser;
+    const { currentUser, amountToWithdraw } = req.body;
+    const userId = currentUser;
 
     if (!userId) {
       return resp.status(400).json({
@@ -188,29 +188,66 @@ export const handleWithdraw = async (req, resp) => {
 
     const result = await UserBalance.updateOne(
       { userId },
-      { $inc: { pendingWithdraw: -amountToWithdraw, withdrawn: amountToWithdraw } }
+      {
+        $inc: {
+          pendingWithdraw: -amountToWithdraw,
+          withdrawn: amountToWithdraw,
+        },
+      }
     );
 
     if (result.nModified === 0) {
       return resp.status(400).json({
         error: "Withdrawal update failed",
       });
+    } else {
+      await WithdrawRequest.updateOne(
+        { userId, withdrawStatus: "pending" },
+        { $set: { withdrawStatus: "Completed" } }
+      );
+
+      return resp
+        .status(200)
+        .json({ success: "Withdrawal processed successfully" });
     }
-else{
-  await WithdrawRequest.updateOne(
-    { userId, withdrawStatus: "pending" },
-    { $set: { withdrawStatus: "Completed" } }
-  );
-
-  return resp.status(200).json({success: "Withdrawal processed successfully",
-  });
-}
-    
-
   } catch (error) {
     console.error("Error in handleWithdraw controller", error);
     return resp.status(500).json({
       error: "An error occurred while processing the withdrawal request",
+    });
+  }
+};
+
+export const withdrawHistory = async (req, resp) => {
+  try {
+    const { userId } = req.body;
+
+    if (!userId) {
+      return resp.status(400).json({
+        error: "User ID is required",
+      });
+    }
+
+    const result = await WithdrawRequest.find({
+      userId,
+      withdrawStatus: "Completed",
+    });
+
+    if (!result || result.length === 0) {
+      return resp.status(404).json({
+        message: "No completed withdrawal requests found",
+      });
+    }
+
+    return resp.status(200).json({
+      success: true,
+      data: result,
+    });
+
+  } catch (error) {
+    console.error("Error in withdraw history controller", error);
+    return resp.status(500).json({
+      error: "An error occurred while fetching the withdrawal history",
     });
   }
 };
