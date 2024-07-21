@@ -72,12 +72,6 @@ const Dashboard = () => {
               <Dropdown.Item as={NavLink} to='/managerequests' className={styles.dropdown_item}>
                 <i className="fa fa-clock" style={{ marginRight: '10px' }}></i> {t('pendingRequests')}
               </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to='/confirmedbookings' className={styles.dropdown_item}>
-                <i className="fa fa-check-circle" style={{ marginRight: '10px' }}></i> {t('confirmedBookings')}
-              </Dropdown.Item>
-              <Dropdown.Item as={NavLink} to='/completedbookings' className={styles.dropdown_item}>
-                <i className="fa fa-check-square" style={{ marginRight: '10px' }}></i> {t('completedBookings')}
-              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
 

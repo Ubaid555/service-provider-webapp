@@ -1,114 +1,3 @@
-/* .main_heading {
-    padding: 30px 0;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    font-weight: 600;
-    color: #000000;
-    background-color: #fecaca;
-    margin-top: 157px;
-    margin-bottom: 60px;
-}
-
-.bookingsContainer {
-    width: 90%;
-    margin: 0 auto;
-    overflow-x: auto;
-}
-
-.bookingsTable {
-    width: 80%;
-    border-collapse: collapse;
-    margin: auto;
-}
-
-.tableRow {
-    border-bottom: 1px solid #000000;
-    background-color: #e6e2e2;
-    text-align: center;
-}
-
-.tableHeader {
-    background-color: #d01c28;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-.tableCell {
-    padding: 10px;
-}
-
-.actionButton {
-    margin-right: 10px;
-    padding: 5px 10px;
-    background-color: #d01c28;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.actionButton:hover {
-    background-color: #b01824;
-}
-
-.noBookings {
-    text-align: center;
-    padding: 20px;
-}
-
-@media (max-width: 1000px) {
-    .actionButton {
-        margin-right: 5px;
-        padding: 4px 8px;
-        font-size: 0.8rem;
-        margin-bottom: 5px;
-    }
-}
-
-@media (max-width: 768px) {
-    .main_heading {
-        font-size: 1.2rem;
-        padding: 20px 0;
-        margin-top: 167px;
-    }
-
-    .tableHeader, .tableCell {
-        padding: 8px;
-        font-size: 0.9rem;
-    }
-
-    .actionButton {
-        margin-right: 5px;
-        padding: 4px 8px;
-        font-size: 0.8rem;
-        margin-bottom: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .tableHeader, .tableCell {
-        padding: 6px;
-        font-size: 0.8rem;
-    }
-    .main_heading {
-        font-size: 1.2rem;
-        padding: 20px 0;
-        margin-top: 176px;
-    }
-
-    .actionButton {
-        margin-right: 3px;
-        margin-bottom: 5px;
-        padding: 3px 6px;
-        font-size: 0.7rem;
-    }
-
-    .noBookings {
-        font-size: 0.9rem;
-    }
-} */
 .main_heading {
     padding: 30px 0;
     text-align: center;
@@ -118,8 +7,64 @@
     font-weight: 600;
     color: #000000;
     background-color: #fecaca;
-    margin-top: 157px;
-    margin-bottom: 60px;
+    margin-top: 85px;
+    
+}
+
+.groupHeading {
+    text-align: center;
+    padding: 15px;
+    background-color: #fecaca;
+    color: #000000;
+}
+
+/* Add this to your UserWithdrawHistory.module.css file */
+
+.filterContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    /* background: linear-gradient(135deg, #f0f4ff, #d9e6ff);
+    border-radius: 12px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccd5ff; */
+}
+
+.dateLabel {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin-right: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dateInput {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccd5ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dateInput:focus {
+    border-color: #d01c28;
+    box-shadow: 0 0 10px #d01c28;
+    outline: none;
+}
+
+.dateInput:hover {
+    border-color: #d01c28;
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.5);
 }
 
 .bookingsContainer {
@@ -130,9 +75,10 @@
 }
 
 .bookingsTable {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
     margin: auto;
+    margin-top: 50px;
 }
 
 .tableRow {
@@ -194,7 +140,7 @@
 }
 
 .confirmed {
-    background-color: #27ae60;
+    background-color: #8e44ad;
 }
 
 .cancelled {
@@ -202,7 +148,10 @@
 }
 
 .completed {
-    background-color: #8e44ad;
+    background-color: #27ae60;
+}
+.pendingConfirmation{
+    background-color: rgb(115, 79, 244);
 }
 
 @media (max-width: 1000px) {
@@ -215,7 +164,7 @@
 }
 
 @media (max-width: 768px) {
-    .main_heading {
+    .mainHeading {
         font-size: 1.5rem;
         padding: 20px 0;
         margin-top: 167px;
@@ -235,7 +184,7 @@
 }
 
 @media (max-width: 480px) {
-    .main_heading {
+    .mainHeading {
         font-size: 1.2rem;
         padding: 15px 5;
         margin-top: 176px;
@@ -258,7 +207,7 @@
 }
 
 @media (max-width: 400px) {
-    .main_heading {
+    .mainHeading {
         font-size: 1.1rem;
         padding: 15px 5;
         margin-top: 176px;
@@ -281,7 +230,7 @@
 }
 
 @media (max-width: 330px) {
-    .main_heading {
+    .mainHeading {
         font-size: 1rem;
         padding: 15px 5;
         margin-top: 176px;

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 20px;
 }
 
@@ -14,16 +14,23 @@
     max-width: 400px;
     width: 100%;
     margin-top: 115px;
+    margin-bottom: 40px;
 }
 
 .title {
-    margin-bottom: 20px;
     font-size: 24px;
     font-weight: 700;
     color: #d01c28;
     text-align: center;
 }
-
+.balanceDisplay {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #d01c28;
+    text-align: center;
+    
+}
 .inputGroup {
     margin-bottom: 15px;
 }
@@ -76,12 +83,4 @@
     cursor: pointer;
     transition: background 0.3s;
     text-align: center;
-}
-.balanceDisplay {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 500;
-    color: #d01c28;
-    text-align: center;
-    
 }

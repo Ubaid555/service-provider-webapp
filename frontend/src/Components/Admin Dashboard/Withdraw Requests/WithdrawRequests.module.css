@@ -85,23 +85,21 @@
     color: #ffffff;
     font-weight: bold;
 }
+.withdrawStatus{
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
 
 .pending {
     background-color: #f39c12;
 }
 
-.confirmed {
-    background-color: #8e44ad;
-}
-
-.cancelled {
-    background-color: #e74c3c;
-}
-
-.completed {
+.Completed {
     background-color: #27ae60;
 }
-.pendingConfirmation{
+.approved{
     background-color: rgb(115, 79, 244);
 }
 

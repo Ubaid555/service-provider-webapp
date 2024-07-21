@@ -26,6 +26,11 @@ const ManageRequests = () => {
     const [showCompleteModal, setShowCompleteModal] = useState(false);
 
     useEffect(() => {
+        document.title = 'Trusty Taskers - Service Requests';
+      }, []);
+    
+
+    useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("loginusers"));
         if (storedUser && storedUser._id) {
             setUserId(storedUser._id);

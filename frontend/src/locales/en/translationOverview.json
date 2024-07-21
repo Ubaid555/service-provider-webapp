@@ -6,5 +6,10 @@
   "totalServicesOffered": "Total No. of Services Offered",
   "totalServicesRequested": "Total Services Requested",
   "totalServicesConfirmed": "Total Services Confirmed",
-  "totalServicesCompleted": "Total Services Completed"
+  "totalServicesCompleted": "Total Services Completed",
+  "Total Balance": "Total Balance",
+  "Pending Withdraw": "Pending Withdraw",
+  "Total Withdraw": "Total Withdraw",
+  "Withdraw": "Withdraw",
+  "View Details": "View Details"
 }

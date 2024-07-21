@@ -349,7 +349,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import Footer from "../Footer/Footer";
 import ChatBox from "../ChatBox/ChatBox";
 import TranslateButton from "../TranslateButton/TranslateButton";
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Overview = () => {
   const { t, i18n } = useTranslation('overview');
@@ -516,14 +516,15 @@ const Overview = () => {
           <p className={styles.balanceValue}>
             {!userData ? <>0.00</> : <CountUp end={userData.pendingWithdraw} duration={2.5} prefix="Rs" />}
           </p>
-          <button className={styles.cardButton}>{t("Pending")}</button>
         </div>
         <div className={styles.balanceCard}>
           <h2 className={styles.balanceTitle}>{t("Total Withdraw")}</h2>
           <p className={styles.balanceValue}>
             {!userData ? <>0.00</> : <CountUp end={userData.withdrawn} duration={2.5} prefix="Rs" />}
           </p>
-          <button className={styles.cardButton}>{t("View Details")}</button>
+          <NavLink to="/userwithdrawhistory">
+            <button className={styles.cardButton}>{t("View Details")}</button>
+          </NavLink>
         </div>
       </div>
       <ChatBox />

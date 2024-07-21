@@ -76,6 +76,7 @@ export const withdrawRequest = async (req, resp) => {
   try {
     const {
       userId,
+      holdername,
       name,
       accountNumber,
       accountHolderName,
@@ -85,6 +86,7 @@ export const withdrawRequest = async (req, resp) => {
 
     if (
       !userId ||
+      !holdername ||
       !name ||
       !accountNumber ||
       !accountHolderName ||
@@ -93,7 +95,7 @@ export const withdrawRequest = async (req, resp) => {
     ) {
       return resp.status(400).json({
         error:
-          "All fields are required: userId, name, accountNumber, accountHolderName, amountToWithdraw",
+          "All fields are required: userId, name, holdername, accountNumber, accountHolderName, amountToWithdraw",
       });
     }
 
@@ -119,6 +121,7 @@ export const withdrawRequest = async (req, resp) => {
 
     const newWithdrawRequest = new WithdrawRequest({
       userId,
+      holdername,
       name,
       accountNumber,
       accountHolderName,
@@ -220,7 +223,8 @@ export const handleWithdraw = async (req, resp) => {
 
 export const withdrawHistory = async (req, resp) => {
   try {
-    const { userId } = req.body;
+    const { userId } = req.query;
+    console.log(userId);
 
     if (!userId) {
       return resp.status(400).json({

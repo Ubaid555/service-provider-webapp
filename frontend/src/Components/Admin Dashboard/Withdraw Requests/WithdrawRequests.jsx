@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './WithdrawRequests.module.css'; // Assuming the same CSS module is used
+import styles from './WithdrawRequests.module.css';
 import AdminNavbar from '../Admin Navbar/AdminNavbar';
-import RequestConfirmModal from '../../AllModals/RequestConfirmModal/RequestConfirmModal'; // Reuse or create as needed
+import WithdrawCredentialsModal from '../../AllModals/WithdrawCredentialsModal/WithdrawCredentialsModal'; 
+import RequestConfirmModal from '../../AllModals/RequestConfirmModal/RequestConfirmModal';
 
 const WithdrawRequests = () => {
     const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -11,6 +12,13 @@ const WithdrawRequests = () => {
     const [withdrawRequests, setWithdrawRequests] = useState([]);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [requestToApprove, setRequestToApprove] = useState(null);
+    const [showDetailsModal, setShowDetailsModal] = useState(false);
+    const [requestToView, setRequestToView] = useState(null);
+
+    useEffect(() => {
+        document.title = 'Trusty Taskers - Withdraw Requests';
+      }, []);
+    
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("loginusers"));
@@ -22,17 +30,20 @@ const WithdrawRequests = () => {
     useEffect(() => {
         const fetchWithdrawRequests = async () => {
             try {
-                let response = await fetch(`http://localhost:5001/api/payment/viewWithdrawRequest`, {
+                let response = await fetch('http://localhost:5001/api/payment/viewWithdrawRequest', {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
                     }
                 });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
                 let result = await response.json();
                 console.log(result);
-                const pendingRequests = result.success.filter(request => request.withdrawStatus === "pending");
-                
-                setWithdrawRequests(pendingRequests);
+                setWithdrawRequests(result.success || []);
             } catch (error) {
                 console.error("Error fetching withdrawal requests:", error);
             }
@@ -44,20 +55,26 @@ const WithdrawRequests = () => {
     }, [userId]);
 
     const handleApproveRequest = async (requestId) => {
-       
         if (requestId) {
             try {
-                let update = await fetch(`http://localhost:5001/api/payment/handleWithdraw`, {
+                let update = await fetch('http://localhost:5001/api/payment/handleWithdraw', {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ amountToWithdraw:requestId.amountToWithdraw, currentUser:requestId.userId })
+                    body: JSON.stringify({ amountToWithdraw: requestId.amountToWithdraw, currentUser: requestId.userId })
                 });
+
+                if (!update.ok) {
+                    throw new Error('Network response was not ok');
+                }
 
                 let result = await update.json();
                 if (result.success) {
-                    window.location.reload();
+                    const updatedRequests = withdrawRequests.map((request) => 
+                        request._id === requestId._id ? { ...request, withdrawStatus: "approved" } : request
+                    );
+                    setWithdrawRequests(updatedRequests);
                 }
             } catch (error) {
                 console.error("Error updating withdrawal request status:", error);
@@ -82,6 +99,19 @@ const WithdrawRequests = () => {
         setShowConfirmModal(false);
     };
 
+    const viewDetails = (request) => {
+        setRequestToView(request);
+        setShowDetailsModal(true);
+    };
+
+    const handleDetailsClose = () => {
+        setRequestToView(null);
+        setShowDetailsModal(false);
+    };
+
+    // Sorting the withdrawRequests array to ensure the newest requests are at the top
+    const sortedWithdrawRequests = [...withdrawRequests].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     return (
         <>
             <AdminNavbar />
@@ -91,30 +121,31 @@ const WithdrawRequests = () => {
                     <thead>
                         <tr className={styles.tableRow}>
                             <th className={styles.tableHeader}>Name</th>
-                            <th className={styles.tableHeader}>Account Holder Name</th>
-                            <th className={styles.tableHeader}>Account Number</th>
-                            <th className={styles.tableHeader}>Amount</th>
                             <th className={styles.tableHeader}>Payment Method</th>
+                            <th className={styles.tableHeader}>Status</th>
                             <th className={styles.tableHeader}>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {withdrawRequests.length > 0 ? (
-                            withdrawRequests.map((request) => (
+                        {sortedWithdrawRequests.length > 0 ? (
+                            sortedWithdrawRequests.map((request) => (
                                 <tr key={request._id} className={styles.tableRow}>
                                     <td className={styles.tableCell}>{request.name}</td>
-                                    <td className={styles.tableCell}>{request.accountHolderName}</td>
-                                    <td className={styles.tableCell}>{request.accountNumber}</td>
-                                    <td className={styles.tableCell}>{request.amountToWithdraw}</td>
                                     <td className={styles.tableCell}>{request.withdrawMethod}</td>
                                     <td className={styles.tableCell}>
-                                        <button className={styles.actionButton} onClick={() => confirmApproveRequest(request)}>Approve</button>
+                                        <span className={`${styles.statusBadge} ${styles[request.withdrawStatus]}`}>{request.withdrawStatus}</span>
+                                    </td>
+                                    <td className={styles.tableCell}>
+                                        <button className={styles.actionButton} onClick={() => viewDetails(request)}>View Details</button>
+                                        {request.withdrawStatus === "pending" && (
+                                            <button className={styles.actionButton} onClick={() => confirmApproveRequest(request)}>Approve</button>
+                                        )}
                                     </td>
                                 </tr>
                             ))
                         ) : (
                             <tr className={styles.tableRow}>
-                                <td colSpan="6" className={styles.noBookings}>No withdrawal requests found</td>
+                                <td colSpan="4" className={styles.noBookings}>No withdrawal requests found</td>
                             </tr>
                         )}
                     </tbody>
@@ -126,6 +157,13 @@ const WithdrawRequests = () => {
                     show={showConfirmModal}
                     onConfirm={handleApproveConfirm}
                     onCancel={handleApproveCancel}
+                />
+            )}
+
+            {showDetailsModal && (
+                <WithdrawCredentialsModal
+                    request={requestToView}
+                    onClose={handleDetailsClose}
                 />
             )}
         </>

@@ -28,7 +28,7 @@ const RequestConfirmModal = ({ show, onConfirm, onCancel }) => {
         <div className={styles.modalBackdrop} onClick={handleOutsideClick}>
             <div className={styles.modal}>
                 <h2>Confirmation</h2>
-                <p>Are you sure you want to accept this booking?</p>
+                <p>Are you sure you want to continue?</p>
                 <div className={styles.buttonContainer}>
                     <button onClick={onConfirm} className={styles.confirmBtn}>YES</button>
                     <button onClick={onCancel} className={styles.cancelBtn}>NO</button>

@@ -24,8 +24,6 @@ import MyBookings from "./Components/MyBookings/MyBookings";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ViewProfile from "./Components/ViewProfile/ViewProfile";
 import ManageRequests from "./Components/ManageRequests/ManageRequests";
-import ConfirmedBookings from "./Components/ConfirmedBookings/ConfirmedBookings";
-import CompletedBookings from "./Components/CompletedBookings/CompletedBookings";
 import Overview from "./Components/Overview/Overview";
 import RescheduleBooking from "./Components/Reschedule Booking/RescheduleBooking";
 import PasswordUpdate from "./Components/PasswordUpdate/PasswordUpdate";
@@ -39,13 +37,14 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminOverview from "./Components/Admin Dashboard/Admin Overview/AdminOverview";
 import { AdminPrivateComponent } from "./Components/Admin Dashboard/Admin Private Component/AdminPrivateComponent";
 import Accounts from "./Components/Admin Dashboard/Accounts/Accounts";
-import Payment from "./Components/Admin Dashboard/Payment/Payment";
+import AdminWithdrawHistory from "./Components/Admin Dashboard/Admin Withdraw History/AdminWithdrawHistory";
 import AddNewService from "./Components/Admin Dashboard/Add New Service/AddNewService";
 import AllBookings from "./Components/Admin Dashboard/All Bookings/AllBookings";
 import { PublicComponent } from "./Components/Public Component/PublicComponent";
 import ChatBot from "./Components/ChatBot/ChatBot";
 import AccountDetailsForm from "./Components/AccountDetailsForm/AccountDetailsForm";
 import WithdrawRequests from "./Components/Admin Dashboard/Withdraw Requests/WithdrawRequests";
+import UserWithdrawHistory from "./Components/UserWithdrawHistory/UserWithdrawHistory";
 
 function App() {
   return (
@@ -71,8 +70,6 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<ViewProfile />} />
             <Route path="/managerequests" element={<ManageRequests />} />
-            <Route path="/confirmedbookings" element={<ConfirmedBookings />} />
-            <Route path="/completedbookings" element={<CompletedBookings />} />
             <Route path="/overview" element={<Overview />} />
             <Route path="/reschedulebooking" element={<RescheduleBooking />} />
             <Route path="/accountsettings" element={<PasswordUpdate />} />
@@ -83,6 +80,7 @@ function App() {
             <Route path="/chatbot" element={<ChatBot/>} />
             <Route path="/messagecontainer" element={<MessageContainer />} />
             <Route path="/accountdetails" element={<AccountDetailsForm/>} />
+            <Route path="/userwithdrawhistory" element={<UserWithdrawHistory/>}/>
           </Route>
 
           <Route element={<AdminPrivateComponent />}>
@@ -90,7 +88,7 @@ function App() {
             <Route path="/usersaccounts" element={<Accounts />} />
             <Route path="/allservices" element={<Services />} />
             <Route path="//alladminusers" element={<AllUsers />} />
-            <Route path="/paymenthistory" element={<Payment />} />
+            <Route path="/paymenthistory" element={<AdminWithdrawHistory />} />
             <Route path="/allbookings" element={<AllBookings />} />
             <Route path="/addnewservice" element={<AddNewService />} />
             <Route path="/withdrawrequest" element={<WithdrawRequests/>} />
