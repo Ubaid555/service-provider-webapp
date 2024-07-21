@@ -503,6 +503,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
+      {userData && 
       <div className={styles.balanceSection}>
         <div className={styles.balanceCard}>
           <h2 className={styles.balanceTitle}>{t("Total Balance")}</h2>
@@ -526,7 +527,7 @@ const Overview = () => {
             <button className={styles.cardButton}>{t("View Details")}</button>
           </NavLink>
         </div>
-      </div>
+      </div>}
       <ChatBox />
       <Footer />
     </div>
