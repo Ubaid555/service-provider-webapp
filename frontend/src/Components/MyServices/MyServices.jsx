@@ -113,22 +113,6 @@ export const MyServices = () => {
             return '/Images/default.png';
         }
           }
-        // switch(category.toLowerCase()) {
-        //     case 'electrician':
-        //         return '/Images/electrician.jpeg';
-        //     case 'plumber':
-        //         return '/Images/plumber.png';
-        //     case 'mechanic':
-        //         return '/Images/mechanic.png';
-        //     case 'cable operator':
-        //         return '/Images/cable operator.jpg';
-        //     case 'labor':
-        //         return '/Images/labor.png';
-        //     case 'carpenter':
-        //         return '/Images/carpenter.png';
-        //     default:
-        //         return '/Images/default.png'; 
-        // }
     }
 
     return (

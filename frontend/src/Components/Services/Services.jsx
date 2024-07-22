@@ -65,7 +65,9 @@ const Services = () => {
     />
   ))
 ) : (
-  <p>No Services Found</p>
+  <div className="no_services_present">
+    <p className="noo_services">No Services Found</p>
+  </div>
 )}
       </div>
       {!isAdmin && <ChatBox/>}

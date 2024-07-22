@@ -1,48 +1,3 @@
-// import mongoose from "mongoose";
-
-// const bookingSchema = new mongoose.Schema(
-//   {
-//     serviceTakerId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "User",
-//       required: true,
-//     },
-//     serviceProviderId: {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "User",
-//       required: true,
-//     },
-//     category: {
-//       type: String,
-//       required: true,
-//     },
-//     address: {
-//       type: String,
-//       required: true,
-//     },
-//     description: {
-//       type: String,
-//       required: true,
-//     },
-//     date: {
-//       type: String,
-//       required: true,
-//     },
-//     time: {
-//       type: String,
-//       required: true,
-//     },
-//     currentStatus: {
-//       type: String,
-//       required: true,
-//     },
-//   },
-//   { timestamps: true }
-// );
-
-// const Booking = mongoose.model("Booking",bookingSchema);
-// export default Booking;
-
 import mongoose from 'mongoose';
 
 const bookingSchema = new mongoose.Schema(
@@ -111,12 +66,12 @@ const bookingSchema = new mongoose.Schema(
     },
     userStatus: {
       type: String,
-      enum: ['Pending', 'Completed'], // You can add more statuses as needed
+      enum: ['Pending', 'Completed'], 
         default: 'Pending'
     },
     serviceProviderStatus: {
       type: String,
-      enum: ['Pending', 'Completed'], // You can add more statuses as needed
+      enum: ['Pending', 'Completed'], 
         default: 'Pending'
     },
 

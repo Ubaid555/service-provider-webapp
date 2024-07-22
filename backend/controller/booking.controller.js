@@ -6,111 +6,6 @@ import Stripe from "stripe";
 import Payment from "../models/payment.model.js";
 import UserBalance from "../models/balance.model.js";
 
-// export const
-// export const bookService = async (req, resp) => {
-//   try {
-//     const {
-//       category,
-//       serviceProviderId,
-//       serviceTakerId,
-//       price,
-//       serviceProviderName,
-//       serviceProviderImage,
-//       description,
-//     } = req.body;
-//     const userId = serviceProviderId;
-
-//     const existingBooking = await Booking.findOne({
-//       category,
-//       serviceProviderId,
-//       serviceTakerId,
-//     });
-
-//     if (existingBooking) {
-//       if (existingBooking.currentStatus == "Pending") {
-//         return resp
-//           .status(400)
-//           .json({ error: "Already Pending Service Request To This User" });
-//       } else if (existingBooking.currentStatus == "Confirmed") {
-//         return resp
-//           .status(400)
-//           .json({ error: "There is an Ongoing Service With this User" });
-//       } else {
-//         const user = await User.findOne({ _id: serviceTakerId });
-//         const email = user.email;
-//         console.log("User email is ", email);
-
-//         let users = await User.findOne({ _id: serviceTakerId });
-//         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-//         const session = await stripe.checkout.sessions.create({
-//           payment_method_types: ["card"],
-//           mode: "payment",
-//           success_url: `${process.env.CLIENT_SITE_URL}/mybookings`,
-//           cancel_url: `${process.env.CLIENT_SITE_URL}/bookingform`,
-//           customer_email: users.email,
-//           client_reference_id: serviceProviderId,
-//           line_items: [
-//             {
-//               price_data: {
-//                 currency: "usd",
-//                 unit_amount: price,
-//                 product_data: {
-//                   name: serviceProviderName,
-//                   description: description,
-//                   images: [serviceProviderImage],
-//                 },
-//               },
-//               quantity: 1,
-//             },
-//           ],
-//         });
-
-//         let bookingData = { ...req.body, currentStatus: "Pending" };
-//         let newBooking = new Booking(bookingData);
-//         await updateCount("Pending", userId);
-//         let result = await newBooking.save();
-//         resp.status(201).json(result);
-//       }
-//     } else {
-//       let user = await User.findOne({ _id: serviceTakerId });
-//       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-//       const session = await stripe.checkout.sessions.create({
-//         payment_method_types: ["card"],
-//         mode: "payment",
-//         success_url: `${process.env.CLIENT_SITE_URL}/mybookings`,
-//         cancel_url: `${process.env.CLIENT_SITE_URL}/bookingform`,
-//         customer_email: user.email,
-//         client_reference_id: serviceProviderId,
-//         line_items: [
-//           {
-//             price_data: {
-//               currency: "usd",
-//               unit_amount: price,
-//               product_data: {
-//                 name: serviceProviderName,
-//                 description: description,
-//                 images: [serviceProviderImage],
-//               },
-//             },
-//             quantity: 1,
-//           },
-//         ],
-//       });
-
-//       let bookingData = { ...req.body, currentStatus: "Pending" };
-//       let newBooking = new Booking(bookingData);
-//       await updateCount("Pending", userId);
-//       let result = await newBooking.save();
-//       resp.status(201).json({success:true,message:'Successfully Paid',session});
-//   }
-//   } catch (error) {
-//     console.log("Error's in Book Service Controller", error.message);
-//     resp.status(500).json({ error: "Internal Server Error" });
-//   }
-// };
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const bookService = async (req, resp) => {
@@ -362,17 +257,6 @@ export const handleBookingRequest = async (req, resp) => {
 
           await newUser.save();
         }
-
-      //let bookingData= await Booking.findOne({_id:bookingId});
-      // let newPayment = new Payment({
-      //   serviceProviderId: bookingData.serviceProviderId,
-      //   serviceTakerId:bookingData.serviceTakerId,
-      //   bookingId:bookingData._id,
-      //   amount:bookingData.price,
-      //   currentStatus:bookingData.currentStatus
-      // });
-//      const paymentResult = await newPayment.save();
-//console.log("Payment is " ,paymentResult);
       } else {
         result = await Booking.updateOne(
           { _id: bookingId },
@@ -420,8 +304,6 @@ export const handleBookingRequest = async (req, resp) => {
 export const handleUserRequest = async (req, resp) => {
   try {
     const { bookingId } = req.body;
-    //     const objectId = mongoose.Types.ObjectId.isValid(bookingId) ? new mongoose.Types.ObjectId(bookingId) : null;
-    //     let result1 = await Booking.find({_id:objectId});
     const result = await Booking.updateOne(
       { _id: bookingId },
       { $set: { userStatus: "Completed" } }
@@ -438,33 +320,6 @@ export const handleUserRequest = async (req, resp) => {
     resp.status(500).json({ error: "Internal Server Error" });
   }
 };
-
-// export const updateBooking = async (req, resp) => {
-//   try {
-//     const { bookingId } = req.body._id;
-//     console.log(bookingId )
-
-//     const result = await Booking.updateOne(
-//       { _id: bookingId },
-//       { $set: req.body }
-//     );
-//     if (result.matchedCount === 0) {
-//       return resp.status(404).json({ message: "Booking not found" });
-//     }
-
-//     if (result.modifiedCount === 0) {
-//       return resp
-//         .status(400)
-//         .json({ message: "No changes made to the booking" });
-//     }
-
-//     // Successful update
-//     resp.status(200).json({ message: "Booking updated successfully" });
-//   } catch (error) {
-//     console.log("Error's inUpdate Booking Controller", error.message);
-//     resp.status(500).json({ error: "Internal Server Error" });
-//   }
-// };
 
 export const updateBooking = async (req, resp) => {
   try {

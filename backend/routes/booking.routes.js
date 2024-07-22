@@ -3,7 +3,6 @@ import { bookService, handleBookingRequest, handleUserRequest, myBookedService, 
 
 const router = express.Router();
 
-//router.post("/addService",addservice);
 router.post("/bookService",bookService);
 router.get("/success",success);
 router.get("/myBookedService",myBookedService);
