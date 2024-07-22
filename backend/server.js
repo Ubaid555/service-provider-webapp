@@ -16,8 +16,7 @@ import overviewRoutes from "./routes/overview.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
 import reviewRoutes from "./routes/review.routes.js";
 import paymentRoutes from "./routes/payment.routes.js";
-
-
+import chatbotRoutes from "./routes/chatbot.routes.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import initSocketIO from "./socket.js";
@@ -47,6 +46,7 @@ app.use("/api/overview", overviewRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/payment",paymentRoutes);
+app.use("/api/chat",chatbotRoutes);
  
 server.listen(PORT, () => {
     connectToMongoDB();
