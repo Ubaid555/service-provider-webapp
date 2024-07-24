@@ -63,6 +63,10 @@
   background-color: white;
   padding: 0 10px;
 }
+
+.select{
+  padding: 7px;
+}
 .booking_image img{
   margin-left: 120px;
   margin-bottom: 220px;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Cards from './Cards';
-//import Sdata from './Sdata';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Services.css'; 

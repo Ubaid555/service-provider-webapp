@@ -90,12 +90,6 @@ const AddServices = () => {
   };
 
   const handleAddServiceClick = () => {
-    if (!fullName) {
-      toast.error("Name is required", {
-        className: styles.custom_error_toast,
-      });
-      return;
-    }
 
     if (!category) {
       toast.error("Profession is required", {

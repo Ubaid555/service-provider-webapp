@@ -31,9 +31,13 @@ export const bookService = async (req, resp) => {
       category,
       serviceProviderId,
       serviceTakerId,
+      currentStatus: "Pending" || "Confirmed",
     });
 
+    console.log("Existing Booking",existingBooking)
+
     if (existingBooking) {
+      console.log("Inside Existing")
       if (existingBooking.currentStatus === "Pending") {
         return resp
           .status(400)
