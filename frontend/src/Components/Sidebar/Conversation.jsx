@@ -14,7 +14,7 @@ const Conversation = ({ conversation, lastIdx, onClick }) => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'serviceTakerId': storedUsers, // Replace with actual logic
+            'currentUser': storedUsers, // Replace with actual logic
           },
         });
         if (response.ok) {

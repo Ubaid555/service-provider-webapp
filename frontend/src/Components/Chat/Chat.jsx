@@ -385,12 +385,13 @@ const Chat = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/api/messages/${serviceProviderId}`, {
-                    method: "GET",
+                const conversation = JSON.parse(localStorage.getItem("loginusers"));
+                const response = await fetch(`http://localhost:5001/api/messages/${conversation._id}`, {
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'serviceTakerId': serviceTakerId
-                    }
+                        'currentuser': serviceProviderId
+                    },
                 });
                 if (response.ok) {
                     const data = await response.json();
@@ -411,7 +412,7 @@ const Chat = () => {
     useEffect(() => {
         socket.on('receiveMessage', (message) => {
             const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
-            if (message.receiverId === serviceTakerId || message.senderId === serviceTakerId) {
+            if (message.receiverId === currentUser || message.senderId === currentUser) {
                 setMessages((prevMessages) => [...prevMessages, message]);
             }
         });
@@ -422,23 +423,21 @@ const Chat = () => {
     }, [serviceTakerId]);
 
     useEffect(() => {
-        // Scroll to the bottom whenever messages change
         if (messagesEndRef.current) {
             messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [messages]);
 
     const send = async () => {
+        const loginUser = JSON.parse(localStorage.getItem("loginusers"))._id
         if (message.trim() === "") {
             toast.error("Message cannot be empty");
             return;
         }
 
-        console.log(serviceProviderId,serviceTakerId);
-
         const newMessage = {
-            serviceTakerId,
-            serviceProviderId,
+            senderId:loginUser,
+            receiverId:serviceProviderId,
             message: message,
             createdAt: new Date().toISOString()
         };
@@ -446,14 +445,14 @@ const Chat = () => {
         try {
             const response = await fetch("http://localhost:5001/api/messages/send", {
                 method: "POST",
-                body: JSON.stringify(newMessage),
+                body: JSON.stringify({newMessage}),
                 headers: { "Content-Type": "application/json" },
             });
 
             if (response.ok) {
                 const data = await response.json();
                 setMessage("");
-                setMessages(prevMessages => [...prevMessages, newMessage]);
+                // setMessages(prevMessages => [...prevMessages, newMessage]);
                 toast.success("Message sent successfully");
             } else {
                 console.error("Error sending message:", response.statusText);

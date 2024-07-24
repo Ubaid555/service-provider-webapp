@@ -4,13 +4,10 @@ import Message from "../models/message.model.js"
 
 export const sendMessage = async (req, resp) => {
     try {
-        const { serviceProviderId, serviceTakerId, message } = req.body;
-
-        const receiverId = serviceProviderId;
-        const senderId = serviceTakerId;
+        console.log(req.body);
+        const { senderId, receiverId, message } = req.body.newMessage;
 
         let conversation = await Conversation.findOne({ participants: { $all: [senderId, receiverId] } });
-
         if (!conversation) {
             conversation = await Conversation.create({
                 participants: [senderId, receiverId]
@@ -42,23 +39,24 @@ export const sendMessage = async (req, resp) => {
         resp.status(500).json({ error: "Internal Server Error" });
     }
 }
+
 export const getMessages = async (req, resp) => {
     try { 
         const { id: userToChatId } = req.params;
-        const senderId = req.headers.servicetakerid;
-
-        // console.log(userToChatId,senderId);
+        const currentUser = req.headers['currentuser'];;
+        // console.log(userToChatId,currentUser)
   
       const conversation = await Conversation.findOne({
-        participants: { $all: [senderId, userToChatId] },
+        participants: { $all: [currentUser, userToChatId] },
       }).populate("messages");
 
-  
+//   console.log(conversation);
       if(!conversation){
           return resp.status(200).json([]);
       }
   
       const messages=conversation.messages;
+    //   console.log(messages)
    
       resp.status(200).json(messages);
     } catch (error) {

@@ -10,23 +10,27 @@ const socket = io('http://localhost:5001');
 const MessageContainer = ({ conversation, onBackClick }) => {
     const [messages, setMessages] = useState([]);
     const [serviceTakerId, setServiceTakerId] = useState("");
+    const [currentUser,setCurrentUser] = useState("");
     const messagesEndRef = useRef(null); // Create a ref for the messages container
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("loginusers"));
         if (storedUser && storedUser._id) {
             setServiceTakerId(storedUser._id);
+            setCurrentUser(storedUser._id);
         }
     }, []);
 
     useEffect(() => {
         const fetchMessages = async () => {
             try {
+                const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
+                console.log("Current USer", currentUser)
                 const response = await fetch(`http://localhost:5001/api/messages/${conversation._id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'serviceTakerId': serviceTakerId,
+                        'currentuser': currentUser
                     },
                 });
                 if (response.ok) {
@@ -48,9 +52,12 @@ const MessageContainer = ({ conversation, onBackClick }) => {
     useEffect(() => {
         socket.on('receiveMessage', (message) => {
             const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
-            if (message.receiverId === serviceTakerId || message.senderId === serviceTakerId) {
+            if(message.senderId===conversation._id && message.receiverId===currentUser){
                 setMessages((prevMessages) => [...prevMessages, message]);
-            }
+        }
+        if(message.senderId===currentUser && message.receiverId===conversation._id){
+            setMessages((prevMessages) => [...prevMessages, message]);
+    }
         });
 
         return () => {
@@ -71,7 +78,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
         }
 
         const newMessage = {
-            senderId: serviceTakerId,
+            senderId: currentUser,
             receiverId: conversation._id,
             message: messageContent,
             createdAt: new Date().toISOString()
@@ -80,17 +87,13 @@ const MessageContainer = ({ conversation, onBackClick }) => {
         try {
             const response = await fetch('http://localhost:5001/api/messages/send', {
                 method: 'POST',
-                body: JSON.stringify({
-                    serviceProviderId: conversation._id,
-                    serviceTakerId: serviceTakerId,
-                    message: messageContent,
+                body: JSON.stringify({newMessage
                 }),
                 headers: { 'Content-Type': 'application/json' },
             });
 
             if (response.ok) {
                 const data = await response.json();
-                console.log("data after sending message", data);
             } else {
                 console.error('Error sending message:', response.statusText);
             }
