@@ -8,9 +8,12 @@
   "myServices": "میری خدمات",
   "viewServices": "خدمات دیکھیں",
   "addServices": "خدمات شامل کریں",
+  "overview": "جائزہ",
+  "bookingRequests": "بکنگ کی درخواستیں",
+  "pendingRequests": "زیر التوا درخواستیں",
   "viewProfile": "پروفائل دیکھیں",
   "logout": "لاگ آوٹ",
-  "addCard": "کارڈ شامل کریں",
+  "accountSettings": "اکاؤنٹ کی ترتیبات",
   "login": "لاگ ان",
   "signup": "سائن اپ"
 }

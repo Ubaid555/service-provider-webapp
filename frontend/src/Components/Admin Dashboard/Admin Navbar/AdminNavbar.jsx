@@ -77,10 +77,6 @@ export const AdminNavbar = () => {
                                     <i className="fa fa-money-bill"></i>
                                     Withdraw Requests
                                 </Dropdown.Item>
-                                <Dropdown.Item as={NavLink} to='/paymenthistory'>
-                                    <i class="fa-solid fa-landmark"></i>
-                                    Withdraw History
-                                </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
 

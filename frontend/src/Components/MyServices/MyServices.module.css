@@ -1,6 +1,4 @@
-
-
-.main_heading {
+/* .main_heading {
   padding: 30px 0;
   text-align: center;
   text-transform: uppercase;
@@ -23,12 +21,12 @@
 
 .teamImg {
   width: 350px;
-  height: 350px; /* Adjust height to keep aspect ratio */
+  height: 350px; 
   border-radius: 50%;
   padding: 6px;
   background-color: #dedede; 
   object-fit: cover;
-  margin: 0 auto 50px; /* Center the image horizontally */
+  margin: 0 auto 50px; 
   margin-top: 10px;
 }
 
@@ -42,8 +40,8 @@
 }
 .formContainer {
   display: flex;
-  flex-wrap: wrap; /* Allow forms to wrap to the next row */
-  justify-content: center; /* Center forms horizontally */
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
 .card {
@@ -55,17 +53,17 @@
   padding-right: 10px;
   padding-bottom: 20px;
   border-radius: 8px;
-  width: calc(400px - 70px); /* Display 2 forms in one row by default with spacing */
+  width: calc(400px - 70px); 
   box-sizing: border-box;
   background-color: #ffffff;
-  box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.5), /* Top shadow */
-              0 -5px 8px -4px rgba(0, 0, 0, 0.5), /* Bottom shadow */
-              5px 0 8px -4px rgba(0, 0, 0, 0.5), /* Right shadow */
-              -5px 0 8px -4px rgba(0, 0, 0, 0.5); /* Left shadow */
+  box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.5), 
+              0 -5px 8px -4px rgba(0, 0, 0, 0.5), 
+              5px 0 8px -4px rgba(0, 0, 0, 0.5), 
+              -5px 0 8px -4px rgba(0, 0, 0, 0.5);
 }
 
 .cardInfo {
-  width: 100%; /* Takes up full width of the container */
+  width: 100%; 
 }
 
 .cardCategory,
@@ -93,13 +91,13 @@
 }
 
 .cardInput {
-  width: calc(100% - 20px); /* Takes full width with spacing */
-  padding: 10px 15px; /* Increase padding for larger input fields */
-  font-size: 14px; /* Increase font size */
+  width: calc(100% - 20px); 
+  padding: 10px 15px; 
+  font-size: 14px; 
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
-  margin-bottom: 8px; /* Ensures consistent spacing between elements */
+  box-sizing: border-box; 
+  margin-bottom: 8px;
 }
 
 .cardBtn {
@@ -113,20 +111,21 @@
   font-size: 14px;
   transition: background-color 0.3s;
   margin-top: 10px;
-  width: calc(50% - 10px); /* Takes half of the width with spacing */
+  width: calc(50% - 10px); 
   text-align: center;
 }
 
 .serviceHeading{
   margin-bottom: 30px;
-  background-color: #fecaca;
-  color: black;
+  background-color: #d01c28;
+  color: white;
   padding: 10px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   font-size: 24px;
   font-weight: 500;
   text-transform: uppercase;
+  margin-right: 8px;
 }
 
 .oops p {
@@ -138,7 +137,6 @@
   margin-bottom: 220px;
 }
 
-/* Media Queries for responsive design */
 @media (max-width: 950px) {
   .cardBtn{
     font-size: 12px;
@@ -159,12 +157,12 @@
   }
 
   .card {
-    width: 100%; /* Adjust card width to take full width in smaller screens */
+    width: 100%; 
     
   }
 
   .cardInput {
-    width: calc(100% - 20px); /* Takes full width with spacing */
+    width: calc(100% - 20px); 
   }
 }
 
@@ -176,16 +174,469 @@
   }
 
   .card {
-    width: 100%; /* Adjust card width to take full width in smaller screens */
+    width: 100%; 
     margin: 10px;
   }
 
   .cardInput {
-    width: calc(100% - 20px); /* Takes full width with spacing */
+    width: calc(100% - 20px); 
   }
 }
 @media screen and (max-width: 768px) {
   .main_heading{
     margin-top: 90px;
   }
+} */
+
+
+
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300&display=swap');
+
+
+:root {
+    --primary-color: #d01c28;
+    --secondary-color: #ff6347;
+    --text-color: #333;
+    --border-radius: 10px;
+    --transition: 0.4s;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_heading {
+  padding: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: black;
+  background-color: #fecaca;
+  margin-top: 85px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section_white {
+    padding: 40px 20px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    animation: zoomIn 0.8s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.all_form{
+  margin-top: 20px;
+}
+.teamImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    margin-bottom: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition);
+}
+
+.teamImg:hover {
+    transform: scale(1.1);
+}
+
+hr {
+    width: 80%;
+    border: 1px solid var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.formContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cardInfo {
+    padding: 20px;
+}
+
+.cardCategory {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cardTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.cardInput {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition);
+}
+
+.cardInput:focus {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.4);
+    outline: none;
+}
+
+.cardBtn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background var(--transition), transform var(--transition);
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cardBtn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.serviceHeading {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.oops p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 150px 0;
+}
+
+@media (max-width: 950px) {
+    .cardBtn {
+        font-size: 0.9rem;
+    }
+    .card {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 780px) {
+    .main_heading {
+        margin-top: 85px;
+    }
+    .teamImg {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .teamImg {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300&display=swap');
+
+
+:root {
+    --primary-color: #d01c28;
+    --secondary-color: #ff6347;
+    --text-color: #333;
+    --border-radius: 10px;
+    --transition: 0.4s;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_heading {
+  padding: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: black;
+  background-color: #fecaca;
+  margin-top: 85px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section_white {
+    padding: 40px 20px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    animation: zoomIn 0.8s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.all_form{
+  margin-top: 20px;
+}
+.teamImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid rgb(196, 194, 194);
+    margin-bottom: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition);
+}
+
+.teamImg:hover {
+    transform: scale(1.1);
+}
+
+hr {
+    width: 80%;
+    border: 1px solid var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.formContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cardInfo {
+    padding: 20px;
+}
+
+.cardCategory {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cardTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.cardInput {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition);
+}
+
+.cardInput:focus {
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.4);
+    outline: none;
+}
+
+.cardBtn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background var(--transition), transform var(--transition);
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cardBtn:hover {
+    background: #a90101;
+    transform: translateY(-5px);
+}
+
+.serviceHeading {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.oops p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 150px 0;
+}
+
+@media (max-width: 950px) {
+    .cardBtn {
+        font-size: 0.9rem;
+    }
+    .card {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 780px) {
+    .main_heading {
+        margin-top: 85px;
+    }
+    .teamImg {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .teamImg {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
 }

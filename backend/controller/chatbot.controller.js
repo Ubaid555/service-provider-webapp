@@ -1,4 +1,5 @@
 export const chat = async (req, res) => {
+    console.log("APi Call")
     const apiRequestBody = req.body;
 
     try {

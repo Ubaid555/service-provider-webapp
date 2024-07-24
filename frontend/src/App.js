@@ -44,6 +44,7 @@ import ChatBot from "./Components/ChatBot/ChatBot";
 import AccountDetailsForm from "./Components/AccountDetailsForm/AccountDetailsForm";
 import WithdrawRequests from "./Components/Admin Dashboard/Withdraw Requests/WithdrawRequests";
 import UserWithdrawHistory from "./Components/UserWithdrawHistory/UserWithdrawHistory";
+import UpdateService from "./Components/Update Service/UpdateService";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
             <Route path="/bookingform" element={<BookingForm />} />
             <Route path="/partnerships" element={<Partnerships />} />
             <Route path="/myservices" element={<MyServices />} />
+            <Route path="/updateservice" element={<UpdateService/>} />
             <Route path="/addservice" element={<AddServices />} />
             <Route path="/allusers" element={<AllUsers />} />
             <Route path="/servicerequests" element={<ServiceRequests />} />

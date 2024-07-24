@@ -8,9 +8,12 @@
   "myServices": "My Services",
   "viewServices": "View Services",
   "addServices": "Add Services",
+  "overview": "Overview",
+  "bookingRequests": "Booking Requests",
+  "pendingRequests": "Pending Requests",
   "viewProfile": "View Profile",
   "logout": "Logout",
-  "addCard": "Add Card",
+  "accountSettings": "Account Settings",
   "login": "Log in",
   "signup": "Sign up"
 }

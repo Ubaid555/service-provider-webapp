@@ -345,7 +345,6 @@ import CountUp from "react-countup";
 import { useTranslation } from 'react-i18next';
 import styles from "./Overview.module.css";
 import Navbar from "../Navbar/Navbar";
-import Dashboard from "../Dashboard/Dashboard";
 import Footer from "../Footer/Footer";
 import ChatBox from "../ChatBox/ChatBox";
 import TranslateButton from "../TranslateButton/TranslateButton";
@@ -459,7 +458,6 @@ const Overview = () => {
     <div dir={currentLanguage === 'ur' ? 'rtl' : 'ltr'}>
       <Navbar />
       <TranslateButton/>
-      <Dashboard />
       <div className={styles.header_overview}>
         <h1 className={styles.heading_overview}>
           <span className={styles.name_part}>{userName}, </span> 

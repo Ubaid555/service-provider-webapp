@@ -5,7 +5,6 @@ import CancelPendingModal from '../AllModals/CancelPendingModal/CancelPendingMod
 import PendingDetailsModal from '../AllModals/PendingDetailsModal/PendingDetailsModal';
 import RequestConfirmModal from '../AllModals/RequestConfirmModal/RequestConfirmModal';
 import CompleteBookingModal from '../AllModals/CompleteBookingModal/CompleteBookingModal';
-import Dashboard from '../Dashboard/Dashboard';
 import ChatBox from '../ChatBox/ChatBox';
 
 const ManageRequests = () => {
@@ -190,7 +189,6 @@ const ManageRequests = () => {
     return (
         <>
     <Navbar />
-    <Dashboard />
     <h1 className={styles.main_heading}>{userName}'s Requests</h1>
     <div className={styles.bookingsContainer}>
         <table className={styles.bookingsTable}>

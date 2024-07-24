@@ -271,8 +271,12 @@
 
 // export default BookingForm;
 
+
+
+
+
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation} from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../Navbar/Navbar";
@@ -289,7 +293,8 @@ const BookingForm = () => {
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState({ hour: "", period: "AM" });
+
   const location = useLocation();
   const {
     category,
@@ -319,14 +324,24 @@ const BookingForm = () => {
     const formattedDate = selectedDate.split("T")[0]; 
     setDate(formattedDate); // Update the state with the formatted date
   };
- 
+
+  const handleTimeChange = (e) => {
+    const { name, value } = e.target;
+    setTime((prevTime) => ({
+      ...prevTime,
+      [name]: value
+    }));
+  };
+
   const handleBookService = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
-    if (!address || !description || !date) {
+    if (!address || !description || !date || !time.hour || !time.period) {
       toast.error("Please fill in all required fields.");
       return;
     }
+
+    const formattedTime = `${time.hour} ${time.period}`;
 
     try {
       let response = await fetch("http://localhost:5001/api/bookings/bookService", {
@@ -344,7 +359,7 @@ const BookingForm = () => {
           address,
           description,
           date,
-          time,
+          time: formattedTime,
           price
         }),
         headers: { "Content-Type": "application/json" },
@@ -426,13 +441,20 @@ const BookingForm = () => {
 
             <div className={styles.form_control}>
               <label htmlFor="time">Time</label>
-              <input
-                type="time"
-                name="time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-              />
+              <div className={styles.time_select}>
+                <select name="hour" value={time.hour} onChange={handleTimeChange} required>
+                  <option value="">Hour</option>
+                  {[...Array(12)].map((_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+                <select name="period" value={time.period} onChange={handleTimeChange} required>
+                  <option value="AM">AM</option>
+                  <option value="PM">PM</option>
+                </select>
+              </div>
             </div>
 
             <div className={styles.form_control}>

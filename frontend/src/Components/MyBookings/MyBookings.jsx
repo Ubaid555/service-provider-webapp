@@ -316,7 +316,6 @@ import styles from './MyBookings.module.css';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import BookingDetailsModal from '../AllModals/BookingDetailsModal/BookingDetailsModal';
-import Dashboard from '../Dashboard/Dashboard';
 import CancelPendingModal from '../AllModals/CancelPendingModal/CancelPendingModal';
 import ChatBox from '../ChatBox/ChatBox';
 
@@ -447,7 +446,6 @@ const MyBookings = () => {
   return (
     <>
       <Navbar />
-      <Dashboard />
       <h1 className={styles.mainHeading}>{userName}'s BOOKINGS</h1>
       <div className={styles.bookingsContainer}>
         <table className={styles.bookingsTable}>

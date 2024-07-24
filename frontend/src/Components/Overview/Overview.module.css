@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 190px;
   }
   
   .heading_overview {
@@ -221,8 +221,8 @@
   
   .balanceTitle {
     margin-bottom: 30px;
-    background-color: #fecaca;
-    color: black;
+    background-color: #d01c28;
+    color: white;
     padding: 10px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;

@@ -5,11 +5,25 @@
     font-size: 1.5rem;
     letter-spacing: 2px;
     font-weight: 600;
-    color: #000000;
+    color: black;
     background-color: #fecaca;
-    margin-top: 157px;
+    margin-top: 85px;
     margin-bottom: 60px;
-}
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
 
 .groupHeading, .statusHeader{
     text-align: center;
@@ -117,8 +131,8 @@
 @media (max-width: 768px) {
     .mainHeading {
         font-size: 1.5rem;
-        padding: 20px 0;
-        margin-top: 167px;
+        padding: 30px 0;
+        margin-top: 85px;
     }
 
     .tableHeader, .tableCell {
@@ -138,7 +152,7 @@
     .mainHeading {
         font-size: 1.2rem;
         padding: 15px 5;
-        margin-top: 176px;
+        margin-top: px;
     }
     .tableHeader, .tableCell {
         padding: 5px;
@@ -161,7 +175,6 @@
     .mainHeading {
         font-size: 1.1rem;
         padding: 15px 5;
-        margin-top: 176px;
     }
     .tableHeader, .tableCell {
         padding: 3px;
@@ -184,7 +197,6 @@
     .mainHeading {
         font-size: 1rem;
         padding: 15px 5;
-        margin-top: 176px;
     }
     .tableHeader, .tableCell {
         padding: 2px;
