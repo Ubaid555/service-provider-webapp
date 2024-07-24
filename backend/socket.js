@@ -10,7 +10,7 @@ const initSocketIO = (server) => {
   });
 
   io.on('connection', (socket) => {
-    console.log('A user connected: ', socket.id);
+    // console.log('A user connected: ', socket.id);
 
     socket.on('joinRoom', (roomId) => {
       socket.join(roomId);
@@ -23,7 +23,7 @@ const initSocketIO = (server) => {
     });
 
     socket.on('disconnect', () => {
-      console.log('A user disconnected: ', socket.id);
+      // console.log('A user disconnected: ', socket.id);
     });
   });
 
