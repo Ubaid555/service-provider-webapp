@@ -34,10 +34,6 @@ const ViewProfile = () => {
         }
     };
 
-    // const handleUpdateProfile = (profile) => {
-    //     navigate('/updateprofile', { state: { profile } });
-    // };
-
     return (
         <>
             <Navbar />

@@ -10,16 +10,19 @@ const UpdateService = () => {
     console.log("Updating Profile");
     const location = useLocation();
     const navigate = useNavigate();
-    const { profile } = location.state;
-
-    const [updatedProfile, setUpdatedProfile] = useState(profile);
+    const { profile } = location.state || {};
 
     useEffect(() => {
-        console.log('Profile data from location state:', profile);
-        document.title = "Trusty Taskers - Updated Profile";
+        if (!profile)
+          {
+            navigate('/myservices');
+          }
+      }, []);
 
-        // Check if profile and fullName are correctly set
-        console.log('Initial fullName from profile:', profile.fullName);
+    const [updatedProfile, setUpdatedProfile] = useState(profile || {});
+
+    useEffect(() => {
+        document.title = "Trusty Taskers - Updated Profile";
     }, [profile]);
 
     const handleChange = (e) => {

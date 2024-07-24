@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const AccountDetailsForm = () => {
     const navigate = useNavigate(); 
     const location = useLocation();
-    const { totalBalance } = location.state || { totalBalance: 0 };
+    const { totalBalance } = location.state || {  };
 
     const [userId,setUserId]=useState(null);
     const [fullName, setFullName] = useState('');
@@ -18,6 +18,13 @@ const AccountDetailsForm = () => {
     const [accountNumber, setAccountNumber] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [amount, setAmount] = useState('');
+  
+    useEffect(() => {
+      if (!totalBalance)
+        {
+          navigate('/overview');
+        }
+    }, []);
 
     useEffect(() => {
         document.title = "Trusty Taskers - Account Details";
@@ -33,7 +40,6 @@ const AccountDetailsForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validation
         if (!accountHolderName) {
             toast.error('Account Holder Name cannot be empty');
             return;
@@ -59,9 +65,8 @@ const AccountDetailsForm = () => {
             return;
         }
 
-        // Prepare the request data
         const requestData = {
-            userId: userId, // Replace with actual user ID or get it from context or state
+            userId: userId,
             holdername: accountHolderName,
             name: fullName,
             accountNumber,
@@ -71,7 +76,7 @@ const AccountDetailsForm = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:5001/api/payment/withdrawRequest', { // Replace with your API endpoint
+            const response = await fetch('http://localhost:5001/api/payment/withdrawRequest', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

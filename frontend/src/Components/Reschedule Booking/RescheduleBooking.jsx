@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './RescheduleBooking.module.css';
@@ -8,9 +8,17 @@ import Footer from '../Footer/Footer';
 
 const RescheduleBooking = () => {
     const location = useLocation();
-    const { booking } = location.state;
+    const { booking } = location.state || {}; // Use default empty object to prevent undefined errors
+    const [updatedBooking, setUpdatedBooking] = useState(booking || {}); 
 
-    const [updatedBooking, setUpdatedBooking] = useState(booking);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (!booking)
+        {
+          navigate('/mybookings');
+        }
+    }, []);
 
     useEffect(() => {
         document.title = "Trusty Taskers - Update Booking";

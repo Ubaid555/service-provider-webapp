@@ -5,7 +5,7 @@ import { updateCount } from "../utils/counter.util.js";
 import Stripe from "stripe";
 import Payment from "../models/payment.model.js";
 import UserBalance from "../models/balance.model.js";
-
+ 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const bookService = async (req, resp) => {
@@ -44,6 +44,23 @@ export const bookService = async (req, resp) => {
           .json({ error: "There is an Ongoing Service With this User" });
       }
     }
+
+    console.log("Time",time)
+    const notAvailable =await Booking.findOne({
+      serviceProviderId,
+      date,
+      time
+    })
+
+    console.log(notAvailable);
+
+    if (notAvailable) {
+        return resp
+          .status(400)
+          .json({ error: "User is Not Available on this time" });
+    }
+
+
 
     const user = await User.findOne({ _id: serviceTakerId });
 

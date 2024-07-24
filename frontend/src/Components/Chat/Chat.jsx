@@ -131,7 +131,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Chat.module.css";
 import ReactScrollToBottom from "react-scroll-to-bottom";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "../Navbar/Navbar";
@@ -145,6 +145,17 @@ const Chat = () => {
     
     const location = useLocation();
     const { serviceProviderId, serviceTakerId, serviceProviderImage } = location.state || {};
+
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (!serviceProviderId ||
+        !serviceProviderImage ||
+        !serviceTakerId)
+        {
+          navigate('/services');
+        }
+    }, []);
 
     useEffect(() => {
         document.title = "Trusty Taskers - Messaging";

@@ -284,6 +284,8 @@ import Footer from "../Footer/Footer";
 import styles from "./BookingForm.module.css";
 import ChatBox from "../ChatBox/ChatBox";
 
+import { useNavigate } from 'react-router-dom';
+
 const BookingForm = () => {
   const [serviceTakerId, setServiceTakerId] = useState("");
   const [serviceTakerName, setServiceTakerName] = useState("");
@@ -304,6 +306,21 @@ const BookingForm = () => {
     serviceProviderImage,
     price
   } = location.state || {};
+
+
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (    !category || 
+      !serviceProviderId ||
+      !serviceProviderName ||
+      !serviceProviderPhone ||
+      !serviceProviderImage ||
+      !price)
+      {
+        navigate('/services');
+      }
+  }, []);
 
   useEffect(() => {
     document.title = "Trusty Taskers - Booking Form";

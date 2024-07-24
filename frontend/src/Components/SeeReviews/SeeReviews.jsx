@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation ,useNavigate} from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
 import styles from './SeeReviews.module.css';
 import Navbar from '../Navbar/Navbar';
@@ -7,9 +7,20 @@ import Footer from '../Footer/Footer';
 
 const SeeReviews = () => {
     const location = useLocation();
-    const { category, serviceProviderId, serviceProviderName } = location.state;
+    const { category, serviceProviderId, serviceProviderName } = location.state ? location.state : {};
 
     const [reviews, setReviews] = useState([]);
+
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (    !category || 
+        !serviceProviderId ||
+        !serviceProviderName)
+        {
+          navigate('/services');
+        }
+    }, []);
 
     useEffect(() => {
         const fetchReviews = async () => {
