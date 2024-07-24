@@ -227,32 +227,32 @@ export const handleBookingRequest = async (req, resp) => {
       }
 
       if (existingBooking.currentStatus === "Pending Complete") {
+        let newBalance;
         result = await Booking.updateOne(
           { _id: bookingId },
           { $set: { currentStatus } }
         );
-         console.log(result);
          const payment = await Payment.updateOne(
           { _id: bookingId },
           { $set: { currentStatus:"Service Complete" } }
          )
 
          let bookingData= await Booking.findOne({_id:bookingId});
+         newBalance = Math.floor(bookingData.price * 0.93);
          let oldUserBalance = await UserBalance.findOne({
           userId:bookingData.serviceProviderId
         });
         
         if(oldUserBalance){
-         let balance = oldUserBalance.totalBalance + bookingData.price;
-         console.log(balance);
+         let balance = oldUserBalance.totalBalance + newBalance;
          const updateBalance = await UserBalance.updateOne(
           {userId: bookingData.serviceProviderId},
-          { $inc: { totalBalance: bookingData.price } }
+          { $inc: { totalBalance: newBalance } }
          )
         }else{
           const newUser = new UserBalance({
             userId:bookingData.serviceProviderId,
-            totalBalance:bookingData.price
+            totalBalance:newBalance
           })
 
           await newUser.save();
