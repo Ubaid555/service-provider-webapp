@@ -6,10 +6,12 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./BookingForm.module.css";
 import ChatBox from "../ChatBox/ChatBox";
+import Loader from "../Loader/Loader";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const BookingForm = () => {
+  const [loading, setLoading] = useState(false);
   const [serviceTakerId, setServiceTakerId] = useState("");
   const [serviceTakerName, setServiceTakerName] = useState("");
   const [serviceTakerPhone, setServiceTakerPhone] = useState("");
@@ -27,22 +29,22 @@ const BookingForm = () => {
     serviceProviderName,
     serviceProviderPhone,
     serviceProviderImage,
-    price
+    price,
   } = location.state || {};
 
-
   const navigate = useNavigate();
-  
+
   useEffect(() => {
-    if (    !category || 
+    if (
+      !category ||
       !serviceProviderId ||
       !serviceProviderName ||
       !serviceProviderPhone ||
       !serviceProviderImage ||
-      !price)
-      {
-        navigate('/services');
-      }
+      !price
+    ) {
+      navigate("/services");
+    }
   });
 
   useEffect(() => {
@@ -60,21 +62,21 @@ const BookingForm = () => {
   }, []);
 
   const handleDateChange = (e) => {
-    const selectedDate = e.target.value; // This will be in YYYY-MM-DD format
-    const formattedDate = selectedDate.split("T")[0]; 
-    setDate(formattedDate); // Update the state with the formatted date
+    const selectedDate = e.target.value; 
+    const formattedDate = selectedDate.split("T")[0];
+    setDate(formattedDate); 
   };
 
   const handleTimeChange = (e) => {
     const { name, value } = e.target;
     setTime((prevTime) => ({
       ...prevTime,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleBookService = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault();
 
     if (!address && !description && !date && !time.hour && !time.period) {
       toast.error("Please fill in all required fields");
@@ -82,49 +84,52 @@ const BookingForm = () => {
     }
 
     if (!address || !description || !date || !time.hour || !time.period) {
-    if (!date) {
-      toast.error("Please fill in date");
-      return;
-    }
+      if (!date) {
+        toast.error("Please fill in date");
+        return;
+      }
 
-    if (!time.hour || !time.period) {
-      toast.error("Please fill in time");
-      return;
-    }
-    if (!address ) {
-      toast.error("Please fill in address");
-      return;
-    }
+      if (!time.hour || !time.period) {
+        toast.error("Please fill in time");
+        return;
+      }
+      if (!address) {
+        toast.error("Please fill in address");
+        return;
+      }
 
-    if (!description) {
-      toast.error("Please fill in description");
-      return;
+      if (!description) {
+        toast.error("Please fill in description");
+        return;
+      }
     }
-  }
 
     const formattedTime = `${time.hour} ${time.period}`;
-
+    setLoading(true);
     try {
-      let response = await fetch("http://localhost:5001/api/bookings/bookService", {
-        method: "POST",
-        body: JSON.stringify({
-          serviceTakerId,
-          serviceTakerName,
-          serviceTakerPhone,
-          serviceTakerImage,
-          serviceProviderId,
-          serviceProviderName,
-          serviceProviderPhone,
-          serviceProviderImage,
-          category,
-          address,
-          description,
-          date,
-          time: formattedTime,
-          price
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
+      let response = await fetch(
+        "http://localhost:5001/api/bookings/bookService",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            serviceTakerId,
+            serviceTakerName,
+            serviceTakerPhone,
+            serviceTakerImage,
+            serviceProviderId,
+            serviceProviderName,
+            serviceProviderPhone,
+            serviceProviderImage,
+            category,
+            address,
+            description,
+            date,
+            time: formattedTime,
+            price,
+          }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       let data = await response.json();
 
@@ -136,6 +141,8 @@ const BookingForm = () => {
     } catch (error) {
       console.error("Error occurred during fetch:", error);
       toast.error("An error occurred while requesting the service.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -180,12 +187,7 @@ const BookingForm = () => {
 
             <div className={styles.form_control}>
               <label htmlFor="price">Price</label>
-              <input
-                type="text"
-                name="price"
-                value={`Pkr ${price}`}
-                readOnly
-              />
+              <input type="text" name="price" value={`Pkr ${price}`} readOnly />
             </div>
 
             <div className={styles.form_control}>
@@ -203,7 +205,13 @@ const BookingForm = () => {
             <div className={styles.form_control}>
               <label htmlFor="time">Time</label>
               <div className={styles.time_select}>
-                <select className={styles.select} name="hour" value={time.hour} onChange={handleTimeChange} required>
+                <select
+                  className={styles.select}
+                  name="hour"
+                  value={time.hour}
+                  onChange={handleTimeChange}
+                  required
+                >
                   <option value="">Hour</option>
                   {[...Array(12)].map((_, i) => (
                     <option key={i + 1} value={i + 1}>
@@ -211,7 +219,13 @@ const BookingForm = () => {
                     </option>
                   ))}
                 </select>
-                <select className={styles.select} name="period" value={time.period} onChange={handleTimeChange} required>
+                <select
+                  className={styles.select}
+                  name="period"
+                  value={time.period}
+                  onChange={handleTimeChange}
+                  required
+                >
                   <option value="AM">AM</option>
                   <option value="PM">PM</option>
                 </select>
@@ -240,9 +254,17 @@ const BookingForm = () => {
               />
             </div>
 
-            <NavLink type="submit" className={styles.bookbutton} onClick={handleBookService}>
-              Book Now
-            </NavLink>
+            {loading ? (
+              <Loader />
+            ) : (
+              <NavLink
+                type="submit"
+                className={styles.bookbtn}
+                onClick={handleBookService}
+              >
+                <button>Book Now</button>
+              </NavLink>
+            )}
           </form>
         </div>
         <div className={styles.booking_image}>

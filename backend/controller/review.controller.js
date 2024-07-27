@@ -25,12 +25,10 @@ export const addreview = async (req, resp) => {
       serviceProviderId,
       serviceProviderId,
       category,
-      comment:comment
+      comment: comment,
     });
-    if(existingReview){
-        return resp
-        .status(404)
-        .json({ message: "Review Already added" });
+    if (existingReview) {
+      return resp.status(404).json({ message: "Review Already added" });
     }
 
     const newReview = new Review({
@@ -42,7 +40,6 @@ export const addreview = async (req, resp) => {
       date,
       time,
       category,
-      // currentStatus,
       rating,
       comment,
     });
@@ -86,7 +83,6 @@ export const getaverage = async (req, resp) => {
       return resp.status(404).json({ error: "No reviews found" });
     }
 
-    // Calculate average rating
     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
     const averageRating = Math.floor(totalRating / reviews.length);
 

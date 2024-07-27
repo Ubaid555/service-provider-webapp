@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema(
   {
     serviceTakerId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     serviceTakerName: {
@@ -13,11 +13,11 @@ const reviewSchema = new mongoose.Schema(
     },
     serviceTakerImage: {
       type: String,
-      default: '',
+      default: "",
     },
     serviceProviderId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     serviceProviderName: {
@@ -46,5 +46,5 @@ const reviewSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Review = mongoose.model('Review', reviewSchema);
+const Review = mongoose.model("Review", reviewSchema);
 export default Review;

@@ -34,56 +34,6 @@ export const login = async (req, resp) => {
   }
 };
 
-// export const signup = async(req , resp)=>{
-//     try {
-//         const {fullName,email,phone,password,confirmPassword,profilePic}=req.body;
-//         if(password!== confirmPassword){
-//             return resp.status(400).json({error:"Password's Don't Match"})
-//         }
-
-//         const user = await User.findOne({email});
-//         if(user){
-//             return resp.status(400).json({error:"User Already Exist's"})
-//         }
-
-//         //Hash Passwrod
-//         const salt = await bcrypt.genSalt(10);
-//         const hashedPassword = await bcrypt.hash(password,salt);
-
-//         //Avatar Place Holder
-//         // const profilePic = `https://avatar.iran.liara.run/public`
-
-//         const newUser = new User ({
-//             fullName,
-//             email,
-//             phone,
-//             password:hashedPassword,
-//             profilePic
-//         })
-
-//         if(newUser){
-//         //Generate GWT Token
-//         generateTokenAndSetCookie(newUser._id,resp);
-
-//         await newUser.save();
-
-//         resp.status(201).json({
-//             _id:newUser._id,
-//             fullName:newUser.fullName,
-//             phone:newUser.phone,
-//             email:newUser.email,
-//             profilePic:newUser.profilePic
-//         })
-//     }else{
-//         resp.status(400).json({error: "Invalid User Data"})
-//     }
-
-//     } catch (error) {
-//         console.log(error.message);
-//         resp.status(500).json({error:"Internal Server Error"})
-//     }
-// }
-
 export const signup = async (req, resp) => {
   try {
     const { fullName, email, phone, password, confirmPassword, profilePic } =
@@ -100,12 +50,6 @@ export const signup = async (req, resp) => {
             .status(400)
             .json({ error: "Password must be minimum 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%?&)." });
         }
-
-    // if (password.length < 6) {
-    //   return resp
-    //     .status(400)
-    //     .json({ error: "Password must be minimum 6 Character's Long" });
-    // }
 
     const user = await User.findOne({ email });
     if (user) {
@@ -124,7 +68,6 @@ export const signup = async (req, resp) => {
   }
 };
 
-// Verify OTP function
 export const verifyOtp = async (req, resp) => {
   const { email, otp } = req.body;
   const tempData = otps[email];
@@ -159,7 +102,7 @@ export const verifyOtp = async (req, resp) => {
     });
 
     await newUser.save();
-    delete otps[email]; // Remove temp data after successful registration
+    delete otps[email]; 
 
     resp.status(201).json({
       _id: newUser._id,

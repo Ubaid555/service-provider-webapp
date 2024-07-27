@@ -1,31 +1,35 @@
-import React, { useState,useEffect } from 'react';
-import styles from './Conversation.module.css';
+import React, { useState, useEffect } from "react";
+import styles from "./Conversation.module.css";
 
 const Conversation = ({ conversation, lastIdx, onClick }) => {
-
-  const [message,setMessages] = useState("")
+  const [message, setMessages] = useState("");
 
   useEffect(() => {
-    // Fetch previous messages
     const storedUsers = JSON.parse(localStorage.getItem("loginusers"))._id;
     const fetchMessages = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/api/messages/${conversation._id}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'currentUser': storedUsers, // Replace with actual logic
-          },
-        });
+        const response = await fetch(
+          `http://localhost:5001/api/messages/${conversation._id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              currentUser: storedUsers, 
+            },
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           const lastMessage = data.reverse();
           setMessages(lastMessage[0].message);
         } else {
-          console.error('Failed to fetch previous messages:', response.statusText);
+          console.error(
+            "Failed to fetch previous messages:",
+            response.statusText
+          );
         }
       } catch (error) {
-        console.error('Error fetching previous messages:', error);
+        console.error("Error fetching previous messages:", error);
       }
     };
 
@@ -33,7 +37,6 @@ const Conversation = ({ conversation, lastIdx, onClick }) => {
       fetchMessages();
     }
   }, [conversation]);
-
 
   return (
     <div className={styles.container} onClick={onClick}>

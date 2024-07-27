@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import CountUp from 'react-countup';
-import axios from 'axios';
-import styles from './SecondCounter.module.css';
+import React, { useState, useEffect } from "react";
+import CountUp from "react-countup";
+import styles from "./SecondCounter.module.css";
 
 const SecondCounter = () => {
   const [userData, setUserData] = useState(null);
@@ -21,8 +20,9 @@ const SecondCounter = () => {
           `http://localhost:5001/api/overview/overviewUserServices?userId=${userId}`
         );
         const result = await response.json();
-        if(result.success){
-        setUserData(result.success[0]);}
+        if (result.success) {
+          setUserData(result.success[0]);
+        }
       } catch (err) {
         setError("Error fetching data");
       }
@@ -36,39 +36,40 @@ const SecondCounter = () => {
   }
 
   if (!userData) {
-    // return <div>Loading...</div>;
     return null;
   }
 
   return (
     <div className={styles.overviewWrapper}>
-          <div className={styles.overview_container}>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Your Total No. of Services Offered</h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServices} duration={2.5} />
-              </p>
-            </div>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Your Total Services Requested</h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServicesRequested} duration={2.5} />
-              </p>
-            </div>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Your Total Services Confirmed</h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServicesConfirmed} duration={2.5} />
-              </p>
-            </div>
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Your Total Services Completed</h2>
-              <p className={styles.cardValue}>
-                <CountUp end={userData.totalServicesCompleted} duration={2.5} />
-              </p>
-            </div>
-          </div>
+      <div className={styles.overview_container}>
+        <div className={styles.card}>
+          <h2 className={styles.cardTitle}>
+            Your Total No. of Services Offered
+          </h2>
+          <p className={styles.cardValue}>
+            <CountUp end={userData.totalServices} duration={2.5} />
+          </p>
         </div>
+        <div className={styles.card}>
+          <h2 className={styles.cardTitle}>Your Total Services Requested</h2>
+          <p className={styles.cardValue}>
+            <CountUp end={userData.totalServicesRequested} duration={2.5} />
+          </p>
+        </div>
+        <div className={styles.card}>
+          <h2 className={styles.cardTitle}>Your Total Services Confirmed</h2>
+          <p className={styles.cardValue}>
+            <CountUp end={userData.totalServicesConfirmed} duration={2.5} />
+          </p>
+        </div>
+        <div className={styles.card}>
+          <h2 className={styles.cardTitle}>Your Total Services Completed</h2>
+          <p className={styles.cardValue}>
+            <CountUp end={userData.totalServicesCompleted} duration={2.5} />
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 

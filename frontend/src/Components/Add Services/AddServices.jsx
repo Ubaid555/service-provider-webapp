@@ -56,7 +56,7 @@ const AddServices = () => {
 
   useEffect(() => {
     if (category) {
-      const selectedCategory = Sdata.find(item => item.sname === category);
+      const selectedCategory = Sdata.find((item) => item.sname === category);
       if (selectedCategory) {
         setDescription(selectedCategory.description);
       } else {
@@ -90,7 +90,6 @@ const AddServices = () => {
   };
 
   const handleAddServiceClick = () => {
-
     if (!category) {
       toast.error("Profession is required", {
         className: styles.custom_error_toast,

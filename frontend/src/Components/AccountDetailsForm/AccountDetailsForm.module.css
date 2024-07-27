@@ -1,86 +1,84 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .form {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
-    width: 100%;
-    margin-top: 115px;
-    margin-bottom: 40px;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 100%;
+  margin-top: 115px;
+  margin-bottom: 40px;
 }
 
 .title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #d01c28;
-    text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #d01c28;
+  text-align: center;
 }
 .balanceDisplay {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 500;
-    color: #d01c28;
-    text-align: center;
-    
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #d01c28;
+  text-align: center;
 }
 .inputGroup {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #555;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
 }
 
 .input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: border-color 0.3s;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s;
 }
 
 .input:focus {
-    border-color: #a0a0a0;
-    outline: none;
+  border-color: #a0a0a0;
+  outline: none;
 }
 
 .radioGroup {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .radioLabel {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #555;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
 }
 
 .radioInput {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .button {
-    width: 95%;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    background: #d01c28;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: center;
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background: #d01c28;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center;
 }

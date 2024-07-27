@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const serviceDataSchema = new mongoose.Schema(
-  { 
+  {
     imgsrc: {
       type: String,
       required: true,
@@ -17,10 +17,10 @@ const serviceDataSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
-    }
+    },
   },
   { timestamps: true }
 );
 
-const Sdata = mongoose.model('Sdata', serviceDataSchema);
+const Sdata = mongoose.model("Sdata", serviceDataSchema);
 export default Sdata;

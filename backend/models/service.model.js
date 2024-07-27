@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const serviceSchema = new mongoose.Schema({
-    fullName: {
+  fullName: {
     type: String,
-    required: true, 
+    required: true,
   },
   phone: {
     type: Number,
@@ -11,26 +11,26 @@ const serviceSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required:true
+    required: true,
   },
   price: {
     type: Number,
-    required:true
+    required: true,
   },
   description: {
     type: String,
-    required:true
+    required: true,
   },
   userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   profilePic: {
-      type: String,
-      default: '',
-    },
+    type: String,
+    default: "",
+  },
 });
 
-const Service = mongoose.model("Service",serviceSchema);
+const Service = mongoose.model("Service", serviceSchema);
 export default Service;

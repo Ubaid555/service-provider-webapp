@@ -7,18 +7,19 @@
   display: flex;
   align-items: center;
   padding: 10px 0;
-  transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
-  border-radius: 8px; 
+  transition: background-color 0.3s, transform 0.2s ease-out,
+    box-shadow 0.3s ease-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   cursor: pointer;
   margin-left: 5px;
   margin-right: 5px;
 }
 
 .row:hover {
-  background-color: #f0f0f0; 
-  transform: scale(1.02); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+  background-color: #f0f0f0;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .imageContainer {
@@ -54,7 +55,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px; 
+  max-width: 200px;
 }
 
 .noUsersFound {

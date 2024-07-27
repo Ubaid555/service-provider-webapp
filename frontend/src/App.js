@@ -62,7 +62,7 @@ function App() {
             <Route path="/bookingform" element={<BookingForm />} />
             <Route path="/partnerships" element={<Partnerships />} />
             <Route path="/myservices" element={<MyServices />} />
-            <Route path="/updateservice" element={<UpdateService/>} />
+            <Route path="/updateservice" element={<UpdateService />} />
             <Route path="/addservice" element={<AddServices />} />
             <Route path="/allusers" element={<AllUsers />} />
             <Route path="/servicerequests" element={<ServiceRequests />} />
@@ -77,10 +77,11 @@ function App() {
             <Route path="/seereviews" element={<SeeReviews />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/chatbox" element={<ChatBox />} />
-            <Route path="/chatbot" element={<ChatBot/>} />
+            <Route path="/chatbot" element={<ChatBot />} />
             <Route path="/messagecontainer" element={<MessageContainer />} />
-            <Route path="/accountdetails" element={<AccountDetailsForm/>} />
-            <Route path="/userwithdrawhistory" element={<UserWithdrawHistory/>}/>
+            <Route path="/accountdetails" element={<AccountDetailsForm />} />
+            <Route path="/userwithdrawhistory" element={<UserWithdrawHistory />}
+            />
           </Route>
 
           <Route element={<AdminPrivateComponent />}>
@@ -91,7 +92,7 @@ function App() {
             <Route path="/paymenthistory" element={<AdminWithdrawHistory />} />
             <Route path="/allbookings" element={<AllBookings />} />
             <Route path="/addnewservice" element={<AddNewService />} />
-            <Route path="/withdrawrequest" element={<WithdrawRequests/>} />
+            <Route path="/withdrawrequest" element={<WithdrawRequests />} />
           </Route>
 
           <Route element={<PublicComponent />}>

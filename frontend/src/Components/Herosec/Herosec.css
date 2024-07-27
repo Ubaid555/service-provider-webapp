@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300&display=swap");
 
 :root {
   --red: #d01c28;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   background-color: white;
@@ -28,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 90%; 
+  width: 90%;
 }
 
 .hero h1 {
@@ -74,7 +74,7 @@ button {
   border: 1px solid gray;
   cursor: pointer;
 }
-.secondary-btn:hover{
+.secondary-btn:hover {
   background: transparent;
   color: var(--gray);
   border: 1px solid gray;
@@ -104,14 +104,13 @@ button {
 .translate-panel {
   position: absolute;
   top: 2px;
-  right: -85px; 
+  right: -85px;
   width: 80px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: left 0.3s ease;
   border: 1px solid white;
   border-radius: 5px;
 }
-
 
 .translate-panel button {
   display: block;
@@ -138,7 +137,7 @@ button {
   .hero-content {
     margin-inline: 30px;
     order: 2;
-    width: 80%; 
+    width: 80%;
   }
   .hero h1 {
     font-weight: 700;
@@ -169,10 +168,10 @@ button {
   .primary-btn {
     font-size: 14px;
   }
-  .hero{
+  .hero {
     margin-bottom: 50px;
   }
-  .containers{
+  .containers {
     margin-bottom: 200px;
   }
 }
@@ -181,7 +180,7 @@ button {
   .hero-image img {
     width: 250px;
   }
-  .containers{
+  .containers {
     margin-bottom: 200px;
   }
 }
@@ -190,7 +189,7 @@ button {
   .hero {
     margin-bottom: 30px;
   }
-  .containers{
+  .containers {
     margin-bottom: 200px;
   }
 }
@@ -206,25 +205,24 @@ button {
 .rtl .hero-content {
   text-align: right;
   width: 70%;
-  gap: 20px; 
+  gap: 20px;
 }
 
 @media only screen and (max-width: 1070px) {
   .rtl .hero-content {
-    width: 90%; 
+    width: 90%;
   }
   .rtl .hero-image {
-    margin-inline-start: 60px; 
+    margin-inline-start: 60px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .rtl .hero-content {
-    width: 90%; 
-
+    width: 90%;
   }
   .rtl .hero-image {
-    margin-inline-start: 40px; 
+    margin-inline-start: 40px;
   }
 }
 
@@ -280,4 +278,3 @@ button {
 .hero-image.animate {
   animation: slideInFromRight 1s forwards 1s; /* More delayed start */
 }
-

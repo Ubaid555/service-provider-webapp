@@ -1,10 +1,8 @@
-// utils/counter.util.js
 
 import Counter from "../models/counter.model.js";
 
 export const updateCount = async (counterType, userId) => {
   try {
-    // Update total count for the platform
     let existingCounter = await Counter.findOne();
     if (!existingCounter) {
       const initialCounter = new Counter({

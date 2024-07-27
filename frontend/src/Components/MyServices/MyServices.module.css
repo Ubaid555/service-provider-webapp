@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300&display=swap");
 
 :root {
-    --primary-color: #d01c28;
-    --secondary-color: #ff6347;
-    --text-color: #333;
-    --border-radius: 10px;
-    --transition: 0.4s;
+  --primary-color: #d01c28;
+  --secondary-color: #ff6347;
+  --text-color: #333;
+  --border-radius: 10px;
+  --transition: 0.4s;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main_heading {
@@ -32,190 +31,190 @@ body {
 
 @keyframes slideIn {
   from {
-      opacity: 0;
-      transform: translateY(-50px);
+    opacity: 0;
+    transform: translateY(-50px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section_white {
-    padding: 40px 20px;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    animation: zoomIn 0.8s ease-in-out;
+  padding: 40px 20px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  animation: zoomIn 0.8s ease-in-out;
 }
 
 @keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
-.all_form{
+.all_form {
   margin-top: 20px;
 }
 .teamImg {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 5px solid rgb(196, 194, 194);
-    margin-bottom: 30px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform var(--transition);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid rgb(196, 194, 194);
+  margin-bottom: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition);
 }
 
 .teamImg:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 hr {
-    width: 80%;
-    border: 1px solid var(--primary-color);
-    margin-bottom: 30px;
+  width: 80%;
+  border: 1px solid var(--primary-color);
+  margin-bottom: 30px;
 }
 
 .formContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
 }
 
 .card {
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-    transition: transform var(--transition), box-shadow var(--transition);
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .cardInfo {
-    padding: 20px;
+  padding: 20px;
 }
 
 .cardCategory {
-    color: var(--primary-color);
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .cardTitle {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-color);
 }
 
 .formGroup {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .cardInput {
-    width: 100%;
-    padding: 15px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow var(--transition);
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition);
 }
 
 .cardInput:focus {
-    box-shadow: 0 0 8px rgba(30, 144, 255, 0.4);
-    outline: none;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.4);
+  outline: none;
 }
 
 .cardBtn {
-    display: inline-block;
-    padding: 12px 20px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background var(--transition), transform var(--transition);
-    margin-top: 10px;
-    margin-right: 10px;
-    text-align: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--transition), transform var(--transition);
+  margin-top: 10px;
+  margin-right: 10px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cardBtn:hover {
-    background: #b01824;
-    transform: translateY(-5px);
+  background: #b01824;
+  transform: translateY(-5px);
 }
 
 .serviceHeading {
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    text-align: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .oops p {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-align: center;
-    margin: 150px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 150px 0;
 }
 
 @media (max-width: 950px) {
-    .cardBtn {
-        font-size: 0.9rem;
-    }
-    .card {
-        margin: 20px;
-    }
+  .cardBtn {
+    font-size: 0.9rem;
+  }
+  .card {
+    margin: 20px;
+  }
 }
 
 @media (max-width: 780px) {
-    .main_heading {
-        margin-top: 85px;
-    }
-    .teamImg {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 20px;
-    }
+  .main_heading {
+    margin-top: 85px;
+  }
+  .teamImg {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 400px) {
-    .teamImg {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 20px;
-    }
+  .teamImg {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
 }

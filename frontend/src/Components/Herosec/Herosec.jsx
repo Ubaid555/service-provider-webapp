@@ -1,63 +1,5 @@
-// import React, { useState, useEffect } from "react";
-// import { useTranslation } from 'react-i18next';
-
-// import "./Herosec.css";
-// import Navbar from "../Navbar/Navbar";
-// import Footer from "../Footer/Footer";
-// import { NavLink } from "react-router-dom";
-// import ChatBox from "../ChatBox/ChatBox";
-// import TranslateButton from "../TranslateButton/TranslateButton"; 
-
-// const Herosec = () => {
-//   const { t, i18n } = useTranslation();
-
-//   useEffect(() => {
-//     document.title = "Trusty Taskers - Home";
-//     console.log("Home call")
-//   }, []);
-
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//   useEffect(() => {
-//     const storedUser = JSON.parse(localStorage.getItem("loginusers"));
-//     if (storedUser && storedUser._id) {
-//       setIsLoggedIn(true);
-//     }
-//   }, []);
-
-//   return (
-//     <>
-//       <Navbar />
-//       <TranslateButton />
-//       <main className={`hero containers ${i18n.language === 'ur' ? 'rtl' : ''}`}>
-//         <div className="hero-content">
-//           <h1>{t('serviceBeyondExpectations')}</h1>
-//           <p>{t('description')}</p>
-
-//           <div className="hero-btns">
-//             <NavLink className="primary-btn" to="/services">
-//               <button>{t('services')}</button>
-//             </NavLink>
-//             <NavLink to="/overview">
-//               <button className="secondary-btn">{t('manageServices')}</button>
-//             </NavLink>
-//           </div>
-//         </div>
-
-//         <div className="hero-image">
-//           <img src="/Images/service provider.png" alt="service provider" />
-//         </div>
-//       </main>
-//       {isLoggedIn && <ChatBox />}
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default Herosec;
-
 import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import "./Herosec.css";
 import Navbar from "../Navbar/Navbar";
@@ -76,11 +18,10 @@ const Herosec = () => {
     document.title = "Trusty Taskers - Home";
     console.log("Home call");
 
-    // Add animation classes to elements
     setTimeout(() => {
-      heroContentRef.current.classList.add('animate');
-      heroBtnsRef.current.classList.add('animate');
-      heroImageRef.current.classList.add('animate');
+      heroContentRef.current.classList.add("animate");
+      heroBtnsRef.current.classList.add("animate");
+      heroImageRef.current.classList.add("animate");
     }, 100);
   }, []);
 
@@ -97,17 +38,19 @@ const Herosec = () => {
     <>
       <Navbar />
       <TranslateButton />
-      <main className={`hero containers ${i18n.language === 'ur' ? 'rtl' : ''}`}>
+      <main
+        className={`hero containers ${i18n.language === "ur" ? "rtl" : ""}`}
+      >
         <div ref={heroContentRef} className="hero-content">
-          <h1>{t('serviceBeyondExpectations')}</h1>
-          <p>{t('description')}</p>
+          <h1>{t("serviceBeyondExpectations")}</h1>
+          <p>{t("description")}</p>
 
           <div ref={heroBtnsRef} className="hero-btns">
             <NavLink className="primary-btn" to="/services">
-              <button>{t('services')}</button>
+              <button>{t("services")}</button>
             </NavLink>
             <NavLink to="/overview">
-              <button className="secondary-btn">{t('manageServices')}</button>
+              <button className="secondary-btn">{t("manageServices")}</button>
             </NavLink>
           </div>
         </div>

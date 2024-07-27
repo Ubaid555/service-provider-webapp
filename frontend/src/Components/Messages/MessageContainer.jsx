@@ -11,7 +11,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
     const [messages, setMessages] = useState([]);
     const [serviceTakerId, setServiceTakerId] = useState("");
     const [currentUser,setCurrentUser] = useState("");
-    const messagesEndRef = useRef(null); // Create a ref for the messages container
+    const messagesEndRef = useRef(null);
 
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("loginusers"));

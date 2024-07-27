@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import SearchInput from './SearchInput';
-import Conversations from './Conversations';
-import MessageContainer from '../Messages/MessageContainer';
+import React, { useState } from "react";
+import SearchInput from "./SearchInput";
+import Conversations from "./Conversations";
+import MessageContainer from "../Messages/MessageContainer";
 
 const Sidebar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedConversation, setSelectedConversation] = useState(null);
 
   const handleSearchInputChange = (event) => {

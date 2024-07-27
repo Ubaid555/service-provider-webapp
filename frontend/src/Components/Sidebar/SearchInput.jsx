@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './SearchInput.module.css';
+import React from "react";
+import styles from "./SearchInput.module.css";
 
 const SearchInput = ({ handleSearchInputChange }) => {
   return (

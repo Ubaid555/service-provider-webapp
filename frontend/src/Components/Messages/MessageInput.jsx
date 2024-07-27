@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import styles from './MessageInput.module.css';
+import React, { useState } from "react";
+import styles from "./MessageInput.module.css";
 
 const MessageInput = ({ onSendMessage }) => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSendMessage(message);
-    setMessage('');
+    setMessage("");
   };
 
   return (

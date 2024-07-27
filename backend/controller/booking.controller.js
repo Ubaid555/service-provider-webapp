@@ -5,7 +5,7 @@ import { updateCount } from "../utils/counter.util.js";
 import Stripe from "stripe";
 import Payment from "../models/payment.model.js";
 import UserBalance from "../models/balance.model.js";
- 
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const bookService = async (req, resp) => {
@@ -34,10 +34,10 @@ export const bookService = async (req, resp) => {
       currentStatus: "Pending" || "Confirmed",
     });
 
-    console.log("Existing Booking",existingBooking)
+    // console.log("Existing Booking",existingBooking)
 
     if (existingBooking) {
-      console.log("Inside Existing")
+      // console.log("Inside Existing")
       if (existingBooking.currentStatus === "Pending") {
         return resp
           .status(400)
@@ -49,22 +49,20 @@ export const bookService = async (req, resp) => {
       }
     }
 
-    console.log("Time",time)
-    const notAvailable =await Booking.findOne({
+    // console.log("Time",time)
+    const notAvailable = await Booking.findOne({
       serviceProviderId,
       date,
-      time
-    })
+      time,
+    });
 
-    console.log(notAvailable);
+    // console.log(notAvailable);
 
     if (notAvailable) {
-        return resp
-          .status(400)
-          .json({ error: "User is Not Available on this time" });
+      return resp
+        .status(400)
+        .json({ error: "User is Not Available on this time" });
     }
-
-
 
     const user = await User.findOne({ _id: serviceTakerId });
 
@@ -94,7 +92,7 @@ export const bookService = async (req, resp) => {
         {
           price_data: {
             currency: "pkr",
-            unit_amount: price * 100, // Stripe expects amount in cents
+            unit_amount: price * 100,
             product_data: {
               name: serviceProviderName,
               description: description,
@@ -155,7 +153,7 @@ export const success = async (req, resp) => {
         serviceTakerPhone,
         serviceTakerImage,
         serviceProviderPhone,
-        price: price, // Convert amount back to dollars
+        price: price,
         currentStatus: "Pending",
       };
 
@@ -233,8 +231,14 @@ export const handleBookingRequest = async (req, resp) => {
   try {
     const { bookingId, currentStatus, userId } = req.body;
 
-    const serviceProvider = await Booking.findOne({_id:bookingId, serviceProviderId:userId});
-    const serviceTaker = await Booking.findOne({_id:bookingId,serviceTakerId:userId});
+    const serviceProvider = await Booking.findOne({
+      _id: bookingId,
+      serviceProviderId: userId,
+    });
+    const serviceTaker = await Booking.findOne({
+      _id: bookingId,
+      serviceTakerId: userId,
+    });
     // console.log("service Taker",serviceTaker,"service Provider",serviceProvider)
 
     let result;
@@ -253,62 +257,59 @@ export const handleBookingRequest = async (req, resp) => {
           { _id: bookingId },
           { $set: { currentStatus } }
         );
-         const payment = await Payment.updateOne(
+        const payment = await Payment.updateOne(
           { _id: bookingId },
-          { $set: { currentStatus:"Service Complete" } }
-         )
+          { $set: { currentStatus: "Service Complete" } }
+        );
 
-         let bookingData= await Booking.findOne({_id:bookingId});
-         newBalance = Math.floor(bookingData.price * 0.93);
-         let oldUserBalance = await UserBalance.findOne({
-          userId:bookingData.serviceProviderId
+        let bookingData = await Booking.findOne({ _id: bookingId });
+        newBalance = Math.floor(bookingData.price * 0.93);
+        let oldUserBalance = await UserBalance.findOne({
+          userId: bookingData.serviceProviderId,
         });
-        
-        if(oldUserBalance){
-         let balance = oldUserBalance.totalBalance + newBalance;
-         const updateBalance = await UserBalance.updateOne(
-          {userId: bookingData.serviceProviderId},
-          { $inc: { totalBalance: newBalance } }
-         )
-        }else{
+
+        if (oldUserBalance) {
+          let balance = oldUserBalance.totalBalance + newBalance;
+          const updateBalance = await UserBalance.updateOne(
+            { userId: bookingData.serviceProviderId },
+            { $inc: { totalBalance: newBalance } }
+          );
+        } else {
           const newUser = new UserBalance({
-            userId:bookingData.serviceProviderId,
-            totalBalance:newBalance
-          })
+            userId: bookingData.serviceProviderId,
+            totalBalance: newBalance,
+          });
 
           await newUser.save();
         }
       } else {
         result = await Booking.updateOne(
           { _id: bookingId },
-          { $set: { currentStatus: "Pending Complete" } }        
+          { $set: { currentStatus: "Pending Complete" } }
         );
       }
 
-      if(serviceTaker){
+      if (serviceTaker) {
         result = await Booking.updateOne(
-          {_id:bookingId},
-          {$set: { userStatus: "Completed" }}
-        )
-      }
-      else{
-
+          { _id: bookingId },
+          { $set: { userStatus: "Completed" } }
+        );
+      } else {
         result = await Booking.updateOne(
-          {_id:bookingId},
-          {$set: { serviceProviderStatus: "Completed" }}
-        )
+          { _id: bookingId },
+          { $set: { serviceProviderStatus: "Completed" } }
+        );
       }
     } else {
       result = await Booking.updateOne(
         { _id: bookingId },
         { $set: { currentStatus } }
       );
-     
     }
 
     if (result.modifiedCount === 1) {
-      if(serviceProvider){
-      await updateCount(currentStatus, userId);
+      if (serviceProvider) {
+        await updateCount(currentStatus, userId);
       }
       return resp.status(200).json({ success: "Successfully Updated" });
     } else {

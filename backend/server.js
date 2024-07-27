@@ -3,8 +3,8 @@ dotenv.config();
 
 import express from "express";
 import cookieParser from "cookie-parser";
-import cors from 'cors';
-import http from 'http';
+import cors from "cors";
+import http from "http";
 
 import adminRoutes from "./routes/admin.routes.js";
 import authRoutes from "./routes/auth.routes.js";
@@ -27,16 +27,17 @@ const io = initSocketIO(server);
 
 const PORT = 5001;
 
-// Middleware to parse JSON bodies
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
-    origin: 'http://localhost:3000',  
-    credentials: true,  
-}));
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
-app.use("/api/admin",adminRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/messages", messageRoutes);
@@ -45,13 +46,12 @@ app.use("/api/bookings", bookingRoutes);
 app.use("/api/overview", overviewRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/reviews", reviewRoutes);
-app.use("/api/payment",paymentRoutes);
-app.use("/api/chat",chatbotRoutes);
- 
+app.use("/api/payment", paymentRoutes);
+app.use("/api/chat", chatbotRoutes);
+
 server.listen(PORT, () => {
-    connectToMongoDB();
-    console.log(`Server is running on Port ${PORT}`);
+  connectToMongoDB();
+  console.log(`Server is running on Port ${PORT}`);
 });
 
-export { io }; 
- 
+export { io };

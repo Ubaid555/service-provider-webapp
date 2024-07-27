@@ -71,7 +71,7 @@
   }
   .closeButton {
     margin-bottom: 20px;
-}
+  }
 
   .navbar {
     justify-content: center;
@@ -80,21 +80,21 @@
   }
 
   .dropbtn {
-    display: none; 
+    display: none;
     width: 100%;
     margin: 5px;
     text-align: center;
   }
 
   .showMenu .dropbtn {
-    display: block; 
+    display: block;
     width: 100%;
     margin: 5px 0;
   }
 
   .dropdownMenuCustom {
     position: static;
-    min-width: 30%; 
+    min-width: 30%;
     box-shadow: none;
   }
 
@@ -117,13 +117,12 @@
   }
 }
 @media screen and (max-width: 665px) {
-  .navbar{
+  .navbar {
     margin-top: 89px;
   }
 }
 
 @media (max-width: 530px) {
-
   .dropbtn {
     padding: 6px;
     width: 100%;
@@ -149,9 +148,9 @@
   }
 }
 
-[dir="rtl"] .navbarItem i{
+[dir="rtl"] .navbarItem i {
   margin-left: 5px;
 }
-[dir="rtl"] .menuButton i{
+[dir="rtl"] .menuButton i {
   margin-left: 5px;
 }

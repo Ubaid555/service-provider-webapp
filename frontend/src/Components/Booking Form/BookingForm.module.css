@@ -22,12 +22,12 @@
 
 @keyframes slideIn {
   from {
-      opacity: 0;
-      transform: translateY(-50px);
+    opacity: 0;
+    transform: translateY(-50px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -64,19 +64,19 @@
   padding: 0 10px;
 }
 
-.select{
+.select {
   padding: 7px;
 }
-.booking_image img{
+.booking_image img {
   margin-left: 120px;
   margin-bottom: 220px;
   height: 350px;
   width: 450px;
   padding-top: 25px;
 }
-.bookbutton {
+.bookbtn {
   width: 100%;
-  padding: 15px;
+  padding: 5px;
   background-color: #d01c28;
   color: #fff;
   border: none;
@@ -86,46 +86,45 @@
 }
 
 @media screen and (max-width: 1370px) {
-  .main_heading{
-      width: 100%;
+  .main_heading {
+    width: 100%;
   }
-  .booking_image img{
-      margin-left: 30px;
-      margin-bottom: 220px;
-      height: 350px;
-      width: 450px;
-    }
-    
+  .booking_image img {
+    margin-left: 30px;
+    margin-bottom: 220px;
+    height: 350px;
+    width: 450px;
+  }
 }
 
 @media screen and (max-width: 1280px) {
-  .main_heading{
-       width: 100%;
-   }
-  .book_container{
-       display: flex;
-       flex-direction: column;
-       align-items: center; 
-       justify-content: center; 
-       margin: auto; 
-   }
+  .main_heading {
+    width: 100%;
+  }
+  .book_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
   .booking_image img {
-       order: 1;
-       height: 300px;
-       width: 350px;
-       margin-bottom: 30px;
-   }
+    order: 1;
+    height: 300px;
+    width: 350px;
+    margin-bottom: 30px;
+  }
   .contact_form {
-       order: 2;
-       width: 100%; 
-       max-width: 600px; 
-       margin-bottom: 20px; 
-   }
+    order: 2;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
 }
 
 @media screen and (max-width: 1060px) {
-  .main_heading{
-      width: 100%;
+  .main_heading {
+    width: 100%;
   }
   .container {
     margin-left: 20px;
@@ -142,58 +141,56 @@
   }
   .contact_form {
     order: 2;
-    width: 100%; 
-    max-width: 600px; 
-    margin-bottom: 20px; 
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
   }
-
 }
 @media screen and (max-width: 768px) {
-  .main_heading{
-      width: 100%;
-      margin-top: 90px;
-      font-size: 1.2rem;
+  .main_heading {
+    width: 100%;
+    margin-top: 90px;
+    font-size: 1.2rem;
   }
   .form_control {
-      display: flex;
-      flex-direction: column;
-      margin-left: 25px;
-      max-width: 90%;
-      position: relative;
-    }
-    .booking_image{
-      margin-right: 30px;
-    }
-    .bookbtn {
-      margin-left: 25px;
-      margin-right: 30px;
-    }
-} 
-@media screen and (max-width: 500px) {
-  .main_heading{
-    margin-top: 87px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    max-width: 90%;
+    position: relative;
+  }
+  .booking_image {
+    margin-right: 30px;
+  }
+  .bookbtn {
+    margin-left: 25px;
+    margin-right: 60px;
+    width: 90%;
+  }
 }
+@media screen and (max-width: 500px) {
+  .main_heading {
+    margin-top: 87px;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .book_container {
     margin-right: 10px;
   }
-  .form_control input{
+  .form_control input {
     margin: auto;
     width: 100%;
   }
-  .form_control textarea{
-      display: flex;
-      flex-direction: column;
-      max-width: 100%;
-    }
-    .bookbtn {
-      margin-right: 15px;
-      width: 100%;
-    }
-    .booking_image img {
-      width: 100%;
-      
-    }
-} 
+  .form_control textarea {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .bookbtn {
+    width: 90%;
+  }
+  .booking_image img {
+    width: 100%;
+  }
+}

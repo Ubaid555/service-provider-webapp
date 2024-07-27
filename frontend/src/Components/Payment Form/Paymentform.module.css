@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -64,12 +64,12 @@ h2 {
   padding: 0 10px;
 }
 
-.paypak_image{
+.paypak_image {
   margin-left: 330px;
   margin-top: 10px;
 }
 .card_container {
-  float: right; 
+  float: right;
   margin-top: 220px;
   margin-right: 200px;
 }
@@ -110,7 +110,7 @@ h2 {
     align-items: center;
   }
   .card_container {
-    margin: auto; 
+    margin: auto;
     width: 95%;
     order: 1;
     margin-bottom: 50px;
@@ -129,7 +129,6 @@ h2 {
     order: 3;
     width: 95%;
   }
- 
 }
 @media screen and (max-width: 1250px) {
   .heading_styles {
@@ -143,7 +142,7 @@ h2 {
   .card_container {
     display: flex;
     justify-content: center;
-    margin: auto; 
+    margin: auto;
     width: 95%;
     order: 1;
     margin-bottom: 20px;
@@ -167,19 +166,17 @@ h2 {
   .heading_styles {
     margin-top: 105px;
   }
-  .card_container{
+  .card_container {
     display: flex;
     justify-content: center;
-    
   }
 }
 @media screen and (min-width: 1250px) and (max-width: 1556px) {
- 
-  .card_container{
+  .card_container {
     display: flex;
     justify-content: space-between;
   }
-  .payform{
+  .payform {
     margin-right: 150px;
   }
 }

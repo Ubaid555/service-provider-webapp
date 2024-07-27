@@ -6,7 +6,7 @@
 
 .message {
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
 
 .messageHeader {
@@ -24,10 +24,10 @@
   background-color: #e2f2ff;
   border-radius: 8px;
   max-width: 70%;
-  width: fit-content; /* Ensure the width adjusts to the content */
-  word-wrap: break-word; /* Ensure long words wrap to the next line */
-  word-break: break-word; /* Ensure long words break to the next line */
-  margin-bottom: 10px; 
+  width: fit-content;
+  word-wrap: break-word;
+  word-break: break-word;
+  margin-bottom: 10px;
 }
 
 .messageText {
@@ -48,7 +48,7 @@
 }
 
 .right .messageBody {
-  background-color: #d1ffd6; /* different color for the current user's messages */
+  background-color: #d1ffd6; 
 }
 
 .right .message {

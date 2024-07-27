@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
 }
-.no_services_present{
+.no_services_present {
   font-size: 40px;
   font-weight: 700;
   color: #d01c28;
@@ -12,19 +12,19 @@
 }
 @media screen and (max-width: 768px) {
   .cards-container {
-    margin-top: 20px;  
-    flex-direction: column; 
-    align-items: center; 
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
     padding-bottom: 40px;
   }
-  .head_style{
+  .head_style {
     margin-top: 90px;
     align-items: center;
     text-align: center;
   }
 }
 @media screen and (max-width: 540px) {
-  .head_style{
+  .head_style {
     margin-top: 87px;
     align-items: center;
     text-align: center;

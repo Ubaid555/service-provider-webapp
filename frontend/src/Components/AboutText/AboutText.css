@@ -1,14 +1,14 @@
 .section-white {
   background: #fff;
-  padding: 50px 0; /* Adjust padding for smaller screens */
+  padding: 50px 0; 
 }
 
 .team-item {
   background: #dadada;
   text-align: center;
   margin: 20px 0;
-  padding: 40px 10px 30px 10px; /* Adjust padding for smaller screens */
-  border-radius: 8px; /* Keep border radius consistent */
+  padding: 40px 10px 30px 10px; 
+  border-radius: 8px;
   transition: all 0.25s ease-in-out;
   height: 470px;
 }
@@ -18,7 +18,7 @@
 }
 
 .team-item h3 {
-  margin: 20px 0 10px 0 !important; /* Adjust margin for smaller screens */
+  margin: 20px 0 10px 0 !important; 
   color: black;
   font-size: 18px;
   font-weight: 700;
@@ -53,63 +53,63 @@
 }
 
 .team-img {
-  max-width: 120px; /* Adjust maximum width for smaller screens */
-  height: 120px; /* Adjust height for smaller screens */
-  padding: 6px; /* Adjust padding for smaller screens */
+  max-width: 120px; 
+  height: 120px; 
+  padding: 6px; 
   background-color: #dedede;
-  border-radius: 50%; /* Make the images circular */
+  border-radius: 50%; 
   object-fit: cover;
 }
 
 .social-media {
   margin-left: 0;
-  margin-top: 20px; /* Adjust margin for smaller screens */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Adjust width for smaller screens */
+  width: 100%; 
 }
 
 .social-media a {
   text-decoration: none;
-  color: #333; /* Default color for icons */
+  color: #333;
 }
 
 .social-media i {
-  font-size: 24px; /* Adjust font size for smaller screens */
-  width: 40px; /* Adjust width for smaller screens */
-  height: 40px; /* Adjust height for smaller screens */
+  font-size: 24px; 
+  width: 40px; 
+  height: 40px;
   display: flex;
   gap: 8px;
   justify-content: center;
   align-items: center;
-  background-color: #fff; /* Background color for icons */
-  border-radius: 50%; /* Make the icons circular */
+  background-color: #fff; 
+  border-radius: 50%;
   transition: background-color 0.3s ease-in-out;
 }
 
 .social-media i:hover {
-  background-color: #000000; /* Change background color on hover */
+  background-color: #000000; 
 }
 
 .social-media .fab.fa-whatsapp {
-  color: #25d366; /* WhatsApp color */
+  color: #25d366; 
 }
 
 .social-media .fab.fa-facebook {
-  color: #3b5998; /* Facebook color */
+  color: #3b5998; 
 }
 
 .social-media .fab.fa-twitter {
-  color: #1da1f2; /* Twitter color */
+  color: #1da1f2;
 }
 
 .social-media .fab.fa-linkedin {
-  color: #0077b5; /* LinkedIn color */
+  color: #0077b5;
 }
 
 .social-media .fab.fa-instagram {
-  color: #e4405f; /* Instagram color */
+  color: #e4405f; 
 }
 
 
@@ -120,21 +120,21 @@
   }
 
   .team-item {
-      padding: 30px 10px 30px 10px; /* Adjust padding for smaller screens */
+      padding: 30px 10px 30px 10px; 
   }
 
   .team-item h3 {
-      margin: 15px 0 5px 0 !important; /* Adjust margin for smaller screens */
+      margin: 15px 0 5px 0 !important;
   }
 
   .team-img {
-      max-width: 100px; /* Adjust maximum width for smaller screens */
-      height: 100px; /* Adjust height for smaller screens */
+      max-width: 100px; 
+      height: 100px; 
   }
 
   .social-media i {
-      font-size: 20px; /* Adjust font size for smaller screens */
-      width: 35px; /* Adjust width for smaller screens */
-      height: 35px; /* Adjust height for smaller screens */
+      font-size: 20px;
+      width: 35px; 
+      height: 35px; 
   }
 }

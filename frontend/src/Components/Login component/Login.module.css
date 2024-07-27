@@ -1,210 +1,210 @@
-.whole_contents{
-    overflow: hidden;
+.whole_contents {
+  overflow: hidden;
 }
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 50%;
-    max-width: 500px;
-    background: #fecaca;
-    border-radius: 20px;
-    animation: fadeInUp 1s ease-out;
-    margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+  max-width: 500px;
+  background: #fecaca;
+  border-radius: 20px;
+  animation: fadeInUp 1s ease-out;
+  margin-top: 200px;
 }
 
 .text {
-    color: #d01c28;
-    font-size: 36px;
-    font-weight: 700;
+  color: #d01c28;
+  font-size: 36px;
+  font-weight: 700;
 }
 
 .login h1 {
-    margin-left: 20px;
-    text-align: center;
+  margin-left: 20px;
+  text-align: center;
 }
 
 .inputBox {
-    display: block;
-    margin: 20px;
-    padding: 5px;
-    width: 250px;
-    border: 1px solid #d01c28;
+  display: block;
+  margin: 20px;
+  padding: 5px;
+  width: 250px;
+  border: 1px solid #d01c28;
 }
 
 .invalid-input {
-    color: #d01c28;
-    margin-top: -15px;
-    display: block;
-    margin-left: 20px;
-    font-size: 12px;
+  color: #d01c28;
+  margin-top: -15px;
+  display: block;
+  margin-left: 20px;
+  font-size: 12px;
 }
 
 .login {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin: auto;
-    padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: auto;
+  padding: 40px;
 }
 
 .inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    animation: slideInFromRight 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideInFromRight 1s ease-out;
 }
 
 .input {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-    width: 360px;
-    height: 50px;
-    background: #cfcccc;
-    border-radius: 6px;
-    animation: fadeIn 1s ease-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  width: 360px;
+  height: 50px;
+  background: #cfcccc;
+  border-radius: 6px;
+  animation: fadeIn 1s ease-out;
 }
 
 .input img {
-    margin: 0px 20px;
+  margin: 0px 20px;
 }
 
 .input input {
-    height: 25px;
-    width: calc(100% - 60px);
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #797979;
-    font-size: 16px;
+  height: 25px;
+  width: calc(100% - 60px);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 16px;
 }
 .eyeIcon {
-    position: absolute; /* Position the icon absolutely */
-    top: 50%; /* Center vertically */
-    right: 10px; /* Align to the right */
-    transform: translateY(-50%); /* Center vertically */
-    cursor: pointer; /* Change cursor to pointer */
-    color: #999; /* Icon color */
+  position: absolute; /* Position the icon absolutely */
+  top: 50%; /* Center vertically */
+  right: 10px; /* Align to the right */
+  transform: translateY(-50%); /* Center vertically */
+  cursor: pointer; /* Change cursor to pointer */
+  color: #999; /* Icon color */
 }
 
 .forgot_password {
-    margin-top: 10px;
-    color: #797979;
-    font-size: 16px;
+  margin-top: 10px;
+  color: #797979;
+  font-size: 16px;
 }
 
 .forgot_password span {
-    margin-left: 3px;
-    color: #d01c28;
-    cursor: pointer;
+  margin-left: 3px;
+  color: #d01c28;
+  cursor: pointer;
 }
 
 .appButton {
-    padding: 14px 8px;
-    background-color: #d01c28;
-    color: white;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    min-width: 180px;
-    font-size: 14px;
-    justify-content: center;
-    cursor: pointer;
-    outline: none;
-    border: none;
+  padding: 14px 8px;
+  background-color: #d01c28;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 180px;
+  font-size: 14px;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 .errorMessage {
-    font-size: 16px;
-    font-weight: 600;
-    color: #d01c28;
+  font-size: 16px;
+  font-weight: 600;
+  color: #d01c28;
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1300px) {
-    .container {
-        width: 60%;
-        margin-top: 200px;
-    }
-    .input {
-        width: 100%;
-    }
-    .input img {
-        margin: 0 10px;
-    }
-    .inputBox {
-        width: 90%;
-        margin: 15px;
-    }
-    .forgot_password {
-        font-size: 14px;
-    }
-    .appButton {
-        width: 100%;
-        padding: 12px;
-    }
+  .container {
+    width: 60%;
+    margin-top: 200px;
+  }
+  .input {
+    width: 100%;
+  }
+  .input img {
+    margin: 0 10px;
+  }
+  .inputBox {
+    width: 90%;
+    margin: 15px;
+  }
+  .forgot_password {
+    font-size: 14px;
+  }
+  .appButton {
+    width: 100%;
+    padding: 12px;
+  }
 }
 
 @media (max-width: 480px) {
-    .container {
-        width: 80%;
-        margin-top: 200px;
-    }
-    .input img {
-        padding-right: 5px;
-    }
-    .input input {
-        width: 100%;
-        font-size: 14px;
-    }
-    .forgot_password {
-        font-size: 12px;
-    }
-    .appButton {
-        width: 100%;
-        padding: 8px;
-        font-size: 12px;
-    }
+  .container {
+    width: 80%;
+    margin-top: 200px;
+  }
+  .input img {
+    padding-right: 5px;
+  }
+  .input input {
+    width: 100%;
+    font-size: 14px;
+  }
+  .forgot_password {
+    font-size: 12px;
+  }
+  .appButton {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+  }
 }
 .rtl {
-    direction: rtl;
-    text-align: right;
-  }
-  .rtlIcon {
-    right: auto;
-    left: 10px;
+  direction: rtl;
+  text-align: right;
+}
+.rtlIcon {
+  right: auto;
+  left: 10px;
 }

@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 import styles from "./AllUsers.module.css";
 import ChatBox from "../ChatBox/ChatBox";
 import AdminNavbar from "../Admin Dashboard/Admin Navbar/AdminNavbar";
-import AdminDeleteUsersModal from '../AllModals/AdminDeleteUsersModal/AdminDeleteUsersModal'; // Import the modal component
+import AdminDeleteUsersModal from "../AllModals/AdminDeleteUsersModal/AdminDeleteUsersModal";
 
 const AllUsers = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -16,8 +16,8 @@ const AllUsers = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredServices, setFilteredServices] = useState([]);
   const [sortedServices, setSortedServices] = useState([]);
-  const [showDeleteModal, setShowDeleteModal] = useState(false); // State to control delete modal
-  const [serviceToDelete, setServiceToDelete] = useState(null); // State to store service to delete
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [serviceToDelete, setServiceToDelete] = useState(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,6 +37,19 @@ const AllUsers = () => {
     }
   }, []);
 
+  const filterServices = useCallback(() => {
+    if (searchQuery.trim() === "") {
+      setFilteredServices(services);
+    } else {
+      const filtered = services.filter(
+        (service) =>
+          service.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          service.price.toString().includes(searchQuery)
+      );
+      setFilteredServices(filtered);
+    }
+  }, [searchQuery, services]);
+
   const getServices = useCallback(async () => {
     try {
       const queryParams = new URLSearchParams(location.search);
@@ -48,9 +61,9 @@ const AllUsers = () => {
       if (userId) {
         url.searchParams.append("userId", userId);
       }
-      console.log(`Fetching services from: ${url}`);
+      // console.log(`Fetching services from: ${url}`);
       let result = await fetch(url);
-      console.log(`Fetch response: ${result.status}`);
+      // console.log(`Fetch response: ${result.status}`);
       if (result.ok) {
         result = await result.json();
         if (Array.isArray(result)) {
@@ -73,19 +86,6 @@ const AllUsers = () => {
     }
   }, [location.search, userId]);
 
-  const filterServices = useCallback(() => {
-    if (searchQuery.trim() === "") {
-      setFilteredServices(services);
-    } else {
-      const filtered = services.filter(
-        (service) =>
-          service.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          service.price.toString().includes(searchQuery)
-      );
-      setFilteredServices(filtered);
-    }
-  }, [searchQuery, services]);
-
   useEffect(() => {
     if (userId !== null) {
       getServices();
@@ -97,11 +97,10 @@ const AllUsers = () => {
   }, [searchQuery, services, filterServices]);
 
   useEffect(() => {
-    // Sort filteredServices based on average ratings
     const sorted = [...filteredServices].sort((a, b) => {
       const ratingA = averageRatings[a.userId] || 0;
       const ratingB = averageRatings[b.userId] || 0;
-      return ratingB - ratingA; // Descending order
+      return ratingB - ratingA;
     });
     setSortedServices(sorted);
   }, [filteredServices, averageRatings]);
@@ -137,7 +136,7 @@ const AllUsers = () => {
         serviceProviderId: service.userId,
         serviceProviderPhone: service.phone,
         serviceProviderImage: service.profilePic,
-        price:service.price,
+        price: service.price,
       },
     });
   };
@@ -151,29 +150,30 @@ const AllUsers = () => {
     if (!serviceToDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:5001/api/admin/deleteUserService?userId=${userId}&_id=${serviceToDelete._id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
+      const response = await fetch(
+        `http://localhost:5001/api/admin/deleteUserService?userId=${userId}&_id=${serviceToDelete._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      });
+      );
 
       if (response.ok) {
         const result = await response.json();
-        // console.log(result);
         if (result.success) {
-          // toast.success("Service deleted successfully");
           setShowDeleteModal(false);
           setServiceToDelete(null);
-          window.location.reload(); // Reload the page after deletion
+          window.location.reload();
         } else {
           alert(result.error);
         }
       } else {
-        console.error('Failed to delete:', response.statusText);
+        console.error("Failed to delete:", response.statusText);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 

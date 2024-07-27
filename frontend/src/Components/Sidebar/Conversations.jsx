@@ -1,13 +1,12 @@
-import React from 'react';
-import styles from './Conversation.module.css';
-import Conversation from './Conversation';
-import useGetConversations from '../../hooks/useGetConversations.js';
+import React from "react";
+import styles from "./Conversation.module.css";
+import Conversation from "./Conversation";
+import useGetConversations from "../../hooks/useGetConversations.js";
 
 const Conversations = ({ searchQuery, onConversationSelect }) => {
   const { loading, conversations } = useGetConversations();
-  console.log(conversations);
+  // console.log(conversations);
 
-  // Filter conversations based on search query
   const filteredConversations = conversations.filter((conversation) =>
     conversation.fullName.toLowerCase().includes(searchQuery.toLowerCase())
   );

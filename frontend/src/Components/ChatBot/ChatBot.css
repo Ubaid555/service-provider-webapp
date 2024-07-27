@@ -66,7 +66,6 @@
   font-size: 24px;
 }
 
-
 .chatgpt-message .cs-message__content {
   margin-top: 10px;
   background-color: #fecaca !important;
@@ -78,14 +77,14 @@
   color: white;
 }
 .message-input .cs-textarea {
-  color: #fecaca !important; /* Apply color to textarea */
+  color: #fecaca !important;
   border: none;
   border-radius: 4px;
   padding: 10px;
 }
 
 .message-input .cs-send-button {
-  background-color: #fecaca !important; /* Apply color to send button */
+  background-color: #fecaca !important;
   border: none;
   border-radius: 4px;
   color: white;

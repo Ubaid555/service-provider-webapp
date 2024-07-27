@@ -4,28 +4,6 @@ import Service from "../models/service.model.js";
 import Booking from "../models/booking.model.js";
 import Sdata from "../models/serviceData.model.js";
 
-// export const getAllUser = async (req, resp) => {
-//   const userId = req.query.userId;
-
-//   if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
-//     return resp.status(400).json({ error: "Invalid or missing user ID" });
-//   }
-
-//   try {
-//     const users = await User.find({ _id: { $ne: userId } });
-
-//     if (!users.length) {
-//       return resp.status(404).json({ message: "No users found" });
-//     }
-
-//     resp.status(200).json(users);
-//   } catch (error) {
-//     console.error("Error In Get All User Controller ", error);
-//     resp
-//       .status(500)
-//       .json({ error: "An error occurred while retrieving users" });
-//   }
-// };
 export const getAllUser = async (req, resp) => {
   try {
     const users = await User.find({ role: { $ne: "admin" } });
@@ -86,18 +64,6 @@ export const setService = async (req, resp) => {
   }
 };
 
-// export const getService = async (req,resp) =>{
-//     try {
-//         const result = await Sdata.find
-
-//     }  catch (error) {
-//         console.error("Error In Get Service Controller ", error);
-//         resp
-//           .status(500)
-//           .json({ error: "An error occurred while retrieving users" });
-//       }
-// }
-
 export const getAllServices = async (req, resp) => {
   try {
     const userId = req.query.userId;
@@ -112,7 +78,6 @@ export const getAllServices = async (req, resp) => {
       return resp.status(404).json({ message: "No services found" });
     }
 
-    // Send the found services as the response
     resp.status(200).json(services);
   } catch (error) {
     console.error("Error In Get All Services Controller ", error);
@@ -125,7 +90,7 @@ export const getAllServices = async (req, resp) => {
 export const deleteUserService = async (req, resp) => {
   try {
     const { _id, userId } = req.query;
-    console.log(_id,userId);
+    // console.log(_id,userId);
 
     const isAdmin = await User.findOne({ _id: userId, role: "admin" });
 

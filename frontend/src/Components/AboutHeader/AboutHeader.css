@@ -2,85 +2,81 @@
   display: flex;
   gap: 100px;
   max-width: 1380px;
-  margin: 0 auto; /* Center the whole section horizontally */
+  margin: 0 auto;
 }
 
 .about_img {
-  flex: 1; 
+  flex: 1;
   margin-top: 170px;
-  
 }
-.about{
+.about {
   border-radius: 10px;
 }
 .paras {
-  flex: 1; /* Let the paragraphs take available space */
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 200px;
-  padding: 20px; /* Add padding to create space between content and background */
-  border-radius: 3px; /* Add border radius for rounded corners */
+  padding: 20px;
+  border-radius: 3px;
 }
 
 .para1 {
-  text-align: center; /* Center align text within each paragraph */
-  margin-bottom: 45px; /* Add some vertical space between paragraphs */
+  text-align: center;
+  margin-bottom: 45px;
   color: #ddd;
 }
 .para2 {
-  text-align: center; /* Center align text within each paragraph */
+  text-align: center;
   color: #ddd;
 }
-h4{
+h4 {
   font-weight: 700;
   font-size: 30px;
   color: rgb(255, 255, 255);
 }
 .para1 {
-  background-color: #d01c28; /* Add background color to para1 */
-  padding: 20px; /* Adjust padding as needed */
-  border-radius: 3px; /* Add border radius for rounded corners */
-  /*border: 2px solid black;*/
+  background-color: #d01c28;
+  padding: 20px;
+  border-radius: 3px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .para2 {
-  background-color: #d01c28; /* Add background color to para1 */
-  padding: 20px; /* Adjust padding as needed */
-  border-radius: 3px; /* Add border radius for rounded corners */
+  background-color: #d01c28;
+  padding: 20px;
+  border-radius: 3px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
-.translate{
 
-}
-.translate-btn{
+.translate-btn {
   background-color: #d01c28;
   margin-top: 100px;
 }
 @media only screen and (max-width: 1060px) {
   .whole_sec {
-    flex-direction: column; /* Display items vertically on small screens */
-    align-items: center; /* Center align items horizontally */
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .about {
-    order: 1; /* Change the order to display image first on mobile */
-    width: 95%; /* Ensure the image takes full width */
-    margin-left: 10px; /* Remove margin for image on mobile */
+    order: 1;
+    width: 95%;
+    margin-left: 10px;
     border-radius: 10px;
   }
 
   .paras {
-    order: 2; /* Change the order to display paragraphs after the image on mobile */
-    margin-top: -30px; /* Remove top margin for paragraphs on mobile */
+    order: 2;
+    margin-top: -30px;
     margin-left: 5px;
   }
 }
 
 @media only screen and (max-width: 1280px) and (min-width: 1060px) {
-  .about{
+  .about {
     height: 630px;
   }
 }

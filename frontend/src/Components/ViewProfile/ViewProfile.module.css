@@ -14,16 +14,14 @@
 
 @keyframes slideIn {
   from {
-      opacity: 0;
-      transform: translateY(-50px);
+    opacity: 0;
+    transform: translateY(-50px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-
-
 
 .section_white {
   background: #fff;
@@ -38,16 +36,15 @@
   margin: 20px 0;
   padding: 20px;
   border-radius: 8px;
-  width: 100%; 
+  width: 100%;
 }
-
 
 .teamImg {
   width: 300px;
-  height: 350px; 
+  height: 350px;
   padding: 6px;
   background-color: #dedede;
-  border-radius: 8px; 
+  border-radius: 8px;
   object-fit: cover;
   margin-right: 120px;
   margin-left: 120px;
@@ -56,10 +53,11 @@
 
 .cardInfo {
   flex-grow: 1;
-  width: 40%; 
+  width: 40%;
 }
 
-.cardCategory, .cardTitle{
+.cardCategory,
+.cardTitle {
   display: block;
   margin-bottom: 10px;
   color: #555;
@@ -70,12 +68,11 @@
 .formGroup label {
   text-transform: uppercase;
   position: absolute;
-  background-color:white;
+  background-color: white;
   font-size: 14px;
   margin-left: 10px;
   margin-top: -10px;
   padding: 0 10px;
-
 }
 
 .formGroup {
@@ -83,12 +80,12 @@
 }
 
 .cardInput {
-  width: 60%; 
+  width: 60%;
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   margin-bottom: 10px;
 }
 
@@ -111,7 +108,7 @@
   background-color: #c71a24;
 }
 
-.oops p{
+.oops p {
   font-size: 40px;
   font-weight: 700;
   color: #d01c28;
@@ -121,13 +118,13 @@
 }
 
 @media (max-width: 1024px) {
-  .main_heading{
+  .main_heading {
     margin-top: 85px;
   }
   .card {
     flex-direction: column;
-    align-items: center; 
-    text-align: center; 
+    align-items: center;
+    text-align: center;
   }
 
   .teamImg {
@@ -135,27 +132,27 @@
   }
 
   .cardInfo {
-    width: 100%; 
+    width: 100%;
     margin-top: 20px;
   }
 
   .cardInput {
-    width: 100%; 
+    width: 100%;
   }
 
   .cardBtn {
-    width: 92%; 
+    width: 92%;
   }
 }
 
 @media (max-width: 768px) {
-  .main_heading{
+  .main_heading {
     margin-top: 90px;
   }
   .card {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
-    text-align: center; 
+    text-align: center;
   }
 
   .teamImg {
@@ -171,7 +168,7 @@
   }
 
   .cardInput {
-    width: 100%; 
+    width: 100%;
   }
 
   .cardBtn {
@@ -180,7 +177,7 @@
 }
 
 @media (max-width: 540px) {
-  .main_heading{
+  .main_heading {
     margin-top: 87px;
   }
 }

@@ -54,31 +54,16 @@ export const AdminNavbar = () => {
                             <i className="fa fa-users nav-icon"></i>
                             Accounts
                         </NavLink>
-                        {/* <NavLink className="item activeStyle" to="/paymenthistory">
-                            <i className="fa fa-wallet nav-icon"></i>
-                            Payments
-                        </NavLink> */}
+
                         <NavLink className="item activeStyle" to="/allbookings">
                             <i className="fa fa-book nav-icon"></i>
                             Bookings
                         </NavLink>
 
-                        <Dropdown className="dropbtn" variant="link">
-                            <Dropdown.Toggle
-                                className="mainbtn"
-                                style={{ backgroundColor: '#d01c28', color: 'white', border: 'none' }}
-                            >
-                                <i className="fa fa-wallet nav-icon"></i>
-                                Payments
-                            </Dropdown.Toggle> 
-
-                            <Dropdown.Menu className="dropdown-menu-custom">
-                                <Dropdown.Item as={NavLink} to='/withdrawrequest'>
-                                    <i className="fa fa-money-bill"></i>
-                                    Withdraw Requests
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        <NavLink className="item activeStyle" to="/withdrawrequest">
+                            <i className="fa fa-wallet nav-icon"></i>
+                            Payments
+                        </NavLink>
 
                         <Dropdown className="dropbtn" variant="link">
                             <Dropdown.Toggle

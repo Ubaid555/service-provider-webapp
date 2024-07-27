@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema(
   {
     serviceTakerId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     serviceTakerName: {
@@ -17,11 +17,11 @@ const bookingSchema = new mongoose.Schema(
     },
     serviceTakerImage: {
       type: String,
-      default: '',
+      default: "",
     },
     serviceProviderId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     serviceProviderName: {
@@ -34,7 +34,7 @@ const bookingSchema = new mongoose.Schema(
     },
     serviceProviderImage: {
       type: String,
-      default: '',
+      default: "",
     },
     date: {
       type: String,
@@ -44,9 +44,9 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    price:{
-      type:String,
-      required:true
+    price: {
+      type: String,
+      required: true,
     },
     category: {
       type: String,
@@ -66,18 +66,17 @@ const bookingSchema = new mongoose.Schema(
     },
     userStatus: {
       type: String,
-      enum: ['Pending', 'Completed'], 
-        default: 'Pending'
+      enum: ["Pending", "Completed"],
+      default: "Pending",
     },
     serviceProviderStatus: {
       type: String,
-      enum: ['Pending', 'Completed'], 
-        default: 'Pending'
+      enum: ["Pending", "Completed"],
+      default: "Pending",
     },
-
   },
   { timestamps: true }
 );
 
-const Booking = mongoose.model('Booking', bookingSchema);
+const Booking = mongoose.model("Booking", bookingSchema);
 export default Booking;

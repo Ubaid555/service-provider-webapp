@@ -11,8 +11,6 @@ import {
 import "./ChatBot.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-// import ChatBox from "../ChatBox/ChatBox";
-
 
 const ChatBot = () => {
   const [typing, setTyping] = useState(false);
@@ -83,16 +81,16 @@ const ChatBot = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5001/api/chat/openAI', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5001/api/chat/openAI", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(apiRequestBody),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch response from backend');
+        throw new Error("Failed to fetch response from backend");
       }
 
       const data = await response.json();
@@ -132,14 +130,20 @@ const ChatBot = () => {
               <MessageList
                 scrollBehavior="smooth"
                 typingIndicator={
-                  typing ? <TypingIndicator content="ChatGPT is typing" /> : null
+                  typing ? (
+                    <TypingIndicator content="ChatGPT is typing" />
+                  ) : null
                 }
               >
                 {messages.map((message, i) => (
                   <Message
                     key={i}
                     model={message}
-                    className={message.sender === "ChatGPT" ? "chatgpt-message" : "user-message"}
+                    className={
+                      message.sender === "ChatGPT"
+                        ? "chatgpt-message"
+                        : "user-message"
+                    }
                   />
                 ))}
               </MessageList>
