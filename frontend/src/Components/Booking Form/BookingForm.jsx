@@ -6,6 +6,8 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import styles from "./BookingForm.module.css";
 import ChatBox from "../ChatBox/ChatBox";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../Firebase/firebase";
 import Loader from "../Loader/Loader";
 
 import { useNavigate } from "react-router-dom";
@@ -21,6 +23,8 @@ const BookingForm = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState({ hour: "", period: "AM" });
+  
+  const [problemPic, setProblemPic] = useState(null);
 
   const location = useLocation();
   const {
@@ -75,6 +79,12 @@ const BookingForm = () => {
     }));
   };
 
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setProblemPic(e.target.files[0]);
+    }
+  };
+
   const handleBookService = async (e) => {
     e.preventDefault();
 
@@ -107,6 +117,9 @@ const BookingForm = () => {
     const formattedTime = `${time.hour} ${time.period}`;
     setLoading(true);
     try {
+      const imageRef = ref(storage, `images/${problemPic.name}`);
+      await uploadBytes(imageRef, problemPic);
+      const imageURL = await getDownloadURL(imageRef);
       let response = await fetch(
         "http://localhost:5001/api/bookings/bookService",
         {
@@ -126,6 +139,7 @@ const BookingForm = () => {
             date,
             time: formattedTime,
             price,
+            problemPic:imageURL
           }),
           headers: { "Content-Type": "application/json" },
         }
@@ -231,6 +245,14 @@ const BookingForm = () => {
                 </select>
               </div>
             </div>
+
+            <div className={styles.file}>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                  </div>
 
             <div className={styles.form_control}>
               <label htmlFor="address">Address</label>

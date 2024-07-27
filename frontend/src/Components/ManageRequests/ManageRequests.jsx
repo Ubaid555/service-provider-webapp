@@ -7,6 +7,9 @@ import RequestConfirmModal from "../AllModals/RequestConfirmModal/RequestConfirm
 import CompleteBookingModal from "../AllModals/CompleteBookingModal/CompleteBookingModal";
 import ChatBox from "../ChatBox/ChatBox";
 
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../Firebase/firebase";
+
 const ManageRequests = () => {
   const user = JSON.parse(localStorage.getItem("loginusers"));
   const userName = user ? user.fullName : "User";
@@ -23,6 +26,7 @@ const ManageRequests = () => {
   const [bookingToConfirm, setBookingToConfirm] = useState(null);
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [showCompleteModal, setShowCompleteModal] = useState(false);
+  const [completionPic,setCompletionPic] = useState("");
 
   useEffect(() => {
     document.title = "Trusty Taskers - Service Requests";
@@ -96,9 +100,12 @@ const ManageRequests = () => {
     }
   };
 
-  const handleVerifyRequest = async (bookingId) => {
+  const handleVerifyRequest = async (bookingId) => { 
     if (bookingId) {
       try {
+        const imageRef = ref(storage, `images/${completionPic.name}`);
+        await uploadBytes(imageRef, completionPic);
+        const imageURL = await getDownloadURL(imageRef);
         let update = await fetch(
           `http://localhost:5001/api/bookings/handleBookingRequest`,
           {
@@ -110,6 +117,7 @@ const ManageRequests = () => {
               bookingId,
               currentStatus: "Completed",
               userId,
+              completionPic:imageURL
             }),
           }
         );
@@ -208,6 +216,12 @@ const ManageRequests = () => {
     setShowCompleteModal(false);
   };
 
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setCompletionPic(e.target.files[0]);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -295,6 +309,16 @@ const ManageRequests = () => {
                       >
                         {booking.currentStatus}
                       </span>
+                    </td>
+                    <td>
+                    <div className={styles.file}>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                  </div>
+
                     </td>
                     <td className={styles.tableCell}>
                       <button

@@ -41,6 +41,7 @@ const MyBookings = () => {
           }
         );
         let result = await response.json();
+        // console.log(result.success);
         if (result.success) {
           setBookings(result.success);
         }
@@ -96,7 +97,7 @@ const MyBookings = () => {
     navigate("/reschedulebooking", { state: { booking } });
   };
 
-  const handleVerifyRequest = async (bookingId) => {
+  const handleVerifyRequest = async (bookingId,currentStatus) => {
     if (bookingId) {
       try {
         let update = await fetch(
@@ -108,7 +109,7 @@ const MyBookings = () => {
             },
             body: JSON.stringify({
               bookingId,
-              currentStatus: "Completed",
+              currentStatus,
               userId,
             }),
           }
@@ -144,6 +145,7 @@ const MyBookings = () => {
       "Pending Complete": 3,
       Completed: 4,
       Cancelled: 5,
+      Dispute:6,
     };
 
     return statusOrder[a.currentStatus] - statusOrder[b.currentStatus];
@@ -264,7 +266,7 @@ const MyBookings = () => {
                               View Details
                             </button>
                             <button
-                              onClick={() => handleVerifyRequest(booking._id)}
+                              onClick={() => handleVerifyRequest(booking._id,"Completed")}
                               className={styles.actionButton}
                             >
                               Complete
@@ -314,13 +316,20 @@ const MyBookings = () => {
                             >
                               View Details
                             </button>
-                            {booking.userStatus === "Pending" && (
+                            {booking.userStatus === "Pending" && (<>
                               <button
-                                onClick={() => handleVerifyRequest(booking._id)}
+                                onClick={() => handleVerifyRequest(booking._id,"Completed")}
                                 className={styles.actionButton}
                               >
                                 Complete
                               </button>
+                              <button
+                                onClick={() => handleVerifyRequest(booking._id,"Dispute")}
+                                className={styles.actionButton}
+                              >
+                                Dispute
+                              </button>
+                              </>
                             )}
                           </td>
                         </tr>
@@ -391,6 +400,50 @@ const MyBookings = () => {
                     {sortedBookings
                       .filter(
                         (booking) => booking.currentStatus === "Cancelled"
+                      )
+                      .map((booking) => (
+                        <tr key={booking._id} className={styles.tableRow}>
+                          <td className={styles.tableCell}>
+                            {booking.category}
+                          </td>
+                          <td className={styles.tableCell}>
+                            {booking.serviceProviderName}
+                          </td>
+                          <td className={styles.tableCell}>
+                            <span
+                              className={`${styles.statusBadge} ${
+                                styles[booking.currentStatus.toLowerCase()]
+                              }`}
+                            >
+                              {booking.currentStatus}
+                            </span>
+                          </td>
+                          <td className={styles.tableCell}>
+                            <button
+                              onClick={() => viewDetails(booking)}
+                              className={styles.actionButton}
+                            >
+                              View Details
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                  </>
+                )}
+
+                  {/* Completed Bookings */}
+                  {sortedBookings.filter(
+                  (booking) => booking.currentStatus === "Dispute"
+                ).length > 0 && (
+                  <>
+                    <tr className={styles.tableRow}>
+                      <th colSpan="4" className={styles.groupHeading}>
+                        Dispute Bookings
+                      </th>
+                    </tr>
+                    {sortedBookings
+                      .filter(
+                        (booking) => booking.currentStatus === "Dispute"
                       )
                       .map((booking) => (
                         <tr key={booking._id} className={styles.tableRow}>

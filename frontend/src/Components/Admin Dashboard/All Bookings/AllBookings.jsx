@@ -406,14 +406,14 @@ const AllBookings = () => {
         setShowModal(false);
     };
 
-    const handleCompleteBooking = async (bookingId) => {
+    const handleCompleteBooking = async (bookingId,currentStatus) => {
         try {
             const response = await fetch(`http://localhost:5001/api/bookings/handleBookingRequest`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ bookingId, currentStatus: 'Completed' }),
+                body: JSON.stringify({ bookingId, currentStatus}),
             });
 
             const result = await response.json();
@@ -433,7 +433,8 @@ const AllBookings = () => {
             'Confirmed': 2,
             'Pending Complete': 3,
             'Completed': 4,
-            'Cancelled': 5
+            'Cancelled': 5,
+            'Dispute':6,
         };
 
         return statusOrder[a.currentStatus] - statusOrder[b.currentStatus];
@@ -516,7 +517,7 @@ const AllBookings = () => {
                                                 </td>
                                                 <td className={styles.tableCell}>
                                                     <button onClick={() => viewDetails(booking)} className={styles.actionButton}>View Details</button>
-                                                    <button onClick={() => handleCompleteBooking(booking._id)} className={styles.actionButton}>Complete</button>
+                                                    <button onClick={() => handleCompleteBooking(booking._id,'Completed')} className={styles.actionButton}>Complete</button>
                                                 </td>
                                             </tr>
                                         ))}
@@ -561,6 +562,33 @@ const AllBookings = () => {
                                                 </td>
                                                 <td className={styles.tableCell}>
                                                     <button onClick={() => viewDetails(booking)} className={styles.actionButton}>View Details</button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </>
+                                )}
+
+                                {sortedBookings.filter((booking) => booking.currentStatus === 'Dispute').length > 0 && (
+                                    <>
+                                        <tr className={styles.tableRow}>
+                                            <th colSpan="4" className={styles.groupHeading}>Dispute Bookings</th>
+                                        </tr>
+                                        {sortedBookings.filter((booking) => booking.currentStatus === 'Dispute').map((booking) => (
+                                            <tr key={booking._id} className={styles.tableRow}>
+                                                <td className={styles.tableCell}>{booking.category}</td>
+                                                <td className={styles.tableCell}>{booking.serviceTakerName}</td>
+                                                <td className={styles.tableCell}>
+                                                    <span className={`${styles.statusBadge} ${styles[booking.currentStatus.toLowerCase()]}`}>
+                                                        {booking.currentStatus}
+                                                    </span>
+                                                </td>
+                                                <td className={styles.tableCell}>
+                                                    <button onClick={() => viewDetails(booking)} className={styles.actionButton}>View Details</button>
+                                                    
+                                                    <button onClick={() => handleCompleteBooking(booking._id,"Completed")} className={styles.actionButton}>Complete</button>
+
+                                                    
+                                                    <button onClick={() => handleCompleteBooking(booking._id,"Refund")} className={styles.actionButton}>Refund</button>
                                                 </td>
                                             </tr>
                                         ))}

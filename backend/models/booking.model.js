@@ -74,6 +74,14 @@ const bookingSchema = new mongoose.Schema(
       enum: ["Pending", "Completed"],
       default: "Pending",
     },
+    problemPic: {
+      type: String,
+      required: true,
+    },
+    completionPic: {
+      type: String,
+      default: "",
+    },
   },
   { timestamps: true }
 );

@@ -25,6 +25,7 @@ export const bookService = async (req, resp) => {
       serviceTakerPhone,
       serviceTakerImage,
       serviceProviderPhone,
+      problemPic,
     } = req.body;
 
     const existingBooking = await Booking.findOne({
@@ -87,6 +88,7 @@ export const bookService = async (req, resp) => {
         serviceTakerImage,
         serviceProviderPhone,
         price,
+        problemPic,
       },
       line_items: [
         {
@@ -136,6 +138,7 @@ export const success = async (req, resp) => {
           serviceTakerImage,
           serviceProviderPhone,
           price,
+          problemPic,
         },
       } = session;
 
@@ -155,6 +158,7 @@ export const success = async (req, resp) => {
         serviceProviderPhone,
         price: price,
         currentStatus: "Pending",
+        problemPic,
       };
 
       let newBooking = new Booking(bookingData);
@@ -229,7 +233,7 @@ export const ongoingBooking = async (req, resp) => {
 
 export const handleBookingRequest = async (req, resp) => {
   try {
-    const { bookingId, currentStatus, userId } = req.body;
+    const { bookingId, currentStatus, userId, completionPic = null } = req.body;
 
     const serviceProvider = await Booking.findOne({
       _id: bookingId,
@@ -251,11 +255,14 @@ export const handleBookingRequest = async (req, resp) => {
           .json({ error: "No Data Found Related to this Booking" });
       }
 
-      if (existingBooking.currentStatus === "Pending Complete") {
+      if (
+        existingBooking.currentStatus === "Pending Complete" ||
+        existingBooking.currentStatus === "Dispute"
+      ) {
         let newBalance;
         result = await Booking.updateOne(
           { _id: bookingId },
-          { $set: { currentStatus } }
+          { $set: { currentStatus, completionPic } }
         );
         const payment = await Payment.updateOne(
           { _id: bookingId },
@@ -285,7 +292,7 @@ export const handleBookingRequest = async (req, resp) => {
       } else {
         result = await Booking.updateOne(
           { _id: bookingId },
-          { $set: { currentStatus: "Pending Complete" } }
+          { $set: { currentStatus: "Pending Complete", completionPic } }
         );
       }
 
@@ -305,17 +312,48 @@ export const handleBookingRequest = async (req, resp) => {
         { _id: bookingId },
         { $set: { currentStatus } }
       );
-    }
-
-    if (result.modifiedCount === 1) {
-      if (serviceProvider) {
-        await updateCount(currentStatus, userId);
+      if (currentStatus === "Dispute") {
+        return resp
+          .status(200)
+          .json({ success: "Refend Request Has Been Generated" });
       }
-      return resp.status(200).json({ success: "Successfully Updated" });
-    } else {
-      return resp
-        .status(400)
-        .json({ error: "No Data Found Related to this Booking" });
+      if (currentStatus === "Refund") {
+        let newBalance;
+
+        let bookingData = await Booking.findOne({ _id: bookingId });
+        newBalance = bookingData.price;
+        let oldUserBalance = await UserBalance.findOne({
+          userId: bookingData.serviceTakerId,
+        });
+        if (oldUserBalance) {
+          const updateBalance = await UserBalance.updateOne(
+            { userId: bookingData.serviceTakerId },
+            { $inc: { totalBalance: newBalance } }
+          );
+        } else {
+          const newUser = new UserBalance({
+            userId: bookingData.serviceTakerId,
+            totalBalance: newBalance,
+          });
+
+          await newUser.save();
+
+          return resp
+            .status(200)
+            .json({ success: "Refend Has Been Completed" });
+        }
+      }
+
+      if (result.modifiedCount === 1) {
+        if (serviceProvider) {
+          await updateCount(currentStatus, userId);
+        }
+        return resp.status(200).json({ success: "Successfully Updated" });
+      } else {
+        return resp
+          .status(400)
+          .json({ error: "No Data Found Related to this Booking" });
+      }
     }
   } catch (error) {
     console.log("Error's in Handle Booking Request Controller", error.message);
