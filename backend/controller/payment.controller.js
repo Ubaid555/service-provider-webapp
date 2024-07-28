@@ -4,16 +4,6 @@ import Payment from "../models/payment.model.js";
 import Booking from "../models/booking.model.js";
 import WithdrawRequest from "../models/withdrawRequest.model.js";
 
-export const addPayment = async (req, resp) => {
-  try {
-  } catch (error) {
-    console.error("Error In Add Payment Controller ", error);
-    resp
-      .status(500)
-      .json({ error: "An error occurred while retrieving users" });
-  }
-};
-
 export const viewPayments = async (req, resp) => {
   try {
     const result = await Booking.find();

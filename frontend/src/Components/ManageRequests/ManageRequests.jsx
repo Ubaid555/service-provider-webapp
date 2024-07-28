@@ -626,13 +626,52 @@ const ManageRequests = () => {
     }
   };
 
+  // const handleVerifyRequest = async (bookingId, completionPic) => {
+  //   console.log("booking Id",bookingId, completionPic);
+  //   if (bookingId && completionPic) {
+  //     try {
+  //       const imageRef = ref(storage, `images/${completionPic.name}`);
+  //       await uploadBytes(imageRef, completionPic);
+  //       const imageURL = await getDownloadURL(imageRef);
+  //       let update = await fetch(
+  //         `http://localhost:5001/api/bookings/handleBookingRequest`,
+  //         {
+  //           method: "PUT",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //           body: JSON.stringify({
+  //             bookingId,
+  //             currentStatus: "Completed",
+  //             userId,
+  //             completionPic: imageURL,
+  //           }),
+  //         }
+  //       );
+  //       console.log("update",update);
+
+  //       let result = await update.json();
+  //       console.log("result",result)
+  //       if (result.success) {
+  //         window.location.reload();
+  //       }
+  //     } catch (error) {
+  //       console.error("Error updating booking status:", error);
+  //     }
+  //   }
+  // };
+
   const handleVerifyRequest = async (bookingId, completionPic) => {
-    console.log(bookingId, completionPic);
+    console.log("booking Id", bookingId, completionPic);
     if (bookingId && completionPic) {
       try {
         const imageRef = ref(storage, `images/${completionPic.name}`);
+        console.log("Uploading image...");
         await uploadBytes(imageRef, completionPic);
         const imageURL = await getDownloadURL(imageRef);
+        console.log("Image uploaded, URL:", imageURL);
+  
+        console.log("Sending update request to API...");
         let update = await fetch(
           `http://localhost:5001/api/bookings/handleBookingRequest`,
           {
@@ -648,17 +687,26 @@ const ManageRequests = () => {
             }),
           }
         );
-
+  
+        console.log("API request completed, response:", update);
         let result = await update.json();
+        console.log("Parsed result:", result);
+  
         if (result.success) {
+          console.log("Update successful, reloading page...");
           window.location.reload();
+        } else {
+          console.log("Update failed:", result.message);
         }
       } catch (error) {
         console.error("Error updating booking status:", error);
       }
+    } else {
+      console.log("Missing bookingId or completionPic");
     }
   };
 
+  
   const handleRejectRequest = async (bookingId, status) => {
     if (bookingId && status) {
       try {

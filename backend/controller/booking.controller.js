@@ -235,7 +235,7 @@ export const handleBookingRequest = async (req, resp) => {
   try {
     const { bookingId, currentStatus, userId, completionPic = null } = req.body;
 
-    console.log("api call", currentStatus, completionPic);
+    // console.log("api call", currentStatus, completionPic);
 
     const serviceProvider = await Booking.findOne({
       _id: bookingId,
@@ -249,6 +249,7 @@ export const handleBookingRequest = async (req, resp) => {
 
     let result;
     if (currentStatus === "Completed") {
+      // console.log("Inside Completed");
       const existingBooking = await Booking.findOne({ _id: bookingId });
 
       if (!existingBooking) {
@@ -292,6 +293,7 @@ export const handleBookingRequest = async (req, resp) => {
           await newUser.save();
         }
       } else {
+        // console.log("Inside Pending Completion")
         result = await Booking.updateOne(
           { _id: bookingId },
           { $set: { currentStatus: "Pending Complete", completionPic } }
@@ -309,6 +311,9 @@ export const handleBookingRequest = async (req, resp) => {
           { $set: { serviceProviderStatus: "Completed" } }
         );
       }
+      return resp
+      .status(200)
+      .json({ success: "Request Has Been Generated" });
     } else {
       result = await Booking.updateOne(
         { _id: bookingId },
@@ -339,7 +344,7 @@ export const handleBookingRequest = async (req, resp) => {
           });
 
           await newUser.save();
-
+          // console.log("data Sending Back");
           return resp
             .status(200)
             .json({ success: "Refend Has Been Completed" });
@@ -350,6 +355,7 @@ export const handleBookingRequest = async (req, resp) => {
         if (serviceProvider) {
           await updateCount(currentStatus, userId);
         }
+        // console.log("data Sending Back");
         return resp.status(200).json({ success: "Successfully Updated" });
       } else {
         return resp

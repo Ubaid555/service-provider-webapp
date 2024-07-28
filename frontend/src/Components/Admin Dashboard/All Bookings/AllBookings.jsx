@@ -309,9 +309,10 @@ const AllBookings = () => {
 
             const result = await response.json();
             if (result.success) {
-                setBookings(bookings.map(booking => 
-                    booking._id === bookingId ? { ...booking, currentStatus: 'Completed' } : booking
-                ));
+                // setBookings(bookings.map(booking => 
+                //     booking._id === bookingId ? { ...booking, currentStatus: 'Completed' } : booking
+                // ));
+                window.location.reload();
             }
         } catch (error) {
             console.error('Error completing booking', error);
