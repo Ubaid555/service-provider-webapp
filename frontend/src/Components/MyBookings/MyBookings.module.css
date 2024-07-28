@@ -118,6 +118,12 @@
 .pendingConfirmation{
     background-color: rgb(115, 79, 244);
 }
+.dispute{
+    background-color: rgb(71, 71, 71);
+}
+.refund{
+    background-color: #1100ff;
+}
 
 @media (max-width: 1000px) {
     .actionButton {

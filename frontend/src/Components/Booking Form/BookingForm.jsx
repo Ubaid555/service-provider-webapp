@@ -88,12 +88,12 @@ const BookingForm = () => {
   const handleBookService = async (e) => {
     e.preventDefault();
 
-    if (!address && !description && !date && !time.hour && !time.period) {
+    if (!address && !description && !date && !time.hour && !time.period && !problemPic) {
       toast.error("Please fill in all required fields");
       return;
     }
 
-    if (!address || !description || !date || !time.hour || !time.period) {
+    if (!address || !description || !date || !time.hour || !time.period || !problemPic) {
       if (!date) {
         toast.error("Please fill in date");
         return;
@@ -110,6 +110,11 @@ const BookingForm = () => {
 
       if (!description) {
         toast.error("Please fill in description");
+        return;
+      }
+
+      if (!problemPic) {
+        toast.error("Please add an image of an issue you are facing");
         return;
       }
     }
@@ -246,14 +251,6 @@ const BookingForm = () => {
               </div>
             </div>
 
-            <div className={styles.file}>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                    />
-                  </div>
-
             <div className={styles.form_control}>
               <label htmlFor="address">Address</label>
               <input
@@ -275,6 +272,15 @@ const BookingForm = () => {
                 required
               />
             </div>
+
+            <div className={styles.form_control}>
+            <label htmlFor="text">Enter your problem pic here</label><br></br>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                  </div>
 
             {loading ? (
               <Loader />

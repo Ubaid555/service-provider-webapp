@@ -235,6 +235,8 @@ export const handleBookingRequest = async (req, resp) => {
   try {
     const { bookingId, currentStatus, userId, completionPic = null } = req.body;
 
+    console.log("api call", currentStatus, completionPic);
+
     const serviceProvider = await Booking.findOne({
       _id: bookingId,
       serviceProviderId: userId,
