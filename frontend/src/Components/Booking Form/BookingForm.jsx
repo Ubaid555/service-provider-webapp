@@ -171,6 +171,9 @@ const BookingForm = () => {
       <h1 className={styles.main_heading}>Book your service here</h1>
       <section className={styles.book_container}>
         <div className={styles.contact_form}>
+        <p className={styles.commission_note}>
+        <strong>Note:</strong> 7% commission will be charged on a successful service completion
+          </p>
           <form className="form">
             <div className={styles.form_control}>
               <label htmlFor="name">Name</label>
@@ -208,48 +211,52 @@ const BookingForm = () => {
               <label htmlFor="price">Price</label>
               <input type="text" name="price" value={`Pkr ${price}`} readOnly />
             </div>
-
             <div className={styles.form_control}>
-              <label htmlFor="date">Date</label>
-              <input
-                type="date"
-                name="date"
-                value={date}
-                min={new Date().toISOString().split("T")[0]}
-                onChange={handleDateChange}
-                required
-              />
-            </div>
+        <div className={styles.dateTimeContainer}>
+          <div className={styles.dateContainer}>
+            <label htmlFor="date">Date</label>
+            <input
+              type="date"
+              name="date"
+              value={date}
+              min={new Date().toISOString().split("T")[0]}
+              onChange={handleDateChange}
+              required
+            />
+          </div>
 
-            <div className={styles.form_control}>
-              <label htmlFor="time">Time</label>
-              <div className={styles.time_select}>
-                <select
-                  className={styles.select}
-                  name="hour"
-                  value={time.hour}
-                  onChange={handleTimeChange}
-                  required
-                >
-                  <option value="">Hour</option>
-                  {[...Array(12)].map((_, i) => (
-                    <option key={i + 1} value={i + 1}>
-                      {i + 1}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  className={styles.select}
-                  name="period"
-                  value={time.period}
-                  onChange={handleTimeChange}
-                  required
-                >
-                  <option value="AM">AM</option>
-                  <option value="PM">PM</option>
-                </select>
+          <div className={styles.timeContainer}>
+                <label htmlFor="time">Date and Time</label>
+                <div className={styles.time_select}>
+                  <select
+                    className={styles.select}
+                    name="hour"
+                    value={time.hour}
+                    onChange={handleTimeChange}
+                    required
+                  >
+                    <option value="">Hour</option>
+                    {[...Array(12)].map((_, i) => (
+                      <option key={i + 1} value={i + 1}>
+                        {i + 1}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    className={styles.select}
+                    name="period"
+                    value={time.period}
+                    onChange={handleTimeChange}
+                    required
+                  >
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                  </select>
+                </div>
               </div>
             </div>
+          </div>
+
 
             <div className={styles.form_control}>
               <label htmlFor="address">Address</label>

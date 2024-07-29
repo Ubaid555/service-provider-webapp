@@ -13,7 +13,7 @@
   "pendingRequests": "Pending Requests",
   "viewProfile": "View Profile",
   "logout": "Logout",
-  "accountSettings": "Account Settings",
+  "passwordSettings": "Password Settings",
   "login": "Log in",
   "signup": "Sign up"
 }

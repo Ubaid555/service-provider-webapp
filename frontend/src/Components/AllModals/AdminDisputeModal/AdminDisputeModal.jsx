@@ -49,8 +49,9 @@ const AdminDisputeModal = ({ booking, onClose }) => {
                 <p><strong>Service Time:</strong> {booking.time}</p>
                 <p><strong>Provider Status:</strong> {booking.serviceProviderStatus}</p>
                 <p><strong>Seeker Status:</strong> {booking.userStatus}</p>
-                <p><strong>Updated At:</strong> {new Date(booking.updatedAt).toLocaleString()}</p>
+                <p><strong>Price:</strong> {booking.price}</p>
                 <p><strong>Description:</strong> {booking.description}</p>
+                <p><strong>Updated At:</strong> {new Date(booking.updatedAt).toLocaleString()}</p>
             </div>
         </div>
     );

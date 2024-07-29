@@ -165,7 +165,7 @@ export const MyServices = () => {
                         <strong>Name:</strong> <span>{profile.fullName}</span>
                       </div>
                       <div className={styles.formGroup}>
-                        <strong>Phone:</strong> <span>0{profile.phone}</span>
+                        <strong>Phone:</strong> <span>{profile.phone}</span>
                       </div>
                       <div className={styles.formGroup}>
                         <strong>Price:</strong> <span>{profile.price}</span>

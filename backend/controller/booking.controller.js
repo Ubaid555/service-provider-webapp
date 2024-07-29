@@ -33,6 +33,7 @@ export const bookService = async (req, resp) => {
       serviceProviderId,
       serviceTakerId,
       currentStatus: "Pending" || "Confirmed",
+      // {$or: [{currentStatus: "Pending"}, {currentStatus: "Confirmed"}]}
     });
 
     // console.log("Existing Booking",existingBooking)

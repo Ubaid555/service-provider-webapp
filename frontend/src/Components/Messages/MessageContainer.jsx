@@ -25,7 +25,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
         const fetchMessages = async () => {
             try {
                 const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
-                console.log("Current USer", currentUser)
+                // console.log("Current USer", currentUser)
                 const response = await fetch(`http://localhost:5001/api/messages/${conversation._id}`, {
                     method: 'GET',
                     headers: {
@@ -63,10 +63,9 @@ const MessageContainer = ({ conversation, onBackClick }) => {
         return () => {
             socket.off('receiveMessage');
         };
-    }, [serviceTakerId]);
+    }, [conversation._id, serviceTakerId]);
 
     useEffect(() => {
-        // Scroll to the bottom whenever messages change
         if (messagesEndRef.current) {
             messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
         }
@@ -94,6 +93,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
 
             if (response.ok) {
                 const data = await response.json();
+                console.log(data);
             } else {
                 console.error('Error sending message:', response.statusText);
             }
@@ -113,7 +113,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
             
             <div className={styles.messages}>
                 <Messages messages={messages} />
-                <div ref={messagesEndRef} /> {/* Add a ref to the end of the messages list */}
+                <div ref={messagesEndRef} /> 
             </div>
            
         </div>

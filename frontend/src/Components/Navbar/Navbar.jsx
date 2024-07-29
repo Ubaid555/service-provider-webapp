@@ -202,7 +202,7 @@ export const Navbar = () => {
                         to="/accountsettings"
                       >
                         <i className="fa fa-cog"></i>
-                        {t("accountSettings")}
+                        {t("passwordSettings")}
                       </Dropdown.Item>
 
                       <Dropdown.Item className="db" onClick={logout}>

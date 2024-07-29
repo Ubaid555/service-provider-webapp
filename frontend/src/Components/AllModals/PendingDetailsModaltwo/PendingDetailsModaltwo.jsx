@@ -36,6 +36,7 @@ const PendingDetailsModaltwo = ({ booking, onClose }) => {
                 <p><strong>Service Time:</strong> {booking.time}</p>
                 <p><strong>Status:</strong> {booking.currentStatus}</p>
                 <p><strong>Address:</strong> {booking.address}</p>
+                <p><strong>Price:</strong> {booking.price}</p>
                 <p><strong>Description:</strong> {booking.description}</p>
             </div>
         </div>

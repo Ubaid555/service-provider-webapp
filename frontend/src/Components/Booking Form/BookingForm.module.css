@@ -19,7 +19,11 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   animation: slideIn 1s ease-in-out;
 }
-
+.commission_note{
+  color: #d01c28;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -69,7 +73,7 @@
 }
 .booking_image img {
   margin-left: 120px;
-  margin-bottom: 220px;
+  margin-bottom: 260px;
   height: 350px;
   width: 450px;
   padding-top: 25px;
@@ -84,7 +88,32 @@
   text-align: center;
   margin-bottom: 40px;
 }
+.dateTimeContainer {
+  display: flex;
+  justify-content: space-between;
+}
 
+.dateContainer, .timeContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.dateContainer{
+  margin-right: 10px;
+}
+
+.dateContainer label, .timeContainer label {
+  margin-bottom: 5px;
+}
+
+.time_select {
+  display: flex;
+  justify-content: space-between;
+}
+
+.time_select select {
+  width: 48%;
+}
 @media screen and (max-width: 1370px) {
   .main_heading {
     width: 100%;
@@ -166,6 +195,18 @@
     margin-left: 25px;
     margin-right: 60px;
     width: 90%;
+  }
+  .dateTimeContainer {
+    flex-direction: column;
+  }
+
+  .dateContainer, .timeContainer {
+    margin-right: 0;
+  }
+
+  .time_select select {
+    width: 100%;
+    margin-top: 10px;
   }
 }
 @media screen and (max-width: 500px) {
