@@ -51,10 +51,10 @@ const AccountDetailsForm = () => {
       toast.error("Amount must be a positive number");
       return;
     }
-    // if (accountNumber.toString().length !== 11) {
-    //     toast.error('Account number length should be 11');
-    //     return;
-    // }
+    if (accountNumber.toString().length !== 11) {
+        toast.error('Account number length should be 11');
+        return;
+    }
     if (parseInt(amount) > totalBalance) {
       toast.error("Balance not enough");
       return;
