@@ -222,7 +222,7 @@ const MyBookings = () => {
                               onClick={() =>
                                 setSelectedBooking(booking) ||
                                 setShowCancelModal(true) ||
-                                handleCancelRequest()
+                                handleCancelRequest(booking._id)
                               }
                               className={styles.actionButton}
                             >

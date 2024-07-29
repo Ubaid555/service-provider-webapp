@@ -394,8 +394,22 @@ export const updateBooking = async (req, resp) => {
   try {
     const { bookingId, ...updateData } = req.body;
 
+    const {date , time,serviceProviderId } = updateData
+
+    console.log(date , time)
+
     if (!bookingId) {
       return resp.status(400).json({ message: "Booking ID is required" });
+    }
+
+    const notAvailable = await Booking.findOne({
+      serviceProviderId,
+      date,
+      time,
+    }); 
+
+    if(notAvailable){
+      return resp.status(400).json({ message: "User Not Available on this time " });
     }
 
     const result = await Booking.updateOne(
