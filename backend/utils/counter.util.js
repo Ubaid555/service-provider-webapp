@@ -7,10 +7,10 @@ export const updateCount = async (counterType, userId) => {
     if (!existingCounter) {
       const initialCounter = new Counter({
         userId: "Default Counter",
-        totalServices: 50,
-        totalServicesRequested: 35,
-        totalServicesConfirmed: 25,
-        totalServicesCompleted: 15
+        totalServices: 51,
+        totalServicesRequested: 36,
+        totalServicesConfirmed: 26,
+        totalServicesCompleted: 16
       });
       await initialCounter.save();
     } else {
