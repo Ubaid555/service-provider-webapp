@@ -4,6 +4,8 @@ import styles from "./AdminOverview.module.css";
 import AdminNavbar from "../Admin Navbar/AdminNavbar";
 import Footer from "../../Footer/Footer";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const AdminOverview = () => {
   //const user = JSON.parse(localStorage.getItem("loginusers"));
   //const userName = user ? user.fullName : "User";
@@ -29,7 +31,7 @@ const AdminOverview = () => {
       setUserProfile(user.profilePic);
       try {
         const response = await fetch(
-          `http://localhost:5001/api/overview/overviewAllServices?userId=${userId}`
+          `${BASE_URL}/overview/overviewAllServices?userId=${userId}`
         );
         if (!response.ok) {
           throw new Error("Error fetching data");
@@ -55,7 +57,7 @@ const AdminOverview = () => {
       const userId = user._id;
       try {
         const response = await fetch(
-          `http://localhost:5001/api/overview/overviewUserServices?userId=${userId}`
+          `${BASE_URL}/overview/overviewUserServices?userId=${userId}`
         );
         const result = await response.json();
         if(result.success){

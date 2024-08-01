@@ -5,6 +5,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ChatBox from "../ChatBox/ChatBox";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const UserWithdrawHistory = () => {
   const [userId, setUserId] = useState("");
   const [withdrawHistory, setWithdrawHistory] = useState([]);
@@ -27,7 +29,7 @@ const UserWithdrawHistory = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:5001/api/payment/withdrawHistory?userId=${userId}`,
+          `${BASE_URL}/payment/withdrawHistory?userId=${userId}`,
           {
             method: "GET",
             headers: {

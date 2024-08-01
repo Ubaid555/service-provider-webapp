@@ -6,6 +6,8 @@ import styles from "./UpdateService.module.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const UpdateService = () => {
   // console.log("Updating Profile");
   const location = useLocation();
@@ -39,7 +41,7 @@ const UpdateService = () => {
     try {
       console.log("Submitting updated profile:", updatedProfile);
       let update = await fetch(
-        `http://localhost:5001/api/services/updateService?userId=${userId}`,
+        `${BASE_URL}/services/updateService?userId=${userId}`,
         {
           method: "PUT",
           headers: {

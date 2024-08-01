@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import AdminNewServiceModal from '../../AllModals/AdminNewServiceModal/AdminNewServiceModal'; // Import the modal component
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const AddNewService = () => {
   const [title, setTitle] = useState('');
   const [sname, setSname] = useState('');
@@ -40,7 +42,7 @@ const AddNewService = () => {
       };
 
       // Send POST request to backend API
-      const response = await fetch('http://localhost:5001/api/admin/setService', {
+      const response = await fetch(`${BASE_URL}/admin/setService`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

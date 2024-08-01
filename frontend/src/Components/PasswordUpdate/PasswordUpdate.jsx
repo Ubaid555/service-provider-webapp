@@ -6,6 +6,8 @@ import styles from "./PasswordUpdate.module.css";
 import Footer from "../Footer/Footer";
 import ChatBox from "../ChatBox/ChatBox";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const PasswordUpdate = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -40,7 +42,7 @@ const PasswordUpdate = () => {
 
     try {
       let response = await fetch(
-        "http://localhost:5001/api/profile/updatePassword",
+        `${BASE_URL}/profile/updatePassword`,
         {
           method: "PUT",
           body: JSON.stringify({

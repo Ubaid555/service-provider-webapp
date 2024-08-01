@@ -6,6 +6,8 @@ import "./Services.css";
 import ChatBox from "../ChatBox/ChatBox";
 import AdminNavbar from "../Admin Dashboard/Admin Navbar/AdminNavbar";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const Services = () => {
   const [Sdata, setSdata] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -28,7 +30,7 @@ const Services = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/services/service`,
+          `${BASE_URL}/services/service`,
           {
             method: "GET",
             headers: {

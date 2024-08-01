@@ -7,6 +7,8 @@ import styles from "./AddServices.module.css";
 import ServiceConfirmModal from "../AllModals/ServiceConfirmModal/ServiceConfirmModal";
 import ChatBox from "../ChatBox/ChatBox";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const AddServices = () => {
   const [Sdata, setSdata] = useState([]);
   const [userId, setUserId] = useState("");
@@ -26,7 +28,7 @@ const AddServices = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/services/service`,
+          `${BASE_URL}/services/service`,
           {
             method: "GET",
             headers: {
@@ -35,6 +37,7 @@ const AddServices = () => {
           }
         );
         const result = await response.json();
+        console.log(result)
         setSdata(result);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -66,7 +69,7 @@ const AddServices = () => {
   }, [category, Sdata]);
 
   const handleService = async () => {
-    let result = await fetch("http://localhost:5001/api/services/addservice", {
+    let result = await fetch(`${BASE_URL}/services/addservice`, {
       method: "post",
       body: JSON.stringify({
         fullName,

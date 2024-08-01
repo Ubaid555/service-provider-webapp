@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import styles from "./SecondCounter.module.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const SecondCounter = () => {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
@@ -17,7 +19,7 @@ const SecondCounter = () => {
       const userId = user._id;
       try {
         const response = await fetch(
-          `http://localhost:5001/api/overview/overviewUserServices?userId=${userId}`
+          `${BASE_URL}/overview/overviewUserServices?userId=${userId}`
         );
         const result = await response.json();
         if (result.success) {

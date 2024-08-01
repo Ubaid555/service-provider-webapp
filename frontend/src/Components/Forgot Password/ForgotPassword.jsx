@@ -9,6 +9,8 @@ import password_icon from "../Assets/password.png";
 import { useTranslation } from "react-i18next";
 import TranslateButton from "../TranslateButton/TranslateButton";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 export const ForgotPassword = () => {
   const { t, i18n } = useTranslation(["forgotpassword", "common"]);
   const [email, setEmail] = useState("");
@@ -34,7 +36,7 @@ export const ForgotPassword = () => {
 
   const handleSubmit = async () => {
     let response = await fetch(
-      `http://localhost:5001/api/auth/forgotPassword?email=${email}`,
+      `${BASE_URL}/auth/forgotPassword?email=${email}`,
       {
         method: "GET",
         headers: {
@@ -56,7 +58,7 @@ export const ForgotPassword = () => {
 
   const verifyOtp = async () => {
     try {
-      let response = await fetch("http://localhost:5001/api/auth/verify-otp", {
+      let response = await fetch(`${BASE_URL}/auth/verify-otp`, {
         method: "POST",
         body: JSON.stringify({ email, otp }),
         headers: {
@@ -102,7 +104,7 @@ export const ForgotPassword = () => {
 
     try {
       let response = await fetch(
-        "http://localhost:5001/api/auth/resetPassword",
+        `${BASE_URL}/auth/resetPassword`,
         {
           method: "PUT",
           body: JSON.stringify({

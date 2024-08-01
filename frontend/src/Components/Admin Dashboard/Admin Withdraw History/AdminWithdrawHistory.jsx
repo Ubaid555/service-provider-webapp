@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { AdminNavbar } from '../Admin Navbar/AdminNavbar';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 export const Payment = () => {
   const [payment,setPayment]=useState([]);
   useEffect(() => {
@@ -12,7 +14,7 @@ export const Payment = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/payment/viewPayment`
+          `${BASE_URL}/payment/viewPayment`
         );
         if (!response.ok) {
           throw new Error("Error fetching data");

@@ -5,6 +5,8 @@ import styles from "./SeeReviews.module.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const SeeReviews = () => {
   const location = useLocation();
   const { category, serviceProviderId, serviceProviderName } = location.state
@@ -25,7 +27,7 @@ const SeeReviews = () => {
     const fetchReviews = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/reviews/getreview/?serviceProviderId=${serviceProviderId}&category=${category}`
+          `${BASE_URL}/reviews/getreview/?serviceProviderId=${serviceProviderId}&category=${category}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch reviews");

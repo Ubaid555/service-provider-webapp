@@ -6,6 +6,8 @@ import SecondCounter from "../Second Counter/SecondCounter";
 import ChatBox from "../ChatBox/ChatBox";
 import { NavLink } from "react-router-dom";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const ViewProfile = () => {
   const [userProfile, setUserProfile] = useState(null);
 
@@ -18,7 +20,7 @@ const ViewProfile = () => {
     try {
       const userId = JSON.parse(localStorage.getItem("loginusers"))._id;
       let result = await fetch(
-        `http://localhost:5001/api/profile/showProfile?userId=${userId}`,
+        `${BASE_URL}/profile/showProfile?userId=${userId}`,
         {
           method: "GET",
           headers: {

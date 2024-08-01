@@ -18,7 +18,6 @@ import { MyServices } from "./Components/MyServices/MyServices";
 import { ForgotPassword } from "./Components/Forgot Password/ForgotPassword";
 import AllUsers from "./Components/All Users/AllUsers";
 import AddServices from "./Components/Add Services/AddServices";
-import ServiceRequests from "./Components/ServiceRequests/ServiceRequests";
 import MyBookings from "./Components/MyBookings/MyBookings";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ViewProfile from "./Components/ViewProfile/ViewProfile";
@@ -65,7 +64,6 @@ function App() {
             <Route path="/updateservice" element={<UpdateService />} />
             <Route path="/addservice" element={<AddServices />} />
             <Route path="/allusers" element={<AllUsers />} />
-            <Route path="/servicerequests" element={<ServiceRequests />} />
             <Route path="/mybookings" element={<MyBookings />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<ViewProfile />} />

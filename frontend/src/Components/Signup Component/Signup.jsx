@@ -14,6 +14,8 @@ import TranslateButton from "../TranslateButton/TranslateButton";
 import { useTranslation } from "react-i18next";
 import Loader from "../Loader/Loader";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 export const Signup = () => {
   const { t, i18n } = useTranslation(["signup", "common"]);
   const [fullName, setName] = useState("");
@@ -104,7 +106,7 @@ export const Signup = () => {
       const imageURL = await getDownloadURL(imageRef);
       console.log(imageURL);
       setVerified(true);
-      let response = await fetch("http://localhost:5001/api/auth/signup", {
+      let response = await fetch(`${BASE_URL}/auth/signup`, {
         method: "POST",
         body: JSON.stringify({
           fullName,
@@ -136,7 +138,7 @@ export const Signup = () => {
 
   const verifyOtp = async () => {
     try {
-      let response = await fetch("http://localhost:5001/api/auth/verify-otp", {
+      let response = await fetch(`${BASE_URL}/auth/verify-otp`, {
         method: "POST",
         body: JSON.stringify({ email, otp }),
         headers: {

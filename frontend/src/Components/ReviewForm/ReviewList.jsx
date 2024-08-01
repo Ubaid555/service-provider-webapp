@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import StarRatingComponent from "react-star-rating-component";
 import styles from "./ReviewList.module.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const ReviewList = ({ newReview, categoryFilter }) => {
   const [reviews, setReviews] = useState([]);
   const POLL_INTERVAL = 5000;
@@ -22,7 +24,7 @@ const ReviewList = ({ newReview, categoryFilter }) => {
   const fetchReviews = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5001/api/reviews/getreview"
+        `${BASE_URL}/reviews/getreview`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch reviews");

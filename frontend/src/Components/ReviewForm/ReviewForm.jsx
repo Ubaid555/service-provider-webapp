@@ -8,6 +8,8 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import ReviewList from "./ReviewList";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const ReviewForm = () => {
   const location = useLocation();
   const { booking } = location.state || {};
@@ -38,7 +40,7 @@ const ReviewForm = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5001/api/reviews/addreview",
+        `${BASE_URL}/reviews/addreview`,
         {
           method: "POST",
           headers: {

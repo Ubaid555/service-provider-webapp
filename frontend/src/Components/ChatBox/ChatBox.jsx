@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const socket = io('http://localhost:5001');
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const ChatBox = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [image, setImage] = useState("");
@@ -39,7 +41,7 @@ const ChatBox = () => {
   useEffect(() => {
     const fetchUserData = async (userId) => {
       try {
-        const response = await fetch(`http://localhost:5001/api/auth/getUser?userId=${userId}`, {
+        const response = await fetch(`${BASE_URL}/auth/getUser?userId=${userId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

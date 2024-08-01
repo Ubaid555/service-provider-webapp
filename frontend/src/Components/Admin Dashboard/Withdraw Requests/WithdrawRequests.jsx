@@ -4,6 +4,8 @@ import AdminNavbar from '../Admin Navbar/AdminNavbar';
 import WithdrawCredentialsModal from '../../AllModals/WithdrawCredentialsModal/WithdrawCredentialsModal'; 
 import RequestConfirmModal from '../../AllModals/RequestConfirmModal/RequestConfirmModal';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const WithdrawRequests = () => {
     const user = JSON.parse(localStorage.getItem("loginusers"));
     const userName = user ? user.fullName : "User";
@@ -30,7 +32,7 @@ const WithdrawRequests = () => {
     useEffect(() => {
         const fetchWithdrawRequests = async () => {
             try {
-                let response = await fetch('http://localhost:5001/api/payment/viewWithdrawRequest', {
+                let response = await fetch(`${BASE_URL}/payment/viewWithdrawRequest`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -57,7 +59,7 @@ const WithdrawRequests = () => {
     const handleApproveRequest = async (requestId) => {
         if (requestId) {
             try {
-                let update = await fetch('http://localhost:5001/api/payment/handleWithdraw', {
+                let update = await fetch(`${BASE_URL}/payment/handleWithdraw`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"

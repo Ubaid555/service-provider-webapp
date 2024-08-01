@@ -11,6 +11,9 @@ import ChatBox from "../ChatBox/ChatBox";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../Firebase/firebase";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const ManageRequests = () => {
   const user = JSON.parse(localStorage.getItem("loginusers"));
   const userName = user ? user.fullName : "User";
@@ -46,7 +49,7 @@ const ManageRequests = () => {
     const fetchBookings = async (status, setBookings) => {
       try {
         let response = await fetch(
-          `http://localhost:5001/api/bookings/ongoingBooking?userId=${userId}&currentStatus=${status}`,
+          `${BASE_URL}/bookings/ongoingBooking?userId=${userId}&currentStatus=${status}`,
           {
             method: "GET",
             headers: {
@@ -81,7 +84,7 @@ const ManageRequests = () => {
     if (bookingId) {
       try {
         let update = await fetch(
-          `http://localhost:5001/api/bookings/handleBookingRequest`,
+          `${BASE_URL}/bookings/handleBookingRequest`,
           {
             method: "PUT",
             headers: {
@@ -117,7 +120,7 @@ const ManageRequests = () => {
   
         console.log("Sending update request to API...");
         let update = await fetch(
-          `http://localhost:5001/api/bookings/handleBookingRequest`,
+          `${BASE_URL}/bookings/handleBookingRequest`,
           {
             method: "PUT",
             headers: {
@@ -155,7 +158,7 @@ const ManageRequests = () => {
     if (bookingId && status) {
       try {
         let update = await fetch(
-          `http://localhost:5001/api/bookings/handleBookingRequest`,
+          `${BASE_URL}/bookings/handleBookingRequest`,
           {
             method: "PUT",
             headers: {

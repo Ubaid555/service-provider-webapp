@@ -17,8 +17,8 @@ const generateOTP = () => {
 };
 
 const sendOTPEmail = async (email, otp) => {
-  // console.log("Otp",otp);
-  // console.log("Email",email);
+  console.log("Otp",otp);
+  console.log("Email",email);
   const mailOptions = {
     from: process.env.AUTH_EMAIL,
     to: email,

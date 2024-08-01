@@ -12,6 +12,9 @@ import Loader from "../Loader/Loader";
 
 import { useNavigate } from "react-router-dom";
 
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const BookingForm = () => {
   const [loading, setLoading] = useState(false);
   const [serviceTakerId, setServiceTakerId] = useState("");
@@ -126,7 +129,7 @@ const BookingForm = () => {
       await uploadBytes(imageRef, problemPic);
       const imageURL = await getDownloadURL(imageRef);
       let response = await fetch(
-        "http://localhost:5001/api/bookings/bookService",
+        `${BASE_URL}/bookings/bookService`,
         {
           method: "POST",
           body: JSON.stringify({

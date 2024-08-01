@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 const AccountDetailsForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -76,7 +77,7 @@ const AccountDetailsForm = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5001/api/payment/withdrawRequest",
+        `${BASE_URL}/payment/withdrawRequest`,
         {
           method: "POST",
           headers: {

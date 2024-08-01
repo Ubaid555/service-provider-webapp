@@ -8,6 +8,8 @@ import ChatBox from "../ChatBox/ChatBox";
 import AdminNavbar from "../Admin Dashboard/Admin Navbar/AdminNavbar";
 import AdminDeleteUsersModal from "../AllModals/AdminDeleteUsersModal/AdminDeleteUsersModal";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const AllUsers = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [services, setServices] = useState([]);
@@ -54,7 +56,7 @@ const AllUsers = () => {
     try {
       const queryParams = new URLSearchParams(location.search);
       const category = queryParams.get("category");
-      const url = new URL("http://localhost:5001/api/services/viewservice");
+      const url = new URL(`${BASE_URL}/services/viewservice`);
       if (category) {
         url.searchParams.append("category", category);
       }
@@ -110,7 +112,7 @@ const AllUsers = () => {
     for (const service of services) {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/reviews/getaverage?serviceProviderId=${service.userId}&category=${category}`
+          `${BASE_URL}/reviews/getaverage?serviceProviderId=${service.userId}&category=${category}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch average ratings");
@@ -151,7 +153,7 @@ const AllUsers = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5001/api/admin/deleteUserService?userId=${userId}&_id=${serviceToDelete._id}`,
+        `${BASE_URL}/admin/deleteUserService?userId=${userId}&_id=${serviceToDelete._id}`,
         {
           method: "DELETE",
           headers: {

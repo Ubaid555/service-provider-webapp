@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Message.module.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const Message = ({ message }) => {
   const date = new Date(message.createdAt);
   const [serviceTakerId, setServiceTakerId] = useState("");
@@ -23,7 +25,7 @@ const Message = ({ message }) => {
       const userId = message.senderId;
       try {
         const response = await fetch(
-          `http://localhost:5001/api/auth/getUser?userId=${userId}`,
+          `${BASE_URL}/auth/getUser?userId=${userId}`,
           {
             method: "GET",
             headers: {

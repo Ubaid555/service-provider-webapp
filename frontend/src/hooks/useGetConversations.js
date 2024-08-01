@@ -35,6 +35,8 @@
 
 import { useEffect, useState } from "react";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const useGetConversations = (triggerFetch) => {
   console.log("UseGetConversation")
   const [loading, setLoading] = useState(false);
@@ -47,7 +49,7 @@ const useGetConversations = (triggerFetch) => {
       setLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:5001/api/users/getUsers?userId=${userId}`
+          `${BASE_URL}/users/getUsers?userId=${userId}`
         );
         const data = await res.json();
         if (data.error) {

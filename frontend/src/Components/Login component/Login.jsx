@@ -9,6 +9,8 @@ import password_icon from "../Assets/password.png";
 import { useTranslation } from "react-i18next";
 import TranslateButton from "../TranslateButton/TranslateButton";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 export const Login = () => {
   const { t, i18n } = useTranslation(["login", "common"]);
   const [email, setEmail] = useState("");
@@ -36,7 +38,8 @@ export const Login = () => {
     }
 
     try {
-      let response = await fetch("http://localhost:5001/api/auth/login", {
+      let response = await fetch(`${BASE_URL}/auth/login`
+      , {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {

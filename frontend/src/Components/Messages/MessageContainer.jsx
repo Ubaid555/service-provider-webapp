@@ -6,6 +6,7 @@ import styles from './MessageContainer.module.css';
 import "react-toastify/dist/ReactToastify.css";
 
 const socket = io('http://localhost:5001');
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const MessageContainer = ({ conversation, onBackClick }) => {
     const [messages, setMessages] = useState([]);
@@ -26,7 +27,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
             try {
                 const currentUser = JSON.parse(localStorage.getItem("loginusers"))._id;
                 // console.log("Current USer", currentUser)
-                const response = await fetch(`http://localhost:5001/api/messages/${conversation._id}`, {
+                const response = await fetch(`${BASE_URL}/messages/${conversation._id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -84,7 +85,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
         };
 
         try {
-            const response = await fetch('http://localhost:5001/api/messages/send', {
+            const response = await fetch(`${BASE_URL}/messages/send`, {
                 method: 'POST',
                 body: JSON.stringify({newMessage
                 }),

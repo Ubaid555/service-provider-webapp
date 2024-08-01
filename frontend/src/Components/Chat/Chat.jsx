@@ -11,6 +11,9 @@ import io from 'socket.io-client';
 
 const socket = io('http://localhost:5001');
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const Chat = () => {
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
@@ -39,7 +42,7 @@ const Chat = () => {
         const fetchMessages = async () => {
             try {
                 const conversation = JSON.parse(localStorage.getItem("loginusers"));
-                const response = await fetch(`http://localhost:5001/api/messages/${conversation._id}`, {
+                const response = await fetch(`${BASE_URL}/messages/${conversation._id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -96,7 +99,7 @@ const Chat = () => {
         };
 
         try {
-            const response = await fetch("http://localhost:5001/api/messages/send", {
+            const response = await fetch(`${BASE_URL}/messages/send`, {
                 method: "POST",
                 body: JSON.stringify({newMessage}),
                 headers: { "Content-Type": "application/json" },

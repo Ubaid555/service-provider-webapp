@@ -7,6 +7,8 @@ import CancelPendingModal from "../AllModals/CancelPendingModal/CancelPendingMod
 import AdminDisputeModal from "../AllModals/AdminDisputeModal/AdminDisputeModal";
 import ChatBox from "../ChatBox/ChatBox";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const MyBookings = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -34,7 +36,7 @@ const MyBookings = () => {
     const fetchBookings = async () => {
       try {
         let response = await fetch(
-          `http://localhost:5001/api/bookings/myBookedService?userId=${userId}`,
+          `${BASE_URL}/bookings/myBookedService?userId=${userId}`,
           {
             method: "GET",
             headers: {
@@ -61,7 +63,7 @@ const MyBookings = () => {
     if (bookingId) {
       try {
         let update = await fetch(
-          `http://localhost:5001/api/bookings/handleBookingRequest`,
+          `${BASE_URL}/bookings/handleBookingRequest`,
           {
             method: "PUT",
             headers: {
@@ -106,7 +108,7 @@ const MyBookings = () => {
     if (bookingId) {
       try {
         let update = await fetch(
-          `http://localhost:5001/api/bookings/handleBookingRequest`,
+          `${BASE_URL}/bookings/handleBookingRequest`,
           {
             method: "PUT",
             headers: {

@@ -8,6 +8,8 @@ import ChatBox from "../ChatBox/ChatBox";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 export const MyServices = () => {
   const [Sdata, setSdata] = useState([]);
   const [userProfile, setUserProfile] = useState([]);
@@ -28,7 +30,7 @@ export const MyServices = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/services/service`,
+          `${BASE_URL}/services/service`,
           {
             method: "GET",
             headers: {
@@ -49,7 +51,7 @@ export const MyServices = () => {
   const showProfileDetail = async () => {
     const userId = JSON.parse(localStorage.getItem("loginusers"))._id;
     let result = await fetch(
-      `http://localhost:5001/api/services/myservice?userId=${userId}`,
+      `${BASE_URL}/services/myservice?userId=${userId}`,
       {
         method: "GET",
         headers: {
@@ -68,7 +70,7 @@ export const MyServices = () => {
   const handleDeleteProfile = async (id, category) => {
     try {
       const response = await fetch(
-        `http://localhost:5001/api/services/deleteService?userId=${id}&category=${category}`,
+        `${BASE_URL}/services/deleteService?userId=${id}&category=${category}`,
         {
           method: "DELETE",
           headers: {

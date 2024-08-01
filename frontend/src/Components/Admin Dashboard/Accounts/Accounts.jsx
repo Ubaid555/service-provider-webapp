@@ -3,6 +3,8 @@ import styles from './Accounts.module.css';
 import AdminNavbar from '../Admin Navbar/AdminNavbar';
 import Footer from '../../Footer/Footer';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const Accounts = () => {
   const [users, setUsers] = useState([]);
 
@@ -13,7 +15,7 @@ const Accounts = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/admin/getAllUsers');
+        const response = await fetch(`${BASE_URL}/admin/getAllUsers`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

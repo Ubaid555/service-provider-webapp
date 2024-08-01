@@ -8,6 +8,8 @@ import ChatBox from "../ChatBox/ChatBox";
 import TranslateButton from "../TranslateButton/TranslateButton";
 import { NavLink, useNavigate } from "react-router-dom";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const Overview = () => {
   const { t, i18n } = useTranslation("overview");
   const user = JSON.parse(localStorage.getItem("loginusers"));
@@ -37,7 +39,7 @@ const Overview = () => {
       setUserProfile(user.profilePic);
       try {
         const response = await fetch(
-          `http://localhost:5001/api/overview/overviewAllServices?userId=${userId}`
+          `${BASE_URL}/overview/overviewAllServices?userId=${userId}`
         );
         if (!response.ok) {
           throw new Error("Error fetching data");
@@ -63,7 +65,7 @@ const Overview = () => {
       const userId = user._id;
       try {
         const response = await fetch(
-          `http://localhost:5001/api/overview/overviewUserServices?userId=${userId}`
+          `${BASE_URL}/overview/overviewUserServices?userId=${userId}`
         );
         const result = await response.json();
         if (result.success) {
@@ -88,7 +90,7 @@ const Overview = () => {
       const userId = user._id;
       try {
         const response = await fetch(
-          `http://localhost:5001/api/payment/viewBalance?userId=${userId}`
+          `${BASE_URL}/payment/viewBalance?userId=${userId}`
         );
         const result = await response.json();
         console.log(result);

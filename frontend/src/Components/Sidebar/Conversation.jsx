@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Conversation.module.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const Conversation = ({ conversation, lastIdx, onClick }) => {
   const [message, setMessages] = useState("");
 
@@ -9,7 +11,7 @@ const Conversation = ({ conversation, lastIdx, onClick }) => {
     const fetchMessages = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/messages/${conversation._id}`,
+          `${BASE_URL}/messages/${conversation._id}`,
           {
             method: "GET",
             headers: {
