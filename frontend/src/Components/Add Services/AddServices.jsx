@@ -86,6 +86,9 @@ const AddServices = () => {
       toast.error(result.error);
     } else {
       toast.success("Service has been added successfully!");
+      setCategory("");
+      setPrice("");
+      setDescription("");
     }
   };
 
@@ -99,6 +102,13 @@ const AddServices = () => {
 
     if (!price) {
       toast.error("Price is required", {
+        className: styles.custom_error_toast,
+      });
+      return;
+    }
+
+    if (price <= 500) {
+      toast.error("Price should be greater than 500", {
         className: styles.custom_error_toast,
       });
       return;
@@ -129,6 +139,9 @@ const AddServices = () => {
       <h1 className={styles.main_heading}>Add your service here</h1>
       <section className={styles.book_container}>
         <div className={styles.contact_form}>
+        <p className={styles.commission_note}>
+        <strong>Note:</strong> 7% commission will be charged on a successful service completion
+          </p>
           <form className={styles.form}>
             <div className={styles.form_control}>
               <label className={styles.formLabel} htmlFor="profession">

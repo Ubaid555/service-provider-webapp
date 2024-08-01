@@ -108,7 +108,7 @@ const MessageContainer = ({ conversation, onBackClick }) => {
                 <i className={`fa fa-arrow-left ${styles.backIcon}`} onClick={onBackClick}></i>
                 <span className={styles.label}>To:</span>
                 <span className={styles.recipient}>{conversation.fullName}</span>
-            </div>
+        </div>
         <div className={styles.container}>
             
             <div className={styles.messages}>

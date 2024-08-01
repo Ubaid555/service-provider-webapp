@@ -22,6 +22,10 @@ const Overview = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Trusty Taskers - Dashboard";
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       const user = JSON.parse(localStorage.getItem("loginusers"));
       if (!user || !user._id) {

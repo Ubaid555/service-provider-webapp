@@ -58,7 +58,7 @@ export const signup = async (req, resp) => {
 
     const otp = generateOTP();
     otps[email] = { otp, fullName, phone, password, profilePic };
-    // console.log("Data Before sendOtp",email , otp);
+     console.log("Data Before sendOtp",email , otp);
 
     await sendOTPEmail(email, otp);
     resp.status(200).json({ message: "OTP sent to your email" });

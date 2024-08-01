@@ -171,9 +171,7 @@ const BookingForm = () => {
       <h1 className={styles.main_heading}>Book your service here</h1>
       <section className={styles.book_container}>
         <div className={styles.contact_form}>
-        <p className={styles.commission_note}>
-        <strong>Note:</strong> 7% commission will be charged on a successful service completion
-          </p>
+       
           <form className="form">
             <div className={styles.form_control}>
               <label htmlFor="name">Name</label>

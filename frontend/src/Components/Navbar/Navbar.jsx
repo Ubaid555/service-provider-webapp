@@ -153,11 +153,11 @@ export const Navbar = () => {
                 </Dropdown.Item>
                 <Dropdown.Item as={NavLink} to="/mybookings">
                   <i className="fa fa-list"></i>
-                  {t("bookingRequests")}
+                  {t("myRequests")}
                 </Dropdown.Item>
                 <Dropdown.Item as={NavLink} to="/managerequests">
                   <i className="fa fa-clock"></i>
-                  {t("pendingRequests")}
+                  {t("clientRequests")}
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

@@ -146,7 +146,7 @@ export const Signup = () => {
 
       let result = await response.json();
       if (response.status === 400) {
-        toast.error(result.message);
+        toast.error(result.error);
       } else {
         localStorage.setItem("loginusers", JSON.stringify(result));
         toast.success(t("registrationSuccessful"));

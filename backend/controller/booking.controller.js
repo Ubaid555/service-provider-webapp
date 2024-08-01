@@ -293,6 +293,8 @@ export const handleBookingRequest = async (req, resp) => {
 
           await newUser.save();
         }
+        // console.log("Final Completion");
+        await updateCount(currentStatus, bookingData.serviceProviderId);
       } else {
         // console.log("Inside Pending Completion")
         result = await Booking.updateOne(
