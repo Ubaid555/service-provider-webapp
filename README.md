@@ -9,8 +9,9 @@ A MERN stack-based service provider marketplace that allows users to offer, view
 - Service Reviews and Ratings
 - User Profile Management
 - Messaging System
+- - Payment System Integration 
 - Real-time Notifications (future feature)
-- Payment System Integration (future feature)
+
 
 ## Technologies Used
 - Frontend: React.js
